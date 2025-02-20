@@ -1,0 +1,88 @@
+section.firstImpression {
+    height: 110vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+}
+section.firstImpression div {
+    width: 50%;
+}
+section.firstImpression div.namePresentaton {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section.firstImpression div.namePresentaton * {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+section.firstImpression div.namePresentaton .text-container {
+    width: fit-content;
+}
+section.firstImpression div.namePresentaton h1 {
+    font-family: "Madimi One";
+}
+section.firstImpression div.namePresentaton p {
+    margin-top: 10px;
+    font-size: 30px;
+}
+section.firstImpression div.namePresentaton p span {
+    color: rgb(77, 148, 219);
+}
+
+section.firstImpression div.imagePresentation div.imageWrap {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-image: linear-gradient(to right, yellow 20%, green 80%);
+    border-radius: 40px;
+    padding: 8px;
+}
+section.firstImpression div.imagePresentation img {
+    width: fit-content;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 32px;
+}
+
+
+section.languages {
+    background-color: #FF7B54;
+    height: 50vh;
+    margin-top: -10vh;
+    border-radius: 32px 32px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.languages * {
+    color: black;
+}
+
+section.quote {
+    background-color: #A7D397;
+    height: 50vh;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.quote * {
+    color: black;
+}
+
+section.myWork {
+    background-color: #19282F;
+    height: 50vh;
+    margin: 0px;
+    display: flex;
+}

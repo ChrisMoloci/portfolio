@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "Madimi One";
+    src: url("MadimiOne-Regular.ttf");
+}
+@font-face {
+    font-family: "Nuito";
+    src: url("Nunito-VariableFont_wght.ttf");
+}
+
+nav ul {
+    margin: 0px;
+    padding: 0px;
+}
+nav ul li {
+    display: inline;
+    text-decoration: none;
+}
+nav ul li.currentPage {
+    border: 1px solid black;
+    background-color: rgba(250, 250, 250, 0.8);
+    border-radius: 25px;
+    padding: 5px;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0px 5px 0px 5px;
+}
+nav {
+    position: sticky; 
+    bottom: 15px;
+    left: 0; 
+    right: 0; 
+    margin-inline: auto; 
+    width: fit-content;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.95);
+}

@@ -1,0 +1,13 @@
+* {
+    box-sizing: content-box;
+    color: white;
+    font-family: "Nuito";
+}
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+}
+h1 {
+    font-size: 60px;
+}
