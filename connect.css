@@ -57,19 +57,45 @@ div.socialCard {
 }
 div.socialCard div.socialPlatforms {
     display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
 }
-div.socialCard div.socialPlatforms > * {
-    width: 30%;
+div.socialCard div.socialPlatforms > a {
+    flex-basis: 30%;
 }
 div.socialCard a {
-    margin: 20px;
+    /* margin: 20px; */
 }
 div.socialCard figure img {
     max-width: 100%;
+    min-width: 100%;
 }
 
 div.musiCard {
     grid-column: 5;
+}
+div.musicCard div.musicPlatform {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+    /* border: 1px solid black; */
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+div.musicPlatform img {
+    background-color: #121212;
+    width: 20%;
+    flex-basis: 20%;
+    border-radius: 16px;
+    padding: 5px;
+}
+div.musicPlatform p {
+    margin-left: 20px;
+}
+.spotify-bg, .spotify-bg p {
+    background-color: #1ED760;
+    color: white;
 }
 
 div.emailCard {

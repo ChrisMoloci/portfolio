@@ -16,6 +16,7 @@ main > div.info * {
 }
 main > div.projectsScrollView {
     width: 70%;
+    height: 70%;
     /* background-color: green; */
     display: flex;
     flex-direction: row;
