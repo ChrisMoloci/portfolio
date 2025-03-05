@@ -1,0 +1,79 @@
+body {
+    background-image: linear-gradient(to bottom, #2C3930 20%, black 80%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+main > h1 {
+    text-align: center;
+    margin-top: 20%;
+    color: white;
+}
+main * {
+    color: black;
+}
+div.connectSection {
+    display: grid;
+    grid-template-columns: 30% 15% 10% 15% 30%;
+}
+div.connectCard h1 {
+    font-size: 30px;
+}
+div.connectCard * {
+    margin: 0px;
+}
+div.connectCard {
+    border: 1px solid white;
+    padding: 20px;
+    background-color: white;
+    border-radius: 32px;
+    margin: 20px;
+    height: fit-content;
+}
+div.contactForm {
+    grid-column: 1 / span 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+div.contactForm form * {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    border-radius: 16px;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+    resize: none;
+}
+div.contactForm form button {
+    width: 30%;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+div.socialCard {
+    grid-column: 3 / span 2;
+}
+div.socialCard div.socialPlatforms {
+    display: flex;
+}
+div.socialCard div.socialPlatforms > * {
+    width: 30%;
+}
+div.socialCard a {
+    margin: 20px;
+}
+div.socialCard figure img {
+    max-width: 100%;
+}
+
+div.musiCard {
+    grid-column: 5;
+}
+
+div.emailCard {
+    display: flex;
+    grid-column: 3 / span 2;
+    align-items: center;
+}

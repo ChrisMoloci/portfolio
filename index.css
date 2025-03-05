@@ -54,19 +54,30 @@ section.firstImpression div.imagePresentation img {
     border-radius: 32px;
 }
 
-
 section.languages {
     background-color: #FF7B54;
-    height: 50vh;
+    height: fit-content;
     margin-top: -10vh;
     border-radius: 32px 32px 0px 0px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 50px;
 }
-section.languages * {
+section.languages img {
+    max-width: 10%;
+    margin: 2%;
+}
+div.langRow {
+    width: fit-content;
+    justify-content: center;
+    /* border: 1px solid beige; */
+    text-align: center;
+}
+/* section.languages * {
     color: black;
-}
+} */
 
 section.quote {
     background-color: #A7D397;
@@ -82,7 +93,65 @@ section.quote * {
 
 section.myWork {
     background-color: #19282F;
-    height: 50vh;
+    min-height: 50vh;
+    height: fit-content;
     margin: 0px;
     display: flex;
+    flex-direction: column;
+}
+section.myWork div.workContainer {
+    display: flex;
+    flex-direction: row;
+    /* padding: 30px; */
+    height: fit-content;
+    overflow-x: scroll;
+}
+section.myWork div.myWorkTitle {
+    min-width: 25%;
+    width: 50%;
+    padding: 30px;
+    /* border: 1px solid black; */
+}
+section.myWork div.myWorkTitle div.projectsPageButton {
+    border: 1px solid black;
+    width: fit-content;
+    padding: 5px 15px 5px 15px;
+    border-radius: 25px;
+    background-color: #5C7285;
+    color: black;
+}
+section.myWork div.workCard {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 32px;
+    min-width: 25%;
+    width: 40%;
+    height: 100%;
+    /* padding: 10px 20px 10px 20px; */
+    padding: 20px;
+    margin: 20px;
+}
+section.myWork div.workCard h1 {
+    font-size: 40px;
+    line-height: 1.1em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+section.myWork div.workCard ul {
+    margin: 0px;
+    padding: 0px;
+}
+section.myWork div.workCard ul li {
+    font-size: 12px;
+    font-weight: 300;
+    display: inline;
+    /* border: 1px solid black; */
+    padding: 1px 5px 1px 5px;
+    border-radius: 25px;
+}
+section.myWork div.workCard * {
+    color: black;
+}
+div.workCard > h1 {
+    margin: 0px;
 }

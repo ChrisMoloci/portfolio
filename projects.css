@@ -1,0 +1,53 @@
+body {
+    background-color: black;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+}
+main > div.info {
+    width: 30%;
+    padding-left: 20px;
+}
+main > div.info * {
+    margin: 0px;
+}
+main > div.projectsScrollView {
+    width: 70%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+div.projectCard {
+    min-width: 35%;
+    border: 1px solid black;
+    margin: 20px;
+    border-radius: 32px;
+    background-color: white;
+    padding: 15px;
+}
+div.projectCard * {
+    color: black;
+    margin: 0px;
+}
+div.projectCard h1 {
+    font-size: 30px;
+}
+div.projectCard ul, ul.filterLangs {
+    margin: 0px;
+    padding: 0px;
+}
+div.projectCard ul li, ul.filterLangs li {
+    font-size: 12px;
+    font-weight: 300;
+    display: inline;
+    /* border: 1px solid black; */
+    padding: 1px 5px 1px 5px;
+    border-radius: 25px;
+}
+div.projectCard p {
+    margin-top: 15px;
+}
