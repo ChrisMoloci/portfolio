@@ -58,3 +58,8 @@ a div.cardButton {
     padding: 5px 15px 5px 15px;
     margin: auto;
 }
+.newTabLink::after {
+    content: "⿻";
+    text-decoration: inherit;
+    display: inline-block;
+}
