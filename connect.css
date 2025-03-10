@@ -3,18 +3,20 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    margin: 6em;
 }
 main > h1 {
     text-align: center;
     margin-top: 20%;
     color: white;
+    filter: drop-shadow(2px 2px 5px lightblue);
 }
 main * {
     color: black;
 }
 div.connectSection {
     display: grid;
-    grid-template-columns: 30% 15% 10% 15% 30%;
+    grid-template-columns: 25% 15% 15% 15% 30%;
     grid-template-rows: auto auto auto auto auto;
 }
 div.connectCard h1 {
@@ -28,14 +30,14 @@ div.connectCard {
     padding: 20px;
     background-color: white;
     border-radius: 32px;
-    margin: 20px;
+    margin: 0px 20px 0px 20px;
     height: fit-content;
     grid-row: 1 / span 4;
 }
 div.contactForm {
     grid-column: 1 / span 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row: 1 / span 2;
+    /* grid-row-end: 3; */
 }
 div.contactForm form * {
     box-sizing: border-box;
@@ -73,11 +75,12 @@ div.socialCard a {
 div.socialCard figure img {
     max-width: 100%;
     min-width: 100%;
+    border-radius: 16px;
 }
 
 div.musiCard {
     grid-column: 5;
-    /* grid-row: 1 / span 3; */
+    grid-row: 1 / span 5;
     display: flex;
 }
 div.musicCard div.musicPlatform {
@@ -92,14 +95,14 @@ div.musicCard div.musicPlatform {
     margin-top: 15px;
 }
 div.musicPlatform img {
-    width: 32%;
-    flex-basis: 32%;
+    width: 20%;
+    flex-basis: 20%;
     padding: 0px;
 }
 div.spotify-bg img {
     background-color: #121212;
-    width: 28%;
-    flex-basis: 28%;
+    width: 18%;
+    flex-basis: 18%;
     border-radius: 16px;
     padding: 5px;
 }
@@ -130,8 +133,8 @@ div.musicPlatform p {
     border-radius: 20px;
 }
 .amazonMusic-bg img {
-    width: 32%;
-    flex-basis: 32%;
+    width: 20%;
+    flex-basis: 20%;
     margin: 10px 0px 10px 5px;
     /* margin: 10px; */
     /* margin: 0px; */
@@ -143,7 +146,13 @@ div.followJourney {
 
 div.emailCard {
     display: flex;
-    grid-column: 3 / span 2;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+    align-items: center;
+}
+div.githubCard {
+    display: flex;
+    grid-column: 4 / span 1;
     grid-row: 2 / span 1;
     align-items: center;
 }

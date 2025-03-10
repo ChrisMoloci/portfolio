@@ -10,6 +10,7 @@ main {
 main > div.info {
     width: 30%;
     padding-left: 20px;
+    filter: drop-shadow(2px 2px 8px white);;
 }
 main > div.info * {
     margin: 0px;
@@ -23,7 +24,7 @@ main > div.projectsScrollView {
     overflow-x: scroll;
 }
 div.projectCard {
-    min-width: 35%;
+    min-width: 43%;
     border: 1px solid black;
     margin: 20px;
     border-radius: 32px;
