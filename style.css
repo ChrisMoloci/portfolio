@@ -53,7 +53,7 @@ nav {
     background-color: #f0db4f;
     opacity: 0.8;
 }
-a div.cardButton {
+.cardButton {
     border: 1px solid black;
     width: fit-content;
     border-radius: 25px;

@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    margin: 6em;
+    margin: 10% 10% 0px 10%;
 }
 main > h1 {
     text-align: center;
@@ -16,28 +16,80 @@ main * {
 }
 div.connectSection {
     display: grid;
-    grid-template-columns: 25% 15% 15% 15% 30%;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 60vh 35vh 35vh 35vh;
+    row-gap: 60px;
 }
 div.connectCard h1 {
-    font-size: 30px;
+    font-size: 2.2em;
 }
 div.connectCard * {
     margin: 0px;
 }
 div.connectCard {
+    box-sizing: border-box;
     border: 1px solid white;
     padding: 20px;
     background-color: white;
     border-radius: 32px;
     margin: 0px 20px 0px 20px;
-    height: fit-content;
-    grid-row: 1 / span 4;
+    /* grid-row: 1 / span 4; */
+    height: 100%;
+    /* display: flex;
+    align-items: center; */
 }
-div.contactForm {
+div.connectCard img {
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0px 0px 5px 1px grey;
+}
+div.cardText {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+div.smallCardText {
+    margin-top: 20px;
+}
+div.smallCardText .cardButton {
+    display: block;
+    padding: 5px 8px 5px 8px;
+}
+
+div.githubCard {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+}
+
+div.emailCard {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 1;
+}
+
+div.igCard {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+div.tiktokCard {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+}
+
+div.linkedinCard {
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+}
+
+div.aboutCard {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 2;
+}
+
+/* div.contactForm {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
-    /* grid-row-end: 3; */
 }
 div.contactForm form * {
     box-sizing: border-box;
@@ -69,9 +121,6 @@ div.socialCard div.socialPlatforms {
 div.socialCard div.socialPlatforms > a {
     flex-basis: 30%;
 }
-div.socialCard a {
-    /* margin: 20px; */
-}
 div.socialCard figure img {
     max-width: 100%;
     min-width: 100%;
@@ -88,7 +137,6 @@ div.musicCard div.musicPlatform {
     font-size: 2rem;
     line-height: 1.2em;
     font-weight: 800;
-    /* border: 1px solid black; */
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -136,8 +184,6 @@ div.musicPlatform p {
     width: 20%;
     flex-basis: 20%;
     margin: 10px 0px 10px 5px;
-    /* margin: 10px; */
-    /* margin: 0px; */
 }
 div.followJourney {
     padding-top: 5px;
@@ -155,4 +201,4 @@ div.githubCard {
     grid-column: 4 / span 1;
     grid-row: 2 / span 1;
     align-items: center;
-}
+} */
