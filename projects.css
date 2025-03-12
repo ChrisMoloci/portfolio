@@ -10,30 +10,43 @@ main {
 main > div.info {
     width: 30%;
     padding-left: 20px;
-    filter: drop-shadow(2px 2px 8px white);;
+    /* filter: drop-shadow(2px 2px 8px white);; */
+    /* box-shadow: 0px 0px 100px 30px #151515; */
+    height: 100%;
+    align-content: center;
 }
 main > div.info * {
     margin: 0px;
 }
 main > div.projectsScrollView {
     width: 70%;
-    height: 70%;
+    min-height: 70%;
     /* background-color: green; */
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
 }
 div.projectCard {
-    min-width: 43%;
-    border: 1px solid black;
+    min-width: 40%;
+    /* border: 1px solid black; */
     margin: 20px;
     border-radius: 32px;
-    background-color: white;
-    padding: 15px;
+    background-color: #121212;
+    padding: 20px;
+    min-height: 100%;
+    box-shadow: 0px 0px 30px -10px #121212;
 }
 div.projectCard * {
-    color: black;
+    color: white;
     margin: 0px;
+    border-radius: 22px;
+}
+div.projectCard img {
+    width: 100%;
+    box-shadow: 0px 0px 30px -4px black;
+}
+div.projectCardContent {
+    padding: 0px 20px 0px 20px;
 }
 div.projectCard h1 {
     font-size: 30px;

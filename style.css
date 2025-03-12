@@ -21,6 +21,7 @@ nav ul li.currentPage {
     backdrop-filter: blur(5px);
     border-radius: 25px;
     padding: 6px 15px 6px 15px;
+    box-shadow: 0px 0px 20px -5px rgb(152, 152, 152);
 }
 nav a {
     text-decoration: none;
@@ -28,7 +29,7 @@ nav a {
     margin: 0px 5px 0px 5px;
 }
 nav {
-    position: sticky; 
+    position: fixed; 
     bottom: 15px;
     left: 0; 
     right: 0; 
@@ -40,21 +41,40 @@ nav {
     border-radius: 25px;
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 20px -2px rgb(211, 211, 211);
 }
 .html {
-    background-color: #e34c26;
-    opacity: 0.8;
+    /* background-color: #e34c26; */
+    box-shadow: 0px 0px 20px -2px #e34c26;
+    /* opacity: 0.8; */
 }
 .css {
-    background-color: #264de4;
-    opacity: 0.8;
+    /* background-color: #264de4; */
+    box-shadow: 0px 0px 20px -2px #264de4;
+    /* opacity: 0.8; */
 }
 .js {
-    background-color: #f0db4f;
-    opacity: 0.8;
+    /* background-color: #f0db4f; */
+    box-shadow: 0px 0px 20px -2px #f0db4f;
+    /* opacity: 0.8; */
+}
+.java {
+    box-shadow: 0px 0px 20px -2px #f89820;
+}
+.javafx {
+    box-shadow: 0px 0px 20px -2px #5382a1;
+}
+.flutter {
+    box-shadow: 0px 0px 20px -2px #027DFD;
+}
+.dart {
+    box-shadow: 0px 0px 20px -2px #5AC5B0;
+}
+.php {
+    box-shadow: 0px 0px 20px -2px #8993BE;
 }
 .cardButton {
-    border: 1px solid black;
+    border: 1px solid white;
     width: fit-content;
     border-radius: 25px;
     padding: 5px 15px 5px 15px;
