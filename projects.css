@@ -34,7 +34,7 @@ div.projectCard {
     background-color: #121212;
     padding: 20px;
     min-height: 100%;
-    box-shadow: 0px 0px 30px -10px #121212;
+    box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
 }
 div.projectCard * {
     color: white;

@@ -2,6 +2,7 @@
     box-sizing: content-box;
     color: white;
     font-family: "Nuito";
+    z-index: 0;
 }
 body {
     padding: 0px;

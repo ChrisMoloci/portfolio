@@ -75,6 +75,10 @@ section.languages h1 {
     margin-top: -10vh;
     width: 80%;
     line-height: 0em;
+    text-decoration: underline;
+    text-decoration-color: rgb(250, 131, 20);
+    text-decoration-thickness: 5px;
+    text-underline-offset: 3px;
 }
 section.languages h2 {
     width: 75%;
@@ -86,16 +90,44 @@ div.langSection {
     gap: 30px;
     width: 75%;
     flex-wrap: wrap;
+    align-items: flex-end;
+}
+.languageContainer {
+    flex-basis: 150px;
 }
 div.language {
     border: 0.5px solid rgb(55, 55, 55);
     background-color: #111111;
-    flex-basis: 150px;
+    /* flex-basis: 150px; */
     text-align: center;
     border-radius: 18px;
     font-weight: 600;
-    /* box-shadow: 0px 0px 30px -4px black; */
+    height: fit-content;
 }
+div.languageContainer:hover div.language  {
+    border-radius: 0px 0px 18px 18px;
+    top: 0px;
+}
+.languageExp {
+    display: none;
+    border-radius: 18px 18px 0px 0px;
+    top: 0px;
+    box-shadow: 0px 0px 30px -8px #121212;
+    margin-top: -43px;
+}
+.languageExp i {
+    padding-right: 5px;
+}
+div.languageContainer:hover .languageExp {
+    display: block;
+    position: relative;
+    z-index: 1;
+    background-color: #111111;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+}
+
 /* section.languages img {
     max-width: 10%;
     margin: 2%;
@@ -116,12 +148,13 @@ section.quote {
     box-shadow: 0px 0px 30px -8px #2F2519;
     border-radius: 32px 32px 0px 0px;
     margin-top: -10vh;
-    height: 70vh;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0px 20% 0px 20%;
+    /* padding: 0px 20% 0px 20%; */
+    padding: 10% 20% 20% 20%;
 }
 section.quote * {
     color: white;
@@ -193,7 +226,7 @@ section.myWork div.myWorkTitle div.projectsPageButton {
     color: black;
 }
 section.myWork div.workCard {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-color: #121212;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
     border-radius: 32px;
