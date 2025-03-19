@@ -48,3 +48,11 @@ tr:last-of-type td {
 tr:nth-child(odd) {
     background-color: #121212;
 }
+
+div.aboutText {
+    margin: 0px 10% 80px 10%;
+    width: 60%;
+}
+div.aboutText article > h2 {
+    font-size: 30px;
+}
