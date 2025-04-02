@@ -42,7 +42,7 @@ section.firstImpression div.namePresentaton p span {
 
 section.firstImpression div.imagePresentation div.imageWrap {
     width: 60%;
-    height: 60%;
+    /* height: 60%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,7 +52,7 @@ section.firstImpression div.imagePresentation div.imageWrap {
     padding: 10px;
 }
 section.firstImpression div.imagePresentation img {
-    width: fit-content;
+    /* width: fit-content; */
     width: 100%;
     height: 100%;
     aspect-ratio: 1 / 1;
@@ -92,7 +92,7 @@ div.langSection {
     flex-wrap: wrap;
     align-items: flex-end;
 }
-.languageContainer {
+div.languageContainer {
     flex-basis: 150px;
 }
 div.language {
@@ -192,17 +192,20 @@ section.myWork {
     box-shadow: 0px 0px 30px -8px #121212;
     border-radius: 32px 32px 0px 0px;
     margin-top: -10vh;
-    min-height: 60vh;
+    min-height: 80vh;
+    max-height: 80vh;
     height: fit-content;
     /* margin: 0px; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    padding-bottom: 80px;
 }
 section.myWork div.workContainer {
     display: flex;
     flex-direction: row;
     /* padding: 30px; */
-    height: 100%;
+    /* max-height: 100%; */
+    height: fit-content;
     overflow-x: scroll;
 }
 section.myWork div.myWorkTitle {
@@ -268,4 +271,129 @@ section.myWork div.workCard * {
 }
 div.workCard > h1 {
     margin: 0px;
+}
+div.workCard p {
+    overflow: scroll;
+    max-height: 23vh;
+    min-height: 23vh;
+}
+div.workCard a {
+    position: relative;
+    /* bottom: 0px; */
+    top: 100%;
+    bottom: 3px;
+}
+div.workCard div.cardButton {
+        position: relative;
+        bottom: 1px;
+}
+
+/* For smaller displays */
+@media screen and (max-width: 1019px) {
+    section.firstImpression {
+        height: fit-content;
+        box-sizing: border-box;
+        flex-direction: column-reverse;
+        padding: 5vh 0px 15vh 0px;
+        justify-content: start;
+        gap: 5vh;
+    }
+    section.firstImpression div {
+        width: 75%;
+    }
+
+    section.firstImpression div.namePresentaton {
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    section.firstImpression div.namePresentaton div.text-container > h1 {
+        content: "Test";
+    }
+    div.text-container * {
+        text-align: center;
+    }
+    section.firstImpression div.imagePresentation {
+        /* margin: 0px; */
+        /* aspect-ratio: 1 / 1; */
+        /* height: 100%; */
+        width: 100%;
+        /* display: none; */
+    }
+
+    section.languages {
+        height: fit-content;
+        padding-bottom: 15vh;
+    }
+    section.languages h1 {
+        margin: 0px;
+    }
+    div.langSection {
+        width: 100%;
+        justify-content: center;
+    }
+    div.languageContainer {
+        flex-basis: 200px;
+        font-size: 1.7em;
+    }
+    div.languageContainer div.language {
+        border-radius: 32px;
+    }
+
+    section.quote {
+        padding: 10vh 40px 20vh 40px;
+    }
+    /* section.quote * {
+        color: white;
+        font-size: 30px;
+    } */
+    div.quoteContainer {
+        padding: 30px 0px 0px 30px 0px;
+        border-radius: 48px;
+    }
+    div.quoteContainer cite {
+        display: block;
+        font-weight: 600;
+        text-align: right;
+    }
+
+    section.myWork div.myWorkTitle {
+        height: fit-content;
+        height: fit-content;
+    }
+    section.myWork {
+        flex-direction: column;
+        padding-top: 40px;
+        min-height: fit-content;
+    }
+    div.myWorkTitle {
+        text-align: center;
+    }
+    div.myWorkTitle h1 {
+        font-size: 5em;
+    }
+    div.myWorkTitle p {
+        font-size: 2em;
+        margin-top: 0px;
+    }
+    div.myWorkTitle div.projectsPageButton {
+        margin: auto;
+        font-size: 2em;
+    }
+    section.myWork div.workCard {
+        min-width: 80%;
+    }
+    section.myWork div.workCard h1 {
+        font-size: 3.8em;
+    }
+    section.myWork div.workCard ul li {
+        font-size: 1em;
+    }
+    section.myWork div.workCard p {
+        font-size: 1.5em;
+    }
+    div.cardButton {
+        font-size: 1.6em;
+    }
 }

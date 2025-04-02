@@ -85,3 +85,9 @@ nav {
     text-decoration: inherit;
     display: inline-block;
 }
+
+@media screen and (max-width: 1019px) {
+    nav {
+        font-size: 1.4em;
+    }
+}
