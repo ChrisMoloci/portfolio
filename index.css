@@ -25,6 +25,10 @@ section.firstImpression div.namePresentaton * {
     padding: 0px;
     text-align: left;
 }
+section.firstImpression div.namePresentaton *:hover {
+    transition: scale 0.2s;
+    scale: 1.02;
+}
 section.firstImpression div.namePresentaton .text-container {
     width: fit-content;
 }
@@ -50,6 +54,10 @@ section.firstImpression div.imagePresentation div.imageWrap {
     background-image: linear-gradient(to top left, rgb(60, 23, 23) 30%, rgba(30, 50, 95, 0.698) 70%);
     border-radius: 70px;
     padding: 10px;
+}
+section.firstImpression div.imagePresentation div.imageWrap:hover {
+    scale: 1.02;
+    transition: scale 0.2s;
 }
 section.firstImpression div.imagePresentation img {
     /* width: fit-content; */
@@ -95,6 +103,10 @@ div.langSection {
 div.languageContainer {
     flex-basis: 150px;
 }
+div.languageContainer:hover {
+    transition: scale 1s;
+    scale: 1.1
+}
 div.language {
     border: 0.5px solid rgb(55, 55, 55);
     background-color: #111111;
@@ -113,7 +125,7 @@ div.languageContainer:hover div.language  {
     border-radius: 18px 18px 0px 0px;
     top: 0px;
     box-shadow: 0px 0px 30px -8px #121212;
-    margin-top: -43px;
+    margin-top: -42px;
 }
 .languageExp i {
     padding-right: 5px;
@@ -291,7 +303,7 @@ div.workCard div.cardButton {
 /* For smaller displays */
 @media screen and (max-width: 1019px) {
     section.firstImpression {
-        height: fit-content;
+        /* height: fit-content; */
         box-sizing: border-box;
         flex-direction: column-reverse;
         padding: 5vh 0px 15vh 0px;
@@ -302,6 +314,10 @@ div.workCard div.cardButton {
         width: 75%;
     }
 
+    section.firstImpression div.imagePresentation div.imageWrap {
+        width: 50%;
+    }
+
     section.firstImpression div.namePresentaton {
         /* border: 1px solid white; */
         display: flex;
@@ -309,8 +325,16 @@ div.workCard div.cardButton {
         align-items: center;
     }
     section.firstImpression div.namePresentaton div.text-container > h1 {
-        content: "Test";
+        text-align: center;
+        line-height: 1.15em;
+        margin-top: 0.2em;
     }
+    section.firstImpression div.namePresentaton div.text-container > p {
+        text-align: center;
+        font-size: 1.8em;
+        margin-top: 30px;
+    }
+
     div.text-container * {
         text-align: center;
     }
@@ -337,8 +361,15 @@ div.workCard div.cardButton {
         flex-basis: 200px;
         font-size: 1.7em;
     }
+    div.languageExp {
+        margin-top: -90px;
+        font-size: 0.8em;
+    }
     div.languageContainer div.language {
         border-radius: 32px;
+    }
+    div.languageContainer:hover div.language {
+        border-radius: 0px 0px 32px 32px;
     }
 
     section.quote {
@@ -358,6 +389,9 @@ div.workCard div.cardButton {
         text-align: right;
     }
 
+    section.myWork div.workCard {
+        min-width: 88%;
+    }
     section.myWork div.myWorkTitle {
         height: fit-content;
         height: fit-content;
@@ -381,9 +415,6 @@ div.workCard div.cardButton {
         margin: auto;
         font-size: 2em;
     }
-    section.myWork div.workCard {
-        min-width: 80%;
-    }
     section.myWork div.workCard h1 {
         font-size: 3.8em;
     }
@@ -395,5 +426,11 @@ div.workCard div.cardButton {
     }
     div.cardButton {
         font-size: 1.6em;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    div.languageExp {
+        margin-top: -50px;
     }
 }
