@@ -50,9 +50,33 @@ tr:nth-child(odd) {
 }
 
 div.aboutText {
+    box-sizing: border-box;
     margin: 0px 10% 80px 10%;
     width: 60%;
 }
 div.aboutText article > h2 {
     font-size: 30px;
+}
+
+@media screen and (max-width: 900px) {
+    div.firstImpression {
+        flex-direction: column;
+        align-items: center;
+    }
+    div.firstImpression img {
+        width: 100%;
+    }
+    div.firstImpression div {
+        width: 80%;
+    }
+    table {
+        width: 100%;
+    }
+
+
+    div.aboutText {
+        margin: 0px;
+        padding: 50px 3em 100px 3em;
+        width: 100%;
+    }
 }

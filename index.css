@@ -238,14 +238,22 @@ section.myWork div.myWorkTitle h1 {
     line-height: 1.2em;
 }
 section.myWork div.myWorkTitle div.projectsPageButton {
+    transition: border 0.2s, background-color 0.2s;
     border: 1px solid black;
+    background-color: #5C7285;
     width: fit-content;
     padding: 5px 15px 5px 15px;
     border-radius: 25px;
-    background-color: #5C7285;
     color: black;
 }
+section.myWork div.myWorkTitle div.projectsPageButton:hover {
+    transition: border 0.5s, background-color 0.5s;
+    border: 1px solid white;
+    background-color: black;
+}
 section.myWork div.workCard {
+    transition: scale 0.3s;
+    scale: 1;
     /* border: 1px solid black; */
     background-color: #121212;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
@@ -256,6 +264,10 @@ section.myWork div.workCard {
     /* padding: 10px 20px 10px 20px; */
     padding: 20px;
     margin: 20px;
+}
+section.myWork div.workCard:hover {
+    transition: scale 0.5s;
+    scale: 1.05;
 }
 section.myWork div.workCard div.workCardContent {
     padding: 0px 20px 0px 20px;
@@ -283,9 +295,6 @@ section.myWork div.workCard ul li {
     padding: 1px 5px 1px 5px;
     border-radius: 25px;
 }
-section.myWork div.workCard * {
-    color: white;
-}
 div.workCard > h1 {
     margin: 0px;
 }
@@ -293,34 +302,6 @@ div.workCard p {
     overflow: scroll;
     max-height: 23vh;
     min-height: 23vh;
-}
-div.workCard a {
-    position: relative;
-    /* bottom: 0px; */
-    top: 100%;
-    bottom: 3px;
-}
-/* Buttons on work cards will have a custom transition for hovers */
-div.workCard div.cardButton {
-    position: relative;
-    bottom: 1px;
-    transition: border 1s, background-color 0.5s;
-    border: 3px solid transparent;
-    background-color: white;
-}
-div.workCard div.cardButton * {
-    transition: color 0.5s;
-    color: black;
-}
-div.workCard div.cardButton:hover {
-    transition: all 1s;
-    background-color: black;
-    border: 3px solid white;
-}
-div.workCard div.cardButton:hover * {
-    transition: color 1s;
-    color: white;
-    text-decoration: underline;
 }
 
 /* For smaller displays */

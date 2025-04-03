@@ -9,7 +9,9 @@ main {
 }
 main > div.info {
     width: 30%;
-    padding-left: 20px;
+    /* padding-left: 20px; */
+    box-sizing: border-box;
+    padding: 0px 30px 0px 20px;
     /* filter: drop-shadow(2px 2px 8px white);; */
     /* box-shadow: 0px 0px 100px 30px #151515; */
     height: 100%;
@@ -25,8 +27,12 @@ main > div.projectsScrollView {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    box-sizing: border-box;
+    padding: 0px 2% 0px 2%;
 }
 div.projectCard {
+    transition: scale 0.3s;
+    scale: 1;
     min-width: 400px;
     /* border: 1px solid black; */
     margin: 20px;
@@ -36,9 +42,11 @@ div.projectCard {
     min-height: 100%;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
 }
+div.projectCard:hover {
+    transition: scale 0.5s;
+    scale: 1.05;
+}
 div.projectCard * {
-    color: white;
-    margin: 0px;
     border-radius: 22px;
 }
 div.projectCard img {
@@ -65,4 +73,28 @@ div.projectCard ul li, ul.filterLangs li {
 }
 div.projectCard p {
     margin-top: 15px;
+}
+@media screen and (max-width: 900px) {
+    main {
+        flex-direction: column;
+        height: fit-content;
+        margin-bottom: 70px;
+    }
+
+    main div.info {
+        padding-top: 50px;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+    main div.info p {
+        font-size: 1.3em;
+    }
+
+    main > div.projectsScrollView {
+        width: 100%;
+    }
+    div.projectsScrollView div.projectCard {
+        min-width: 80%;
+    }
 }

@@ -155,6 +155,34 @@ nav {
     text-decoration: inherit;
     display: inline-block;
 }
+div.workCard a, div.projectCard a {
+    position: relative;
+    /* bottom: 0px; */
+    top: 100%;
+    bottom: 3px;
+}
+/* Buttons on work cards will have a custom transition for hovers */
+div.workCard div.cardButton, div.projectCard div.cardButton {
+    position: relative;
+    bottom: 1px;
+    transition: border 1s, background-color 0.5s;
+    border: 3px solid transparent;
+    background-color: white;
+}
+div.workCard div.cardButton *, div.projectCard div.cardButton * {
+    transition: color 0.5s;
+    color: black;
+}
+div.workCard div.cardButton:hover, div.projectCard div.cardButton:hover {
+    transition: all 1s;
+    background-color: black;
+    border: 3px solid white;
+}
+div.workCard div.cardButton:hover *, div.projectCard div.cardButton:hover * {
+    transition: color 1s;
+    color: white;
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 1019px) {
     nav {
