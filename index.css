@@ -82,7 +82,7 @@ section.languages {
 section.languages h1 {
     margin-top: -10vh;
     width: 80%;
-    line-height: 0em;
+    /* line-height: 0em; */
     text-decoration: underline;
     text-decoration-color: rgb(250, 131, 20);
     text-decoration-thickness: 5px;
@@ -91,7 +91,7 @@ section.languages h1 {
 section.languages h2 {
     width: 75%;
     font-size: 40px;
-    line-height: 1em;
+    line-height: 1.1em;
 }
 div.langSection {
     display: flex;
@@ -104,7 +104,7 @@ div.languageContainer {
     flex-basis: 150px;
 }
 div.languageContainer:hover {
-    transition: scale 1s;
+    transition: scale 0.2s;
     scale: 1.1
 }
 div.language {
@@ -173,11 +173,14 @@ section.quote * {
     font-size: 30px;
 }
 div.quoteContainer {
-    border: 1px solid #121212;
     padding: 30px 10px 30px 10px;
     border-radius: 32px;
     background-color: black;
     box-shadow: 0px 0px 30px -8px #121212;
+}
+div.quoteContainer:hover {
+    transition: scale 0.4s;
+    scale: 1.04;
 }
 div.quoteContainer cite {
     display: block;
@@ -231,6 +234,8 @@ section.myWork div.myWorkTitle {
 }
 section.myWork div.myWorkTitle h1 {
     margin: 0px;
+    font-size: 3.5em;
+    line-height: 1.2em;
 }
 section.myWork div.myWorkTitle div.projectsPageButton {
     border: 1px solid black;
@@ -295,15 +300,33 @@ div.workCard a {
     top: 100%;
     bottom: 3px;
 }
+/* Buttons on work cards will have a custom transition for hovers */
 div.workCard div.cardButton {
-        position: relative;
-        bottom: 1px;
+    position: relative;
+    bottom: 1px;
+    transition: border 1s, background-color 0.5s;
+    border: 3px solid transparent;
+    background-color: white;
+}
+div.workCard div.cardButton * {
+    transition: color 0.5s;
+    color: black;
+}
+div.workCard div.cardButton:hover {
+    transition: all 1s;
+    background-color: black;
+    border: 3px solid white;
+}
+div.workCard div.cardButton:hover * {
+    transition: color 1s;
+    color: white;
+    text-decoration: underline;
 }
 
 /* For smaller displays */
 @media screen and (max-width: 1019px) {
     section.firstImpression {
-        /* height: fit-content; */
+        height: fit-content;
         box-sizing: border-box;
         flex-direction: column-reverse;
         padding: 5vh 0px 15vh 0px;
@@ -323,6 +346,10 @@ div.workCard div.cardButton {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    svg g {
+        transform: translate(50%);
+        text-anchor: middle;
     }
     section.firstImpression div.namePresentaton div.text-container > h1 {
         text-align: center;
@@ -352,6 +379,11 @@ div.workCard div.cardButton {
     }
     section.languages h1 {
         margin: 0px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    section.languages h1 i {
+        display: none;
     }
     div.langSection {
         width: 100%;

@@ -7,21 +7,91 @@
     src: url("fonts/Nunito-VariableFont_wght.ttf");
 }
 
-nav ul {
+nav > ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    overflow: visible;
+    max-height: 45px;
+}
+nav ul li {
+    transition: background-color 0.5s, padding 0.5s;
+    background-color: none;
+    border-radius: 25px;
+    padding: 0px;
+    display: inline;
+}
+
+li.portfolioSelect ul, li.portfolioSelect li {
+    display: block;
     margin: 0px;
     padding: 0px;
 }
-nav ul li {
-    display: inline;
-    text-decoration: none;
+li.portfolioSelect ul {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 20px -5px rgb(152, 152, 152);
+    border-radius: 100px;
+    margin-bottom: -47px;
+    padding-bottom: 47px;
+    z-index: -1;
 }
-nav ul li.currentPage {
-    /* border: 1px solid black; */
-    background-color: rgba(250, 250, 250, 0.8);
-    backdrop-filter: blur(5px);
+li.portfolioSelect:hover ul {
+    display: block;
+}
+li.portfolioSelect a {
+    margin: 0px;
+    padding: 0px;
+}
+i.portfolioOption {
+    width: 2.3em;
+    height: 2.3em;
+    border-radius: 100%;
+    font-size: 1em;
+    padding-top: 0.65em;
+    box-sizing: border-box;
+    margin: 3px;
+}
+.devPortfolio {
+    background-color: #006E27;
+}
+.musicPortfolio {
+    background-color: orangered;
+}
+.christianPortfolio {
+    background-color: brown;
+}
+nav ul li:hover:not(li.currentPage, li.portfolioSelect, li.portfolioSelect *) {
+    transition: background-color 0.5s, padding 0.5s, margin 0.5s;
+    background-color: #fafafa7f;
     border-radius: 25px;
     padding: 6px 15px 6px 15px;
+    margin: 0px 5px 0px 5px;
     box-shadow: 0px 0px 20px -5px rgb(152, 152, 152);
+}
+nav ul li.currentPage {
+    transition: background-color 0.8s;
+    /* border: 1px solid black; */
+    backdrop-filter: blur(5px);
+    background-color: #121212;
+    border-radius: 25px;
+    padding: 6px 15px 6px 15px;
+}
+nav ul li.currentPage:hover {
+    transition: background-color 0.8s;
+    background-color: #fafafacc;
+}
+nav ul li.currentPage * {
+    transition: color 0.8s;
+    color: white;
+}
+nav ul li.currentPage:hover * {
+    transition: color 0.8s;
+    color: black;
 }
 nav a {
     text-decoration: none;
@@ -36,7 +106,7 @@ nav {
     margin-inline: auto; 
     width: fit-content;
     text-align: center;
-    padding: 10px 6px 10px 6px;
+    padding: 3px 6px 3px 6px;
     /* border: 1px solid black; */
     border-radius: 25px;
     background-color: rgba(255, 255, 255, 0.7);
