@@ -36,6 +36,9 @@ section.firstImpression div.namePresentaton h1 {
     font-family: "Madimi One";
     font-size: 3.8em;
 }
+svg text {
+    font-size: 1.7em;
+}
 section.firstImpression div.namePresentaton p {
     margin-top: 10px;
     font-size: 2em;
@@ -312,14 +315,20 @@ div.workCard p {
         flex-direction: column-reverse;
         padding: 5vh 0px 15vh 0px;
         justify-content: start;
-        gap: 5vh;
+        /* gap: 5vh; */
     }
     section.firstImpression div {
         width: 75%;
     }
+    section.firstImpression div.namePresentaton {
+        width: 100%;
+    }
+    section.firstImpression div.namePresentaton p {
+        padding: 0px 8vw 0px 8vw;
+    }
 
     section.firstImpression div.imagePresentation div.imageWrap {
-        width: 50%;
+        width: 70%;
     }
 
     section.firstImpression div.namePresentaton {
@@ -336,6 +345,9 @@ div.workCard p {
         text-align: center;
         line-height: 1.15em;
         margin-top: 0.2em;
+    }
+    svg text {
+        font-size: 1.2em;
     }
     section.firstImpression div.namePresentaton div.text-container > p {
         text-align: center;
@@ -356,23 +368,29 @@ div.workCard p {
 
     section.languages {
         height: fit-content;
-        padding-bottom: 15vh;
+        padding: 0px 30px 15vh 30px;
     }
     section.languages h1 {
+        font-size: 3em;
         margin: 0px;
         text-align: center;
         margin-bottom: 50px;
+        padding-top: 50px;
     }
     section.languages h1 i {
         display: none;
+    }
+    section.languages h2 {
+        width: 100%;
+        font-size: 2.2em;
     }
     div.langSection {
         width: 100%;
         justify-content: center;
     }
     div.languageContainer {
-        flex-basis: 200px;
-        font-size: 1.7em;
+        flex-basis: 45%;
+        font-size: 1.5em;
     }
     div.languageExp {
         margin-top: -90px;
@@ -386,12 +404,15 @@ div.workCard p {
     }
 
     section.quote {
-        padding: 10vh 40px 20vh 40px;
+        padding: 10vh 20px 20vh 20px;
     }
     /* section.quote * {
         color: white;
         font-size: 30px;
     } */
+    section.quote div.quoteContainer *{
+        font-size: 0.8em;
+    }
     div.quoteContainer {
         padding: 30px 0px 0px 30px 0px;
         border-radius: 48px;
@@ -417,28 +438,28 @@ div.workCard p {
     div.myWorkTitle {
         text-align: center;
     }
-    div.myWorkTitle h1 {
-        font-size: 5em;
+    section.myWork div.myWorkTitle h1 {
+        font-size: 3.7em;
     }
     div.myWorkTitle p {
-        font-size: 2em;
+        font-size: 1.5em;
         margin-top: 0px;
     }
     div.myWorkTitle div.projectsPageButton {
         margin: auto;
-        font-size: 2em;
+        font-size: 1.3em;
     }
     section.myWork div.workCard h1 {
-        font-size: 3.8em;
+        font-size: 2.8em;
     }
     section.myWork div.workCard ul li {
         font-size: 1em;
     }
     section.myWork div.workCard p {
-        font-size: 1.5em;
+        font-size: 1em;
     }
     div.cardButton {
-        font-size: 1.6em;
+        font-size: 1.3em;
     }
 }
 

@@ -33,7 +33,8 @@ main > div.projectsScrollView {
 div.projectCard {
     transition: scale 0.3s;
     scale: 1;
-    min-width: 400px;
+    min-width: 430px;
+    min-height: 100%;
     /* border: 1px solid black; */
     margin: 20px;
     border-radius: 32px;
@@ -46,7 +47,7 @@ div.projectCard:hover {
     transition: scale 0.5s;
     scale: 1.05;
 }
-div.projectCard * {
+div.projectCard img {
     border-radius: 22px;
 }
 div.projectCard img {
@@ -57,7 +58,13 @@ div.projectCardContent {
     padding: 0px 20px 0px 20px;
 }
 div.projectCard h1 {
-    font-size: 30px;
+    font-size: 40px;
+}
+div.projectCard p {
+    margin-top: 15px;
+    overflow: scroll;
+    max-height: 23vh;
+    min-height: 23vh;
 }
 div.projectCard ul, ul.filterLangs {
     margin: 0px;
@@ -71,10 +78,8 @@ div.projectCard ul li, ul.filterLangs li {
     padding: 1px 5px 1px 5px;
     border-radius: 25px;
 }
-div.projectCard p {
-    margin-top: 15px;
-}
-@media screen and (max-width: 900px) {
+
+@media screen and (max-width: 1019px) {
     main {
         flex-direction: column;
         height: fit-content;
@@ -96,5 +101,14 @@ div.projectCard p {
     }
     div.projectsScrollView div.projectCard {
         min-width: 80%;
+    }
+    div.projectCard h1 {
+        font-size: 2.8em;
+    }
+    div.projectCard p {
+        margin-top: 1em;
+    }
+    div.projectCard ul li, ul.filterLangs li {
+        font-size: 1em;
     }
 }

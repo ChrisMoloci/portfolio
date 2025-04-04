@@ -184,8 +184,8 @@ div.workCard div.cardButton:hover *, div.projectCard div.cardButton:hover * {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 1019px) {
-    nav {
-        font-size: 1.4em;
+@media screen and (max-width: 600) {
+    nav ul li {
+        font-size: 1em;
     }
 }
