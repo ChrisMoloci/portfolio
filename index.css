@@ -104,6 +104,8 @@ div.langSection {
     align-items: flex-end;
 }
 div.languageContainer {
+    transition: scale 0.2s;
+    scale: 1;
     flex-basis: 150px;
 }
 div.languageContainer:hover {
@@ -176,6 +178,8 @@ section.quote * {
     font-size: 30px;
 }
 div.quoteContainer {
+    transition: scale 0.4s;
+    scale: 1;
     padding: 30px 10px 30px 10px;
     border-radius: 32px;
     background-color: black;
@@ -394,7 +398,7 @@ div.workCard p {
     }
     div.languageExp {
         margin-top: -90px;
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
     div.languageContainer div.language {
         border-radius: 32px;

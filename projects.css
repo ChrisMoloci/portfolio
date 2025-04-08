@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    padding-bottom: 30px;
 }
 main {
     display: flex;

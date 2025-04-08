@@ -17,12 +17,18 @@ div.firstImpression div {
     width: 50%;
 }
 div.firstImpression img {
+    transition: scale 0.4s;
+    scale: 1;
     width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 32px;
     box-shadow: 0px 0px 30px -8px rgb(49, 49, 49);
+}
+div.firstImpression img:hover {
+    transition: scale 0.4s;
+    scale: 1.04;
 }
 table {
     border-radius: 16px;
@@ -66,7 +72,15 @@ div.aboutText h1 {
 div.aboutText article > h2 {
     font-size: 30px;
 }
-
+div.aboutText article > dl > dt {
+    font-size: 1.4em;
+}
+div.aboutText article > dl > dd > dl > dt {
+    font-size: 1.2em;
+}
+/* div.aboutText article > dl > dd > dl {
+    font-size: 0.3em;
+} */
 @media screen and (max-width: 1019px) {
     div.firstImpression {
         flex-direction: column;
