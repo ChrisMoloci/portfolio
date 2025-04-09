@@ -1,12 +1,22 @@
+/* 
+Coded by: Christian Moloci
+Project page styles
+*/
+
+
+/* Set the background color */
 body {
     background-color: black;
 }
+
+/* Main section that contains all the content */
 main {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 100vh;
 }
+/* Styles for the info section */
 main > div.info {
     width: 30%;
     /* padding-left: 20px; */
@@ -20,6 +30,8 @@ main > div.info {
 main > div.info * {
     margin: 0px;
 }
+
+/* Element that contains all the project cards and scrolls sideways */
 main > div.projectsScrollView {
     width: 70%;
     min-height: 70%;
@@ -30,6 +42,8 @@ main > div.projectsScrollView {
     box-sizing: border-box;
     padding: 0px 2% 0px 2%;
 }
+
+/* Styles for every project card and their content */
 div.projectCard {
     transition: scale 0.3s;
     scale: 1;
@@ -79,16 +93,21 @@ div.projectCard ul li, ul.filterLangs li {
     border-radius: 25px;
 }
 
+/* For smaller screen widths */
 @media screen and (max-width: 1019px) {
+    /* Style for body */
     body {
         margin-bottom: 80px;
     }
+
+    /* Style for main */
     main {
         flex-direction: column;
         height: fit-content;
         margin-bottom: 70px;
     }
 
+    /* Style for info */
     main div.info {
         padding-top: 50px;
         width: 80%;
@@ -99,6 +118,7 @@ div.projectCard ul li, ul.filterLangs li {
         font-size: 1.3em;
     }
 
+    /* Style for the project scroll view and the project cards */
     main > div.projectsScrollView {
         width: 100%;
     }

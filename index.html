@@ -8,14 +8,29 @@
     <link href="style.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 
+    Coded By: Christian Moloci
+    Portfolio Home Page
+    -->
 </head>
-
 <body>
 
+    <!-- Main section that encloses all the content for the home page -->
     <main>
+        <!-- 
+        This section encloses the first part of the page, it holds the 
+        introduction/title with an image of myself.
+        This section is a flex grid  
+        -->
         <section class="firstImpression">
+            <!-- 
+            This section is the parent of a child that holds text. 
+            This is so we can center it with while keeping text aligend left 
+            -->
             <div class="namePresentaton">
+                <!-- Holds all the text -->
                 <div class="text-container">
+                    <!-- h1 that contains an SVG to allow for both a text fill and stroke  -->
                     <h1>
                         <svg width="100%" height="220">
                             <g>
@@ -24,7 +39,9 @@
                             </g>
                         </svg>
                     </h1>
+                    <!-- Quick bio -->
                     <p>Full Stack Web & App Developer <span>{}</span></p>
+                    <!-- A link that looks like a button to open my resume -->
                     <a href="resume.pdf">
                         <div class="cardButton">
                             <span>View Resume</span>
@@ -32,6 +49,11 @@
                     </a>
                 </div>
             </div>
+            <!-- 
+            Second element in the first impressions flex grid.
+            Holds an image with an element behind it that gived the illision of a 
+            gradient colored border.
+            -->
             <div class="imagePresentation">
                 <div class="imageWrap">
                     <img src="chris.png" alt="chris">
@@ -39,8 +61,13 @@
             </div>
         </section>
 
+        <!-- This next section shows all the languages I have experience in -->
         <section class="languages">
+            <!-- Title -->
             <h1>Languages <i class="fa-solid fa-bug fa-xs"></i></h1>
+            
+            <!-- Different language sections -->
+
             <h2>Web:</h1>
                 <div class="langSection">
                     <div class="languageContainer">
@@ -69,40 +96,42 @@
                     </div>
                 </div>
 
-                <h2>Object Oriented Programming:</h1>
+            <h2>Object Oriented Programming:</h1>
+                <div class="langSection">
+                    <div class="languageContainer">
+                        <div class="languageExp"><i class="fa-solid fa-circle-up" style="color: #96d35f;"></i>Intermediate</div>
+                        <div class="language java">
+                            <p>Java</p>
+                        </div>
+                    </div>
+                    <div class="languageContainer">
+                        <div class="languageExp"><i class="fa-solid fa-circle-down" style="color: #e32400;"></i>Learning</div>
+                        <div class="language dart">
+                            <p>Dart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Frameworks:</h1>
                     <div class="langSection">
                         <div class="languageContainer">
-                            <div class="languageExp"><i class="fa-solid fa-circle-up" style="color: #96d35f;"></i>Intermediate</div>
-                            <div class="language java">
-                                <p>Java</p>
+                            <div class="languageExp"><i class="fa-regular fa-circle-dot" style="color: #FFD43B;"></i>Beginner</div>
+                            <div class="language javafx">
+                                <p>JavaFX</p>
                             </div>
                         </div>
                         <div class="languageContainer">
                             <div class="languageExp"><i class="fa-solid fa-circle-down" style="color: #e32400;"></i>Learning</div>
-                            <div class="language dart">
-                                <p>Dart</p>
+                            <div class="language flutter">
+                                <p>Flutter</p>
                             </div>
                         </div>
                     </div>
-
-                    <h2>Frameworks:</h1>
-                        <div class="langSection">
-                            <div class="languageContainer">
-                                <div class="languageExp"><i class="fa-regular fa-circle-dot" style="color: #FFD43B;"></i>Beginner</div>
-                                <div class="language javafx">
-                                    <p>JavaFX</p>
-                                </div>
-                            </div>
-                            <div class="languageContainer">
-                                <div class="languageExp"><i class="fa-solid fa-circle-down" style="color: #e32400;"></i>Learning</div>
-                                <div class="language flutter">
-                                    <p>Flutter</p>
-                                </div>
-                            </div>
-                        </div>
             </section>
 
+        <!-- A section that holds a bible verse -->
         <section class="quote">
+            <!-- Child which is the rectangle inside the section that holds the quote -->
             <div class="quoteContainer">
                 <blockquote>
                     For to this end we toil and strive, because we have our
@@ -113,7 +142,9 @@
             </div>
         </section>
 
+        <!-- A section that highlights all the work I've done -->
         <section class="myWork">
+            <!-- This is just the info for the section -->
             <div class="myWorkTitle">
                 <h1>My Dev Journey</h1>
                 <p>Projects I have worked on</p>
@@ -123,6 +154,7 @@
                     </div>
                 </a>
             </div>
+            <!-- Every work container is like a card that holds info about a project I've done -->
             <div class="workContainer">
                 <div class="workCard">
                     <img src="Assets/portfolioThumb.png" alt="Portfolio">
@@ -231,6 +263,7 @@
         </section>
     </main>
 
+    <!-- Nav bar which is just a like formatted with css to look like a nav bar -->
     <nav>
         <ul>
             <li class="portfolioSelect">
@@ -248,6 +281,7 @@
         </ul>
     </nav>
 
+    <!-- Attrubution for the icons I used -->
     <footer>
         <p>Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
     </footer>
