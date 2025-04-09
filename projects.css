@@ -1,6 +1,5 @@
 body {
     background-color: black;
-    padding-bottom: 30px;
 }
 main {
     display: flex;
@@ -81,6 +80,9 @@ div.projectCard ul li, ul.filterLangs li {
 }
 
 @media screen and (max-width: 1019px) {
+    body {
+        margin-bottom: 80px;
+    }
     main {
         flex-direction: column;
         height: fit-content;
