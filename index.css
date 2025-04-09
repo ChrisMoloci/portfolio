@@ -1,5 +1,5 @@
 body {
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
     background-color: black;
 }
 
@@ -21,16 +21,37 @@ section.firstImpression div.namePresentaton {
     align-items: center;
 }
 section.firstImpression div.namePresentaton * {
+    transition: scale 0.5s;
+    scale: 1;
     margin: 0px;
-    padding: 0px;
+    /* padding: 0px; */
     text-align: left;
 }
 section.firstImpression div.namePresentaton *:hover {
-    transition: scale 0.2s;
+    transition: scale 0.5s;
     scale: 1.02;
 }
 section.firstImpression div.namePresentaton .text-container {
     width: fit-content;
+}
+section.firstImpression div.namePresentaton .text-container .cardButton {
+    transition: background-color 0.5s;
+    background-color: rgb(220, 245, 255);
+    width: fit-content;
+    margin-top: 20px;
+    padding: 8px 15px 8px 15px;
+}
+section.firstImpression div.namePresentaton .text-container .cardButton * {
+    transition: color 0.5s;
+    color: black;
+}
+section.firstImpression div.namePresentaton .text-container .cardButton:hover {
+    transition: background-color 0.5s;
+    background-color: black;
+}
+section.firstImpression div.namePresentaton .text-container .cardButton:hover * {
+    transition: color 0.5s;
+    color: white;
 }
 section.firstImpression div.namePresentaton h1 {
     font-family: "Madimi One";
@@ -48,6 +69,8 @@ section.firstImpression div.namePresentaton p span {
 }
 
 section.firstImpression div.imagePresentation div.imageWrap {
+    transition: scale 0.5s;
+    scale: 1;
     width: 60%;
     /* height: 60%; */
     display: flex;
@@ -59,8 +82,8 @@ section.firstImpression div.imagePresentation div.imageWrap {
     padding: 10px;
 }
 section.firstImpression div.imagePresentation div.imageWrap:hover {
-    scale: 1.02;
-    transition: scale 0.2s;
+    transition: scale 0.5s;
+    scale: 1.05;
 }
 section.firstImpression div.imagePresentation img {
     /* width: fit-content; */
@@ -313,6 +336,9 @@ div.workCard p {
 
 /* For smaller displays */
 @media screen and (max-width: 1019px) {
+    body {
+        margin-bottom: 80px;
+    }
     section.firstImpression {
         height: fit-content;
         box-sizing: border-box;
@@ -356,12 +382,17 @@ div.workCard p {
     section.firstImpression div.namePresentaton div.text-container > p {
         text-align: center;
         font-size: 1.8em;
-        margin-top: 30px;
+        /* margin-top: 10px; */
     }
-
     div.text-container * {
         text-align: center;
     }
+    section.firstImpression div.namePresentaton .text-container .cardButton {
+        display: block;
+        margin: 30px auto 10px auto;
+    }
+
+
     section.firstImpression div.imagePresentation {
         /* margin: 0px; */
         /* aspect-ratio: 1 / 1; */
