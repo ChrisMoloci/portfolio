@@ -1,8 +1,15 @@
+/* 
+Coded by: Christian Moloci
+Home page styles
+*/
+
+
+/* Set the background color of the page */
 body {
-    /* padding-bottom: 60px; */
     background-color: black;
 }
 
+/* First section styles */
 section.firstImpression {
     height: 110vh;
     display: flex;
@@ -11,9 +18,12 @@ section.firstImpression {
     align-content: center;
     background-color: black;
 }
+/* All divs in the section should be 50% wide */
 section.firstImpression div {
     width: 50%;
 }
+
+/* The left side of the first impressions section */
 section.firstImpression div.namePresentaton {
     /* border: 1px solid white; */
     display: flex;
@@ -68,6 +78,7 @@ section.firstImpression div.namePresentaton p span {
     color: rgb(77, 148, 219);
 }
 
+/* Right side of the first impressions section */
 section.firstImpression div.imagePresentation div.imageWrap {
     transition: scale 0.5s;
     scale: 1;
@@ -94,6 +105,7 @@ section.firstImpression div.imagePresentation img {
     border-radius: 60px;
 }
 
+/* Languages section styles */
 section.languages {
     background-color: #121212;
     height: 90vh;
@@ -126,6 +138,7 @@ div.langSection {
     flex-wrap: wrap;
     align-items: flex-end;
 }
+/* Style for every language container and its content */
 div.languageContainer {
     transition: scale 0.2s;
     scale: 1;
@@ -168,22 +181,8 @@ div.languageContainer:hover .languageExp {
     padding: 10px;
 }
 
-/* section.languages img {
-    max-width: 10%;
-    margin: 2%;
-}
-div.langRow {
-    width: fit-content;
-    justify-content: center;
-    border: 1px solid beige;
-    text-align: center;
-} */
-/* section.languages * {
-    color: black;
-} */
-
+/* Style for bible verse section */
 section.quote {
-    /* background-color: #A7D397; */
     background-color: #2F2519;
     box-shadow: 0px 0px 30px -8px #2F2519;
     border-radius: 32px 32px 0px 0px;
@@ -231,8 +230,8 @@ section.quote blockquote::after {
     line-height: 0em;
 }
 
+/* Style for projects section */
 section.myWork {
-    /* background-color: #19282F; */
     background-color: black;
     box-shadow: 0px 0px 30px -8px #121212;
     border-radius: 32px 32px 0px 0px;
@@ -245,14 +244,7 @@ section.myWork {
     flex-direction: row;
     padding-bottom: 80px;
 }
-section.myWork div.workContainer {
-    display: flex;
-    flex-direction: row;
-    /* padding: 30px; */
-    /* max-height: 100%; */
-    height: fit-content;
-    overflow-x: scroll;
-}
+/* Styles for the info part */
 section.myWork div.myWorkTitle {
     min-width: 25%;
     /* width: 50%; */
@@ -281,6 +273,16 @@ section.myWork div.myWorkTitle div.projectsPageButton:hover {
     border: 1px solid white;
     background-color: black;
 }
+/* Create the work container that holds all the project cards */
+section.myWork div.workContainer {
+    display: flex;
+    flex-direction: row;
+    /* padding: 30px; */
+    /* max-height: 100%; */
+    height: fit-content;
+    overflow-x: scroll;
+}
+/* Styles for all the project cards and their content */
 section.myWork div.workCard {
     transition: scale 0.3s;
     scale: 1;
@@ -336,9 +338,12 @@ div.workCard p {
 
 /* For smaller displays */
 @media screen and (max-width: 1019px) {
+    /* Body */
     body {
         margin-bottom: 80px;
     }
+
+    /* First impressions section */
     section.firstImpression {
         height: fit-content;
         box-sizing: border-box;
@@ -356,11 +361,9 @@ div.workCard p {
     section.firstImpression div.namePresentaton p {
         padding: 0px 8vw 0px 8vw;
     }
-
     section.firstImpression div.imagePresentation div.imageWrap {
         width: 70%;
     }
-
     section.firstImpression div.namePresentaton {
         /* border: 1px solid white; */
         display: flex;
@@ -391,8 +394,6 @@ div.workCard p {
         display: block;
         margin: 30px auto 10px auto;
     }
-
-
     section.firstImpression div.imagePresentation {
         /* margin: 0px; */
         /* aspect-ratio: 1 / 1; */
@@ -401,6 +402,7 @@ div.workCard p {
         /* display: none; */
     }
 
+    /* Language section */
     section.languages {
         height: fit-content;
         padding: 0px 30px 15vh 30px;
@@ -438,13 +440,10 @@ div.workCard p {
         border-radius: 0px 0px 32px 32px;
     }
 
+    /* Bible verse section */
     section.quote {
         padding: 10vh 20px 20vh 20px;
     }
-    /* section.quote * {
-        color: white;
-        font-size: 30px;
-    } */
     section.quote div.quoteContainer *{
         font-size: 0.8em;
     }
@@ -458,6 +457,7 @@ div.workCard p {
         text-align: right;
     }
 
+    /* Projects section */
     section.myWork div.workCard {
         min-width: 88%;
     }
@@ -498,6 +498,10 @@ div.workCard p {
     }
 }
 
+/* 
+Change top margin for language experience on screens with 530px or less.
+This just helps prevent elements from moving around when displying the work section
+*/
 @media screen and (max-width: 530px) {
     div.languageExp {
         margin-top: -50px;
