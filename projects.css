@@ -39,25 +39,21 @@ nav > ul > li:nth-of-type(3):hover * {
 }
 
 /* Styles for the info section */
-main > div.info {
+main > section:first-of-type {
     width: 30%;
-    /* padding-left: 20px; */
     box-sizing: border-box;
     padding: 0px 30px 0px 20px;
-    /* filter: drop-shadow(2px 2px 8px white);; */
-    /* box-shadow: 0px 0px 100px 30px #151515; */
     height: 100%;
     align-content: center;
 }
-main > div.info * {
+main > section:first-of-type * {
     margin: 0px;
 }
 
 /* Element that contains all the project cards and scrolls sideways */
-main > div.projectsScrollView {
+main > section:last-of-type {
     width: 70%;
     min-height: 70%;
-    /* background-color: green; */
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
@@ -66,12 +62,11 @@ main > div.projectsScrollView {
 }
 
 /* Styles for every project card and their content */
-div.projectCard {
+main > section:last-of-type > section {
     transition: scale 0.3s;
     scale: 1;
     min-width: 430px;
     min-height: 100%;
-    /* border: 1px solid black; */
     margin: 20px;
     border-radius: 32px;
     background-color: #121212;
@@ -79,40 +74,111 @@ div.projectCard {
     min-height: 100%;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
 }
-div.projectCard:hover {
+main > section:last-of-type > section:hover {
     transition: scale 0.5s;
     scale: 1.05;
 }
-div.projectCard img {
+main > section:last-of-type > section img {
     border-radius: 22px;
 }
-div.projectCard img {
+main > section:last-of-type > section img {
     width: 100%;
     box-shadow: 0px 0px 30px -4px black;
 }
-div.projectCardContent {
+main > section:last-of-type > section > section {
     padding: 0px 20px 0px 20px;
 }
-div.projectCard h1 {
+main > section:last-of-type > section h1 {
     font-size: 40px;
+    margin: 20px 0px 20px 0px;
 }
-div.projectCard p {
+main > section:last-of-type > section p {
     margin-top: 15px;
     overflow: scroll;
     max-height: 23vh;
     min-height: 23vh;
 }
-div.projectCard ul, ul.filterLangs {
+main > section:last-of-type > section ul {
     margin: 0px;
     padding: 0px;
 }
-div.projectCard ul li, ul.filterLangs li {
+main > section:last-of-type > section ul li {
     font-size: 12px;
     font-weight: 300;
     display: inline;
     /* border: 1px solid black; */
     padding: 1px 5px 1px 5px;
     border-radius: 25px;
+}
+main > section:last-of-type > section > section section {
+    transition: border 1s, background-color 0.5s;
+    background-color: white;
+    width: fit-content;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin: auto;
+    position: relative;
+    bottom: 1px;
+    border: 3px solid transparent;
+}
+main > section:last-of-type section > section a {
+    position: relative;
+    /* bottom: 0px; */
+    top: 100%;
+    bottom: 3px;
+}
+main > section:last-of-type section > section section * {
+    transition: color 0.5s;
+    color: black;
+}
+main > section:last-of-type section > section section:hover {
+    transition: all 1s;
+    background-color: black;
+    border: 3px solid white;
+}
+main > section:last-of-type section > section section:hover * {
+    transition: color 1s;
+    color: white;
+    text-decoration: underline;
+}
+
+/* Define drop shadows for language list items */
+/* Box 1 */
+main > section:last-of-type > section:first-of-type ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #e34c26;
+}
+main > section:last-of-type > section:first-of-type ul li:nth-of-type(2) {
+    box-shadow: 0px 0px 20px -2px #264de4;
+}
+/* main > section:last-of-type > section:first-of-type ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #f0db4f;
+} */
+
+/* box 2 */
+main > section:last-of-type > section:nth-of-type(2) ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #f89820;
+}
+main > section:last-of-type > section:nth-of-type(2) ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #5382a1;
+}
+
+/* Box 3 */
+main > section:last-of-type > section:nth-of-type(3) ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #e34c26;
+}
+main > section:last-of-type > section:nth-of-type(3) ul li:nth-of-type(2) {
+    box-shadow: 0px 0px 20px -2px #264de4;
+}
+main > section:last-of-type > section:nth-of-type(3) ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #f0db4f;
+}
+
+/* box 4 */
+main > section:last-of-type > section:last-of-type ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #027DFD;
+}
+main > section:last-of-type > section:last-of-type ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #5AC5B0;
 }
 
 /* For smaller screen widths */
@@ -130,30 +196,30 @@ div.projectCard ul li, ul.filterLangs li {
     }
 
     /* Style for info */
-    main div.info {
+    main section:first-of-type {
         padding-top: 50px;
         width: 80%;
         margin: auto;
         text-align: center;
     }
-    main div.info p {
+    main section:first-of-type p {
         font-size: 1.3em;
     }
 
     /* Style for the project scroll view and the project cards */
-    main > div.projectsScrollView {
+    main > section:last-of-type {
         width: 100%;
     }
-    div.projectsScrollView div.projectCard {
+    section:last-of-type main > section:last-of-type > section {
         min-width: 80%;
     }
-    div.projectCard h1 {
+    main > section:last-of-type > section h1 {
         font-size: 2.8em;
     }
-    div.projectCard p {
+    main > section:last-of-type > section p {
         margin-top: 1em;
     }
-    div.projectCard ul li, ul.filterLangs li {
+    main > section:last-of-type > section ul li {
         font-size: 1em;
     }
 }
