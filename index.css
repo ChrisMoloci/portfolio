@@ -10,7 +10,7 @@ body {
 }
 
 /* First section styles */
-section.firstImpression {
+main > section:first-of-type {
     height: 110vh;
     display: flex;
     flex-direction: row;
@@ -19,67 +19,116 @@ section.firstImpression {
     background-color: black;
 }
 /* All divs in the section should be 50% wide */
-section.firstImpression div {
+main > section:first-of-type section {
     width: 50%;
 }
 
+/* Shows the current selected page in the nav bar */
+nav > ul > li:nth-of-type(2) {
+    transition: background-color 0.8s;
+    backdrop-filter: blur(5px);
+    background-color: #121212;
+    border-radius: 25px;
+    padding: 6px 15px 6px 15px;
+}
+nav > ul > li:nth-of-type(2):hover {
+    transition: background-color 0.8s;
+    background-color: #fafafacc;
+}
+nav > ul > li:nth-of-type(2) * {
+    transition: color 0.8s;
+    color: white;
+}
+nav > ul > li:nth-of-type(2):hover * {
+    transition: color 0.8s;
+    color: black;
+}
+
+/* Button that is used in different areas */
+main > section:first-of-type > section:first-of-type a section, main > section:last-of-type > section:last-of-type > section > section > a > section {
+    transition: border 1s, background-color 0.5s;
+    background-color: white;
+    border: 3px solid transparent;
+    width: fit-content;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin: auto;
+    position: relative;
+    bottom: 1px;
+}
+main > section:first-of-type > section:first-of-type a section *, main > section:last-of-type > section:last-of-type > section > section > a > section * {
+    transition: color 0.5s;
+    color: black;
+}
+main > section:first-of-type > section:first-of-type a section:hover, main > section:last-of-type > section:last-of-type > section > section > a > section:hover {
+    transition: all 1s;
+    background-color: black;
+    border: 3px solid white;
+}
+main > section:first-of-type > section:first-of-type a section:hover *, main > section:last-of-type > section:last-of-type > section > section > a > section:hover * {
+    transition: color 1s;
+    color: white;
+    text-decoration: underline;
+}
+
 /* The left side of the first impressions section */
-section.firstImpression div.namePresentaton {
+main > section:first-of-type > section:first-of-type {
     /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-section.firstImpression div.namePresentaton * {
+main > section:first-of-type > section:first-of-type * {
     transition: scale 0.5s;
     scale: 1;
     margin: 0px;
     /* padding: 0px; */
     text-align: left;
 }
-section.firstImpression div.namePresentaton *:hover {
+main > section:first-of-type > section:first-of-type *:hover {
     transition: scale 0.5s;
     scale: 1.02;
 }
-section.firstImpression div.namePresentaton .text-container {
+main > section:first-of-type > section:first-of-type > section {
     width: fit-content;
 }
-section.firstImpression div.namePresentaton .text-container .cardButton {
+/* Button styles specific to the resume button */
+main > section:first-of-type > section:first-of-type a section {
     transition: background-color 0.5s;
     background-color: rgb(220, 245, 255);
     width: fit-content;
-    margin-top: 20px;
+    margin: 20px 0px 0px 0px;
     padding: 8px 15px 8px 15px;
 }
-section.firstImpression div.namePresentaton .text-container .cardButton * {
+main > section:first-of-type > section:first-of-type a section * {
     transition: color 0.5s;
     color: black;
 }
-section.firstImpression div.namePresentaton .text-container .cardButton:hover {
+main > section:first-of-type > section:first-of-type a section:hover {
     transition: background-color 0.5s;
     background-color: black;
 }
-section.firstImpression div.namePresentaton .text-container .cardButton:hover * {
+main > section:first-of-type > section:first-of-type a section:hover * {
     transition: color 0.5s;
     color: white;
 }
-section.firstImpression div.namePresentaton h1 {
+main > section:first-of-type > section:first-of-type h1 {
     font-family: "Madimi One";
     font-size: 3.8em;
 }
 svg text {
     font-size: 1.7em;
 }
-section.firstImpression div.namePresentaton p {
+main > section:first-of-type > section:first-of-type p {
     margin-top: 10px;
     font-size: 2em;
 }
-section.firstImpression div.namePresentaton p span {
+main > section:first-of-type > section:first-of-type p span {
     color: rgb(77, 148, 219);
 }
 
 /* Right side of the first impressions section */
-section.firstImpression div.imagePresentation div.imageWrap {
+main > section:first-of-type > section:last-of-type > section {
     transition: scale 0.5s;
     scale: 1;
     width: 60%;
@@ -92,11 +141,11 @@ section.firstImpression div.imagePresentation div.imageWrap {
     border-radius: 70px;
     padding: 10px;
 }
-section.firstImpression div.imagePresentation div.imageWrap:hover {
+main > section:first-of-type > section:last-of-type section:hover {
     transition: scale 0.5s;
     scale: 1.05;
 }
-section.firstImpression div.imagePresentation img {
+main > section:first-of-type > section:last-of-type img {
     /* width: fit-content; */
     width: 100%;
     height: 100%;
@@ -106,7 +155,7 @@ section.firstImpression div.imagePresentation img {
 }
 
 /* Languages section styles */
-section.languages {
+main > section:nth-of-type(2) {
     background-color: #121212;
     height: 90vh;
     margin-top: -10vh;
@@ -117,7 +166,7 @@ section.languages {
     justify-content: center;
     padding: 50px;
 }
-section.languages h1 {
+main > section:nth-of-type(2) h1 {
     margin-top: -10vh;
     width: 80%;
     /* line-height: 0em; */
@@ -126,12 +175,12 @@ section.languages h1 {
     text-decoration-thickness: 5px;
     text-underline-offset: 3px;
 }
-section.languages h2 {
+main > section:nth-of-type(2) h2 {
     width: 75%;
     font-size: 40px;
     line-height: 1.1em;
 }
-div.langSection {
+main > section:nth-of-type(2) > section {
     display: flex;
     gap: 30px;
     width: 75%;
@@ -139,16 +188,16 @@ div.langSection {
     align-items: flex-end;
 }
 /* Style for every language container and its content */
-div.languageContainer {
+main > section:nth-of-type(2) > section > section {
     transition: scale 0.2s;
     scale: 1;
     flex-basis: 150px;
 }
-div.languageContainer:hover {
+main > section:nth-of-type(2) > section > section:hover {
     transition: scale 0.2s;
     scale: 1.1
 }
-div.language {
+main > section:nth-of-type(2) > section > section section:last-of-type {
     border: 0.5px solid rgb(55, 55, 55);
     background-color: #111111;
     /* flex-basis: 150px; */
@@ -157,21 +206,83 @@ div.language {
     font-weight: 600;
     height: fit-content;
 }
-div.languageContainer:hover div.language  {
+main > section:nth-of-type(2) > section > section:hover section:last-of-type  {
     border-radius: 0px 0px 18px 18px;
     top: 0px;
 }
-.languageExp {
+
+/* Styles for language box shadows and experience icon color */
+main > section:nth-of-type(2) > section:first-of-type > section:first-of-type section:first-of-type i {
+    color: #96d35f;
+}
+main > section:nth-of-type(2) > section:first-of-type > section:first-of-type section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #e34c26;
+}
+
+main > section:nth-of-type(2) > section:first-of-type > section:nth-of-type(2) section:first-of-type i {
+    color: #96d35f;
+}
+main > section:nth-of-type(2) > section:first-of-type > section:nth-of-type(2) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #264de4;
+}
+
+main > section:nth-of-type(2) > section:first-of-type > section:nth-of-type(3) section:first-of-type i {
+    color: #FFD43B;
+}
+main > section:nth-of-type(2) > section:first-of-type > section:nth-of-type(3) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #f0db4f;
+}
+
+main > section:nth-of-type(2) > section:first-of-type > section:nth-of-type(4) section:first-of-type i {
+    color: #FFD43B;
+}
+main > section:nth-of-type(2) > section:first-of-type > section:nth-of-type(4) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #8993BE;
+}
+
+main > section:nth-of-type(2) > section:nth-of-type(2) > section:nth-of-type(1) section:first-of-type i {
+    color: #96d35f;
+}
+main > section:nth-of-type(2) > section:nth-of-type(2) > section:nth-of-type(1) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #f89820;
+}
+
+main > section:nth-of-type(2) > section:nth-of-type(2) > section:nth-of-type(2) section:first-of-type i {
+    color: #e32400;
+}
+main > section:nth-of-type(2) > section:nth-of-type(2) > section:nth-of-type(2) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #5AC5B0;
+}
+
+main > section:nth-of-type(2) > section:last-of-type > section:nth-of-type(1) section:first-of-type i {
+    color: #e32400;
+}
+
+main > section:nth-of-type(2) > section:last-of-type > section:nth-of-type(1) section:first-of-type i {
+    color: #FFD43B;
+}
+main > section:nth-of-type(2) > section:last-of-type > section:nth-of-type(1) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #5382a1;
+}
+
+main > section:nth-of-type(2) > section:last-of-type > section:nth-of-type(2) section:first-of-type i {
+    color: #e32400;
+}
+main > section:nth-of-type(2) > section:last-of-type > section:nth-of-type(2) section:last-of-type {
+    box-shadow: 0px 0px 20px -2px #027DFD;
+}
+
+main > section:nth-of-type(2) > section > section > section:first-of-type {
     display: none;
     border-radius: 18px 18px 0px 0px;
     top: 0px;
     box-shadow: 0px 0px 30px -8px #121212;
     margin-top: -42px;
 }
-.languageExp i {
+main > section:nth-of-type(2) > section > section section:first-of-type i {
     padding-right: 5px;
 }
-div.languageContainer:hover .languageExp {
+main > section:nth-of-type(2) > section > section:hover section:first-of-type {
     display: block;
     position: relative;
     z-index: 1;
@@ -182,7 +293,7 @@ div.languageContainer:hover .languageExp {
 }
 
 /* Style for bible verse section */
-section.quote {
+main > section:nth-of-type(3) {
     background-color: #2F2519;
     box-shadow: 0px 0px 30px -8px #2F2519;
     border-radius: 32px 32px 0px 0px;
@@ -195,11 +306,11 @@ section.quote {
     /* padding: 0px 20% 0px 20%; */
     padding: 10% 20% 20% 20%;
 }
-section.quote * {
+main > section:nth-of-type(3) * {
     color: white;
     font-size: 30px;
 }
-div.quoteContainer {
+main > section:nth-of-type(3) section {
     transition: scale 0.4s;
     scale: 1;
     padding: 30px 10px 30px 10px;
@@ -207,22 +318,22 @@ div.quoteContainer {
     background-color: black;
     box-shadow: 0px 0px 30px -8px #121212;
 }
-div.quoteContainer:hover {
+main > section:nth-of-type(3) section:hover {
     transition: scale 0.4s;
     scale: 1.04;
 }
-div.quoteContainer cite {
+main > section:nth-of-type(3) section cite {
     display: block;
     font-weight: 600;
     text-align: right;
 }
-section.quote blockquote::before {
+main > section:nth-of-type(3) blockquote::before {
     content: open-quote;
     font-size: 100px;
     display: block;
     line-height: 0em;
 }
-section.quote blockquote::after {
+main > section:nth-of-type(3) blockquote::after {
     content: close-quote;
     font-size: 100px;
     display: block;
@@ -231,7 +342,7 @@ section.quote blockquote::after {
 }
 
 /* Style for projects section */
-section.myWork {
+main > section:last-of-type {
     background-color: black;
     box-shadow: 0px 0px 30px -8px #121212;
     border-radius: 32px 32px 0px 0px;
@@ -245,7 +356,7 @@ section.myWork {
     padding-bottom: 80px;
 }
 /* Styles for the info part */
-section.myWork div.myWorkTitle {
+main > section:last-of-type > section:first-of-type {
     min-width: 25%;
     /* width: 50%; */
     padding: 30px;
@@ -254,12 +365,12 @@ section.myWork div.myWorkTitle {
     flex-direction: column;
     justify-content: center;
 }
-section.myWork div.myWorkTitle h1 {
+main > section:last-of-type > section:first-of-type h1 {
     margin: 0px;
     font-size: 3.5em;
     line-height: 1.2em;
 }
-section.myWork div.myWorkTitle div.projectsPageButton {
+main > section:last-of-type > section:first-of-type div {
     transition: border 0.2s, background-color 0.2s;
     border: 1px solid black;
     background-color: #5C7285;
@@ -268,13 +379,13 @@ section.myWork div.myWorkTitle div.projectsPageButton {
     border-radius: 25px;
     color: black;
 }
-section.myWork div.myWorkTitle div.projectsPageButton:hover {
+main > section:last-of-type > section:first-of-type div:hover {
     transition: border 0.5s, background-color 0.5s;
     border: 1px solid white;
     background-color: black;
 }
 /* Create the work container that holds all the project cards */
-section.myWork div.workContainer {
+main > section:last-of-type > section:last-of-type {
     display: flex;
     flex-direction: row;
     /* padding: 30px; */
@@ -283,43 +394,40 @@ section.myWork div.workContainer {
     overflow-x: scroll;
 }
 /* Styles for all the project cards and their content */
-section.myWork div.workCard {
+main > section:last-of-type > section:last-of-type > section {
     transition: scale 0.3s;
     scale: 1;
-    /* border: 1px solid black; */
     background-color: #121212;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
     border-radius: 32px;
-    /* min-width: 30%; */
     min-width: 430px;
     min-height: 100%;
-    /* padding: 10px 20px 10px 20px; */
     padding: 20px;
     margin: 20px;
 }
-section.myWork div.workCard:hover {
+main > section:last-of-type > section:last-of-type > section:hover {
     transition: scale 0.5s;
     scale: 1.05;
 }
-section.myWork div.workCard div.workCardContent {
+main > section:last-of-type > section:last-of-type > section > section {
     padding: 0px 20px 0px 20px;
 }
-section.myWork div.workCard img {
+main > section:last-of-type > section:last-of-type section img {
     width: 100%;
     border-radius: 22px;
     box-shadow: 0px 0px 30px -4px black;
 }
-section.myWork div.workCard h1 {
+main > section:last-of-type > section:last-of-type section h1 {
     font-size: 40px;
     line-height: 1.1em;
     font-weight: 600;
     margin-bottom: 5px;
 }
-section.myWork div.workCard ul {
+main > section:last-of-type > section:last-of-type section ul {
     margin: 0px;
     padding: 0px;
 }
-section.myWork div.workCard ul li {
+main > section:last-of-type > section:last-of-type section ul li {
     font-size: 12px;
     font-weight: 300;
     display: inline;
@@ -327,10 +435,50 @@ section.myWork div.workCard ul li {
     padding: 1px 5px 1px 5px;
     border-radius: 25px;
 }
-div.workCard > h1 {
-    margin: 0px;
+
+/* Define drop shadows for language list items */
+/* Box 1 */
+main > section:last-of-type > section:last-of-type > section:first-of-type ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #e34c26;
 }
-div.workCard p {
+main > section:last-of-type > section:last-of-type > section:first-of-type ul li:nth-of-type(2) {
+    box-shadow: 0px 0px 20px -2px #264de4;
+}
+main > section:last-of-type > section:last-of-type > section:first-of-type ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #f0db4f;
+}
+
+/* box 2 */
+main > section:last-of-type > section:last-of-type > section:nth-of-type(2) ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #f89820;
+}
+main > section:last-of-type > section:last-of-type > section:nth-of-type(2) ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #5382a1;
+}
+
+/* Box 3 */
+main > section:last-of-type > section:last-of-type > section:nth-of-type(3) ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #e34c26;
+}
+main > section:last-of-type > section:last-of-type > section:nth-of-type(3) ul li:nth-of-type(2) {
+    box-shadow: 0px 0px 20px -2px #264de4;
+}
+main > section:last-of-type > section:last-of-type > section:nth-of-type(3) ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #f0db4f;
+}
+
+/* box 2 */
+main > section:last-of-type > section:last-of-type > section:last-of-type ul li:first-of-type {
+    box-shadow: 0px 0px 20px -2px #027DFD;
+}
+main > section:last-of-type > section:last-of-type > section:last-of-type ul li:last-of-type {
+    box-shadow: 0px 0px 20px -2px #5AC5B0;
+}
+
+main > section:last-of-type > section:last-of-type section > h1 {
+    margin-top: 0.9em;
+}
+main > section:last-of-type > section:last-of-type section p {
     overflow: scroll;
     max-height: 23vh;
     min-height: 23vh;
@@ -344,7 +492,7 @@ div.workCard p {
     }
 
     /* First impressions section */
-    section.firstImpression {
+    main > section:first-of-type {
         height: fit-content;
         box-sizing: border-box;
         flex-direction: column-reverse;
@@ -352,19 +500,19 @@ div.workCard p {
         justify-content: start;
         /* gap: 5vh; */
     }
-    section.firstImpression div {
+    main > section:first-of-type > div {
         width: 75%;
     }
-    section.firstImpression div.namePresentaton {
+    main > section:first-of-type > section:first-of-type {
         width: 100%;
     }
-    section.firstImpression div.namePresentaton p {
+    main > section:first-of-type > section:first-of-type p {
         padding: 0px 8vw 0px 8vw;
     }
-    section.firstImpression div.imagePresentation div.imageWrap {
+    main > section:first-of-type > section:last-of-type > section {
         width: 70%;
     }
-    section.firstImpression div.namePresentaton {
+    main > section:first-of-type > section:first-of-type {
         /* border: 1px solid white; */
         display: flex;
         flex-direction: column;
@@ -374,7 +522,7 @@ div.workCard p {
         transform: translate(50%);
         text-anchor: middle;
     }
-    section.firstImpression div.namePresentaton div.text-container > h1 {
+    main > section:first-of-type > section:first-of-type > section > h1 {
         text-align: center;
         line-height: 1.15em;
         margin-top: 0.2em;
@@ -382,19 +530,20 @@ div.workCard p {
     svg text {
         font-size: 1.2em;
     }
-    section.firstImpression div.namePresentaton div.text-container > p {
+    main > section:first-of-type > section:first-of-type > section > p {
         text-align: center;
         font-size: 1.8em;
         /* margin-top: 10px; */
     }
-    div.text-container * {
+    div> section * {
         text-align: center;
     }
-    section.firstImpression div.namePresentaton .text-container .cardButton {
+    main > section:first-of-type > section:first-of-type a section {
         display: block;
         margin: 30px auto 10px auto;
+        font-size: 1.3em;
     }
-    section.firstImpression div.imagePresentation {
+    main > section:first-of-type > section:last-of-type {
         /* margin: 0px; */
         /* aspect-ratio: 1 / 1; */
         /* height: 100%; */
@@ -403,98 +552,95 @@ div.workCard p {
     }
 
     /* Language section */
-    section.languages {
+    main > section:nth-of-type(2) {
         height: fit-content;
         padding: 0px 30px 15vh 30px;
     }
-    section.languages h1 {
+    main > section:nth-of-type(2) h1 {
         font-size: 3em;
         margin: 0px;
         text-align: center;
         margin-bottom: 50px;
         padding-top: 50px;
     }
-    section.languages h1 i {
+    main > section:nth-of-type(2) h1 i {
         display: none;
     }
-    section.languages h2 {
+    main > section:nth-of-type(2) h2 {
         width: 100%;
         font-size: 2.2em;
     }
-    div.langSection {
+    main > section:nth-of-type(2) > section {
         width: 100%;
         justify-content: center;
     }
-    div.languageContainer {
+    main > section:nth-of-type(2) > section > section {
         flex-basis: 45%;
         font-size: 1.5em;
     }
-    div.languageExp {
+    main > section:nth-of-type(2) > section > section section:first-of-type {
         margin-top: -90px;
         font-size: 0.7em;
     }
-    div.languageContainer div.language {
+    main > section:nth-of-type(2) > section > section > section:last-of-type {
         border-radius: 32px;
     }
-    div.languageContainer:hover div.language {
+    main > section:nth-of-type(2) > section > section:hover > section:last-of-type {
         border-radius: 0px 0px 32px 32px;
     }
 
     /* Bible verse section */
-    section.quote {
+    main > section:nth-of-type(3) {
         padding: 10vh 20px 20vh 20px;
     }
-    section.quote div.quoteContainer *{
+    main > section:nth-of-type(3) section *{
         font-size: 0.8em;
     }
-    div.quoteContainer {
+    main > section:nth-of-type(3) section {
         padding: 30px 0px 0px 30px 0px;
         border-radius: 48px;
     }
-    div.quoteContainer cite {
+    main > section:nth-of-type(3) section cite {
         display: block;
         font-weight: 600;
         text-align: right;
     }
 
     /* Projects section */
-    section.myWork div.workCard {
+    main > section:last-of-type > section:last-of-type section {
         min-width: 88%;
     }
-    section.myWork div.myWorkTitle {
+    main > section:last-of-type section:first-of-type {
         height: fit-content;
         height: fit-content;
     }
-    section.myWork {
+    main > section:last-of-type {
         flex-direction: column;
         padding-top: 40px;
         min-height: fit-content;
     }
-    div.myWorkTitle {
+    main > section:last-of-type > section:first-of-type {
         text-align: center;
     }
-    section.myWork div.myWorkTitle h1 {
+    main > section:last-of-type section:first-of-type h1 {
         font-size: 3.7em;
     }
-    div.myWorkTitle p {
+    main > section:last-of-type > section:first-of-type p {
         font-size: 1.5em;
         margin-top: 0px;
     }
-    div.myWorkTitle div.projectsPageButton {
+    main > section:last-of-type > section:first-of-type div {
         margin: auto;
         font-size: 1.3em;
     }
-    section.myWork div.workCard h1 {
+    main > section:last-of-type > section:last-of-type section h1 {
         font-size: 2.8em;
     }
-    section.myWork div.workCard ul li {
+    main > section:last-of-type > section:last-of-type section ul li {
         font-size: 1em;
     }
-    section.myWork div.workCard p {
+    main > section:last-of-type > section:last-of-type p {
         font-size: 1em;
-    }
-    div.cardButton {
-        font-size: 1.3em;
     }
 }
 
@@ -503,7 +649,7 @@ Change top margin for language experience on screens with 530px or less.
 This just helps prevent elements from moving around when displying the work section
 */
 @media screen and (max-width: 530px) {
-    div.languageExp {
+    main > section:nth-of-type(2) > section > section section:first-of-type {
         margin-top: -50px;
     }
 }

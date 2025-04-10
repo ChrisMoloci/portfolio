@@ -31,13 +31,12 @@ nav ul li {
     padding: 0px;
     display: inline;
 }
-
-li.portfolioSelect ul, li.portfolioSelect li {
+nav > ul > li:first-of-type ul, nav > ul > li:first-of-type li {
     display: block;
     margin: 0px;
     padding: 0px;
 }
-li.portfolioSelect ul {
+nav > ul > li:first-of-type ul {
     display: none;
     position: absolute;
     bottom: 100%;
@@ -48,14 +47,14 @@ li.portfolioSelect ul {
     padding-bottom: 47px;
     z-index: -1;
 }
-li.portfolioSelect:hover ul {
+nav > ul > li:first-of-type:hover ul {
     display: block;
 }
-li.portfolioSelect a {
+nav > ul > li:first-of-type a {
     margin: 0px;
     padding: 0px;
 }
-i.portfolioOption {
+nav > ul > li:first-of-type i {
     width: 2.3em;
     height: 2.3em;
     border-radius: 100%;
@@ -64,42 +63,22 @@ i.portfolioOption {
     box-sizing: border-box;
     margin: 3px;
 }
-.devPortfolio {
+nav > ul > li:first-of-type i:last-of-type {
     background-color: #006E27;
 }
-.musicPortfolio {
-    background-color: orangered;
-}
-.christianPortfolio {
+nav > ul > li:first-of-type ul li:first-of-type i {
     background-color: brown;
 }
-nav ul li:hover:not(li.currentPage, li.portfolioSelect, li.portfolioSelect *) {
+nav > ul > li:first-of-type ul li:last-of-type i {
+    background-color: orangered;
+}
+nav > ul > li:hover:not(:first-of-type) {
     transition: background-color 0.5s, padding 0.5s, margin 0.5s;
     background-color: #fafafa7f;
     border-radius: 25px;
     padding: 6px 15px 6px 15px;
     margin: 0px 5px 0px 5px;
     box-shadow: 0px 0px 20px -5px rgb(152, 152, 152);
-}
-nav ul li.currentPage {
-    transition: background-color 0.8s;
-    /* border: 1px solid black; */
-    backdrop-filter: blur(5px);
-    background-color: #121212;
-    border-radius: 25px;
-    padding: 6px 15px 6px 15px;
-}
-nav ul li.currentPage:hover {
-    transition: background-color 0.8s;
-    background-color: #fafafacc;
-}
-nav ul li.currentPage * {
-    transition: color 0.8s;
-    color: white;
-}
-nav ul li.currentPage:hover * {
-    transition: color 0.8s;
-    color: black;
 }
 nav a {
     text-decoration: none;
@@ -122,72 +101,10 @@ nav {
     box-shadow: 0px 0px 20px -2px rgb(211, 211, 211);
 }
 
-/* Specifies box shadows for different coding languages in classes */
-.html {
-    box-shadow: 0px 0px 20px -2px #e34c26;
-}
-.css {
-    box-shadow: 0px 0px 20px -2px #264de4;
-}
-.js {
-    box-shadow: 0px 0px 20px -2px #f0db4f;
-}
-.java {
-    box-shadow: 0px 0px 20px -2px #f89820;
-}
-.javafx {
-    box-shadow: 0px 0px 20px -2px #5382a1;
-}
-.flutter {
-    box-shadow: 0px 0px 20px -2px #027DFD;
-}
-.dart {
-    box-shadow: 0px 0px 20px -2px #5AC5B0;
-}
-.php {
-    box-shadow: 0px 0px 20px -2px #8993BE;
-}
-
-/* A button that is used accross different pages */
-.cardButton {
-    border: 1px solid white;
-    width: fit-content;
-    border-radius: 25px;
-    padding: 5px 15px 5px 15px;
-    margin: auto;
-}
 .newTabLink::after {
     content: "⿻";
     text-decoration: inherit;
     display: inline-block;
-}
-div.workCard a, div.projectCard a {
-    position: relative;
-    /* bottom: 0px; */
-    top: 100%;
-    bottom: 3px;
-}
-/* Buttons on work cards will have a custom transition for hovers */
-div.cardButton {
-    position: relative;
-    bottom: 1px;
-    transition: border 1s, background-color 0.5s;
-    border: 3px solid transparent;
-    background-color: white;
-}
-div.cardButton * {
-    transition: color 0.5s;
-    color: black;
-}
-div.cardButton:hover {
-    transition: all 1s;
-    background-color: black;
-    border: 3px solid white;
-}
-div.cardButton:hover * {
-    transition: color 1s;
-    color: white;
-    text-decoration: underline;
 }
 
 /* Changes the font size in the nav bar when the screen side gets smaller that 600px */
