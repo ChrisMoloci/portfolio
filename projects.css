@@ -16,6 +16,28 @@ main {
     align-items: center;
     height: 100vh;
 }
+
+/* Shows the current selected page in the nav bar */
+nav > ul > li:nth-of-type(3) {
+    transition: background-color 0.8s;
+    backdrop-filter: blur(5px);
+    background-color: #121212;
+    border-radius: 25px;
+    padding: 6px 15px 6px 15px;
+}
+nav > ul > li:nth-of-type(3):hover {
+    transition: background-color 0.8s;
+    background-color: #fafafacc;
+}
+nav > ul > li:nth-of-type(3) * {
+    transition: color 0.8s;
+    color: white;
+}
+nav > ul > li:nth-of-type(3):hover * {
+    transition: color 0.8s;
+    color: black;
+}
+
 /* Styles for the info section */
 main > div.info {
     width: 30%;
