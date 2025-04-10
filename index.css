@@ -444,9 +444,9 @@ main > section:last-of-type > section:last-of-type > section:first-of-type ul li
 main > section:last-of-type > section:last-of-type > section:first-of-type ul li:nth-of-type(2) {
     box-shadow: 0px 0px 20px -2px #264de4;
 }
-main > section:last-of-type > section:last-of-type > section:first-of-type ul li:last-of-type {
+/* main > section:last-of-type > section:last-of-type > section:first-of-type ul li:last-of-type {
     box-shadow: 0px 0px 20px -2px #f0db4f;
-}
+} */
 
 /* box 2 */
 main > section:last-of-type > section:last-of-type > section:nth-of-type(2) ul li:first-of-type {
@@ -467,7 +467,7 @@ main > section:last-of-type > section:last-of-type > section:nth-of-type(3) ul l
     box-shadow: 0px 0px 20px -2px #f0db4f;
 }
 
-/* box 2 */
+/* box 4 */
 main > section:last-of-type > section:last-of-type > section:last-of-type ul li:first-of-type {
     box-shadow: 0px 0px 20px -2px #027DFD;
 }

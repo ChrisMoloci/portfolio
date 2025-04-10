@@ -35,14 +35,14 @@ nav > ul > li:nth-of-type(5):hover * {
 } */
 
 /* First impressions is a quick intro/preview section of the page */
-div.firstImpression {
+main > section:first-of-type {
     margin-top: 10%;
     display: flex;
 }
-div.firstImpression div {
+main > section:first-of-type section {
     width: 50%;
 }
-div.firstImpression img {
+main > section:first-of-type img {
     transition: scale 0.4s;
     scale: 1;
     width: 50%;
@@ -52,7 +52,7 @@ div.firstImpression img {
     border-radius: 32px;
     box-shadow: 0px 0px 30px -8px rgb(49, 49, 49);
 }
-div.firstImpression img:hover {
+main > section:first-of-type img:hover {
     transition: scale 0.4s;
     scale: 1.04;
 }
@@ -84,13 +84,13 @@ tr:nth-child(odd) {
 }
 
 /* About text represents the collection of articles which talk about me */
-div.aboutText {
+main > section:last-of-type {
     box-sizing: border-box;
     margin: 0px 10% 80px 10%;
     width: 60%;
 }
 /* Set the style of the main title for the aboutText element */
-div.aboutText h1 {
+main > section:last-of-type h1 {
     font-size: 3em;
     line-height: 1em;
     text-decoration: underline;
@@ -100,16 +100,16 @@ div.aboutText h1 {
 }
 
 /* Set styling of each article and its content */
-div.aboutText article > h2 {
+main > section:last-of-type article > h2 {
     font-size: 30px;
 }
-div.aboutText article > dl > dt {
+main > section:last-of-type article > dl > dt {
     font-size: 1.4em;
 }
-div.aboutText article > dl > dd > dl > dt {
+main > section:last-of-type article > dl > dd > dl > dt {
     font-size: 1.2em;
 }
-/* div.aboutText article > dl > dd > dl {
+/* main > section:last-of-type article > dl > dd > dl {
     font-size: 0.3em;
 } */
 
@@ -121,14 +121,14 @@ div.aboutText article > dl > dd > dl > dt {
     }
 
     /* Change layout, posistioning, and styling for the first impressions section */
-    div.firstImpression {
+    main > section:first-of-type {
         flex-direction: column;
         align-items: center;
     }
-    div.firstImpression img {
+    main > section:first-of-type img {
         width: 100%;
     }
-    div.firstImpression div {
+    main > section:first-of-type section {
         width: 80%;
     }
     table {
@@ -136,12 +136,12 @@ div.aboutText article > dl > dd > dl > dt {
     }
 
     /* Change some dimensions/sizing for the aboutText section */
-    div.aboutText {
+    main > section:last-of-type {
         margin: 0px;
         padding: 50px 3em 100px 3em;
         width: 100%;
     }
-    div.aboutText h1 {
+    main > section:last-of-type h1 {
         text-align: center;
     }
 }
