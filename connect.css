@@ -147,6 +147,7 @@ main > section > section:nth-of-type(4) {
 main > section > section:nth-of-type(5) {
     grid-column: 1 / span 1;
     grid-row: 4 / span 1;
+    padding-bottom: 12%;
 }
 
 main > section > section:nth-of-type(6) {
@@ -157,7 +158,6 @@ main > section > section:nth-of-type(6) {
 main > section > section:nth-of-type(7) {
     grid-column: 2 / span 3;
     grid-row: 4 / span 1;
-    padding-bottom: 0px;
 }
 
 /* Styles for the contact form and its elements */
@@ -248,6 +248,7 @@ main > section > section:nth-of-type(7) p {
     main > section > section:nth-of-type(5) {
         grid-column: 1 / span 1;
         grid-row: 6 / span 1;
+        padding: 20px;
     }
 
     main > section > section:nth-of-type(7) {
