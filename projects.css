@@ -196,13 +196,13 @@ main > section:last-of-type > section:last-of-type ul li:last-of-type {
     }
 
     /* Style for info */
-    main section:first-of-type {
+    main > section:first-of-type {
         padding-top: 50px;
         width: 80%;
         margin: auto;
         text-align: center;
     }
-    main section:first-of-type p {
+    main > section:first-of-type p {
         font-size: 1.3em;
     }
 
@@ -210,7 +210,7 @@ main > section:last-of-type > section:last-of-type ul li:last-of-type {
     main > section:last-of-type {
         width: 100%;
     }
-    section:last-of-type main > section:last-of-type > section {
+    main > section:last-of-type > section {
         min-width: 80%;
     }
     main > section:last-of-type > section h1 {
