@@ -47,14 +47,14 @@ main > h1 {
 }
 
 /* Connect section contains the grid for all the connect cards in the page */
-div.connectSection {
+main > section {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     row-gap: 30px;
 }
 
 /* Styles for each connect card and its content */
-div.connectCard {
+main > section > section {
     transition: scale 0.3s;
     scale: 1;
     box-sizing: border-box;
@@ -63,86 +63,105 @@ div.connectCard {
     border-radius: 32px;
     margin: 0px 20px 0px 20px;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
-    /* padding-bottom: 56.25%; to get a perfect 16:9 aspect ratio https://css-tricks.com/aspect-ratio-boxes/ */
 }
 /* For transitions */
-div.connectCard:hover {
+main > section > section:hover {
     transition: scale 0.5s;
     scale: 1.05;
 }
-div.connectCard h1 {
+main > section > section h1 {
     font-size: 2.2em;
 }
-div.connectCard * {
+main > section > section * {
     margin: 0px;
 }
-div.connectCard img {
+main > section > section img {
     width: 100%;
     border-radius: 22px;
     box-shadow: 0px 0px 30px -10px rgb(49, 49, 49);
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
-div.cardText {
+main > section > section > section {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
 }
 /* Smaller cards will have an alternate text appearence and layout */
-div.smallCardText {
+main > section > section > article {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 50%;
     /* margin-top: 20px; */
 }
-div.smallCardText * {
-    font-size: 1em;
+
+main > section > section > * > a section {
+    transition: border 1s, background-color 0.5s;
+    border: 3px solid transparent;
+    background-color: white;
+    width: fit-content;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin: auto;
+    position: relative;
+    bottom: 1px;
 }
-div.cardButton:not(:hover) {
+main > section > section > * > a *:not(:hover) {
+    transition: color 0.5s;
     color: black;
+}
+main > section > section > * > a section:hover {
+    transition: all 1s;
+    background-color: black;
+    border: 3px solid white;
+}
+main > section > section > * > a section:hover * {
+    transition: color 1s;
+    color: white;
+    text-decoration: underline;
 }
 
 /* Defining the grid location of each card */
-div.githubCard {
+main > section > section:first-of-type {
     grid-column: 1 / span 2;
     grid-row: 1 / span 1;
 }
 
-div.emailCard {
+main > section > section:nth-of-type(2) {
     grid-column: 3 / span 2;
     grid-row: 1 / span 1;
 }
 
-div.igCard {
+main > section > section:nth-of-type(3) {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
 }
 
-div.tiktokCard {
+main > section > section:nth-of-type(4) {
     grid-column: 1 / span 1;
     grid-row: 3 / span 1;
 }
 
-div.linkedinCard {
+main > section > section:nth-of-type(5) {
     grid-column: 1 / span 1;
     grid-row: 4 / span 1;
 }
 
-div.aboutCard {
+main > section > section:nth-of-type(6) {
     grid-column: 2 / span 3;
     grid-row: 2 / span 2;
 }
 
-div.contactForm {
+main > section > section:nth-of-type(7) {
     grid-column: 2 / span 3;
     grid-row: 4 / span 1;
     padding-bottom: 0px;
 }
 
 /* Styles for the contact form and its elements */
-div.contactForm form * {
+main > section > section:nth-of-type(7) form * {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -154,30 +173,30 @@ div.contactForm form * {
     font-size: 1.2em;
     resize: none;
 }
-div.contactForm form button {
+main > section > section:nth-of-type(7) form button {
     transition: background-color 0.5s, color 0.5s;
     width: 20%;
     padding: 0.5em;
     background-color: black;
     color: white;
 }
-div.contactForm form button:hover {
+main > section > section:nth-of-type(7) form button:hover {
     transition: background-color 0.5s, color 0.5s;
     background-color: white;
     color: black;
 }
-div.contactForm p {
+main > section > section:nth-of-type(7) p {
     padding: 2px;
 }
 
 /* Changes the presentation of text in a small card to prevent overflow issues */
 @media screen and (max-width: 1260px) and (min-width: 1019px) {
-    div.smallCardText {
+    main > section > section > article {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    div.smallCardText .cardButton {
+    main > section > section > article a section {
         width: 60%;
     }
 }
@@ -190,53 +209,53 @@ div.contactForm p {
     }
 
     /* Change the height of the small card text (small cards now have a different appearence)  */
-    div.smallCardText {
+    main > section > section > article {
         height: auto;
     }
 
     /* Change the grid layout */
-    div.connectSection {
+    main > section {
         grid-template-columns: 100%;
         row-gap: 20px;
     }
 
     /* Change location of all elements to fit in the new grid layout */
-    div.aboutCard {
+    main > section > section:nth-of-type(6) {
         grid-column: 1 / span 1;
         grid-row: 1 / span 1;
     }
 
-    div.githubCard {
+    main > section > section:first-of-type {
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
     }
     
-    div.emailCard {
+    main > section > section:nth-of-type(2) {
         grid-column: 1 / span 1;
         grid-row: 3 / span 1;
     }
     
-    div.igCard {
+    main > section > section:nth-of-type(3) {
         grid-column: 1 / span 1;
         grid-row: 4 / span 1;
     }
     
-    div.tiktokCard {
+    main > section > section:nth-of-type(4) {
         grid-column: 1 / span 1;
         grid-row: 5 / span 1;
     }
     
-    div.linkedinCard {
+    main > section > section:nth-of-type(5) {
         grid-column: 1 / span 1;
         grid-row: 6 / span 1;
     }
 
-    div.contactForm {
+    main > section > section:nth-of-type(7) {
         grid-column: 1 / span 1;
         grid-row: 7 / span 1;
         padding-bottom: 0px;
     }
-    div.contactForm form button {
+    main > section > section:nth-of-type(7) form button {
         width: 100%;
     }
 }
