@@ -1,0 +1,52 @@
+.section {
+    width: 100%;;
+}
+
+/* Section 1, name */
+.section1 {
+    height: 100vh;
+    background-color: var(--background-50);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.section1 > * {
+    border: 1px solid red;
+}
+.section1 .col-1 {
+    flex-grow: 1;
+    order: 1;
+}
+.section1 .col-2 {
+    flex-grow: 8;
+    order: 2;
+}
+.section1 .col-3 {
+    flex-grow: 8;
+    order: 3;
+}
+
+/* Section 1 -> column 1 styles */
+.socials {
+    max-width: 40px;
+}
+.section1 .col-1 .socials .social-sec  {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.section1 .col-1 .socials .social-sec:last-of-type  {
+    border: 1px solid blue;
+    margin-top: 15px;
+}
+.social-sec img {
+    width: 100%;
+    gap: 10px;
+}
+
+/* Section 1 -> column 2 styles */
+.section1 .col-2 .name {
+    font-size: 6em;
+}

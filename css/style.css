@@ -1,3 +1,29 @@
 body {
     background-color: var(--background-50);
+    color: var(--text-950);
+}
+
+nav {
+    background-color: var(--background-400);
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 2vh;
+    border-radius: 1000px;
+}
+
+.link-button {
+    margin-top: 20px;
+    border-radius: 1000px;
+    background-color: var(--primary-200);
+    width: fit-content;
+    padding: 10px 20px;
+}
+.link-button a {
+    color: var(--text-950);
+    text-decoration: none;
+    font-size: 1.2em;
 }
