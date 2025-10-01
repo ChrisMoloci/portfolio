@@ -4,15 +4,49 @@ body {
 }
 
 nav {
-    background-color: var(--background-400);
+    background-color: var(--background-50);
+    border: 1px solid var(--text-900);
+    border-radius: 16px;
+    padding: 10px 20px;
+    font-size: 20px;
     position: fixed;
     bottom: 0px;
     display: flex;
-    width: 50%;
+    align-items: center;
+    width: 70%;
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 2vh;
-    border-radius: 1000px;
+}
+nav .col-1, nav .col-2, nav .col-3 {
+    border: 1px solid red;
+}
+nav .col-1 {
+    width: 15%;
+    order: 1;
+    font-size: 0.7em;
+}
+
+nav .col-2 {
+    width: 70%;
+    order: 2;
+}
+
+nav .col-3 {
+    width: 15%;
+    order: 3;
+    text-align: right;
+}
+
+nav .col-2 ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+nav .col-2 ul li a {
+    text-decoration: none;
+    color: var(--text-950);
 }
 
 .link-button {
