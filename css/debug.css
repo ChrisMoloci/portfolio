@@ -1,0 +1,12 @@
+body > :where(div, section, header, footer, nav, video, img) {
+    border: 1px solid blue;
+}
+body > * > :where(div, section, header, footer, nav, video, img) {
+    border: 1px solid red;
+}
+body > * > * > :where(div, section, header, footer, nav, video, img) {
+    border: 2px solid green;
+}
+body > * > * > * :where(div, section, header, footer, nav, video, img) {
+    border: 2px solid orange;
+}
