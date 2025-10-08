@@ -59,6 +59,10 @@
     --accent-800: #2b2c3b;
     --accent-900: #15161e;
     --accent-950: #0b0b0f;
+
+    --core: #CFEDD7;
+    --medium: #B0D5EE;
+    --complex: #BEB0EE;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -122,5 +126,9 @@
     --accent-800: #c4c5d4;
     --accent-900: #e1e2ea;
     --accent-950: #f0f0f4;
+
+    --core: #12311B;
+    --medium: #123851;
+    --complex: #211251;
   }
 }
