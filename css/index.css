@@ -7,6 +7,10 @@
 .section1 {
     height: 100vh;
     background-color: var(--background-50);
+    background-image: url('/assets/forest.svg');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: bottom left;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,14 +37,13 @@
     margin-left: 2vw;
 }
 .section1 .col-1 .socials .social-sec  {
-    /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 .section1 .col-1 .socials .social-sec:last-of-type  {
     /* border: 1px solid blue; */
-    margin-top: 25px;
+    margin-top: 40px;
 }
 .social-sec img {
     width: 100%;
@@ -117,7 +120,7 @@
     flex-direction: row;
     align-items: end;
     justify-content: start;
-    padding: 5vh 0px 5vh 2vw;
+    padding: 5vh 0px 8vh 2vw;
     height: 100%;
 }
 .section3 > .col-2 {
@@ -131,11 +134,15 @@
 .section3 > .col-1 h1 {
     font-size: 3em;
     writing-mode: sideways-lr;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 10px;
+    text-decoration-color: var(--accent-500);
 }
 .section3 > .col-1 nav {
     margin-left: 2vw;
     writing-mode: sideways-lr;
-    height: 100%;
+    height: 90%;
     border-radius: 1000px;
     display: flex;
     background-color: var(--primary-100);
@@ -162,7 +169,11 @@
     width: 30%;
 }
 
-.section3 > .col-2 .col-2-1 .project-card {
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.project-card {
     width: 70%;
     display: flex;
     gap: 20px;
@@ -171,15 +182,15 @@
     border-radius: 16px;
     margin-bottom: 20px;
 }
-.section3 > .col-2 .col-2-1 .project-card img {
+.project-card img {
     width: 20%;
     border-radius: inherit;
 }
-.section3 > .col-2 .col-2-1 .project-card .project-card-text h2 {
+.project-card .project-card-text h2 {
     margin-top: 10px;
     font-size: 2em;
 }
-.section3 > .col-2 .col-2-1 .project-card .project-card-text p {
+.project-card .project-card-text p {
     margin: 20px 15px 0px 15px;
 }
 
