@@ -9,19 +9,17 @@
     background-color: var(--background-50);
     display: flex;
     justify-content: space-between;
-    padding: 10px;
     align-items: center;
 }
 .section1 > * {
-    /* border: 1px solid red; */
     overflow: hidden;
 }
 .section1 .col-1 {
-    width: 10%;
+    width: 12%;
     order: 1;
 }
 .section1 .col-2 {
-    width: 50%;
+    width: 48%;
     order: 2;
 }
 .section1 .col-3 {
@@ -32,6 +30,7 @@
 /* Section 1 -> column 1 styles */
 .socials {
     max-width: 40px;
+    margin-left: 2vw;
 }
 .section1 .col-1 .socials .social-sec  {
     /* border: 1px solid blue; */
@@ -112,17 +111,76 @@
     justify-content: space-between;
 }
 .section3 > .col-1 {
-    width: 10%;
+    width: 15%;
     order: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: start;
+    padding: 5vh 0px 5vh 2vw;
+    height: 100%;
 }
 .section3 > .col-2 {
-    width: 90%;
+    width: 85%;
     order: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .section3 > .col-1 h1 {
-    transform: rotate(270deg);
-    transform-origin: bottom right;
+    font-size: 3em;
+    writing-mode: sideways-lr;
+}
+.section3 > .col-1 nav {
+    margin-left: 2vw;
+    writing-mode: sideways-lr;
+    height: 100%;
+    border-radius: 1000px;
+    display: flex;
+    background-color: var(--primary-100);
+    border: 1px solid var(--text-200);
+}
+.section3 > .col-1 nav div {
+    font-size: 1.5em;
+    height: 50%;
+    padding: 20px 12px;
+    cursor: pointer;
+}
+.section3 > .col-1 nav div:first-of-type {
+    border-radius: 1000px;
+    background-color: var(--secondary-100);
+    border: 1px solid var(--text-200);
+}
+
+.section3 > .col-2 .col-2-1 {
+    width: 70%;
+    padding-left: 3vw;
+    max-height: 80%;
+}
+.section3 > .col-2 .col-2-2 {
+    width: 30%;
+}
+
+.section3 > .col-2 .col-2-1 .project-card {
+    width: 70%;
+    display: flex;
+    gap: 20px;
+    background-color: var(--secondary-50);
+    border: 1px solid var(--text-200);
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+.section3 > .col-2 .col-2-1 .project-card img {
+    width: 20%;
+    border-radius: inherit;
+}
+.section3 > .col-2 .col-2-1 .project-card .project-card-text h2 {
+    margin-top: 10px;
+    font-size: 2em;
+}
+.section3 > .col-2 .col-2-1 .project-card .project-card-text p {
+    margin: 20px 15px 0px 15px;
 }
 
 /* Section 4, featured blog posts */
