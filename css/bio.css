@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15vh;
+}
+header .col-1 {
+    width: 10%;
+}
+header .col-2 {
+    width: 90%;
+}
+
+.col-2 h1 {
+    font-size: 3em;
+}
