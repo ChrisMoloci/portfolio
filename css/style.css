@@ -1,6 +1,17 @@
+@font-face {
+    font-family: "Cal Sans";
+    src: url("/assets/fonts/Cal_Sans/CalSans-Regular.ttf");;
+}
+@font-face {
+    font-family: Gantari;
+    src: url("/assets/fonts/Gantari/Gantari-VariableFont_wght.ttf");
+}
+
 body {
     background-color: var(--background-50);
     color: var(--text-950);
+    font-family: Gantari;
+    font-weight: 400;
 }
 
 nav#nav-bar {

@@ -52,7 +52,9 @@
 
 /* Section 1 -> column 2 styles */
 .section1 .col-2 .name {
-    font-size: 6em;
+    font-size: 7em;
+    line-height: 1em;
+    font-family: "Cal Sans", sans-serif;
 }
 
 /* Section 1 -> column 3 styles */

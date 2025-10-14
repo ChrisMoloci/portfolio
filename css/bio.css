@@ -4,12 +4,25 @@ header {
     margin-top: 15vh;
 }
 header .col-1 {
-    width: 10%;
+    width: 20%;
 }
 header .col-2 {
-    width: 90%;
+    width: 80%;
 }
 
 .col-2 h1 {
-    font-size: 3em;
+    font-size: 5em;
+    line-height: 1em;
+}
+.col-2 a {
+    font-size: 1.5em;
+    color: inherit;
+}
+
+.bio-grid {
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 20% 16% 16% 16% 16% 16%;
+    gap: 20px;
 }
