@@ -100,9 +100,10 @@
     margin-top: 1.5em
 }
 
-.section2 .col-2 video {
-    width: 70%;
-    height: 100%;
+.section2 .col-2 iframe {
+    width: 50%;
+    height: 70%;
+    align-self: center;
     object-fit: cover;
     background-color: black;
     margin-top: 3em;
