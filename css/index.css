@@ -46,7 +46,7 @@
     margin-top: 40px;
 }
 .social-sec img {
-    width: 100%;
+    max-width: 100%;
     gap: 10px;
 }
 

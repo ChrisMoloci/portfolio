@@ -6,6 +6,13 @@
     font-family: Gantari;
     src: url("/assets/fonts/Gantari/Gantari-VariableFont_wght.ttf");
 }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24 
+}
 
 body {
     background-color: var(--background-50);
