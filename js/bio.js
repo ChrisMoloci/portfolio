@@ -44,8 +44,15 @@ const imageElement = document.getElementById('image-slideshow');
 let currentImageIndex = 0;
 
 let imageElements = [
-    document.createElement('img').src = "/assets/pfp.png",
-    document.createElement('img').src = "/assets/chris.png",
+    // document.createElement('img').src = "/assets/images/pfp.png",
+    // document.createElement('img').src = "/assets/images/chris.png",
+    document.createElement('img').src = "/assets/images/slideshow/1.png",
+    document.createElement('img').src = "/assets/images/slideshow/2.png",
+    document.createElement('img').src = "/assets/images/slideshow/3.png",
+    document.createElement('img').src = "/assets/images/slideshow/4.png",
+    document.createElement('img').src = "/assets/images/slideshow/5.png",
+    document.createElement('img').src = "/assets/images/slideshow/6.png",
+    document.createElement('img').src = "/assets/images/slideshow/7.png",
 ]
 
 imageElement.src = imageElements[0]; // Init image
@@ -56,7 +63,8 @@ setInterval(() => {
 
     imageElement.style.animation = 'image-fade-in 0.5s ease-in-out';
     imageElement.src = imageElements[currentImageIndex];
+
     setTimeout(() => {
         imageElement.style.animation = '';
-    }, 500);
+    }, 600);
 }, 5000);
