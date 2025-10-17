@@ -7,7 +7,7 @@
 .section1 {
     height: 100vh;
     background-color: var(--background-50);
-    background-image: url('/assets/forest.svg');
+    background-image: url('/assets/images/forest.svg');
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: bottom left;
