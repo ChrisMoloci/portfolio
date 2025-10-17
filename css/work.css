@@ -1,0 +1,59 @@
+.work-header {
+    padding-top: 10vh;
+    width: 100%;
+}
+.work-header .work-nav .col-1 {
+    width: 25%;
+}
+.work-header .work-nav .col-2 {
+    width: 60%;
+}
+.work-header .work-nav .col-3 {
+    width: 15%;
+}
+
+.work-header h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
+.work-header .work-nav {
+    margin-top: 20px;
+    display: flex;
+}
+
+/* Coding content styler */
+.coding-content {
+    margin-top: 50px;
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+.coding-content .work-card {
+    background-color: var(--primary-100);
+    border: 1px solid var(--primary-200);
+    border-radius: 32px;
+}
+.coding-content .work-card img {
+    border-radius: 32px 32px 0px 0px;
+    border: none;
+}
+.coding-content .work-card .work-card-content {
+    margin: 10px 15px 20px;
+}
+.coding-content .work-card .work-card-content .work-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+div.link-button {
+    margin: 0px;
+    font-size: 0.8em;
+    padding: 10px 15px;
+    border: 1px solid var(--primary-300);
+}
+/* Music Content Styles */
