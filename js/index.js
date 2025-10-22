@@ -82,6 +82,20 @@ try {
         "operating-systems": loadTemplate("languages-operating-systems", languageCardsFile),
     };
 
+    // Expands cards when clicked on by setting their class to expanded and collapsing if already expanded
+    languagesContainer.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const card = event.target.closest('.language-card'); // adjust selector to your card element
+
+        if (card.classList.contains('expanded-language-card')) {
+            card.classList.remove('expanded-language-card');
+            return;
+        } else {
+            card.classList.add('expanded-language-card');
+            console.log(card);
+        }
+    });
+
     languagesContainer.innerHTML = (await languageTemplates["web-development"]).innerHTML;
 } catch(error) {
     // Handle errors during template loading and display them in the DOM

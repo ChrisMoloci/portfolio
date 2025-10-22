@@ -180,10 +180,14 @@
     width: 70%;
     display: flex;
     gap: 20px;
-    background-color: var(--secondary-50);
+    background-color: var(--primary-100);
     border: 1px solid var(--text-200);
     border-radius: 16px;
     margin-bottom: 20px;
+}
+.project-card:hover {
+    background-color: var(--secondary-100);
+    transition: background-color 0.2s ease;
 }
 .project-card img {
     width: 20%;
@@ -209,7 +213,7 @@
 .section5 > .col-1 {
     width: 30%;
     order: 1;
-    background-color: var(--background-50);
+    background-color: var(--secondary-50);
     padding: 10vh 2vw 0vh;
 }
 .section5 > .col-2 {
@@ -238,15 +242,14 @@
     cursor: pointer;
 }
 .section5 .col-1 nav > div.selected {
-    background-color: var(--primary-100);
-    border: 1px solid var(--text-200);
+    background-color: var(--secondary-100);
+    border: 1px solid var(--secondary-200);
 }
 
 .section5 .col-2 .language-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-radius: 16px;
-    gap: 0px;
+    gap: 5px;
     margin: 30px auto 0px;
     width: 90%;
 }
@@ -257,14 +260,33 @@
     padding: 20px;
     background-color: var(--primary-50);
     border: 1px solid var(--text-200);
+    border-radius: 16px;
     cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
     *:not(header, header *) {
         display: none;
+        transition: display 5s ease;
+    }
+    header .col-2 i {
+        transform: rotate(0deg);
+        transition: transform 0.2s ease;
+
     }
 }
 .section5 .col-2 .language-grid .language-card:hover {
     background-color: var(--secondary-100);
+    transition: background-color 0.2s ease;
+}
+.section5 .col-2 .language-grid .expanded-language-card {
+    background-color: var(--secondary-100);
+    /* grid-column: span 2; */
     grid-row: span 2;
+    header .col-2 i {
+        transform: rotate(180deg);
+        transition: transform 0.2s ease;
+
+    }
     *:not(header) {
         display: block;
         transition: display 5s ease;
@@ -277,6 +299,10 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+}
+.section5 .col-2 .language-grid .language-card header .col-1 {
+    display: flex;
+    gap: 10px;
 }
 .section5 .col-2 .language-grid .language-card header .language-level {
     border: 1px solid var(--text-200);
