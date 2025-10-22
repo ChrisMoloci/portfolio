@@ -6,12 +6,14 @@
     width: 25%;
 }
 .work-header .work-nav .col-2 {
-    width: 60%;
+    width: 50%;
 }
 .work-header .work-nav .col-3 {
-    width: 15%;
+    width: 25%;
+    padding: 0px 20px;
 }
 
+/* Work Selector (Coding or music) */
 .work-header h1 {
     text-align: center;
     font-size: 4em;
@@ -20,6 +22,54 @@
 .work-header .work-nav {
     margin-top: 20px;
     display: flex;
+    align-items: center;
+}
+
+/* Filters */
+
+/* Search Bar */
+.work-header .work-nav .col-3 #search {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    background-color: var(--primary-100);
+    border: 1px solid var(--primary-200);
+    border-radius: 1000px;
+}
+.work-header .work-nav .col-3 #search #search-bar {
+    width: 85%;
+    padding: 10px 15px;
+    border-radius: 1000px;
+    color: var(--text-300);
+}
+.work-header .work-nav .col-3 #search:focus-within {
+    border: 1px solid var(--secondary-200);
+}
+.work-header .work-nav .col-3 #search #search-bar:focus {
+    color: var(--text-200);
+}
+.work-header .work-nav .col-3 #search button {
+    width: 15%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--secondary-100);
+    border: 1px solid var(--secondary-200);
+    border-radius: 1000px;
+    padding: auto;
+}
+
+/* Work Type Col */
+.work-type {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0px 2vw;
+}
+.work-type div {
+    width: 50%;
+    background-color: var(--primary-100);
+    border: 1px solid var(--primary-200);
+    padding: 10px 15px;
+    border-radius: 1000px;
 }
 
 /* Coding content styler */

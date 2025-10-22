@@ -53,7 +53,7 @@ let imageElements = [
     document.createElement('img').src = "/assets/images/slideshow/5.png",
     document.createElement('img').src = "/assets/images/slideshow/6.png",
     document.createElement('img').src = "/assets/images/slideshow/7.png",
-]
+];
 
 imageElement.src = imageElements[0]; // Init image
 

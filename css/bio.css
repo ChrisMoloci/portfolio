@@ -176,6 +176,9 @@ header.main-header .col-2 p * {
     gap: 10px;;
     border: 1px solid var(--primary-200);
     border-radius: 1000px;
+    
+    -webkit-user-select: none;
+    user-select: none;
 }
 .card-1-3 header .bible-selector-buttons div {
     display: flex;
