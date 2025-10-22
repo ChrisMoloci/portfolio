@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
     <!-- <link rel="stylesheet" href="css/debug.css"> -->
-     <script src="js/load_nav_bar.js" type="module"></script>
+    <script src="js/load_nav_bar.js" type="module"></script>
+    <script src="/js/index.js" type="module"></script>
 </head>
 <body>
 
@@ -67,8 +68,7 @@
             </article>
         </div>
         <div class="col-2">
-            <!-- <video src="#"></video> -->
-             <iframe src="https://www.youtube.com/embed/Oq-pGfysWoY?si=8dxU8ictUIP73LV0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+             <!-- <iframe src="https://www.youtube.com/embed/Oq-pGfysWoY?si=8dxU8ictUIP73LV0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         </div>
     </div>
 
@@ -76,43 +76,15 @@
     <div class="section section3">
         <div class="col-1">
             <h1>Featured Projects</h1>
-            <nav>
-                <div>Code</div>
-                <div>Music</div>
+            <nav id="projects-nav">
+                <div class="selected" id="projects:code">Code</div>
+                <div id="projects:music">Music</div>
             </nav>
         </div>
         <div class="col-2">
-            <div class="col-2-1">
-
-                <a href="#" class="project-card-link">
-                    <div class="project-card">
-                        <img src="assets/images/placeholder.png" alt="">
-                        <div class="project-card-text">
-                            <h2>Project Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="project-card-link">
-                    <div class="project-card">
-                        <img src="assets/images/placeholder.png" alt="">
-                        <div class="project-card-text">
-                            <h2>Project Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="project-card-link">
-                    <div class="project-card">
-                        <img src="assets/images/placeholder.png" alt="">
-                        <div class="project-card-text">
-                            <h2>Project Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                        </div>
-                    </div>
-                </a>
+            <div class="col-2-1" id="projects-container">
+                <!-- Populated by javascript with coding cards or music cards -->
+                <p>loading...</p>
             </div>
             <div class="col-2-2">
                 Decoration section
@@ -129,158 +101,25 @@
     <div class="section section5">
         <div class="col-1">
             <h1>Expertise</h1>
-
-            <nav>
-                <div>Web Development</div>
-                <div>Object-Oriented Programming</div>
-                <div>Software/Tools</div>
-                <div>Operating Systems</div>
+            <nav id="language-nav">
+                <div id="languages:web-development" class="selected">Web Development</div>
+                <div id="languages:object-oriented-programming">Object-Oriented Programming</div>
+                <div id="languages:software-tools">Software/Tools</div>
+                <div id="languages:operating-systems">Operating Systems</div>
             </nav>
         </div>
         <div class="col-2">
-            <h1>Web Development:</h1>
-            <div class="language-grid">
-                <div class="language-card">
-                    <header>
-                        <h2>HTML</h2>
-                        <div class="language-level core">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>CSS</h2>
-                        <div class="language-level core">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>JavaScript</h2>
-                        <div class="language-level core">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>Angular</h2>
-                        <div class="language-level complex">Framework</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>Java</h2>
-                        <div class="language-level medium">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>C#</h2>
-                        <div class="language-level">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>Git</h2>
-                        <div class="language-level">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>GitHub</h2>
-                        <div class="language-level">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
-                <div class="language-card">
-                    <header>
-                        <h2>VS Code</h2>
-                        <div class="language-level">Core</div>
-                    </header>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    </article>
-                    
-                    <div class="link-button">
-                        <a href="#">Website</a>
-                    </div>
-                </div>
+            <h1 id="language-title">Web Development:</h1>
+            <div class="language-grid" id="language-container">
+                <!-- Populated by javascript with language cards -->
+                <p>loading...</p>
             </div>
         </div>
     </div>
 
     <nav id="nav-bar">
-        <!-- <div class="col-1">
-            <p>
-                Christian<br>
-                Moloci
-            </p>
-        </div>
-
-        <div class="col-2">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="html/work.html">My Work</a></li>
-                <li><a href="html/blog.html">Blog</a></li>
-                <li><a href="html/bio.html">Bio</a></li>
-            </ul>
-        </div>
-
-        <div class="col-3">
-            menu
-        </div> -->
+        <!-- Populated by load_nav_bar.js -->
+         <p>loading...</p>
     </nav>
     
 </body>

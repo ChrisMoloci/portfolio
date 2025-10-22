@@ -157,7 +157,7 @@
     padding: 20px 12px;
     cursor: pointer;
 }
-.section3 > .col-1 nav div:first-of-type {
+.section3 > .col-1 nav div.selected {
     border-radius: 1000px;
     background-color: var(--secondary-100);
     border: 1px solid var(--text-200);
@@ -237,7 +237,7 @@
     font-size: 1.2em;
     cursor: pointer;
 }
-.section5 .col-1 nav > div:first-of-type {
+.section5 .col-1 nav > div.selected {
     background-color: var(--primary-100);
     border: 1px solid var(--text-200);
 }
