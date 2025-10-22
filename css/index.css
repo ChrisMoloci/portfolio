@@ -257,17 +257,19 @@
     padding: 20px;
     background-color: var(--primary-50);
     border: 1px solid var(--text-200);
+    cursor: pointer;
     *:not(header, header *) {
         display: none;
     }
 }
 .section5 .col-2 .language-grid .language-card:hover {
     background-color: var(--secondary-100);
+    grid-row: span 2;
     *:not(header) {
         display: block;
         transition: display 5s ease;
     }
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, grid-row 0.2s ease;
 }
 
 .section5 .col-2 .language-grid .language-card header {
