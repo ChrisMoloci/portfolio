@@ -183,6 +183,12 @@
     background-color: var(--secondary-100);
     border: 1px solid var(--text-200);
 }
+.section3 > .col-1 nav div:hover {
+    background-color: var(--accent-100);
+    outline: 1px solid var(--accent-300);
+    border-radius: 1000px;
+    transition: background-color 0.2s ease;
+}
 
 .section3 > .col-2 .col-2-1 {
     width: 70%;
@@ -275,6 +281,12 @@
 .section5 .col-1 nav > div.selected {
     background-color: var(--secondary-100);
     border: 1px solid var(--secondary-200);
+}
+.section5 .col-1 nav > div:hover {
+    background-color: var(--accent-100);
+    outline: 1px solid var(--accent-300);
+    border-radius: 1000px;
+    transition: background-color 0.2s ease;
 }
 
 .section5 .col-2 .language-grid {
