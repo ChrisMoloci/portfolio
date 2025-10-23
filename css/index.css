@@ -52,10 +52,29 @@
 
 /* Section 1 -> column 2 styles */
 .section1 .col-2 .name {
+    position: relative;
     font-size: 7em;
+    /* font-size: 5em; */
     line-height: 1em;
     font-family: "Cal Sans", sans-serif;
+    /* display: flex;
+    height: 200px;
+    align-items: center;
+    text-shadow:
+        0px -50px 1px var(--primary-300),
+        0px -25px 1px var(--primary-100),
+        0px 25px 1px var(--primary-100),
+        0px 50px 1px var(--primary-300); */
 }
+/* .section1 .col-2 .name::after {
+    content: "Christian Moloci";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translate(0px, 20px);
+    color: var(--accent-500);
+    z-index: -1;
+} */
 
 /* Section 1 -> column 3 styles */
 .section1 .col-3 .image-container {
@@ -150,6 +169,8 @@
     display: flex;
     background-color: var(--primary-100);
     border: 1px solid var(--text-200);
+    -webkit-user-select: none;
+    user-select: none;
 }
 .section3 > .col-1 nav div {
     font-size: 1.5em;
@@ -205,19 +226,27 @@
 
 /* Section 5, languages */
 .section5 {
-    height: 80vh;
-    background-color: var(--background-100);
+    min-height: 95vh;
+    background-color: var(--primary-50);
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
+    padding-bottom: 10vh;
+    height: 80vh;
 }
 .section5 > .col-1 {
-    width: 30%;
+    width: 28%;
     order: 1;
     background-color: var(--secondary-50);
-    padding: 10vh 2vw 0vh;
+    margin: 1.5vw 0px 0px 1.2vw;
+    padding: 2vw 2vw 0px;
+    border-radius: 32px;
+    border: 1px solid var(--secondary-100);
+    font-weight: 600;
+    font-size: 1.25em;
 }
 .section5 > .col-2 {
-    width: 70%;
+    width: 73%;
     order: 2;
     padding: 10vh 2vw;
 }
@@ -230,6 +259,8 @@
 .section5 .col-1 nav {
     width: 100%;
     margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .section5 .col-1 nav > div {
     display: block;
@@ -258,7 +289,7 @@
     flex-direction: column;
     align-items: start;
     padding: 20px;
-    background-color: var(--primary-50);
+    background-color: var(--primary-100);
     border: 1px solid var(--text-200);
     border-radius: 16px;
     cursor: pointer;
@@ -279,7 +310,7 @@
     transition: background-color 0.2s ease;
 }
 .section5 .col-2 .language-grid .expanded-language-card {
-    background-color: var(--secondary-100);
+    /* background-color: var(--secondary-100); */
     /* grid-column: span 2; */
     grid-row: span 2;
     header .col-2 i {

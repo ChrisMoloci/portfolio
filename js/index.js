@@ -28,6 +28,10 @@ try {
 
 // Event listener for navigating between code and music projects on home page
 projectsNav.addEventListener("click", async (event) => {
+    console.log(event.target);
+
+    if (event.target.tagName == 'NAV') return; // Ignore clicks on the nav container itself
+
     const targetId = event.target.id; // Get the ID of the clicked element (code or music)
 
     function clearSelectionClass() {
@@ -105,7 +109,9 @@ try {
 
 
 languagesNav.addEventListener("click", async (event) => {
-    const targetId = event.target.id; // Get the ID of the clicked element
+    if (event.target.tagName == 'NAV') return; // Ignore clicks on the nav container itself
+
+    const targetId = event.target.id; // Get the ID of the clicked element)
 
     function clearSelectionClass() {
         Array.from(languagesNav.children).forEach(element => {
