@@ -71,11 +71,65 @@ nav#nav-bar .col-2 ul li a {
     margin-top: 20px;
     border-radius: 1000px;
     background-color: var(--primary-200);
+    box-shadow: 0px 0px 10px var(--primary-200); /* fallback for older browsers */
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--primary-200) 30%, transparent);
     width: fit-content;
     padding: 10px 20px;
 }
 .link-button a {
+    display: inline-block;
+    position: relative;
     color: var(--text-950);
     text-decoration: none;
     font-size: 1.2em;
+}
+.link-button:hover {
+    background-color: var(--secondary-100);
+    outline: 1px solid var(--secondary-200);
+    box-shadow: 0px 0px 10px var(--secondary-200); /* fallback for older browsers */
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--secondary-200) 30%, transparent);
+    transition: all 0.2s ease;
+}
+
+.link-button a::after {
+    content: '';
+    position: absolute;
+    transform: scaleX(0);
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent-500);
+    border-radius: 1000px;
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+}
+.link-button:hover a::after {
+    transform: scaleX(1);
+}
+
+/* Specifies box shadows for different coding languages in classes */
+.lang-html {
+    box-shadow: 0px 0px 4px 2px #e34c264d;
+}
+.lang-css {
+    box-shadow: 0px 0px 4px 2px #264de44d;
+}
+.lang-js {
+    box-shadow: 0px 0px 4px 2px #f0db4f4d;
+}
+.lang-java {
+    box-shadow: 0px 0px 4px 2px #f898204d;
+}
+.lang-javafx {
+    box-shadow: 0px 0px 4px 2px #5382a14d;
+}
+.lang-flutter {
+    box-shadow: 0px 0px 4px 2px #027DFD4d;
+}
+.lang-dart {
+    box-shadow: 0px 0px 4px 2px #5AC5B04d;
+}
+.lang-php {
+    box-shadow: 0px 0px 4px 2px #8993BE4d;
 }

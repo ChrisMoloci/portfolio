@@ -1,5 +1,30 @@
 import { loadTemplate, test } from "./html_loader.js";
 
+// Image tilting effect
+const image = document.getElementById("profile-image");
+
+image.addEventListener("mousemove", (event) => {
+    const rect = image.getBoundingClientRect();
+    let x = event.clientX - rect.left; // x position within the element
+    let y = event.clientY - rect.top;  // y position within the element
+
+    const rectWidth = rect.width;
+    const rectHeight = rect.height;
+
+    x-= rectWidth / 2;
+    y-= rectHeight / 2;
+
+    x/= 150
+    y/= 150
+
+    // const skewX = x / 100;
+
+    image.style.transform = `skew(${x}deg, ${y}deg)`;
+
+    console.log(`Mouse X: ${x}, Mouse Y: ${y}`);
+});
+
+
 // Projects Navigation on Home Page
 
 // Vars for project navigation elements
@@ -28,8 +53,6 @@ try {
 
 // Event listener for navigating between code and music projects on home page
 projectsNav.addEventListener("click", async (event) => {
-    console.log(event.target);
-
     if (event.target.tagName == 'NAV') return; // Ignore clicks on the nav container itself
 
     const targetId = event.target.id; // Get the ID of the clicked element (code or music)
