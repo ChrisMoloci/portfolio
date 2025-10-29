@@ -1,3 +1,7 @@
+nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
+    background-color: var(--accent-300);
+}
+
 .section {
     width: 100%;
     /* border: 1px solid blue; */
@@ -161,6 +165,7 @@
 
 .section3 > .col-1 h1 {
     font-size: 3em;
+    /* font-family: 'sans bartle', sans-serif; */
     writing-mode: sideways-lr;
     text-decoration: underline;
     text-decoration-thickness: 4px;
@@ -406,6 +411,7 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    color: var(--primary-950);
 }
 .section5 .col-2 .language-grid .language-card header .col-1 {
     display: flex;

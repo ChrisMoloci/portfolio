@@ -4,8 +4,13 @@ const content = document.getElementById('content');
 const content1 = document.getElementById('content-1');
 const content2 = document.getElementById('content-2');
 
+let currentNav;
+
 navBar.addEventListener('click', (event) => {
     if (event.target.tagName !== "DIV") return; // Only respond to div clicks
+    if (event.target.id === currentNav) return; // Do nothing if the same nav is clicked
+
+    currentNav = event.target.id; // Update current nav so we can ignore same click
 
     Array.from(navBar.children).forEach(child => {
         child.classList.remove('selected');
