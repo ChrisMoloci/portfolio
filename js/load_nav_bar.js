@@ -2,7 +2,12 @@
 
 import { loadTemplate } from './html_loader.js'; // Import the template loader
 
-const navBar = document.getElementById('nav-bar'); // Get the nav-bar element
-const navBarTemplate = await loadTemplate('nav-bar-template', '/components/nav_bar.html'); // Load the nav-bar template
+const navBar = document.getElementById('nav-bar'); // Get the nav-bar element navBar;
 
-navBar.innerHTML = navBarTemplate.innerHTML; // Insert the nav-bar template into the nav-bar element
+try {
+    const navBarTemplate = await loadTemplate('nav-bar-template', '/components/nav_bar.html'); // Load the nav-bar template
+    navBar.innerHTML = navBarTemplate.innerHTML; // Insert the nav-bar template into the nav-bar element
+} catch (error) {
+    console.error("Error loading nav-bar template:", error);
+    navBar.innerHTML = "<p>Error loading navigation bar.</p>";
+}
