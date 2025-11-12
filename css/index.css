@@ -60,6 +60,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 .section1 .col-2 .name {
     position: relative;
     font-size: 7em;
+    color: var(--text-900);
     /* font-size: 5em; */
     line-height: 1em;
     font-family: "Cal Sans", sans-serif;

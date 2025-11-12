@@ -11,3 +11,22 @@ try {
     console.error("Error loading nav-bar template:", error);
     navBar.innerHTML = "<p>Error loading navigation bar.</p>";
 }
+
+const hamburgerButton = document.getElementById('hamburger-button');
+const hamburgerMenu = document.getElementById('hamburger-nav-menu');
+const closeHamburgerMenu = document.getElementById('close-hamburger-menu');
+
+hamburgerButton.addEventListener('click', (event) => {
+    if (event.target.tagName == 'NAV') return; // Ignore clicks on the nav container itself
+
+    if (hamburgerMenu.style.display === 'none') {
+        hamburgerMenu.style.display = 'flex';
+    } else {
+        hamburgerMenu.style.display = 'none';
+    }
+    
+});
+
+closeHamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.style.display = 'none';
+});
