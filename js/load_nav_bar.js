@@ -20,7 +20,7 @@ hamburgerButton.addEventListener('click', (event) => {
     if (event.target.tagName == 'NAV') return; // Ignore clicks on the nav container itself
 
     if (hamburgerMenu.style.display === 'none') {
-        hamburgerMenu.style.display = 'flex';
+        hamburgerMenu.style.display = 'block';
     } else {
         hamburgerMenu.style.display = 'none';
     }
