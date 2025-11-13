@@ -24,6 +24,7 @@ body {
     color: var(--text-950);
     font-family: Gantari;
     font-weight: 400;
+    padding-top: 15vh;
 }
 
 nav#nav-bar {

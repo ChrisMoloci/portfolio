@@ -10,7 +10,7 @@ header.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20vh 0px 10vh;
+    margin: 10vh 0px 10vh;
     padding: 0px 5vw;
 }
 header.main-header .col-1 {
