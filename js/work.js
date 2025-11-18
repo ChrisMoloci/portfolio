@@ -1,4 +1,5 @@
 import { WorkCard } from "./classes/WorkCard.js";
+import { MusicCard } from "./classes/MusicCard.js";
 
 // DOM Elements
 const workTypeNav = document.getElementById("work-type-nav");
@@ -28,6 +29,24 @@ workFilterWords.forEach(tag => {
     workFilters.appendChild(li);
 });
 let selectedWorkTags = [];
+let filterCloseButton = document.createElement("div");
+filterCloseButton.textContent = "X";
+filterCloseButton.classList.add("filter-close-button");
+
+/**
+ * Music Card Data and DOM Manipulation
+ */
+const musicWorkContent = document.getElementById("music-work-content");
+
+const musicWorkCards = [
+    new MusicCard("https://open.spotify.com/embed/track/6q5kuV3bxd7wzynGhVDknY?utm_source=generator", "Nocturnal Rhythm", "Christian Moloci", "2024"),
+    new MusicCard("https://open.spotify.com/embed/track/52FTd07gvsWSlMcsUbzR3C?utm_source=generator", "Sunrise Over Detroit", "Christian Moloci", "2024"),
+    new MusicCard("https://open.spotify.com/embed/track/2lJn6xQA0fbBEA5M6Oi8rd?utm_source=generator", "Sonorous Chamber", "Christian Moloci", "2024"),
+];
+
+/**
+ * Shared Functions and Event Listeners
+ */
 
 codingWorkContent.innerHTML = generateWorkCards(); // Init
 
@@ -45,10 +64,17 @@ workTypeNav.addEventListener("click", (event) => {
         // Populate dom with coding project cards
         event.target.classList.add("selected");
         codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags)
+
+        musicWorkContent.style.display = "none";
+        codingWorkContent.style.display = "grid";
+        workFilters.parentElement.style.display = "flex";
     } else if (event.target.id == "music-nav-item") {
         // Populate dom with music project cards
         event.target.classList.add("selected");
-        codingWorkContent.innerHTML = "";
+        musicWorkContent.innerHTML = generateMusicCards(searchBar.value);
+        musicWorkContent.style.display = "grid";
+        codingWorkContent.style.display = "none";
+        workFilters.parentElement.style.display = "none";
     }
 });
 
@@ -73,7 +99,12 @@ workFilters.addEventListener("click", (event) => {
 search.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent page reload
 
-    codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags);
+    // Check which content to search and display (coding or music) based on which grid is visible
+    if (codingWorkContent.style.display != "none") {
+        codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags);
+    } else if (musicWorkContent.style.display != "none") {
+        musicWorkContent.innerHTML = generateMusicCards(searchBar.value);
+    }
 });
 
 // Generate work cards HTML based on search filter and tags
@@ -110,6 +141,20 @@ function generateWorkCards(searchFilter = "", tags = []) {
     return filteredWorkCards.map(card => card.generateHTML()).join("");
 }
 
-/**
- * Music Card Data and DOM Manipulation
- */
+function generateMusicCards(searchFilter = "") {
+    let filteredMusicCards;
+    if (searchFilter == "") {
+        filteredMusicCards = musicWorkCards;
+    } else {
+        filteredMusicCards = musicWorkCards.filter(card => {
+            if (
+                card.title.toUpperCase().includes(searchFilter.toUpperCase()) ||
+                card.artist.toUpperCase().includes(searchFilter.toUpperCase()) ||
+                card.releaseYear.toUpperCase().includes(searchFilter.toUpperCase())
+            ) {
+                return true;
+            }
+        });
+    }
+    return filteredMusicCards.map(musicCard => musicCard.generateHTML()).join("");
+}

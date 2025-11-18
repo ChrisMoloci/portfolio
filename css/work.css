@@ -7,14 +7,18 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
     width: 100%;
 }
 .work-header .work-nav .col-1 {
-    width: 25%;
+    width: 100%;
+    grid-column: 1 / span 1;
 }
 .work-header .work-nav .col-2 {
-    width: 40%;
+    width: 100%;
+    grid-column: 2 / span 1;
 }
 .work-header .work-nav .col-3 {
-    width: 35%;
+    max-width: 75%;
+    min-width: 35%;
     padding: 0px 20px;
+    grid-column: 3 / span 1;
 }
 
 /* Work Selector (Coding or music) */
@@ -25,7 +29,8 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
 
 .work-header .work-nav {
     margin-top: 50px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 40% 35%;
     align-items: center;
 }
 
@@ -76,23 +81,39 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
 .work-header .work-nav .col-2 ul#work-filters li {
     background-color: var(--primary-100);
     border: 1px solid var(--primary-200);
-    padding: 10px 25px;
+    padding: 15px 20px;
+    width: fit-content;
+    height: 40px;
     border-radius: 100px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    display: block;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 .work-header .work-nav .col-2 ul#work-filters li.selected {
     background-color: var(--secondary-200);
     border: 1px solid var(--secondary-300);
     font-weight: 600;
-    transition: all 0.2s ease-in-out;
+    padding: 0px 15px 0px 0px;
+    transition: background-color 0.2s ease-in-out;
+}
+.work-header .work-nav .col-2 ul#work-filters li.selected::before {
+    content: "X";
+    outline: 1px solid var(--secondary-300);
+    background-color: var(--secondary-200);
+    min-width: 38px;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
 }
 .work-header .work-nav .col-2 ul#work-filters li:hover {
     background-color: var(--secondary-100);
     border: 1px solid var(--secondary-200);
-    transition: all 0.2s ease-in-out;
+    /* transition: all 0.2s ease-in-out; */
 }
 
 /* Search Bar */
@@ -109,7 +130,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
     width: 85%;
     padding: 10px 15px;
     border-radius: 1000px;
-    color: var(--text-300);
+    color: var(--text-900) !important;
 }
 .work-header .work-nav .col-3 #search:focus-within {
     border: 1px solid var(--secondary-200);
@@ -164,4 +185,17 @@ div.link-button {
     padding: 10px 15px;
     border: 1px solid var(--primary-300);
 }
+
 /* Music Content Styles */
+.music-content {
+    margin-top: 50px;
+    padding: 20px;
+    width: 100%;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.music-content .music-card {
+    grid-column: span 1;
+    padding: 0px;
+}
