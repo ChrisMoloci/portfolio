@@ -17,6 +17,9 @@ const codingWorkContent = document.getElementById("coding-work-content");
 let workCards = [
     new WorkCard("Test", "This is a test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Web", "CSS"]),
     new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
 ];
 
 // Work Filter Tags Data

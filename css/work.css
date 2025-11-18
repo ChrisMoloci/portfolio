@@ -9,16 +9,18 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
 .work-header .work-nav .col-1 {
     width: 100%;
     grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
 }
 .work-header .work-nav .col-2 {
     width: 100%;
     grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
 }
 .work-header .work-nav .col-3 {
-    max-width: 75%;
+    max-width: 100%;
     min-width: 35%;
-    padding: 0px 20px;
     grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
 }
 
 /* Work Selector (Coding or music) */
@@ -29,6 +31,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
 
 .work-header .work-nav {
     margin-top: 50px;
+    padding: 0px 20px;
     display: grid;
     grid-template-columns: 25% 40% 35%;
     align-items: center;
@@ -42,7 +45,6 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
     padding: 5px;
     border-radius: 1000px;
     background-color: var(--primary-100);
-    margin: 0px 20px;
 }
 .work-type div {
     width: 50%;
@@ -198,4 +200,61 @@ div.link-button {
 .music-content .music-card {
     grid-column: span 1;
     padding: 0px;
+}
+
+@media screen and (max-width: 1200px) {
+    .coding-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .music-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .work-header .work-nav {
+        grid-template-columns: 30% 35% 35%;
+    }
+
+    .coding-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    .music-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .work-header .work-nav {
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+
+    .work-header .work-nav .col-1 {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+    }
+    .work-header .work-nav .col-2 {
+        grid-column: 1 / span 1;
+        grid-row: 3 / span 1;
+    }
+    .work-header .work-nav .col-3 {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    .work-header .work-nav .col-2 ul#work-filters {
+        padding: 1px 0px; /* Prevents li from being cut off */
+        margin: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        overflow-x: visible;
+        height: 105px;
+        overflow-y: scroll;
+    }
+
+    .coding-content {
+        grid-template-columns: 1fr;
+    }
 }
