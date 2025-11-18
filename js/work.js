@@ -37,11 +37,18 @@ workTypeNav.addEventListener("click", (event) => {
 
     console.log(event.target)
 
+    workTypeNav.querySelectorAll("div").forEach(element => {
+        element.classList.remove("selected");
+    });
+
     if (event.target.id == "coding-nav-item") {
         // Populate dom with coding project cards
+        event.target.classList.add("selected");
         codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags)
     } else if (event.target.id == "music-nav-item") {
         // Populate dom with music project cards
+        event.target.classList.add("selected");
+        codingWorkContent.innerHTML = "";
     }
 });
 
