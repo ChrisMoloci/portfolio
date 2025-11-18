@@ -57,7 +57,7 @@ codingWorkContent.innerHTML = generateWorkCards(); // Init
 workTypeNav.addEventListener("click", (event) => {
     if (!event.target.id == "coding-nav-item" && !event.target.id == "music-nav-item") return; // Ignore clicks outside nav items
 
-    console.log(event.target)
+    searchBar.value = ""; // Clear search bar on switch
 
     workTypeNav.querySelectorAll("div").forEach(element => {
         element.classList.remove("selected");
