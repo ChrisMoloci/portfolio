@@ -40,7 +40,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 /* Section 1 -> column 1 styles */
 .socials {
     max-width: 40px;
-    margin-left: 2vw;
+    margin-left: 1.5vw;
 }
 .section1 .col-1 .socials .social-sec  {
     display: flex;
@@ -52,7 +52,6 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 }
 .social-sec img {
     width: 100%;
-    width: 30px;
     gap: 10px;
     display: block;
 }
@@ -538,7 +537,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
 
     .section1 .col-2 .name {
-        font-size: 20vw;
+        font-size: 10vw;
         text-align: center;
     }
 
@@ -549,7 +548,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     .section1 .col-3 .image-container img {
         display: block;
         margin: auto;
-        width: 70%;
+        max-width: 50%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
     }
@@ -765,5 +764,14 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     .section5 .col-2 .language-grid .language-card .link-button {
         margin-top: 20px;
         font-size: 0.95em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .section1 .col-2 .name {
+        font-size: 20vw;
+    }
+    .section1 .col-3 .image-container img {
+        width: 70%;
     }
 }
