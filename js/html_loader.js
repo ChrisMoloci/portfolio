@@ -22,7 +22,3 @@ export async function loadTemplate(templateId, file) {
         return null;
     }
 }
-
-export function test() {
-    console.log("HTML Loader Test Function");
-}

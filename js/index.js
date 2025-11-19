@@ -1,4 +1,24 @@
-import { loadTemplate, test } from "./html_loader.js";
+import { loadTemplate } from "./html_loader.js";
+
+const socials = document.getElementById("socials");
+const lightSocials = document.getElementById("light-socials");
+const darkSocials = document.getElementById("dark-socials");
+
+updateSocials(); // Initial update
+
+// Listen for attribut changes on the document element to update socials on theme change
+new MutationObserver(() => {
+    updateSocials();
+}).observe(document.documentElement, { attributes: true });
+
+// Updates socials images based on current theme (checks class on document)
+function updateSocials() {
+    if (document.documentElement.className == "dark") {
+        socials.innerHTML = lightSocials.innerHTML;
+    } else {
+        socials.innerHTML = darkSocials.innerHTML;
+    }
+}
 
 // Image tilting effect
 const image = document.getElementById("profile-image");
