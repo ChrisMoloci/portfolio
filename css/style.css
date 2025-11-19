@@ -132,7 +132,7 @@ nav#nav-bar div#hamburger-nav-menu h1 {
         font-weight: normal;
     }
     nav#nav-bar > div ul li {
-        padding: 10px;
+        padding: 10px 15px;
     }
     nav#nav-bar > div ul.full-nav-options {
         display: none;
