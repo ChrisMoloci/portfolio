@@ -132,7 +132,9 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 
 .section2 .col-2 iframe {
     width: 50%;
-    height: 70%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
     align-self: center;
     object-fit: cover;
     background-color: black;
@@ -290,7 +292,6 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 
 /* Section 5, languages */
 .section5 {
-    min-height: 95vh;
     background-color: var(--primary-100);
     display: flex;
     justify-content: space-between;
@@ -460,8 +461,6 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     align-self: flex-end;
     margin-top: 50px;
     font-size: 0.8em;
-    background-color: var(--primary-100);
-    border: 1px solid var(--text-200);
 }
 
 @media screen and (max-width: 1024px) {
@@ -471,12 +470,50 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     .section1 .col-3 .image-container {
         padding: 10px;
     }
+
+    .section3 .col-1 {
+        width: 25%;
+    }
+    .section3 .col-2 {
+        width: 75%;
+        justify-content: start;
+    }
+    .project-card {
+        width: 100%;
+    }
+    .section3 .col-2 .col-2-1 {
+        width: 90%;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+    .section3 .col-2 .col-2-2 {
+        display: none;
+    }
+
+    .music-card {
+        width: 100%;
+    }
+
+    .section5 .col-1 h1 {
+        font-size: 2em;
+    }
+    .section5 .col-1 {
+        font-size: 0.8em;
+    }
+    .section5 .col-2 .language-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px 10px;
+        margin: 0px;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 750px) {
     .section1 {
         /* flex-direction: column; */
         align-items: center;
+        justify-content: center;
         flex-wrap: wrap;
         background-size: 150%;
         background-position: bottom center;
@@ -493,40 +530,49 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
     .section1 .col-2 {
         order: 2;
-        flex-basis: 60%;
+        flex-basis: 100%;
     }
     .section1 .col-3 {
         order: 1;
-        flex-basis: 40%;
+        flex-basis: 100%;
     }
 
     .section1 .col-2 .name {
-        font-size: 12vw;
+        font-size: 20vw;
+        text-align: center;
     }
 
-    .section1 .col-3 .image-container {
-        padding: 0px 10px 0px 10px;
+    .section1 .col-2 .link-button {
+        margin: 10px auto 40px;
     }
+
     .section1 .col-3 .image-container img {
-        width: 100%;
+        display: block;
+        margin: auto;
+        width: 70%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
     }
 
     .section1 .col-1 .socials {
         margin: 0px;
         display: flex;
+        justify-content: center;
         min-width: 100%;
+        gap: 40px;
+        padding: 0px 20px 0px 20px;
     }
     .section1 .col-1 .socials .social-sec {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        width: 50%;
+        /* width: 50%; */
         margin: 0px !important;
         align-items: center;
         padding: 0px;
     }
     .section1 .col-1 .socials .social-sec img {
-        width: 12vw;
+        width: 10vw;
     }
 
     /* Section 2 */
@@ -544,6 +590,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     .section2 .col-1 h1 {
         margin: 25px 0px 0px;
         text-decoration: underline;
+        font-size: 3em;
         text-decoration-color: var(--accent-500);
     }
     .section2 .col-1 article {
@@ -553,10 +600,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
     .section2 .col-2 iframe {
         width: 80%;
-        height: auto;
-        aspect-ratio: 9 / 16;
         align-self: center;
-        object-fit: cover;
         background-color: black;
         margin-top: 3em;
         border-radius: 32px;
@@ -572,6 +616,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
         width: 100%;
         flex-direction: column;
         padding: 15px;
+        align-items: center;
     }
 
     .section3 > .col-1 h1 {
@@ -651,6 +696,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
         border-radius: 0px;
         border: none;
         box-shadow: none;
+        font-size: 1.2em;
     }
     .section5 > .col-2 {
         padding-top: 25px;
@@ -689,7 +735,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
 
     .section5 .col-2 h1#language-title {
-        font-size: 2.5em;
+        font-size: 2em;
         margin-left: 20px;
     }
     .section5 .col-2 .language-grid {

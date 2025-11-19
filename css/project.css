@@ -42,17 +42,24 @@ main .col-1 img {
     width: 30%;
     border-radius: 16px;
 }
+main .col-1 .version-indicator {
+    font-weight: 600;
+    margin-top: 30px;
+    font-size: 1em;
+    color: var(--text-600);
+}
 main .col-1 h1 {
-    margin-top: 20px;
+    margin-top: 5px;
     font-size: 2em;
     text-align: center;
 }
 main .col-1 p {
-    margin-top: 10px;
+    margin-top: 5px;
+    font-size: 1.2em;
     color: var(--text-900);
 }
 main .col-1 .languages {
-    margin-top: 15px;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -132,7 +139,7 @@ main .col-2 .content p {
         flex-direction: column;
         height: fit-content;
         align-items: center;
-        margin: 15vh 20px;
+        margin: 15vh 20px 0px;
     }
     main .col-1 {
         width: 100%;
@@ -172,5 +179,12 @@ main .col-2 .content p {
         margin-top: 10px;
         font-size: 0.9em;
         margin-left: 20px;
+    }
+
+    main .col-2 .content .slideshow {
+        margin: 20px 20px 0px;
+    }
+    main .col-2 .content .slideshow img {
+        width: 90%;
     }
 }

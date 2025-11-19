@@ -26,7 +26,7 @@ let workCards = [
 
 // Work Filter Tags Data
 const workFilterWords = [
-    "Web", "HTML", "CSS", "JavaScript", "Java", "Utility", "Library"
+    "Web", "HTML", "CSS", "JavaScript", "Java", "JavaFX", "Utility", "Library"
 ];
 workFilterWords.forEach(tag => {
     const li = document.createElement("li");
