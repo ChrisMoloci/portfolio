@@ -32,9 +32,9 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
 .work-header .work-nav {
     margin-top: 50px;
     padding: 0px 20px;
-    gap: 20px;
+    gap: 2%;
     display: grid;
-    grid-template-columns: 25% 40% 35%;
+    grid-template-columns: 23% 38% 33%; /* leave 6% for gap */
     align-items: center;
 }
 
@@ -214,7 +214,7 @@ div.link-button {
 
 @media screen and (max-width: 900px) {
     .work-header .work-nav {
-        grid-template-columns: 30% 35% 35%;
+        grid-template-columns: 28% 33% 33%; /* leave 6% for gap */
     }
 
     .coding-content {
