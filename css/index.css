@@ -470,6 +470,21 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
         padding: 10px;
     }
 
+    .section2 > .col-1 {
+        width: 50%;
+    }
+    .section2 > .col-2 {
+        width: 50%;
+        padding: 0px;
+    }
+
+    .section2 > .col-1 h1 {
+        font-size: 3.5em;
+    }
+    .section2 > .col-2 iframe {
+        width: 70%;
+    }
+
     .section3 .col-1 {
         width: 25%;
     }
