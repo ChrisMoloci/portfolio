@@ -100,7 +100,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 
 /* Section 2, bio */
 .section2 {
-    height: 100vh;
+    /* height: 100vh; */
     background-color: var(--background-100);
     display: flex;
     justify-content: space-between;
@@ -142,10 +142,12 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 
 /* Section 3, featured projects */
 .section3 {
-    height: 80vh;
+    height: fit-content;
+    padding: 40px 0px;
     background-color: var(--background-50);
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
 }
 .section3 > .col-1 {
     width: 15%;
@@ -153,9 +155,9 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     display: flex;
     flex-direction: row;
     align-items: end;
-    justify-content: start;
-    padding: 5vh 0px 8vh 2vw;
-    height: 100%;
+    /* justify-content: start; */
+    padding: 0vh 0px 0vh 2vw;
+    /* height: 100%; */
 }
 .section3 > .col-2 {
     width: 85%;
@@ -177,7 +179,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 .section3 > .col-1 nav {
     margin-left: 4vw;
     writing-mode: sideways-lr;
-    height: 90%;
+    height: 100%;
     border-radius: 1000px;
     display: flex;
     background-color: var(--primary-100);
@@ -208,9 +210,9 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 }
 
 .section3 > .col-2 .col-2-1 {
-    width: 70%;
+    width: 100%;
     padding-left: 3vw;
-    max-height: 80%;
+    /* margin-top: 10vh; */
 }
 .section3 > .col-2 .col-2-2 {
     width: 30%;
@@ -241,6 +243,12 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 .project-card img {
     width: 20%;
     border-radius: inherit;
+    filter: brightness(100%);
+    transition: filter 0.2s ease;
+}
+.project-card:hover img {
+    filter: brightness(95%);
+    transition: filter 0.2s ease;
 }
 .project-card .project-card-text h2 {
     display: inline-block;
@@ -268,12 +276,22 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     margin: 20px 15px 0px 15px;
 }
 
+.music-card {
+    display: block;
+    width: 80%;
+    height: 250px;
+}
+.music-card iframe {
+    height: 100%;
+    display: block;
+}
+
 /* Section 4, featured blog posts */
 
 /* Section 5, languages */
 .section5 {
     min-height: 95vh;
-    background-color: var(--primary-50);
+    background-color: var(--primary-100);
     display: flex;
     justify-content: space-between;
     align-items: stretch;

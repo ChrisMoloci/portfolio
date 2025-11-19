@@ -85,7 +85,8 @@ main .col-2 .project-nav div {
 }
 main .col-2 .content {
     padding: 4vh 2vw;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 main .col-2 .project-nav div.selected {
     background-color: var(--secondary-200);
@@ -123,4 +124,53 @@ main .col-2 .content p {
     margin-top: 10px;
     font-size: 1em;
     margin-left: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+        margin: 15vh 20px;
+    }
+    main .col-1 {
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+        padding: 0px 15px 40px;
+    }
+    main .col-2 {
+        width: 100%;
+        height: fit-content;
+        flex: 1;
+        overflow: show;
+        margin: 10px 0px 0px;
+    }
+    main .col-1 img {
+        width: 40%;
+    }
+    main .col-1 .languages span {
+        font-size: 1em;
+    }
+
+    main .col-2 .content {
+        padding: 4vh 4vw;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    main .col-2 .content section {
+        margin: 20px 0px 0px;
+    }
+    main .col-2 .content h1 {
+        font-size: 2em;
+    }
+    main .col-2 .content h2 {
+        font-size: 1.5em;
+    }
+    main .col-2 .content p {
+        margin-top: 10px;
+        font-size: 0.9em;
+        margin-left: 20px;
+    }
 }
