@@ -15,18 +15,9 @@ const projectIndicator = document.getElementById("project-indicator"); // Shows 
 
 const codingWorkContent = document.getElementById("coding-work-content");
 
-// Work Card Data
-let workCards = [
-    new WorkCard("Test", "This is a test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Web", "CSS"]),
-    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
-    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
-    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
-    new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
-];
-
 // Work Filter Tags Data
 const workFilterWords = [
-    "Web", "HTML", "CSS", "JavaScript", "Java", "JavaFX", "Utility", "Library"
+    "HTML", "CSS", "JavaScript",, "Web", "Java", "JavaFX", "Utility", "Library", "Game"
 ];
 workFilterWords.forEach(tag => {
     const li = document.createElement("li");
@@ -37,6 +28,18 @@ let selectedWorkTags = [];
 let filterCloseButton = document.createElement("div");
 filterCloseButton.textContent = "X";
 filterCloseButton.classList.add("filter-close-button");
+
+// Work Card Data
+let workCards = [
+    new WorkCard("Portfolio", "Dive into the world of Christian Moloci with the beautiful portfolio showcasing projects, skills, and his personal life. Find both coding and music projects", "/projects/portfolio.html", "placeholder2.png", "Portfolio Screenshot", ["HTML", "CSS", "JavaScript", "Web"]),
+    new WorkCard("QR Code Generator", "One of the most customizable QR code generator library and app. Generate version 1-40 QR codes in any error correction level, masking pattern, and encoding mode. Plus customize every aspect of the QR code from the shape of each module down to the the individual color.", "/projects/qr_code_generator.html", "placeholder2.png", "QR Code Generator Screenshot", ["HTML", "CSS", "JavaScript", "Web", "Library", "Utility"]),
+    new WorkCard("Late Night Cruise", "A music oriented driving game written in JavaFX. Objective, drive around collecting gas to keep your tank above empty and collect coins to buy music that can be added to playlists to listen to in-game.", "/projects/late_night_cruise.html", "placeholder2.png", "Late Night Cruise Screenshot", ["Java", "JavaFX", "Game"]),
+    new WorkCard("Chronos", "A JavaFX based calendar app. Connect to any MySQL relational database and start storing reminders and events.", "/projects/chronos.html", "placeholder2.png", "Chronos Screenshot", ["Java", "JavaFX", "Utility"]),
+    // new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+    // new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+    // new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+    // new WorkCard("Another test", "This is another test description", "/html/projects/projectTemplate/template.html", "placeholder2.png", "Test Image", ["JavaScript", "HTML", "Java"]),
+];
 
 /**
  * Music Card Data and DOM Manipulation

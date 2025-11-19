@@ -6,6 +6,8 @@ const content2 = document.getElementById('content-2');
 
 let currentNav;
 
+content.innerHTML = content1.innerHTML; // Init
+
 navBar.addEventListener('click', (event) => {
     if (event.target.tagName !== "DIV") return; // Only respond to div clicks
     if (event.target.id === currentNav) return; // Do nothing if the same nav is clicked
