@@ -154,9 +154,15 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
     font-size: inherit;
 }
 
+#project-indicator {
+    font-size: 3em;
+    margin: 40px 0px 0px 20px;
+    color: var(--text-900);
+}
+
 /* Coding content styler */
 .coding-content {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 20px;
     width: 100%;
     display: grid;
@@ -191,7 +197,7 @@ div.link-button {
 
 /* Music Content Styles */
 .music-content {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 20px;
     width: 100%;
     display: none;

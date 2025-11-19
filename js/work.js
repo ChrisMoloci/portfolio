@@ -7,6 +7,8 @@ const workFilters = document.getElementById("work-filters"); // Filter tags cont
 const search = document.getElementById("search");
 const searchBar = document.getElementById("search-bar"); // Search bar in search
 
+const projectIndicator = document.getElementById("project-indicator"); // Shows what type of work is being displayed (coding or music)
+
 /**
  * Work Card Data and DOM Manipulation
  */
@@ -66,7 +68,9 @@ workTypeNav.addEventListener("click", (event) => {
     if (event.target.id == "coding-nav-item") {
         // Populate dom with coding project cards
         event.target.classList.add("selected");
-        codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags)
+        projectIndicator.textContent = "Coding Projects:";
+        console.log(projectIndicator)
+        codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags);
 
         musicWorkContent.style.display = "none";
         codingWorkContent.style.display = "grid";
@@ -74,7 +78,9 @@ workTypeNav.addEventListener("click", (event) => {
     } else if (event.target.id == "music-nav-item") {
         // Populate dom with music project cards
         event.target.classList.add("selected");
+        projectIndicator.textContent = "Music Projects:";
         musicWorkContent.innerHTML = generateMusicCards(searchBar.value);
+
         musicWorkContent.style.display = "grid";
         codingWorkContent.style.display = "none";
         workFilters.parentElement.style.display = "none";
