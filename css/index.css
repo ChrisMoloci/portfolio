@@ -224,7 +224,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     color: inherit;
 }
 .project-card {
-    width: 70%;
+    width: 80%;
     display: flex;
     gap: 20px;
     background-color: var(--primary-100);
@@ -274,7 +274,8 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     transform: scaleX(1);
 }
 .project-card .project-card-text p {
-    margin: 20px 15px 0px 15px;
+    margin: 15px 15px 0px 15px;
+    font-size: 1em;
 }
 
 .music-card {
@@ -383,7 +384,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 .section5 .col-2 .language-grid .language-card {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     padding: 20px;
     background-color: var(--primary-100);
     border: 1px solid var(--primary-200);
@@ -423,19 +424,25 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
         display: block;
         transition: display 5s ease;
     }
+    a.link {
+        display: inline;
+        font-size: inherit;
+    }
     transition: background-color 0.2s ease, grid-row 0.2s ease;
 }
 
 .section5 .col-2 .language-grid .language-card header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     align-items: center;
+    width: 100%;
     color: var(--primary-950);
 }
 .section5 .col-2 .language-grid .language-card header .col-1 {
     display: flex;
+    align-items: center;
     gap: 10px;
+    padding: 0px 15px 0px 0px;
 }
 .section5 .col-2 .language-grid .language-card header .language-level {
     border: 1px solid var(--text-200);

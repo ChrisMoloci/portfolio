@@ -123,10 +123,10 @@ try {
     const languageCardsFile = "/components/home.language_cards.html";
 
     languageTemplates = {
-        "web-development": loadTemplate("languages-web", languageCardsFile),
-        "object-oriented-programming": loadTemplate("languages-object-oriented-programming", languageCardsFile),
-        "software-tools": loadTemplate("languages-software-tools", languageCardsFile),
-        "operating-systems": loadTemplate("languages-operating-systems", languageCardsFile),
+        "web": loadTemplate("languages-web", languageCardsFile),
+        "oop": loadTemplate("languages-oop", languageCardsFile),
+        "ux": loadTemplate("languages-ux", languageCardsFile),
+        "software": loadTemplate("languages-software", languageCardsFile),
     };
 
     // Expands cards when clicked on by setting their class to expanded and collapsing if already expanded
@@ -143,7 +143,7 @@ try {
         }
     });
 
-    languagesContainer.innerHTML = (await languageTemplates["web-development"]).innerHTML;
+    languagesContainer.innerHTML = (await languageTemplates["web"]).innerHTML;
 } catch(error) {
     // Handle errors during template loading and display them in the DOM
     console.error("Error loading language templates:", error);
@@ -164,24 +164,24 @@ languagesNav.addEventListener("click", async (event) => {
 
     try {
         switch (targetId) {
-            case "languages:web-development":
+            case "languages:web":
                 // If "Web Development" is clicked, load web development languages
-                languagesContainer.innerHTML = (await languageTemplates["web-development"]).innerHTML;
+                languagesContainer.innerHTML = (await languageTemplates["web"]).innerHTML;
                 languageTitle.textContent = "Web Development:";
                 break;
-            case "languages:object-oriented-programming":
+            case "languages:oop":
                 // If "Object-Oriented Programming" is clicked, load object-oriented programming languages
-                languagesContainer.innerHTML = (await languageTemplates["object-oriented-programming"]).innerHTML;
+                languagesContainer.innerHTML = (await languageTemplates["oop"]).innerHTML;
                 languageTitle.textContent = "Object-Oriented Programming:";
                 break;
-            case "languages:software-tools":
+            case "languages:ux":
                 // If "Software/Tools" is clicked, load software/tools languages
-                languagesContainer.innerHTML = (await languageTemplates["software-tools"]).innerHTML;
+                languagesContainer.innerHTML = (await languageTemplates["ux"]).innerHTML;
                 languageTitle.textContent = "Software/Tools:";
                 break;
-            case "languages:operating-systems":
+            case "languages:software":
                 // If "Operating Systems" is clicked, load operating systems languages
-                languagesContainer.innerHTML = (await languageTemplates["operating-systems"]).innerHTML;
+                languagesContainer.innerHTML = (await languageTemplates["software"]).innerHTML;
                 languageTitle.textContent = "Operating Systems:";
                 break;
             default:
