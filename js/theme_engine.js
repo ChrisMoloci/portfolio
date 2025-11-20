@@ -20,9 +20,9 @@ try {
     themeIndex = parseInt(cookie[1]);
     setTheme(themeIndex); // Set the last theme
 } catch (e) {
-    console.error('Could not retrieve cookies:', e);
-    document.cookie = 'theme=0; path=/'; // set default
+    console.error('Could not retrieve cookies, setting theme to default theme:', e);
     cookie = getCookieAsArray('theme');
+    setTheme(0); // Set to default theme
 } finally {
     // Checks for system theme changes and updates if theme is set to auto
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setAutoTheme);
@@ -77,7 +77,7 @@ navBar.addEventListener('click', (event) => {
     // Ensures el is always #theme-toggle even if event was on it's child
     const el = event.target.closest("#theme-toggle");
 
-    if (!el.id == "#theme-toggle") return; // If event is not from theme toggle, ignore it
+    if (!el || !el.id == "#theme-toggle") return; // If event is not from theme toggle, ignore it
 
     // Set theme index by incrementing or wrapping around
     themeIndex >= 2 ? themeIndex = 0 : themeIndex++;
