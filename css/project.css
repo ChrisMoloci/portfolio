@@ -57,6 +57,7 @@ main .col-1 p {
     margin-top: 5px;
     font-size: 1.2em;
     color: var(--text-900);
+    text-align: center;
 }
 main .col-1 .languages {
     margin-top: 20px;
@@ -131,6 +132,14 @@ main .col-2 .content p {
     margin-top: 10px;
     font-size: 1em;
     margin-left: 20px;
+}
+main .col-2 .content section > ul {
+    margin-top: 20px;
+}
+main .col-2 .content ul {
+    color: var(--text-600);
+    font-size: 1em;
+    padding-left: 25px;
 }
 
 @media screen and (max-width: 1024px) {
