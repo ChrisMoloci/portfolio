@@ -13,6 +13,7 @@ const projectIndicator = document.getElementById("project-indicator"); // Shows 
  * Work Card Data and DOM Manipulation
  */
 
+// HTML Grid that stores the coding work cards
 const codingWorkContent = document.getElementById("coding-work-content");
 
 // Work Filter Tags Data
@@ -20,12 +21,13 @@ const workFilterWords = [
     "HTML", "CSS", "JavaScript",, "Web", "Java", "JavaFX", "Utility", "Library", "Game"
 ];
 workFilterWords.forEach(tag => {
+    // Create an li element for each tag and add it to the workFilters ul
     const li = document.createElement("li");
     li.textContent = tag;
     workFilters.appendChild(li);
 });
-let selectedWorkTags = [];
-let filterCloseButton = document.createElement("div");
+let selectedWorkTags = []; // Will hold any tags selected by the user
+let filterCloseButton = document.createElement("div"); // Gets added to any tag the user wants to selects
 filterCloseButton.textContent = "X";
 filterCloseButton.classList.add("filter-close-button");
 
@@ -40,8 +42,9 @@ let workCards = [
 /**
  * Music Card Data and DOM Manipulation
  */
-const musicWorkContent = document.getElementById("music-work-content");
+const musicWorkContent = document.getElementById("music-work-content"); // HTML Grid that stores the music work cards
 
+// Work Card Data
 const musicWorkCards = [
     new MusicCard("https://open.spotify.com/embed/track/6q5kuV3bxd7wzynGhVDknY?utm_source=generator", "Nocturnal Rhythm", "Christian Moloci", "2024"),
     new MusicCard("https://open.spotify.com/embed/track/52FTd07gvsWSlMcsUbzR3C?utm_source=generator", "Sunrise Over Detroit", "Christian Moloci", "2024"),
@@ -60,26 +63,32 @@ workTypeNav.addEventListener("click", (event) => {
 
     searchBar.value = ""; // Clear search bar on switch
 
+    // Remove select class from all nav items
     workTypeNav.querySelectorAll("div").forEach(element => {
         element.classList.remove("selected");
     });
 
     if (event.target.id == "coding-nav-item") {
         // Populate dom with coding project cards
-        event.target.classList.add("selected");
-        projectIndicator.textContent = "Coding Projects:";
-        console.log(projectIndicator)
+        event.target.classList.add("selected"); // Update the selected nav item
+        projectIndicator.textContent = "Coding Projects:"; // Update title
+
+        // Generate coding work cards
         codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags);
 
+        // Hide/show respective grids
         musicWorkContent.style.display = "none";
         codingWorkContent.style.display = "grid";
         workFilters.parentElement.style.display = "flex";
     } else if (event.target.id == "music-nav-item") {
         // Populate dom with music project cards
-        event.target.classList.add("selected");
-        projectIndicator.textContent = "Music Projects:";
+        event.target.classList.add("selected"); // Update the selected nav item
+        projectIndicator.textContent = "Music Projects:";// Update title
+
+        // Generate coding work cards
         musicWorkContent.innerHTML = generateMusicCards(searchBar.value);
 
+        // Hide/show respective grids
         musicWorkContent.style.display = "grid";
         codingWorkContent.style.display = "none";
         workFilters.parentElement.style.display = "none";
@@ -92,14 +101,17 @@ workFilters.addEventListener("click", (event) => {
     console.log(event.target);
 
     if (selectedWorkTags.includes(event.target.textContent)) {
+        // Unselect a tag
         selectedWorkTags = selectedWorkTags.filter(tag => tag !== event.target.textContent);
         event.target.classList.remove("selected");
     } else {
+        // Select a tag
         selectedWorkTags.push(event.target.textContent);
         event.target.classList.add("selected");
     }
     console.log("Selected tags: ", selectedWorkTags);
 
+    // Regenerate work cards based on selected tags
     codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags)
 });
 
@@ -109,23 +121,25 @@ search.addEventListener("submit", (event) => {
 
     // Check which content to search and display (coding or music) based on which grid is visible
     if (codingWorkContent.style.display != "none") {
+        // Search coding
         codingWorkContent.innerHTML = generateWorkCards(searchBar.value, selectedWorkTags);
     } else if (musicWorkContent.style.display != "none") {
+        // Search music
         musicWorkContent.innerHTML = generateMusicCards(searchBar.value);
     }
 });
 
 // Generate work cards HTML based on search filter and tags
 function generateWorkCards(searchFilter = "", tags = []) {
-    let filteredWorkCards;
+    let filteredWorkCards; // Will hold the filtered array of work cards
     console.log(tags);
     if (searchFilter == "" && tags.length == 0) {
+        // If both are empty, show all work cards
         filteredWorkCards = workCards;
     } else {
-        // Filter by tags
         if (tags.length > 0) {
+            // Filter by tags if any
             filteredWorkCards = workCards.filter(card => {
-                // let tagFound = false;
                 let foundTags = []
                 card.tags.forEach(tag => {
                     if (tags.includes(tag)) foundTags.push(tag);
@@ -133,11 +147,14 @@ function generateWorkCards(searchFilter = "", tags = []) {
                 return foundTags.length === tags.length; // Returns a boolean
             });
         } else {
+            // If no tags are selected, add all work cards
             filteredWorkCards = workCards;
         }
 
         if (searchFilter != "") {
+            // If searchFilter is not empty, filter by search term on top of the filtered tags
             filteredWorkCards = filteredWorkCards.filter(card => {
+                // If a match if found either in the title or the descpription, add the item to the array
                 if (card.title.toUpperCase().includes(searchFilter.toUpperCase()) || card.description.toUpperCase().includes(searchFilter.toUpperCase())) {
                     return true;
                 }
@@ -146,23 +163,30 @@ function generateWorkCards(searchFilter = "", tags = []) {
         console.log(filteredWorkCards);
     }
 
+    // Return an array of DOM elements by calling the generateHTML method on and joining them as a string (prevents commas)
     return filteredWorkCards.map(card => card.generateHTML()).join("");
 }
 
+// Generate music cards HTML based on search filter
 function generateMusicCards(searchFilter = "") {
-    let filteredMusicCards;
+    let filteredMusicCards; // Will hold the filtered array of music cards
     if (searchFilter == "") {
+        // If search filter is empty, show all music cards
         filteredMusicCards = musicWorkCards;
     } else {
+        // Filter by search term
         filteredMusicCards = musicWorkCards.filter(card => {
             if (
                 card.title.toUpperCase().includes(searchFilter.toUpperCase()) ||
                 card.artist.toUpperCase().includes(searchFilter.toUpperCase()) ||
                 card.releaseYear.toUpperCase().includes(searchFilter.toUpperCase())
             ) {
+                // If a match if found either in the title, artist, or release year, add the item to the array
                 return true;
             }
         });
     }
+
+    // Return an array of DOM elements by calling the generateHTML method on and joining them as a string (prevents commas)
     return filteredMusicCards.map(musicCard => musicCard.generateHTML()).join("");
 }

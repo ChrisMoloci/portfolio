@@ -1,3 +1,8 @@
+/* 
+    Author: Christian Moloci
+    Music Work Card rendered in work.html
+*/
+
 export class MusicCard {
     #url = "";
     #title;

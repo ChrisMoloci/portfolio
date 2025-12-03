@@ -1,3 +1,9 @@
+/* 
+    Author: Christian Moloci
+    Coding Work Card rendered in work.html
+*/
+
+
 export class WorkCard {
     #title;
     #description
