@@ -1,115 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<!-- 
+    Author: Christian Moloci
+    All work cards component
+-->
 
-    <template id="code-cards">
-        <a href="/projects/qr_code_generator.html" class="project-card-link">
-            <div class="project-card">
-                <img src="assets/images/Projects/icon-1.png" alt="">
-                <div class="project-card-text">
-                    <h2>QR Code Generator</h2>
-                    <p>
-                        A QR Code generation library made in complete vanilla JavaScript - 
-                        no libraries. Can generate the most optimized QR Code possible for a 
-                        given data, or generate a QR Code based on custom parameters, 
-                        including:
-                    </p>
-                </div>
+<template id="code-cards">
+    <a href="/projects/qr_code_generator.html" class="project-card-link">
+        <div class="project-card">
+            <img src="assets/images/Projects/icon-1.png" alt="">
+            <div class="project-card-text">
+                <h2>QR Code Generator</h2>
+                <p>
+                    A QR Code generation library made in complete vanilla JavaScript - 
+                    no libraries. Can generate the most optimized QR Code possible for a 
+                    given data, or generate a QR Code based on custom parameters, 
+                    including:
+                </p>
             </div>
-        </a>
-        
-        <a href="/projects/portfolio.html" class="project-card-link">
-            <div class="project-card">
-                <img src="assets/images/Projects/icon-3.png" alt="">
-                <div class="project-card-text">
-                    <h2>Portfolio Website</h2>
-                    <p>
-                        One of the most customizable QR code generator library and app. Generate 
-                        version 1-40 QR codes in any error correction level, masking pattern, and 
-                        encoding mode. Plus, customize every aspect of the QR code from the 
-                        shape of each module down to the individual color.
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="/projects/late_night_cruise.html" class="project-card-link">
-            <div class="project-card">
-                <img src="assets/images/Projects/icon-0.png" alt="">
-                <div class="project-card-text">
-                    <h2>Late Night Cruise</h2>
-                    <p>
-                        A music-oriented driving game written in JavaFX. Objective: drive around 
-                        collecting gas to keep your tank above empty and collect coins to buy 
-                        music that can be added to playlists to listen to in-game.
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a class="link" href="work.html">View all projects.</a>
-    </template>
-
-    <template id="music-cards">
-        <div class="music-card">
-            <iframe 
-                data-testid="embed-iframe" 
-                style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/6q5kuV3bxd7wzynGhVDknY?utm_source=generator" 
-                width="100%" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; 
-                clipboard-write; 
-                encrypted-media; 
-                fullscreen; 
-                picture-in-picture" 
-                loading="lazy">
-                
-            </iframe>
         </div>
-        <div class="music-card">
-            <iframe 
-                data-testid="embed-iframe" 
-                style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/52FTd07gvsWSlMcsUbzR3C?utm_source=generator" 
-                width="100%" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; 
-                clipboard-write; 
-                encrypted-media; 
-                fullscreen; 
-                picture-in-picture" 
-                loading="lazy">
-                
-            </iframe>
-        </div>
-        <div class="music-card">
-            <iframe 
-                data-testid="embed-iframe" 
-                style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/2lJn6xQA0fbBEA5M6Oi8rd?utm_source=generator" 
-                width="100%" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; 
-                clipboard-write; 
-                encrypted-media; 
-                fullscreen; 
-                picture-in-picture" 
-                loading="lazy">
-                
-            </iframe>
-        </div>
-        
-        <a class="link" href="work.html">View all projects.</a>
-    </template>
+    </a>
     
-</body>
-</html>
+    <a href="/projects/portfolio.html" class="project-card-link">
+        <div class="project-card">
+            <img src="assets/images/Projects/icon-3.png" alt="">
+            <div class="project-card-text">
+                <h2>Portfolio Website</h2>
+                <p>
+                    One of the most customizable QR code generator library and app. Generate 
+                    version 1-40 QR codes in any error correction level, masking pattern, and 
+                    encoding mode. Plus, customize every aspect of the QR code from the 
+                    shape of each module down to the individual color.
+                </p>
+            </div>
+        </div>
+    </a>
+
+    <a href="/projects/late_night_cruise.html" class="project-card-link">
+        <div class="project-card">
+            <img src="assets/images/Projects/icon-0.png" alt="">
+            <div class="project-card-text">
+                <h2>Late Night Cruise</h2>
+                <p>
+                    A music-oriented driving game written in JavaFX. Objective: drive around 
+                    collecting gas to keep your tank above empty and collect coins to buy 
+                    music that can be added to playlists to listen to in-game.
+                </p>
+            </div>
+        </div>
+    </a>
+
+    <a class="link" href="work.html">View all projects.</a>
+</template>
+
+<template id="music-cards">
+    <div class="music-card">
+        <iframe 
+            data-testid="embed-iframe" 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/6q5kuV3bxd7wzynGhVDknY?utm_source=generator" 
+            width="100%" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; 
+            clipboard-write; 
+            encrypted-media; 
+            fullscreen; 
+            picture-in-picture" 
+            loading="lazy">
+            
+        </iframe>
+    </div>
+    <div class="music-card">
+        <iframe 
+            data-testid="embed-iframe" 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/52FTd07gvsWSlMcsUbzR3C?utm_source=generator" 
+            width="100%" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; 
+            clipboard-write; 
+            encrypted-media; 
+            fullscreen; 
+            picture-in-picture" 
+            loading="lazy">
+            
+        </iframe>
+    </div>
+    <div class="music-card">
+        <iframe 
+            data-testid="embed-iframe" 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/2lJn6xQA0fbBEA5M6Oi8rd?utm_source=generator" 
+            width="100%" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; 
+            clipboard-write; 
+            encrypted-media; 
+            fullscreen; 
+            picture-in-picture" 
+            loading="lazy">
+            
+        </iframe>
+    </div>
+    
+    <a class="link" href="work.html">View all projects.</a>
+</template>

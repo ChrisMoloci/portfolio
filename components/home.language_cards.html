@@ -1,562 +1,327 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<!-- 
+    Author: Christian Moloci
+    All language cards component
+-->
 
-    <!-- <template id="languages-web">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>HTML</h2>
-                    <div class="language-level core">Core</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
+<template id="languages-web">
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>HTML</h2>
+                <div class="language-level core">Web</div>
             </div>
-        </div>
-                <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>CSS</h2>
-                    <div class="language-level core">Core</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
             </div>
-        </div>        
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>JavaScript</h2>
-                    <div class="language-level core">Core</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>PHP</h2>
-                    <div class="language-level complex">Server</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Angular</h2>
-                    <div class="language-level complex">Framework</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template>
-
-    <template id="languages-object-oriented-programming">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Java</h2>
-                    <div class="language-level complex">OOP</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template>
-
-    <template id="languages-software-tools">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Git</h2>
-                    <div class="language-level core">Tools</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>GitHub</h2>
-                    <div class="language-level core">Tools</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>AI</h2>
-                    <div class="language-level medium">Tools</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>    
-    </template>
-
-    <template id="languages-operating-systems">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>macOS</h2>
-                    <div class="language-level medium">OS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-                <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Linux</h2>
-                    <div class="language-level medium">OS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-                <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Windows</h2>
-                    <div class="language-level medium">OS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template> -->
-
-    <template id="languages-web">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>HTML</h2>
-                    <div class="language-level core">Web</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Understanding of HTML tags, what tag to use when, SEO in HTML, etc.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
+        </header>
+        <article>
+            <p>
+                Understanding of HTML tags, what tag to use when, SEO in HTML, etc.
+            </p>
+        </article>
         
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>CSS</h2>
-                    <div class="language-level core">Web</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Intermediately skilled at writing CSS and able to design 
-                    beautiful websites using web design best practices.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
+        <div class="link-button">
+            <a href="#">Website</a>
         </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>JavaScript</h2>
-                    <div class="language-level core">Web</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Skilled at writing JavaScript code, manipulating DOM, 
-                    and using Node.js.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>PHP</h2>
-                    <div class="language-level medium">Web</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Can write PHP web apps with SQL integration.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Angular</h2>
-                    <div class="language-level complex">Framework</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Can write Angular web apps with an understanding of components, 
-                    routing, pipes, directives, material design, etc.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template>
-
-    <template id="languages-oop">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Java</h2>
-                    <div class="language-level complex">OOP</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Spent 3 semesters learning Java. Extensive knowledge of Java 
-                    OOP, design patterns such as the Singleton design pattern, 
-                    Database integration, and JavaFX.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template>
-
-    <template id="languages-ux">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>JavaFX</h2>
-                    <div class="language-level medium">UX</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Learned JavaFX for 2 semesters and created 2 big projects in 
-                    it: a music-oriented driving game called 
-                    <a href="/projects/late_night_cruise.html" class="link">Late Night Cruise ,</a>
-                    and a calendar app called 
-                    <a href="/projects/chronos.html" class="link">Chronos</a> with database integration
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template>
-
-    <template id="languages-software">
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Git</h2>
-                    <div class="language-level medium">VCS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Can use Git for version control (including the Git CLI). 
-                    Understand branches, merging, pulling and pushing to remote, 
-                    etc.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>GitHub</h2>
-                    <div class="language-level medium">VCS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Can use GitHub in addition to Git for collaboration. Understand 
-                    branch protection rules, personal access tokens, private and 
-                    public branches, pull requests, issues, and milestones.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Ableton Live</h2>
-                    <div class="language-level complex">Music</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Can produce music in Ableton Live with songs on major platforms 
-                    such as Spotify, Apple Music, iTunes, YouTube Music, and more.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Microsoft Office</h2>
-                    <div class="language-level medium">Office</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Experience in Microsoft Word, PowerPoint, OneDrive, and some Excel.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>macOS</h2>
-                    <div class="language-level complex">OS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Personal Operating System of choice since it's based on Unix, 
-                    seamless to use, easy to set up new software, preferred 
-                    keyboard shortcuts, extensive library of software for my 
-                    variety of use cases (development, music production, biblical 
-                    studies, etc).
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Linux</h2>
-                    <div class="language-level complex">OS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Second-favourite OS after macOS. I use Arch, btw. Currently 
-                    rocking the Omarchy rice of Hyprland on my personal desktop 
-                    computer.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-
-        <div class="language-card">
-            <header>
-                <div class="col-1">
-                    <h2>Windows</h2>
-                    <div class="language-level complex">OS</div>
-                </div>
-                <div class="col-2">
-                    <i class="material-symbols-outlined">expand_circle_down</i>
-                </div>
-            </header>
-            <article>
-                <p>
-                    Plenty of experience with Windows as well. I've used Windows 
-                    8.1, 10, and 11 with plenty of experience in all.
-                </p>
-            </article>
-            
-            <div class="link-button">
-                <a href="#">Website</a>
-            </div>
-        </div>
-    </template>
+    </div>
     
-</body>
-</html>
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>CSS</h2>
+                <div class="language-level core">Web</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Intermediately skilled at writing CSS and able to design 
+                beautiful websites using web design best practices.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>JavaScript</h2>
+                <div class="language-level core">Web</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Skilled at writing JavaScript code, manipulating DOM, 
+                and using Node.js.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>PHP</h2>
+                <div class="language-level medium">Web</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Can write PHP web apps with SQL integration.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Angular</h2>
+                <div class="language-level complex">Framework</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Can write Angular web apps with an understanding of components, 
+                routing, pipes, directives, material design, etc.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+</template>
+
+<template id="languages-oop">
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Java</h2>
+                <div class="language-level complex">OOP</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Spent 3 semesters learning Java. Extensive knowledge of Java 
+                OOP, design patterns such as the Singleton design pattern, 
+                Database integration, and JavaFX.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+</template>
+
+<template id="languages-ux">
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>JavaFX</h2>
+                <div class="language-level medium">UX</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Learned JavaFX for 2 semesters and created 2 big projects in 
+                it: a music-oriented driving game called 
+                <a href="/projects/late_night_cruise.html" class="link">Late Night Cruise ,</a>
+                and a calendar app called 
+                <a href="/projects/chronos.html" class="link">Chronos</a> with database integration
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+</template>
+
+<template id="languages-software">
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Git</h2>
+                <div class="language-level medium">VCS</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Can use Git for version control (including the Git CLI). 
+                Understand branches, merging, pulling and pushing to remote, 
+                etc.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>GitHub</h2>
+                <div class="language-level medium">VCS</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Can use GitHub in addition to Git for collaboration. Understand 
+                branch protection rules, personal access tokens, private and 
+                public branches, pull requests, issues, and milestones.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Ableton Live</h2>
+                <div class="language-level complex">Music</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Can produce music in Ableton Live with songs on major platforms 
+                such as Spotify, Apple Music, iTunes, YouTube Music, and more.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Microsoft Office</h2>
+                <div class="language-level medium">Office</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Experience in Microsoft Word, PowerPoint, OneDrive, and some Excel.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>macOS</h2>
+                <div class="language-level complex">OS</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Personal Operating System of choice since it's based on Unix, 
+                seamless to use, easy to set up new software, preferred 
+                keyboard shortcuts, extensive library of software for my 
+                variety of use cases (development, music production, biblical 
+                studies, etc).
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Linux</h2>
+                <div class="language-level complex">OS</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Second-favourite OS after macOS. I use Arch, btw. Currently 
+                rocking the Omarchy rice of Hyprland on my personal desktop 
+                computer.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+
+    <div class="language-card">
+        <header>
+            <div class="col-1">
+                <h2>Windows</h2>
+                <div class="language-level complex">OS</div>
+            </div>
+            <div class="col-2">
+                <i class="material-symbols-outlined">expand_circle_down</i>
+            </div>
+        </header>
+        <article>
+            <p>
+                Plenty of experience with Windows as well. I've used Windows 
+                8.1, 10, and 11 with plenty of experience in all.
+            </p>
+        </article>
+        
+        <div class="link-button">
+            <a href="#">Website</a>
+        </div>
+    </div>
+</template>
