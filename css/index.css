@@ -226,6 +226,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 .project-card {
     width: 80%;
     display: flex;
+    justify-content: center;
     gap: 20px;
     background-color: var(--primary-100);
     border: 1px solid var(--primary-200);
@@ -242,14 +243,18 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     transition: all 0.2s ease;
 }
 .project-card img {
-    width: 20%;
+    width: 150px;
+    height: 150px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--primary-200);
     border-radius: inherit;
     filter: brightness(100%);
     transition: filter 0.2s ease;
 }
 .project-card:hover img {
+    border: 1px solid var(--secondary-200);
     filter: brightness(95%);
-    transition: filter 0.2s ease;
+    transition: all 0.2s ease;
 }
 .project-card .project-card-text h2 {
     display: inline-block;
@@ -676,10 +681,12 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
     .project-card {
         width: 100%;
+        align-items: center;
     }
     
     .project-card img {
-        min-width: 40%;
+        width: 120px;
+        height: 120px;
     }
     .project-card .project-card-text h2 {
         position: relative;
