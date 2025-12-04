@@ -3,7 +3,11 @@
     * @description Helper function to get a specific cookie based on its name
  */
 
-// Returns a cookie
+/**
+ * @description Returns a cookie based on its key
+ * @param {*} name 
+ * @returns array of 2 values, [0] key, [1] value
+ */
 export function getCookieAsArray(name) {
     // Get all the cookies and split them into an array
     const cookies = document.cookie.split('; ');
