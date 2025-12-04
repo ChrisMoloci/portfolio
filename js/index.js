@@ -6,7 +6,7 @@
 import { loadTemplate } from "./html_loader.js";
 
 
-// --- Theme based social media link icons ---
+// --- Social image switching (Same logic applied in bio.js) ---
 const socials = document.getElementById("socials");
 const lightSocials = document.getElementById("light-socials");
 const darkSocials = document.getElementById("dark-socials");
@@ -19,7 +19,9 @@ new MutationObserver(() => {
     updateSocials();
 }).observe(document.documentElement, { attributes: true });
 
-// Updates socials images based on current theme (checks class on document)
+/**
+ * @description Updates socials images based on current theme (checks class on document)
+ */
 function updateSocials() {
     // If the class on the document element is set to dark, use light icons on dark background
     if (document.documentElement.className == "dark") {
