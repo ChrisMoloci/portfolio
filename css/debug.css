@@ -1,3 +1,8 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file for visualizing borders
+*/
+
 body > :where(div, section, header, footer, nav, video, img) {
     border: 1px solid blue;
 }
