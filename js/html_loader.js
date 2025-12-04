@@ -3,7 +3,13 @@
  * @description Helper function to parse HTML data from other HTML files
  */
 
-// Template ID is the id of the tag to get and file is the path to the HTML file
+
+/**
+ * Loads HTML from a specified file and gets a tag with the given templateId
+ * @param {*} templateId 
+ * @param {*} file 
+ * @returns HTML element from a file with a specific templateId
+ */
 export async function loadTemplate(templateId, file) {
     // Since we are working with files, we should use a try catch
     try {
