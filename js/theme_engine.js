@@ -1,8 +1,13 @@
+/* 
+    Author: Christian Moloci
+    Theme engine for managing which theme to set based on cookie and user changes
+*/
+
 import { getCookieAsArray } from "/js/get_cookie.js"
 
 // Themeing based on: https://webdesign.tutsplus.com/color-schemes-with-css-variables-and-javascript--cms-36989t
 
-let cookie;
+let cookie; // Will hold the theme cookie
 const themeTable = [
     "auto", "light", "dark"
 ] // Tracks class names for :root to set document elemet to
