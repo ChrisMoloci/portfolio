@@ -74,7 +74,7 @@ export class WorkCard {
     generateHTML() {
         return `
             <div class="work-card">
-                <img src="/assets/images/Projects/${this.#imgSrc}" alt="${this.#imgAlt}" class="work-card-image">
+                <img src="/assets/images/projects/${this.#imgSrc}" alt="${this.#imgAlt}" class="work-card-image">
                 <div class="work-card-content">
                     <header class="work-card-header">
                         <h2>${this.#title}</h2>
