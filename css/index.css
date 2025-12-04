@@ -1,10 +1,16 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file for home page
+*/
+
+/* Selects the nav bar option for the currently open page */
 nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     background-color: var(--accent-300);
 }
 
+/* Make all sections 100% width */
 .section {
     width: 100%;
-    /* border: 1px solid blue; */
 }
 
 /* Section 1, name */
@@ -61,35 +67,13 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     position: relative;
     font-size: 7em;
     color: var(--text-900);
-    /* font-size: 5em; */
     line-height: 1em;
     font-family: "Cal Sans", sans-serif;
-    /* display: flex;
-    height: 200px;
-    align-items: center;
-    text-shadow:
-        0px -50px 1px var(--primary-300),
-        0px -25px 1px var(--primary-100),
-        0px 25px 1px var(--primary-100),
-        0px 50px 1px var(--primary-300); */
 }
-/* .section1 .col-2 .name::after {
-    content: "Christian Moloci";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    transform: translate(0px, 20px);
-    color: var(--accent-500);
-    z-index: -1;
-} */
 
 /* Section 1 -> column 3 styles */
 .section1 .col-3 .image-container {
     padding: 80px;
-    /* background-image: url('/assets/chris.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
 }
 .section1 .col-3 .image-container img {
     border-radius: 1000px;
@@ -99,11 +83,9 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 
 /* Section 2, bio */
 .section2 {
-    /* height: 100vh; */
     background-color: var(--background-100);
     display: flex;
     justify-content: space-between;
-    /* border-radius: 64px; */
 }
 .section2 > .col-1 {
     width: 55%;
@@ -357,28 +339,6 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     box-shadow: 0px 0px 10px var(--accent-300); /* fallback for older browsers */
     box-shadow: 0px 0px 10px color-mix(in srgb, var(--accent-300) 25%, transparent);
 }
-
-/* .section5 .col-2 h1 {
-    display: inline-block;
-    position: relative;
-}
-.section5 .col-2 h1::after {
-    content: '';
-    position: absolute;
-    transform: scaleX(0);
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background-color: var(--accent-500);
-    border-radius: 1000px;
-    transform-origin: left;
-    transition: transform 0.3s ease-out;
-}
-.section5 .col-2 h1:hover::after {
-    transform: scaleX(1);
-} */
-
 .section5 .col-2 .language-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -418,7 +378,6 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
 }
 .section5 .col-2 .language-grid .expanded-language-card {
     /* background-color: var(--secondary-100); */
-    /* grid-column: span 2; */
     grid-row: span 2;
     header .col-2 i {
         transform: rotate(180deg);
@@ -474,6 +433,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     font-size: 0.8em;
 }
 
+/* Styling for in between sized screens */
 @media screen and (max-width: 1024px) {
     .section1 .col-2 .name {
         font-size: 5em;
@@ -535,6 +495,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
 }
 
+/* Styling for mobile devices */
 @media screen and (max-width: 750px) {
     .section1 {
         /* flex-direction: column; */
@@ -796,6 +757,7 @@ nav#nav-bar > div.col-1 ul li:nth-of-type(1) {
     }
 }
 
+/* Fix some sizing on even smaller devices */
 @media screen and (max-width: 500px) {
     .section1 .col-2 .name {
         font-size: 20vw;

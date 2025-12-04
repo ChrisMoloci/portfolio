@@ -1,3 +1,9 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file applied to all pages
+*/
+
+/* Fonts */
 @font-face {
     font-family: "Cal Sans";
     src: url("/assets/fonts/Cal_Sans/CalSans-Regular.ttf");;
@@ -11,6 +17,7 @@
     src: url('/assets/fonts/BBH_Sans_Bartle/BBHSansBartle-Regular.ttf');
 }
 
+/* Copies from the google fonts website for google icons */
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -19,6 +26,7 @@
   'opsz' 24 
 }
 
+/* Body Styles */
 body {
     background-color: var(--background-50);
     color: var(--text-950);
@@ -28,6 +36,7 @@ body {
     position: relative;
 }
 
+/* Nav bar styles */
 nav#nav-bar {
     position: fixed;
     top: 0px;
@@ -145,6 +154,7 @@ nav#nav-bar div#hamburger-nav-menu h1 {
     }
 }
 
+/* Style for buttons custom links that appear as buttons */
 .link-button {
     margin-top: 20px;
     border-radius: 1000px;

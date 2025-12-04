@@ -1,7 +1,14 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file for home page
+*/
+
+/* Selects the nav bar option for the currently open page */
 nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
     background-color: var(--accent-300);
 }
 
+/* Work header */
 .work-header {
     padding-top: 5vh;
     width: 100%;
@@ -208,6 +215,7 @@ div.link-button {
     padding: 0px;
 }
 
+/* Resize grid and 1200px to have 3 items per row (2 for music cards) */
 @media screen and (max-width: 1200px) {
     .coding-content {
         grid-template-columns: 1fr 1fr 1fr;
@@ -216,7 +224,7 @@ div.link-button {
         grid-template-columns: 1fr 1fr;
     }
 }
-
+/* Resize grid again and the header too this time */
 @media screen and (max-width: 900px) {
     .work-header .work-nav {
         grid-template-columns: 28% 33% 33%; /* leave 6% for gap */
@@ -230,6 +238,7 @@ div.link-button {
     }
 }
 
+/* Final resizing and styling for mobile devices */
 @media screen and (max-width: 600px) {
     .work-header .work-nav {
         grid-template-columns: 100%;

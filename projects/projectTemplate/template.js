@@ -11,9 +11,9 @@ const content = document.getElementById('content'); // Where templates will be p
 const content1 = document.getElementById('content-1');
 const content2 = document.getElementById('content-2');
 
-let currentNav; // Stores the currently selected nav item it
+let currentNav; // Stores the currently selected nav item id
 
-content.innerHTML = content1.innerHTML; // Init
+content.innerHTML = content1.innerHTML; // Initially load content1 into content
 
 /**
  * @description Switches the main content based on the content nav bar clicks

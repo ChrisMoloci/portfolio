@@ -1,3 +1,9 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file for all project pages
+*/
+
+/* Selects the nav bar option for the currently open page */
 nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
     background-color: var(--accent-300);
 }
@@ -6,6 +12,7 @@ body {
     padding: 0;
 }
 
+/* Main Styles */
 main {
     display: flex;
     height: 80vh;
@@ -38,6 +45,8 @@ main .col-2 {
     margin-right: 8vw;
 }
 
+
+/* Col 1 styles (Basic Information) */
 main .col-1 img {
     width: 35%;
     border-radius: 32px;
@@ -78,7 +87,7 @@ main .col-1 .languages span {
     font-size: 0.8em;
 }
 
-/* Col 2 */
+/* Col 2 (Main content) */
 main .col-2 .project-nav {
     width: 100%;
     display: flex;
@@ -145,6 +154,8 @@ main .col-2 .content ul {
     padding-left: 25px;
 }
 
+
+/* For Smaller Screens */
 @media screen and (max-width: 1024px) {
     main {
         display: flex;
