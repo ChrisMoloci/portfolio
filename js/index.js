@@ -13,7 +13,10 @@ const darkSocials = document.getElementById("dark-socials");
 
 updateSocials(); // Initial update
 
-// Listen for attribut changes on the document element to update socials on theme change
+/**
+ * @description Listen for attribute changes on the document element to update socials on theme change
+ * @author Christian Moloci
+ */
 new MutationObserver(() => {
     // More on mutation observer: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
     updateSocials();
@@ -21,6 +24,7 @@ new MutationObserver(() => {
 
 /**
  * @description Updates socials images based on current theme (checks class on document)
+ * @author Christian Moloci
  */
 function updateSocials() {
     // If the class on the document element is set to dark, use light icons on dark background
