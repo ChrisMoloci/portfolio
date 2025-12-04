@@ -4,287 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian Moloci</title>
-    <link href="reset.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/var.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <link rel="stylesheet" href="css/debug.css"> -->
+    <script src="./js/theme_engine.js" type="module"></script>
+    <script src="js/load_nav_bar.js" type="module"></script>
+    <script src="/js/index.js" type="module"></script>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=expand_circle_down,routine,_mode" /> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=expand_circle_down,routine,light_mode" /> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100&icon_names=expand_circle_down,routine,light_mode" /> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- 
-    Coded By: Christian Moloci
-    Portfolio Home Page
+        Author: Christian Moloci
+        Home Page
     -->
 </head>
 <body>
 
-    <!-- Main section that encloses all the content for the home page -->
-    <main>
-        <!-- 
-        This section encloses the first part of the page, it holds the 
-        introduction/title with an image of myself.
-        This section is a flex grid  
-        -->
-        <section class="firstImpression">
-            <!-- 
-            This section is the parent of a child that holds text. 
-            This is so we can center it with while keeping text aligend left 
-            -->
-            <div class="namePresentaton">
-                <!-- Holds all the text -->
-                <div class="text-container">
-                    <!-- h1 that contains an SVG to allow for both a text fill and stroke  -->
-                    <h1>
-                        <svg width="100%" height="220">
-                            <g>
-                                <text x="0" y="100" stroke-width="4" stroke="white" fill="black" paint-order="stroke fill">Christian</text>
-                                <text x="0" y="200" stroke-width="4" stroke="white" fill="black" paint-order="stroke fill">Moloci</text>
-                            </g>
-                        </svg>
-                    </h1>
-                    <!-- Quick bio -->
-                    <p>Full Stack Web & App Developer <span>{}</span></p>
-                    <!-- A link that looks like a button to open my resume -->
-                    <a href="resume.pdf">
-                        <div class="cardButton">
-                            <span>View Resume</span>
-                        </div>
-                    </a>
-                </div>
+    <!-- 
+    Layout:
+    - Welcome screen (name, profile pic, socials, resume button)
+    - Bio preview with elevator pitch and "read more" button (goes to about page)
+    - Featured projects (nav bar between music and projects, show 3 for each)
+    - Featured Blog posts (Not in this release)
+    - Languages (Categories on left, languages on right based on selected category)
+    -->
+
+    <!-- Greeting Section -->
+    <div class="section section1">
+        <div class="col-1">
+            <div class="socials" id="socials">
+                <!-- Dynamically updated by javascript -->
+                 <p>Loading social links...</p>
             </div>
-            <!-- 
-            Second element in the first impressions flex grid.
-            Holds an image with an element behind it that gived the illision of a 
-            gradient colored border.
-            -->
-            <div class="imagePresentation">
-                <div class="imageWrap">
-                    <img src="chris.png" alt="chris">
-                </div>
+        </div>
+        <div class="col-2">
+            <h1 class="name">
+                Christian Moloci
+            </h1>
+            <div class="link-button">
+                <a href="/assets/files/Christian_Moloci-Resume-Redacted.pdf">Resume</a>
             </div>
-        </section>
+        </div>
 
-        <!-- This next section shows all the languages I have experience in -->
-        <section class="languages">
-            <!-- Title -->
-            <h1>Languages <i class="fa-solid fa-bug fa-xs"></i></h1>
-            
-            <!-- Different language sections -->
-
-            <h2>Web:</h1>
-                <div class="langSection">
-                    <div class="languageContainer">
-                        <div class="languageExp"><i class="fa-solid fa-circle-up" style="color: #96d35f;"></i>Comfortable</div>
-                        <div class="language html">
-                            <p>HTML</p>
-                        </div>
-                    </div>
-                    <div class="languageContainer">
-                        <div class="languageExp"><i class="fa-solid fa-circle-up" style="color: #96d35f;"></i>Intermediate</div>
-                        <div class="language css">
-                            <p>CSS</p>
-                        </div>
-                    </div>
-                    <div class="languageContainer">
-                        <div class="languageExp"><i class="fa-regular fa-circle-dot" style="color: #FFD43B;"></i>Beginner</div>
-                        <div class="language js">
-                            <p>JavaScript</p>
-                        </div>
-                    </div>
-                    <div class="languageContainer">
-                        <div class="languageExp"><i class="fa-regular fa-circle-dot" style="color: #FFD43B;"></i>Beginner</div>
-                        <div class="language php">
-                            <p>PHP</p>
-                        </div>
-                    </div>
-                </div>
-
-            <h2>Object Oriented Programming:</h1>
-                <div class="langSection">
-                    <div class="languageContainer">
-                        <div class="languageExp"><i class="fa-solid fa-circle-up" style="color: #96d35f;"></i>Intermediate</div>
-                        <div class="language java">
-                            <p>Java</p>
-                        </div>
-                    </div>
-                    <div class="languageContainer">
-                        <div class="languageExp"><i class="fa-solid fa-circle-down" style="color: #e32400;"></i>Learning</div>
-                        <div class="language dart">
-                            <p>Dart</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h2>Frameworks:</h1>
-                    <div class="langSection">
-                        <div class="languageContainer">
-                            <div class="languageExp"><i class="fa-regular fa-circle-dot" style="color: #FFD43B;"></i>Beginner</div>
-                            <div class="language javafx">
-                                <p>JavaFX</p>
-                            </div>
-                        </div>
-                        <div class="languageContainer">
-                            <div class="languageExp"><i class="fa-solid fa-circle-down" style="color: #e32400;"></i>Learning</div>
-                            <div class="language flutter">
-                                <p>Flutter</p>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-
-        <!-- A section that holds a bible verse -->
-        <section class="quote">
-            <!-- Child which is the rectangle inside the section that holds the quote -->
-            <div class="quoteContainer">
-                <blockquote>
-                    For to this end we toil and strive, because we have our
-                    hope set on the living God, who is the Savior of all people,
-                    especially of those who believe. <em>(Apostal Paul)</em>
-                </blockquote>
-                <cite>1 Timothy 4:10 (ESV)</cite>
+        <div class="col-3">
+            <div class="image-container">
+                <img id="profile-image" src="assets/images/chris.png" alt="profile picture">
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- A section that highlights all the work I've done -->
-        <section class="myWork">
-            <!-- This is just the info for the section -->
-            <div class="myWorkTitle">
-                <h1>My Dev Journey</h1>
-                <p>Projects I have worked on</p>
-                <a href="projects.html">
-                    <div class="projectsPageButton">
-                        <span>Go to Projects</span>
-                    </div>
-                </a>
-            </div>
-            <!-- Every work container is like a card that holds info about a project I've done -->
-            <div class="workContainer">
-                <div class="workCard">
-                    <img src="Assets/portfolioThumb.png" alt="Portfolio">
-                    <div class="workCardContent">
-                        <h1>Personal Portfolio</h1>
-                        <div>
-                            <ul>
-                                <li class="html">HTML</li>
-                                <li class="css">CSS</li>
-                                <li class="js">JavaScript</li>
-                            </ul>
-                        </div>
-                        <p>
-                            A visually stunning website designed to demonstrate my web development 
-                            skills while also simultaneously providing more information about 
-                            myself and my professional career. While still currently in 
-                            development, once complete, you will be able to browse through 
-                            three different portfolios, learn about me and my story, and check 
-                            out my blog posts.
-                            <br><br>
-                            * Only the developer portfolio is available at the moment.
-                        </p>
-                        <a href="https://github.com/ChrisMoloci/portfolio">
-                            <div class="cardButton">
-                                <span class="newTabLink">GitHub</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="workCard">
-                    <img src="Assets/lateNightCruise.png" alt="Late Night Cruise Game Capture">
-                    <div class="workCardContent">
-                        <h1>Late Night Cruise</h1>
-                        <div>
-                            <ul>
-                                <li class="java">Java</li>
-                                <li class="javafx">JavaFX</li>
-                            </ul>
-                        </div>
-                        <p>
-                            A fun game developed by three students for a Java II course. The 
-                            game integrates the world of driving and music together. Everyone loves 
-                            listening to music while driving, so we realized, why not make a game 
-                            where the sole objective is to relax, collect currency, and use said 
-                            currency to purchase more songs and manage a song library with playlists 
-                            that can be listened to while driving? By harnessing the power of JavaFX 
-                            and OOP, we were able to make this idea become a reality.
-                        </p>
-                        <a href="https://github.com/ChrisMoloci/LateNightCruise">
-                            <div class="cardButton">
-                                <span class="newTabLink">GitHub</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="workCard">
-                    <img src="Assets/placeholder.png" alt="Screen Shot of Web Bible Reader">
-                    <div class="workCardContent">
-                        <h1>Web Bible App</h1>
-                        <div>
-                            <ul>
-                                <li class="html">HTML</li>
-                                <li class="css">CSS</li>
-                                <li class="js">JavaScript</li>
-                            </ul>
-                        </div>
-                        <p>
-                            This is my passion project. It is not currently available as it is still in 
-                            development and will continue to be in development for a while, but once 
-                            complete, the objective of the app is to provide Christians with an app that 
-                            allows them to access the word of God and plenty of tools and resources 
-                            relating to God's word to help them progress further in their relationship 
-                            with God and become more skilled in the word of God. A beta for both apps will 
-                            eventually be released but it is still far away.
-                        </p>
-                        <!-- <a href="#">
-                            <div class="cardButton">
-                                <span class="newTabLink">GitHub</span>
-                            </div>
-                        </a> -->
-                    </div>
-                </div>
-                <div class="workCard">
-                    <img src="Assets/placeholder.png" alt="Portfolio">
-                    <div class="workCardContent">
-                        <h1>Mobile Bible App</h1>
-                        <div>
-                            <ul>
-                                <li class="flutter">Flutter</li>
-                                <li class="dart">Dart</li>
-                            </ul>
-                        </div>
-                        <p>
-                            A mobile version of the more mature web app. This is also not publicly available 
-                            yet as it is still really early in development. A beta for both apps will 
-                            eventually be released but it is still far away.
-                        </p>
-                        <!-- <a href="#">
-                            <div class="cardButton">
-                                <span class="newTabLink">GitHub</span>
-                            </div>
-                        </a> -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Bio Preview Section -->
+    <div class="section section2">
+        <div class="col-1">
+            <h1>Hi, I'm Chris!</h1>
 
-    <!-- Nav bar which is just a like formatted with css to look like a nav bar -->
-    <nav>
-        <ul>
-            <li class="portfolioSelect">
-                <ul>
-                    <li><a href="comingSoon.html"><i class="fa-solid fa-book-bible portfolioOption christianPortfolio"></i></li></li>
-                    <li><a href="comingSoon.html"><i class="fa-solid fa-music portfolioOption musicPortfolio"></i></a></li>
-                </ul>
-                <a href="index.html"><i class="fa-solid fa-robot portfolioOption devPortfolio"></i></a>
-            </li>
-            <li class="currentPage"><a href="index.html">Home</a></li>
-            <li><a href="projects.html">My Work</a></li>
-            <li><a href="connect.html">Connect</a></li>
-            <!-- <li><a href="#">Secret Feature</a></li> -->
-            <li><a href="about.html">About</a></li>
-        </ul>
+            <article>
+                <p>
+                    Hi, I'm Chris, a young, capable junior developer who just graduated from 
+                    St. Clair College. I grew up in the Windsor Region all my life, and I 
+                    love producing music, biking in the summer, and, of course, programming.
+                </p>
+
+                <p>
+                    Despite my young age, I've been writing code since 13 years old and have 
+                    been tinkering with technology for even longer than that. 
+                </p>
+
+                <p>
+                    I have a solid grasp of concepts such as object-oriented programming and 
+                    can use Git and GitHub for version control and to collaborate on projects.
+                </p>
+
+                <p>
+                    I strive to create clean, scalable, efficient, and maintainable code 
+                    because, for me, coding is more than just a job; it's an art. I code 
+                    because I love making things, and I want the things I make to be great.
+                </p>
+
+                <p>
+                    The most impressive personal project I've created thus far has to be a 
+                    JavaScript-based QR Code Generator. Initially jumping into it, I thought 
+                    QR Codes were just text-based data, encoded into binary, but as I kept 
+                    going, I discovered that QR Codes were pretty complicated. I had to 
+                    learn Reed-Solomon error correction, among a few other complicated 
+                    concepts, just to encode the data.
+                </p>
+            </article>
+        </div>
+        <div class="col-2">
+            <!-- Embeded YouTube video -->
+            <iframe src="https://www.youtube.com/embed/Oq-pGfysWoY?si=8dxU8ictUIP73LV0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Featured Projects Section -->
+    <div class="section section3">
+        <div class="col-1">
+            <h1>Featured Projects</h1>
+            <nav id="projects-nav">
+                <div class="selected" id="projects:code">Code</div>
+                <div id="projects:music">Music</div>
+            </nav>
+        </div>
+        <div class="col-2">
+            <div class="col-2-1" id="projects-container">
+                <!-- Populated by javascript with coding cards or music cards -->
+                <p>loading...</p>
+            </div>
+            <div class="col-2-2">
+                <!-- Decoration section -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Blog Posts Section -->
+    <!-- <div class="section section4">
+        Section 4
+    </div> -->
+
+    <!-- Languages Section -->
+    <div class="section section5">
+        <div class="col-1">
+            <h1>Expertise:</h1>
+            <nav id="language-nav">
+                <div id="languages:web" class="selected">Web</div>
+                <div id="languages:oop">OOP</div>
+                <div id="languages:ux">UX</div>
+                <div id="languages:software">Software, Tools, and Operating Systems</div>
+            </nav>
+        </div>
+        <div class="col-2">
+            <h1 id="language-title">Web Development:</h1>
+            <div class="language-grid" id="language-container">
+                <!-- Populated by javascript with language cards -->
+                <p>loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <nav id="nav-bar">
+        <!-- Populated by load_nav_bar.js -->
+        <p>loading...</p>
     </nav>
 
-    <!-- Attrubution for the icons I used -->
-    <footer>
-        <p>Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome</a></p>
-    </footer>
+    <!-- Templates for social media links so they can be displayed based on color theme -->
+    <template id="light-socials">
+        <div class="social-sec">
+            <a href="https://github.com/ChrisMoloci" target="_blank"><img src="assets/brand-logos/light/github-mark-white.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/christian-moloci/" target="_blank"><img src="assets/brand-logos/light/InBug-White.png" alt=""></a>
+            <a href="https://www.instagram.com/christianmoloci?igsh=eDUzM3MyNHpza3Mz&utm_source=qr" target="_blank"><img src="assets/brand-logos/light/Instagram_Glyph_White.png" alt=""></a>
+            <a href="mailto:chrismoloci@gmail.com" target="_blank"><img src="assets/brand-logos/light/email_light.png" alt=""></a>
+        </div>
+        <div class="social-sec">
+            <a href="https://open.spotify.com/artist/55xOOO8kPC2LekNX1RGTg6" target="_blank"><img src="assets/brand-logos/light/Spotify_Primary_Logo_RGB_White.png" alt=""></a>
+            <a href="https://music.apple.com/us/artist/faint-matches/1755492447" target="_blank"><img src="assets/brand-logos/light/Apple_Music_Icon_wht_sm_073120.svg" alt=""></a>
+            <a href="https://music.amazon.ca/artists/B0D8SCCM1Y/faint-matches" target="_blank"><img src="assets/brand-logos/light/AM_App_Tile_Charcoal_White_Rounded.png" alt=""></a>
+        </div>
+    </template>
 
+    <template id="dark-socials">
+        <div class="social-sec">
+            <a href="https://github.com/ChrisMoloci" target="_blank"><img src="assets/brand-logos/dark/github-mark.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/christian-moloci/" target="_blank"><img src="assets/brand-logos/dark/InBug-Black.png" alt=""></a>
+            <a href="https://www.instagram.com/christianmoloci?igsh=eDUzM3MyNHpza3Mz&utm_source=qr" target="_blank"><img src="assets/brand-logos/dark/Instagram_Glyph_Black.png" alt=""></a>
+            <a href="mailto:chrismoloci@gmail.com" target="_blank"><img src="assets/brand-logos/dark/email_dark.png" alt=""></a>
+        </div>
+        <div class="social-sec">
+            <a href="https://open.spotify.com/artist/55xOOO8kPC2LekNX1RGTg6" target="_blank"><img src="assets/brand-logos/dark/Spotify_Primary_Logo_RGB_Black.png" alt=""></a>
+            <a href="https://music.apple.com/us/artist/faint-matches/1755492447" target="_blank"><img src="assets/brand-logos/dark/Apple_Music_Icon_blk_sm_073120.svg" alt=""></a>
+            <a href="https://music.amazon.ca/artists/B0D8SCCM1Y/faint-matches" target="_blank"><img src="assets/brand-logos/dark/AM_App_Tile_White_Charcoal_Rounded.png" alt=""></a>
+        </div>
+    </template>
+    
 </body>
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos</title>
+    <link rel="stylesheet" href="/css/var.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/project.css">
+    <!-- <link rel="stylesheet" href="/css/debug.css"> -->
+     <script src="/js/theme_engine.js" type="module"></script>
+    <script src="/js/load_nav_bar.js" type="module"></script>
+    <script src="js/chronos.js" type="module"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- 
+        Author: Christian Moloci
+        Chronos Project Page
+    -->
+</head>
+<body>
+
+    <main>
+        <div class="col-1">
+            <!-- Quick info -->
+            <img src="/assets/images/Projects/icon-2.png" alt="icon">
+            <p class="version-indicator">Version: 1.0</p>
+            <h1>Chronos</h1>
+            <p>Author: Christian Moloci, Tyler Bombardier, Sean Manser</p>
+            <!-- List of languages used in project -->
+            <div class="languages">
+                <span class="lang-java">Java</span>
+                <span class="lang-javafx">JavaFX</span>
+            </div>
+            <div class="link-button"><a href="https://github.com/ChrisMoloci/Chronos" target="_blank">GitHub</a></div>
+        </div>
+        
+        <div class="col-2">
+            <!-- Nav bar to switch between two project sections -->
+            <!-- <nav class="project-nav" id="project-nav">
+                <div class="selected" id="nav-1">Web App</div>
+                <div id="nav-2">Library</div>
+            </nav> -->
+
+            <div class="content" id="content">
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Content switches between these two if project uses both sections -->
+    <template id="content-1">
+        <h1>About:</h1>
+
+        <section>
+            <h2>Images: </h2>
+            <div class="slideshow">
+                <img src="/assets/images/Projects/chronos-0.png" alt="screenshot 1">
+                <img src="/assets/images/Projects/chronos-1.png" alt="screenshot 1">
+                <img src="/assets/images/Projects/chronos-2.png" alt="screenshot 1">
+                <img src="/assets/images/Projects/chronos-3.png" alt="screenshot 1">
+            </div>
+        </section>
+
+        <section>
+            <h2>Description:</h2>
+            <p>
+                A JavaFX-based calendar app. Connect to any MySQL relational 
+                database and start storing reminders and events.
+        </section>
+
+        <section>
+            <h2>Calendar:</h2>
+            <p>
+                Create Events, categorize them, give them start and end dates, 
+                and start and end times.
+        </section>
+
+        <section>
+            <h2>Reminders:</h2>
+            <p>
+                Create unlimited reminder lists and store your reminders in 
+                those lists.
+        </section>
+    </template>
+
+    <template id="content-2">
+        <!-- <h1>About 2:</h1>
+
+        <section>
+            <h2>Images: </h2>
+            <div class="slideshow">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 1">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 2">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 3">
+            </div>
+        </section>
+
+        <section>
+            <h2>Description:</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </section> -->
+    </template>
+    
+    <nav id="nav-bar"></nav>
+
+</body>
+</html>

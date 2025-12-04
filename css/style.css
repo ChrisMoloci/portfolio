@@ -1,0 +1,366 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file applied to all pages
+*/
+
+/* Fonts */
+@font-face {
+    font-family: "Cal Sans";
+    src: url("/assets/fonts/Cal_Sans/CalSans-Regular.ttf");;
+}
+@font-face {
+    font-family: Gantari;
+    src: url("/assets/fonts/Gantari/Gantari-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "sans bartle";
+    src: url('/assets/fonts/BBH_Sans_Bartle/BBHSansBartle-Regular.ttf');
+}
+
+/* Copies from the google fonts website for google icons */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24 
+}
+
+/* Body Styles */
+body {
+    background-color: var(--background-50);
+    color: var(--text-950);
+    font-family: Gantari;
+    font-weight: 400;
+    padding-top: 15vh;
+    position: relative;
+}
+
+/* Nav bar styles */
+nav#nav-bar {
+    position: fixed;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 25px;
+}
+nav#nav-bar > div:not(#hamburger-nav-menu) {
+    width: fit-content;
+    font-size: 1em;
+    font-weight: 600;
+}
+nav#nav-bar > div#hamburger-nav-menu {
+    display: block;
+}
+
+nav#nav-bar > div ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    border-radius: 1000px;
+    background-color: var(--primary-100);
+    border: 0.5px solid var(--primary-200);
+    padding: 5px;
+}
+nav#nav-bar > div#hamburger-nav-menu ul {
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    background-color: transparent;
+    border: transparent;
+    justify-content: center;
+}
+ul.hamburger-nav-option {
+    display: none !important;
+}
+
+nav#nav-bar > div ul li {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-200);
+    padding: 10px 20px;
+    border-radius: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+nav#nav-bar > div#hamburger-nav-menu ul li {
+    padding: 30px 20px;
+    border-radius: 32px;
+    font-size: 1.3em;
+}
+nav#nav-bar > div ul li i {
+    display: block;
+    font-size: inherit;
+}
+nav#nav-bar > div:not(#hamburger-nav-menu) ul:not(.hamburger-nav-option) li:hover {
+    background-color: var(--secondary-200);
+    padding: 10px 30px;
+    transition: all 0.3s ease-in-out;
+}
+nav#nav-bar > div ul li a {
+    text-decoration: none;
+    color: var(--text-900);
+}
+
+nav#nav-bar div#hamburger-nav-menu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%; 
+    height: 100vh;
+    background-color: var(--background-100);
+    display: none;
+}
+div#hamburger-nav-menu div#close-hamburger-menu {
+    display: flex;
+    margin: 15px 15px 0px auto;
+    padding: 15px;
+    line-height: 1em;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;;
+    width: fit-content;
+    cursor: pointer;
+    background-color: var(--primary-200);
+    border: 5px solid var(--primary-100);
+    outline: 1px solid var(--primary-200);
+}
+nav#nav-bar div#hamburger-nav-menu h1 {
+    margin-left: 25px;
+    font-size: 2.5em;
+}
+
+
+@media screen and (max-width: 650px) {
+    nav#nav-bar {
+        padding: 10px;
+    }
+    nav#nav-bar > div {
+        font-size: 1em;
+        font-weight: normal;
+    }
+    nav#nav-bar > div ul li {
+        padding: 10px 15px;
+    }
+    nav#nav-bar > div ul li#hamburger-button {
+        padding: 10px;
+    }
+    nav#nav-bar > div ul.full-nav-options {
+        display: none;
+    }
+    nav#nav-bar > div ul.hamburger-nav-option {
+        display: block !important;
+    }
+}
+
+/* Style for buttons custom links that appear as buttons */
+.link-button {
+    margin-top: 20px;
+    border-radius: 1000px;
+    background-color: var(--primary-200);
+    border: 1px solid var(--primary-300);
+    box-shadow: 0px 0px 10px var(--primary-200); /* fallback for older browsers */
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--primary-200) 30%, transparent);
+    width: fit-content;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.link-button a {
+    display: inline-block;
+    position: relative;
+    color: var(--text-950);
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.link-button:hover {
+    background-color: var(--secondary-100);
+    outline: 1px solid var(--secondary-200);
+    box-shadow: 0px 0px 10px var(--secondary-200); /* fallback for older browsers */
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--secondary-200) 30%, transparent);
+    transition: all 0.2s ease;
+}
+
+.link-button a::after {
+    content: '';
+    position: absolute;
+    transform: scaleX(0);
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent-500);
+    border-radius: 1000px;
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+}
+.link-button:hover a::after {
+    transform: scaleX(1);
+}
+
+/* Share Dialog Styles */
+#share-dialog {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: var(--primary-800);
+    background-color: color-mix(in srgb, var(--primary-800) 60%, transparent);
+}
+#share-dialog > div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background-100);
+    width: 40%;
+    border-radius: 16px;
+    padding: 40px 20px 60px;
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--primary-800) 30%, transparent);
+}
+#share-dialog > div header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#share-dialog > div header #close-share-dialog {
+    cursor: pointer;
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+    background-color: var(--secondary-200);
+    border: 2px solid var(--secondary-300);
+}
+#share-dialog > div header #close-share-dialog:hover {
+    background-color: var(--secondary-300);
+    transition: background-color 0.2s ease-in-out;
+}
+#share-dialog > div header #close-share-dialog:active {
+    background-color: var(--primary-200);
+    border: 1px solid var(--primary-300);
+}
+#share-dialog > div div.content {
+    padding: 0px 15px 0px;
+}
+#share-dialog > div div.content h3 {
+    margin-top: 15px;
+}
+#share-dialog > div div.content .link-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-100);
+    border: 1px solid var(--secondary-200);
+    border-radius: 1000px;
+    padding: 5px;
+    gap: 5px;
+    color: var(--text-800);
+    margin: 20px 0px 20px;
+}
+#share-dialog > div div.content .link-box > * {
+    padding: 10px 15px;
+    font-size: 1.2em;
+    background-color: var(--secondary-200);
+    border: 1px solid var(--secondary-300);
+    display: block;
+}
+#share-dialog > div div.content .link-box p {
+    flex-grow: 1;
+    border-radius: 1000px 10px 10px 1000px;
+    text-decoration: underline;
+    overflow-x: scroll;
+}
+#share-dialog > div div.content .link-box div {
+    border-radius: 10px 1000px 1000px 10px;
+    cursor: pointer;
+}
+#share-dialog > div div.content .link-box div i {
+    display: block;
+    font-size: 1.2em;
+}
+#share-dialog > div div.content .link-box div:hover {
+    background-color: var(--secondary-300);
+    transition: background-color 0.2s ease-in-out;
+}
+#share-dialog > div div.content .link-box div:active {
+    background-color: var(--primary-200);
+    border: 1px solid var(--primary-300);
+}
+#share-dialog ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 50%;
+    margin: 20px auto 0px;
+}
+#share-dialog ul li {
+    padding: 0px;
+    margin: 0px;
+    width: 25%;
+}
+#share-dialog ul li a {
+    display: block;
+    text-decoration: none;
+}
+#share-dialog ul li a img {
+    width: 100%;
+}
+
+a.link {
+    font-size: 1.2em;
+    color: var(--primary-500);
+    transition: color 0.1s ease-in-out;
+}
+a.link:hover {
+    color: var(--secondary-600);
+    transition: color 0.1s ease-in-out;
+}
+
+/* Specifies box shadows for different coding languages in classes */
+.lang-html {
+    box-shadow: 0px 0px 4px 2px #e34c264d;
+}
+.lang-css {
+    box-shadow: 0px 0px 4px 2px #264de44d;
+}
+.lang-js {
+    box-shadow: 0px 0px 4px 2px #f0db4f4d;
+}
+.lang-java {
+    box-shadow: 0px 0px 4px 2px #f898204d;
+}
+.lang-javafx {
+    box-shadow: 0px 0px 4px 2px #5382a14d;
+}
+.lang-flutter {
+    box-shadow: 0px 0px 4px 2px #027DFD4d;
+}
+.lang-dart {
+    box-shadow: 0px 0px 4px 2px #5AC5B04d;
+}
+.lang-php {
+    box-shadow: 0px 0px 4px 2px #8993BE4d;
+}
+
+@media screen and (max-width: 1050px) {
+    #share-dialog > div {
+        width: 85%;
+    }
+    #share-dialog > div div.content .link-box > * {
+        font-size: 1em;
+    }
+    #share-dialog > div div.content {
+        padding: 0px 5px 0px;
+    }
+    #share-dialog ul {
+        width: 80%;
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="/css/var.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/project.css">
+    <!-- <link rel="stylesheet" href="/css/debug.css"> -->
+     <script src="/js/theme_engine.js" type="module"></script>
+    <script src="/js/load_nav_bar.js" type="module"></script>
+    <script src="js/qr_code_generator.js" type="module"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- 
+        Author: Christian Moloci
+        QR Code Generator Project Page
+    -->
+</head>
+<body>
+
+    <main>
+        <div class="col-1">
+            <!-- Quick info -->
+            <img src="/assets/images/Projects/icon-1.png" alt="icon">
+            <p class="version-indicator">Version: Unreleased</p>
+            <h1>QR Code Generator</h1>
+            <p>Author: Christian Moloci</p>
+            <!-- List of languages used in project -->
+            <div class="languages">
+                <span class="lang-html">HTML</span>
+                <span class="lang-css">CSS</span>
+                <span class="lang-js">JavaScript</span>
+            </div>
+            <div class="link-button"><a href="https://github.com/ChrisMoloci/QRCodeGenerator" target="_blank">GitHub</a></div>
+        </div>
+        
+        <div class="col-2">
+            <!-- Nav bar to switch between two project sections -->
+            <nav class="project-nav" id="project-nav">
+                <div class="selected" id="nav-1">Web App</div>
+                <div id="nav-2">Library</div>
+            </nav>
+
+            <div class="content" id="content">
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Content switches between these two if project uses both sections -->
+    <template id="content-1">
+        <h1>About:</h1>
+
+        <section>
+            <h2>Images: </h2>
+            <div class="slideshow">
+                <img src="/assets/images/Projects/qr_code_generator-0.png" alt="QR Code Generator Web App">
+            </div>
+        </section>
+
+        <section>
+            <h2>Description:</h2>
+            <p>
+                One of the most customizable QR code generator library and app. Generate version 1-40 QR 
+                codes in any error correction level, masking pattern, and encoding mode. Plus, customize 
+                every aspect of the QR code from the shape of each module down to the individual color.
+        </section>
+
+        <section>
+            <p>Link to Web App: <a href="#" class="link">Coming Soon</a></p>
+        </section>
+    </template>
+
+    <template id="content-2">
+        <h1>About:</h1>
+
+        <!-- <section>
+            <h2>Images: </h2>
+            <div class="slideshow">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 1">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 2">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 3">
+            </div>
+        </section> -->
+
+        <section>
+            <h2>Description:</h2>
+            <p>
+                A QR Code generation library made in complete vanilla 
+                JavaScript - no libraries. Can generate the most optimized 
+                QR Code possible for a given data, or generate a QR Code based 
+                on custom parameters, including:
+            </p>
+            <ul>
+                <li>Technical:</li>
+                <ul>
+                    <li>Error Correction Level:</li>
+                    <ul>
+                        <li>L, M, Q, or H</li>
+                    </ul>
+
+                    <li>Version: 0-40</li>
+                    <ul>
+                        <li>Min version is limited by the size of the input</li>
+                    </ul>
+
+                    <li>Mask Pattern: 0 - 7</li>
+                </ul>
+
+                <li>Style:</li>
+                <ul>
+                    <li>Customize each module shape and color independantly (individual alignment patterns, data modules)</li>
+                    <ul>
+                        <li>Shapes: square, round, circle (with custom radius)</li>
+                    </ul>
+                </ul>
+            </ul>
+        </section>
+    </template>
+    
+    <nav id="nav-bar"></nav>
+
+</body>
+</html>

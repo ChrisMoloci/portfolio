@@ -1,0 +1,275 @@
+/* 
+    Author: Christian Moloci
+    Description: CSS file for home page
+*/
+
+/* Selects the nav bar option for the currently open page */
+nav#nav-bar > div.col-1 ul li:nth-of-type(2) {
+    background-color: var(--accent-300);
+}
+
+/* Work header */
+.work-header {
+    padding-top: 5vh;
+    width: 100%;
+}
+.work-header .work-nav .col-1 {
+    width: 100%;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+.work-header .work-nav .col-2 {
+    width: 100%;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+}
+.work-header .work-nav .col-3 {
+    max-width: 100%;
+    min-width: 35%;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+}
+
+/* Work Selector (Coding or music) */
+.work-header h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
+.work-header .work-nav {
+    margin-top: 50px;
+    padding: 0px 20px;
+    gap: 2%;
+    display: grid;
+    grid-template-columns: 23% 38% 33%; /* leave 6% for gap */
+    align-items: center;
+}
+
+/* Work Type Col */
+.work-type {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 1000px;
+    background-color: var(--primary-100);
+}
+.work-type div {
+    width: 50%;
+    padding: 10px 15px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+.work-type div.selected {
+    background-color: var(--secondary-200);
+    outline: 1px solid var(--secondary-300);
+    transition: all 0.2s ease-in-out;
+}
+.work-type div:hover {
+    background-color: var(--secondary-100);
+    outline: 1px solid var(--secondary-200);
+}
+
+/* Filters */
+.work-header .work-nav .col-2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.work-header .work-nav .col-2 ul#work-filters {
+    list-style: none;
+    padding: 1px 0px; /* Prevents li from being cut off */
+    margin: 0px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+.work-header .work-nav .col-2 ul#work-filters::-webkit-scrollbar {
+    display: none;
+}
+.work-header .work-nav .col-2 ul#work-filters li {
+    background-color: var(--primary-100);
+    border: 1px solid var(--primary-200);
+    padding: 15px 20px;
+    width: fit-content;
+    height: 40px;
+    border-radius: 100px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+}
+.work-header .work-nav .col-2 ul#work-filters li.selected {
+    background-color: var(--secondary-200);
+    border: 1px solid var(--secondary-300);
+    font-weight: 600;
+    padding: 0px 15px 0px 0px;
+    transition: background-color 0.2s ease-in-out;
+}
+.work-header .work-nav .col-2 ul#work-filters li.selected::before {
+    content: "X";
+    outline: 1px solid var(--secondary-300);
+    background-color: var(--secondary-200);
+    min-width: 38px;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+}
+.work-header .work-nav .col-2 ul#work-filters li:hover {
+    background-color: var(--secondary-100);
+    border: 1px solid var(--secondary-200);
+    /* transition: all 0.2s ease-in-out; */
+}
+
+/* Search Bar */
+.work-header .work-nav .col-3 #search {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--primary-100);
+    border: 1px solid var(--primary-200);
+    border-radius: 1000px;
+}
+.work-header .work-nav .col-3 #search #search-bar {
+    width: 85%;
+    padding: 10px 15px;
+    border-radius: 1000px;
+    color: var(--text-900) !important;
+}
+.work-header .work-nav .col-3 #search:focus-within {
+    border: 1px solid var(--secondary-200);
+}
+.work-header .work-nav .col-3 #search #search-bar:focus {
+    color: var(--text-200);
+}
+.work-header .work-nav .col-3 #search button {
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-100);
+    border: 1px solid var(--secondary-200);
+    border-radius: 1000px;
+    padding: auto;
+    /* object-fit: cover; */
+}
+.work-header .work-nav .col-3 #search button i {
+    font-size: inherit;
+}
+
+#project-indicator {
+    font-size: 3em;
+    margin: 40px 0px 0px 20px;
+    color: var(--text-900);
+}
+
+/* Coding content styler */
+.coding-content {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+.coding-content .work-card {
+    background-color: var(--primary-100);
+    border: 1px solid var(--primary-200);
+    border-radius: 32px;
+}
+.coding-content .work-card img {
+    border-radius: 32px 32px 0px 0px;
+    border: none;
+}
+.coding-content .work-card .work-card-content {
+    margin: 10px 15px 20px;
+}
+.coding-content .work-card .work-card-content .work-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+div.link-button {
+    margin: 0px;
+    font-size: 0.8em;
+    padding: 10px 15px;
+}
+
+/* Music Content Styles */
+.music-content {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.music-content .music-card {
+    grid-column: span 1;
+    padding: 0px;
+}
+
+/* Resize grid and 1200px to have 3 items per row (2 for music cards) */
+@media screen and (max-width: 1200px) {
+    .coding-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .music-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* Resize grid again and the header too this time */
+@media screen and (max-width: 900px) {
+    .work-header .work-nav {
+        grid-template-columns: 28% 33% 33%; /* leave 6% for gap */
+    }
+
+    .coding-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    .music-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Final resizing and styling for mobile devices */
+@media screen and (max-width: 600px) {
+    .work-header .work-nav {
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+
+    .work-header .work-nav .col-1 {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+    }
+    .work-header .work-nav .col-2 {
+        grid-column: 1 / span 1;
+        grid-row: 3 / span 1;
+    }
+    .work-header .work-nav .col-3 {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    .work-header .work-nav .col-2 ul#work-filters {
+        padding: 1px 0px; /* Prevents li from being cut off */
+        margin: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        overflow-x: visible;
+        height: 105px;
+        overflow-y: scroll;
+    }
+
+    .coding-content {
+        grid-template-columns: 1fr;
+    }
+}

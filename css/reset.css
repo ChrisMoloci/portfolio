@@ -1,0 +1,28 @@
+/* 
+    Author: Christian Moloci
+    Description: Simple CSS reset file
+*/
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+
+input, button {
+    margin: 0px;
+    padding: 0px;
+    border: transparent;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: transparent;
+}

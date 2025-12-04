@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/css/var.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/project.css">
+    <!-- <link rel="stylesheet" href="/css/debug.css"> -->
+     <script src="/js/theme_engine.js" type="module"></script>
+    <script src="/js/load_nav_bar.js" type="module"></script>
+    <script src="js/portfolio.js" type="module"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- 
+        Author: Christian Moloci
+        Portfolio Project Page
+    -->
+</head>
+<body>
+
+    <main>
+        <div class="col-1">
+            <!-- Quick info -->
+            <img src="/assets/images/Projects/icon-3.png" alt="icon">
+            <p class="version-indicator">Version: 1.0</p>
+            <h1>Portfolio</h1>
+            <p>Author: Christian Moloci</p>
+            <!-- List of languages used in project -->
+            <div class="languages">
+                <span class="lang-html">HTML</span>
+                <span class="lang-css">CSS</span>
+                <span class="lang-js">JavaScript</span>
+            </div>
+            <div class="link-button"><a href="https://github.com/ChrisMoloci/portfolio" target="_blank">GitHub</a></div>
+        </div>
+        
+        <div class="col-2">
+            <!-- Nav bar to switch between two project sections -->
+            <!-- <nav class="project-nav" id="project-nav">
+                <div class="selected" id="nav-1">Web App</div>
+                <div id="nav-2">Library</div>
+            </nav> -->
+
+            <div class="content" id="content">
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Content switches between these two if project uses both sections -->
+    <template id="content-1">
+        <h1>About:</h1>
+
+        <section>
+            <h2>Images: </h2>
+            <div class="slideshow">
+                <img src="/assets/images/Projects/portfolio-0.png" alt="screenshot 1">
+                <img src="/assets/images/Projects/portfolio-1.png" alt="screenshot 1">
+                <img src="/assets/images/Projects/portfolio-2.png" alt="screenshot 1">
+                <img src="/assets/images/Projects/portfolio-3.png" alt="screenshot 1">
+            </div>
+        </section>
+
+        <section>
+            <h2>Description:</h2>
+            <p>
+                Dive into the world of Christian Moloci with this beautiful portfolio 
+                showcasing projects, skills, and his personal life. Find both coding 
+                and music projects.
+        </section>
+    </template>
+
+    <template id="content-2">
+        <!-- <h1>About 2:</h1>
+
+        <section>
+            <h2>Images: </h2>
+            <div class="slideshow">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 1">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 2">
+                <img src="/assets/images/placeholder2.png" alt="screenshot 3">
+            </div>
+        </section>
+
+        <section>
+            <h2>Description:</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </section> -->
+    </template>
+    
+    <nav id="nav-bar"></nav>
+
+</body>
+</html>

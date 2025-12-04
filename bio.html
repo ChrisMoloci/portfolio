@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Moloci</title>
+    <link rel="stylesheet" href="/css/var.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bio.css">
+    <!-- <link rel="stylesheet" href="/css/debug.css"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&location_on,open_in_new,icon_names=arrow_left,arrow_right,routine,menu" /> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="/js/load_nav_bar.js" type="module"></script>
+    <script src="/js/bio.js" type="module"></script>
+    <script src="/js/theme_engine.js" type="module"></script>
+    <!-- 
+        Author: Christian Moloci
+        Biography Page
+    -->
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="col-1">
+            <img src="/assets/images/chris.png" alt="Picture of Christian Moloci">
+        </div>
+        <div class="col-2">
+            <h1>Christian<br>
+                Moloci</h1>
+            <p><strong>email: </strong><a href="mailto:chrismoloci@gmail.com">chrismoloci@gmail.com</a></p>
+    </header>
+
+    <!-- Grid that displays the different bio sections -->
+    <div class="bio-grid">
+        <!-- Job History Timeline -->
+        <div class="bio-card card-1-1">
+            <h1>Job History</h1>
+            <div class="job-timeline">
+                <div class="job-placement">
+                    <div class="col-1">
+                        <div class="timeline-label">
+                            <p>2025</p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="location">
+                            <i class="material-symbols-outlined">location_on</i>
+                            Belle River, ON
+                        </div>
+                        <h2>Magna Seating - Assembly Line Worker</h2>
+                        <p>
+                            Operated in a high-pressure environment with
+                            an exceptional work ethic and self-discipline,
+                            keeping up with part cycle time and adapting to
+                            different tasks hourly.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="job-placement">
+                    <div class="col-1">
+                    <div class="timeline-label">
+                            <p>2025</p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="location">
+                            <i class="material-symbols-outlined">location_on</i>
+                            Tecumseh, ON
+                        </div>
+                        <h2>Quesada - Fast Food Worker</h2>
+                        <p>
+                            Worked in a fast-paced team-oriented
+                            environment dedicated to delivering quality
+                            food. Responsibilities included serving
+                            customers, working in the kitchen, prepping
+                            food, and closing at night.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="job-placement">
+                    <div class="col-1">
+                        <div class="timeline-label">
+                            <p>23 - 24</p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="location">
+                            <i class="material-symbols-outlined">location_on</i>
+                            Oldcastle, ON
+                        </div>
+                        <h2>Osella Technologies - Millwright</h2>
+                        <p>
+                            Used a mill/lathe among other tools and
+                            machines to fabricate custom parts within
+                            extreme tolerances maintaining a substantial
+                            attention to detail.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="bio-card card-1-2">
+            <h1>Bio</h1>
+            <p>
+                4.0 GPA student at St. Clair College studying
+                Computer Programming with a competitive work
+                ethic and experience in various industries.
+                Passionate about teaching, learning new concepts,
+                and taking on new challenges.
+            </p>
+        </div>
+
+        <!-- Bible verse slideshow -->
+        <div class="bio-card card-1-3">
+            <header>
+                <h1>Fav Verses</h1>
+                <div class="bible-selector-buttons">
+                    <div id="prev-verse"><i class="material-symbols-outlined">arrow_left</i></div>
+                    <div id="next-verse"><i class="material-symbols-outlined">arrow_right</i></div>
+                </div>
+            </header>
+            <p id="verse-content">
+                Could not load verses at this time.
+            </p>
+            <p id="verse-ref">
+                ------
+            </p>
+        </div>
+
+        <!-- Image Slideshow -->
+        <div class="bio-card card-2-1">
+            <!-- <div id="image-slideshow">
+            </div> -->
+            <img id="image-slideshow" alt="Picture of Christian Moloci">
+        </div>
+
+        <!-- Quick Facts -->
+        <div class="bio-card card-2-2">
+            <h1>Quick Facts</h1>
+            <ul>
+                <li><strong>Age: </strong>20</li>
+                <li><strong>Location: </strong>Windsor, ON</li>
+                <li><strong>Education: </strong>St. Clair College</li>
+                <li><strong>Degree: </strong>Computer Programming</li>
+                <li><strong>GPA: </strong>4.0</li>
+                <li><strong>Interests: </strong>Coding, Music Production, Biking</li>
+                <li><strong>Church: </strong>Harvest Bible Church</li>
+            </ul>
+        </div>
+
+        <!-- Coding Languages -->
+        <div class="bio-card card-2-3">
+            <h1>Coding Languages</h1>
+            <div class="languages-grid">
+                <div class="language-item">HTML</div>
+                <div class="language-item">CSS</div>
+                <div class="language-item">JavaScript</div>
+                <div class="language-item">PHP</div>
+                <div class="language-item">Java</div>
+                <div class="language-item">Python</div>
+            </div>
+        </div>
+
+        <!-- Socials -->
+        <div class="bio-card card-3-1" id="socials">
+            loading social links...
+            <!-- Dynamically updated using js -->
+        </div>
+
+        <!-- Source code to portfolio link -->
+        <div class="bio-card card-3-2">
+            <a href="https://github.com/ChrisMoloci/portfolio" target="_blank">Source <i class="material-symbols-outlined">open_in_new</i></a>
+        </div>
+    </div>
+
+    <!-- Nav bar (dynamically populated) -->
+    <nav id="nav-bar"></nav>
+
+    <!-- Social media links + images templates for dark and light theme -->
+
+    <template id="light-socials">
+        <a href="https://github.com/ChrisMoloci" target="_blank"><img src="assets/brand-logos/light/github-mark-white.png" alt=""></a>
+        <a href="https://www.linkedin.com/in/christian-moloci/" target="_blank"><img src="assets/brand-logos/light/InBug-White.png" alt=""></a>
+        <a href="https://www.instagram.com/christianmoloci?igsh=eDUzM3MyNHpza3Mz&utm_source=qr" target="_blank"><img src="assets/brand-logos/light/Instagram_Glyph_White.png" alt=""></a>
+        <a href="mailto:chrismoloci@gmail.com" target="_blank"><img src="assets/brand-logos/light/email_light.png" alt=""></a>
+    
+        <div class="image-spacer"></div>
+
+        <a href="https://open.spotify.com/artist/55xOOO8kPC2LekNX1RGTg6" target="_blank"><img src="assets/brand-logos/light/Spotify_Primary_Logo_RGB_White.png" alt=""></a>
+        <a href="https://music.apple.com/us/artist/faint-matches/1755492447" target="_blank"><img src="assets/brand-logos/light/Apple_Music_Icon_wht_sm_073120.svg" alt=""></a>
+        <a href="https://music.amazon.ca/artists/B0D8SCCM1Y/faint-matches" target="_blank"><img src="assets/brand-logos/light/AM_App_Tile_Charcoal_White_Rounded.png" alt=""></a>
+
+    </template>
+
+    <template id="dark-socials">
+        <a href="https://github.com/ChrisMoloci" target="_blank"><img src="assets/brand-logos/dark/github-mark.png" alt=""></a>
+        <a href="https://www.linkedin.com/in/christian-moloci/" target="_blank"><img src="assets/brand-logos/dark/InBug-Black.png" alt=""></a>
+        <a href="https://www.instagram.com/christianmoloci?igsh=eDUzM3MyNHpza3Mz&utm_source=qr" target="_blank"><img src="assets/brand-logos/dark/Instagram_Glyph_Black.png" alt=""></a>
+        <a href="mailto:chrismoloci@gmail.com" target="_blank"><img src="assets/brand-logos/dark/email_dark.png" alt=""></a>
+        
+        <div class="image-spacer"></div>
+
+        <a href="https://open.spotify.com/artist/55xOOO8kPC2LekNX1RGTg6" target="_blank"><img src="assets/brand-logos/dark/Spotify_Primary_Logo_RGB_Black.png" alt=""></a>
+        <a href="https://music.apple.com/us/artist/faint-matches/1755492447" target="_blank"><img src="assets/brand-logos/dark/Apple_Music_Icon_blk_sm_073120.svg" alt=""></a>
+        <a href="https://music.amazon.ca/artists/B0D8SCCM1Y/faint-matches" target="_blank"><img src="assets/brand-logos/dark/AM_App_Tile_White_Charcoal_Rounded.png" alt=""></a>
+    </template>
+    
+</body>
+</html>
