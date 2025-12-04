@@ -13,7 +13,15 @@ export class WorkCard {
     #imgAlt;
     #tags;
 
-    // Constructor
+    /**
+     * @constructor
+     * @param {*} title 
+     * @param {*} description 
+     * @param {*} pageLink 
+     * @param {*} imgSrc 
+     * @param {*} imgAlt 
+     * @param {*} tags 
+     */
     constructor(title, description, pageLink, imgSrc, imgAlt, tags) {
         this.#title = title;
         this.#description = description;
@@ -25,6 +33,7 @@ export class WorkCard {
     }
 
     // Getters
+    
     get title() {
         return this.#title;
     }
@@ -58,7 +67,10 @@ export class WorkCard {
         this.#tags.push(tag);
     }
 
-    // Generate HTML for the work card
+    /**
+     * @description Generates HTML
+     * @returns Custom HTML based on stored data
+     */
     generateHTML() {
         return `
             <div class="work-card">

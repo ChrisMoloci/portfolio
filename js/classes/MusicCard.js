@@ -10,7 +10,13 @@ export class MusicCard {
     #artist;
     #releaseYear;
 
-    // Constructor
+    /**
+     * @constructor
+     * @param {*} url 
+     * @param {*} title 
+     * @param {*} artist 
+     * @param {*} releaseYear 
+     */
     constructor(url, title, artist, releaseYear) {
         this.#url = url;
         this.#title = title;
@@ -37,7 +43,10 @@ export class MusicCard {
         return this.#releaseYear;
     }
 
-    // Generates HTML for an embedded spotify iframe
+    /**
+     * @description Generates HTML for an embedded spotify iframe
+     * @returns Custom HTML based on stored data
+     */
     generateHTML() {
         return `
         <div class="music-card">
