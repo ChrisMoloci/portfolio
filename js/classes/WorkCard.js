@@ -5,6 +5,7 @@
 
 
 export class WorkCard {
+    // Properties
     #title;
     #description
     #pageLink;
@@ -12,6 +13,7 @@ export class WorkCard {
     #imgAlt;
     #tags;
 
+    // Constructor
     constructor(title, description, pageLink, imgSrc, imgAlt, tags) {
         this.#title = title;
         this.#description = description;
@@ -22,6 +24,7 @@ export class WorkCard {
         this.#tags = tags;
     }
 
+    // Getters
     get title() {
         return this.#title;
     }
@@ -50,10 +53,12 @@ export class WorkCard {
         return this.#tags;
     }
 
+    // Used to append a tag to tags
     addTag(tag) {
         this.#tags.push(tag);
     }
 
+    // Generate HTML for the work card
     generateHTML() {
         return `
             <div class="work-card">

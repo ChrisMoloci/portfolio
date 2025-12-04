@@ -4,17 +4,22 @@
 */
 
 export class MusicCard {
+    // Properties
     #url = "";
     #title;
     #artist;
     #releaseYear;
 
+    // Constructor
     constructor(url, title, artist, releaseYear) {
         this.#url = url;
         this.#title = title;
         this.#artist = artist;
         this.#releaseYear = releaseYear;
     }
+
+
+    // Getters
 
     get url() {
         return this.#url;
@@ -32,6 +37,7 @@ export class MusicCard {
         return this.#releaseYear;
     }
 
+    // Generates HTML for an embedded spotify iframe
     generateHTML() {
         return `
         <div class="music-card">
