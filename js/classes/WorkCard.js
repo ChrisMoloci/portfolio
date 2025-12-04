@@ -1,7 +1,7 @@
-/* 
-    Author: Christian Moloci
-    Coding Work Card rendered in work.html
-*/
+/** 
+ * @author Christian Moloci
+ * @description Work card used for coding projects, stores data and generates HTML
+ */
 
 
 export class WorkCard {

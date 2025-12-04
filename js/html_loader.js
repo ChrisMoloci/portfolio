@@ -1,7 +1,7 @@
-/* 
-    Author: Christian Moloci
-    Helper function to parse HTML data from other HTML files
-*/
+/**
+ * @author: Christian Moloci
+ * @description Helper function to parse HTML data from other HTML files
+ */
 
 // Template ID is the id of the tag to get and file is the path to the HTML file
 export async function loadTemplate(templateId, file) {

@@ -1,3 +1,8 @@
+/**
+ * @author: Christian Moloci
+ * @description js file for general bio.html taksks
+ * */ 
+
 // Bible verse switcher
 
 // Buttons

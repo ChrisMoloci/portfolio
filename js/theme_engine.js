@@ -1,7 +1,7 @@
-/* 
-    Author: Christian Moloci
-    Theme engine for managing which theme to set based on cookie and user changes
-*/
+/** 
+ * @author Christian Moloci
+ * @description Theme engine for managing which theme to set based on cookie and user changes
+ */
 
 import { getCookieAsArray } from "/js/get_cookie.js"
 

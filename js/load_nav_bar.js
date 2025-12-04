@@ -1,4 +1,7 @@
-// Loads Components for the home page
+/** 
+ * @author Christian Moloci
+ * @description Loads Components for the home page
+ */
 
 import { loadTemplate } from './html_loader.js'; // Import the template loader
 

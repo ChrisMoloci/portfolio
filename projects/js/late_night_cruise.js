@@ -1,3 +1,8 @@
+/** 
+ * @author Christian Moloci
+ * @description Late Night Cruise project JS file based on template.js
+ */
+
 const navBar = document.getElementById('project-nav');
 const content = document.getElementById('content');
 

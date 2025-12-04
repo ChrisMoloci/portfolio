@@ -1,3 +1,8 @@
+/** 
+ * @author Christian Moloci
+ * @description Template JS file for project pages, do not use directly, make a copy
+ */
+
 const navBar = document.getElementById('project-nav');
 const content = document.getElementById('content');
 

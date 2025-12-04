@@ -1,7 +1,7 @@
-/* 
-    Author: Christian Moloci
-    Music Work Card rendered in work.html
-*/
+/** 
+ * @author Christian Moloci
+ * @description Music card used for music projects, stores data and generates HTML
+ */
 
 export class MusicCard {
     // Properties

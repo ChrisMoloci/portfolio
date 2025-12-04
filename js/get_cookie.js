@@ -1,7 +1,7 @@
-/* 
-    Author: Christian Moloci
-    Helper function to get a specific cookie based on its name
-*/
+/** 
+    * @author Christian Moloci
+    * @description Helper function to get a specific cookie based on its name
+ */
 
 // Returns a cookie
 export function getCookieAsArray(name) {
