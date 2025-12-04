@@ -3,13 +3,15 @@
  * @description Template JS file for project pages, do not use directly, make a copy
  */
 
-const navBar = document.getElementById('project-nav');
-const content = document.getElementById('content');
+// Elements to manipulate
+const navBar = document.getElementById('project-nav'); // Nav bar
+const content = document.getElementById('content'); // Where templates will be placed
 
+// Content templates
 const content1 = document.getElementById('content-1');
 const content2 = document.getElementById('content-2');
 
-let currentNav;
+let currentNav; // Stores the currently selected nav item it
 
 content.innerHTML = content1.innerHTML; // Init
 
