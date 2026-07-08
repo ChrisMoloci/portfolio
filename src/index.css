@@ -4,17 +4,17 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --text-50: #f7f6ed;
-        --text-100: #efecdc;
-        --text-200: #e0dab8;
-        --text-300: #d0c795;
-        --text-400: #c1b571;
+        --text-50: #121008;
+        --text-100: #232010;
+        --text-200: #47411f;
+        --text-300: #6a612f;
+        --text-400: #8e823e;
         --text-500: #b1a24e;
-        --text-600: #8e823e;
-        --text-700: #6a612f;
-        --text-800: #47411f;
-        --text-900: #232010;
-        --text-950: #121008;
+        --text-600: #c1b571;
+        --text-700: #d0c795;
+        --text-800: #e0dab8;
+        --text-900: #efecdc;
+        --text-950: #f7f6ed;
 
         --background-50: #f8f5ed;
         --background-100: #f0ecdb;
@@ -68,17 +68,17 @@
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-50: #121008;
-        --text-100: #232010;
-        --text-200: #47411f;
-        --text-300: #6a612f;
-        --text-400: #8e823e;
+        --text-50: #f7f6ed;
+        --text-100: #efecdc;
+        --text-200: #e0dab8;
+        --text-300: #d0c795;
+        --text-400: #c1b571;
         --text-500: #b1a24e;
-        --text-600: #c1b571;
-        --text-700: #d0c795;
-        --text-800: #e0dab8;
-        --text-900: #efecdc;
-        --text-950: #f7f6ed;
+        --text-600: #8e823e;
+        --text-700: #6a612f;
+        --text-800: #47411f;
+        --text-900: #232010;
+        --text-950: #121008;
 
         --background-50: #121007;
         --background-100: #24200f;
@@ -132,6 +132,8 @@
 }
 
 body {
+    background-color: var(--primary-50);
+    color: var(--text-50);
     font-family: 'Inter', sans-serif;
     font-weight: 400;
 }
