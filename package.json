@@ -1,5 +1,6 @@
 {
   "name": "portfolio",
+  "author": "Chris Moloci",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +12,8 @@
   },
   "dependencies": {
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-router": "^7.18.1"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
