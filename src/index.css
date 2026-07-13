@@ -64,6 +64,10 @@
         --accent-900: #082b11;
         --accent-950: #041508;
 
+        /* Brand Colors */
+        --github: black;
+        --linkedin: black;
+        --email: black;
     }
 }
 @media (prefers-color-scheme: dark) {
@@ -128,6 +132,10 @@
         --accent-900: #d4f7dd;
         --accent-950: #eafbee;
 
+        /* Brand Colors */
+        --github: white;
+        --linkedin: white;
+        --email: white;
     }
 }
 
