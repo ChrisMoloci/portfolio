@@ -2,6 +2,20 @@
 
 @import url('https://fonts.googleapis.com/css?family=Geom:700|Inter:400');
 
+:root {
+    /* Font Sizes*/
+    --small: 0.800; /* 12.8 px */
+    --body: 1rem; /* 16px */
+    --h1: 3.053rem; /* 48.8px */
+    --h2: 2.442rem; /* 39.04px */
+    --h3: 1.954rem; /* 31.2px */
+    --h4: 1.563rem; /* 24.96px */
+    --h5: 1.250rem; /* 20px */
+
+    --body-typeface: 'Inter', sans-serif;
+    --heading-typeface: 'Geom', sans-serif;
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         --text-50: #121008;
@@ -138,12 +152,20 @@
         --email: white;
     }
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: var(--primary-50);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-50);
     color: var(--text-50);
     font-family: 'Inter', sans-serif;
     font-weight: 400;
+    font-size: var(--body);
 }
 
 h1, h2, h3, h4, h5 {
@@ -153,14 +175,14 @@ h1, h2, h3, h4, h5 {
 
 html {font-size: 100%;} /* 16px */
 
-h1 {font-size: 3.053rem; /* 48.8px */}
+h1 {font-size: var(--h1); /* 48.8px */}
 
-h2 {font-size: 2.442rem; /* 39.04px */}
+h2 {font-size: var(--h2); /* 39.04px */}
 
-h3 {font-size: 1.954rem; /* 31.2px */}
+h3 {font-size: var(--h3); /* 31.2px */}
 
-h4 {font-size: 1.563rem; /* 24.96px */}
+h4 {font-size: var(--h4); /* 24.96px */}
 
-h5 {font-size: 1.250rem; /* 20px */}
+h5 {font-size: var(--h5); /* 20px */}
 
-small {font-size: 0.800rem; /* 12.8px */}
+small {font-size: var(--small); /* 12.8px */}
