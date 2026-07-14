@@ -3,6 +3,7 @@ import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
 import LanguageCard from "../../components/LanguageCard/LanguageCard.tsx";
 import EducationCard from "../../components/EducationCard/EducationCard.tsx";
 import Timeline from "../../components/Timeline/Timeline.tsx";
+import VerseCard from "../../components/VerseCard/VerseCard.tsx";
 
 function About() {
     return (
@@ -111,8 +112,19 @@ function About() {
                         </div>
                     </section>
 
-                    <section>
+                    <section className={styles.favoriteVerses}>
                         <h1>Favorite Bible Verses</h1>
+                        <div className={styles.verseCards}>
+
+                            <VerseCard verseRef={"John 1:1"} text={"In the beginning was the word and the word was God and the word was with God"} translation={"ESV"} />
+                            <VerseCard verseRef={"John 1:1"} text={"4 Rejoice in the Lord always; again I will say, rejoice. 5 Let your reasonableness be known to everyone. The Lord is at hand; 6 do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. 7 And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus."} translation={"ESV"} />
+                            <VerseCard verseRef={"John 1:1"} text={"In the beginning was the word and the word was God and the word was with God"} translation={"ESV"} />
+                            <VerseCard verseRef={"John 1:1"} text={"In the beginning was the word and the word was God and the word was with God"} translation={"ESV"} />
+
+                            <small>
+                                Scripture quotations are from The ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.
+                            </small>
+                        </div>
                     </section>
                 </div>
             </main>

@@ -1,0 +1,51 @@
+.verseCard {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    align-self: stretch;
+}
+.verseCard .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    align-self: stretch;
+
+    .verseRef {
+        color: var(--text-50, #F7F6ED);
+        font-family: var(--heading-typeface, Geom) sans-serif;
+        font-size: var(--h4, 24.96px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    .translation {
+        display: flex;
+        padding: 4px 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        border-radius: 1000px;
+        border: 1px solid var(--accent-900, #D4F7DD);
+        background: var(--accent-600, #54DE76);
+
+        color: var(--accent-100, #082B11);
+        font-family: var(--body-typeface, Inter) sans-serif;
+        font-size: var(--body, 16px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+.verseCard .textContent {
+    color: var(--text-100, #EFECDC);
+    font-family: var(--body-typeface, Inter) sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
