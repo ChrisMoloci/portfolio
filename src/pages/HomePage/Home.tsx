@@ -9,7 +9,7 @@ import BlogCard from "../../components/BlogCard/BlogCard.tsx";
 function Home() {
     return (
         <>
-            <main>
+            <main className={styles.main}>
                 {/* Hero Section */}
                 <section className={styles.hero}>
                     <div className={styles.heroText}>

@@ -1,0 +1,25 @@
+.languageCard {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+/* Image Section */
+.languageCard .img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+
+    img {
+        width: 100%;
+    }
+}
+
+/* Language Text Section */
+.languageCard .lang {
+    color: var(--text-200, #E0DAB8);
+    font-family: var(--body-typeface, Inter) sans-serif;
+    font-size: var(--h4, 24.96px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
