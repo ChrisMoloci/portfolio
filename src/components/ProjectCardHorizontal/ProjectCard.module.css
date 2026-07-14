@@ -51,11 +51,25 @@
         gap: 6px;
         flex: 1;
 
+        h3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1; /* Change this number to clamp at different lines */
+            line-clamp: 1;
+            overflow: hidden;
+        }
+
         p {
             font-style: normal;
             font-weight: 400;
             line-height: normal;
             color: var(--text-100, #EFECDC);
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5; /* Change this number to clamp at different lines */
+            line-clamp: 5;
+            overflow: hidden;
         }
     }
 

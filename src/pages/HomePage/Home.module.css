@@ -6,7 +6,8 @@ main {
 }
 
 hr {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     border: none;
     height: 1px;
     background: var(--secondary-300, #404C59);
@@ -118,7 +119,8 @@ hr {
 
     .section {
         display: flex;
-        width: 900px;
+        width: 100%;
+        max-width: 900px;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
