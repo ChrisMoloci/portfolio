@@ -88,25 +88,27 @@ function About() {
                         </div>
                     </section>
 
-                    <section>
+                    <section className={styles.jobHistory}>
                         <h1>Job History</h1>
-                        <Timeline entries={[
-                            {
-                                title: "Cowlick Studios",
-                                subtitle: "WordPress Developer",
-                                timeSpan: "2026"
-                            },
-                            {
-                                title: "Magna Integram",
-                                subtitle: "Assembly Line Worker",
-                                timeSpan: "2025"
-                            },
-                            {
-                                title: "Osella Technologies",
-                                subtitle: "Industrial Mechanic Apprentice",
-                                timeSpan: "2023-2024"
-                            }
-                        ]} />
+                        <div className={styles.jobTimeline}>
+                            <Timeline entries={[
+                                {
+                                    title: "Cowlick Studios",
+                                    subtitle: "WordPress Developer",
+                                    timeSpan: "2026"
+                                },
+                                {
+                                    title: "Magna Integram",
+                                    subtitle: "Assembly Line Worker",
+                                    timeSpan: "2025"
+                                },
+                                {
+                                    title: "Osella Technologies",
+                                    subtitle: "Industrial Mechanic Apprentice",
+                                    timeSpan: "2023-2024"
+                                }
+                            ]} />
+                        </div>
                     </section>
 
                     <section>
