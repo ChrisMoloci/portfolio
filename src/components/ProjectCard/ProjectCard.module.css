@@ -8,6 +8,10 @@
     background: var(--primary-100, #201E13);
 
     text-decoration: none !important;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
 }
 .projectCard:hover {
     @media (pointer: fine) {
@@ -33,6 +37,14 @@
         aspect-ratio: 3/2;
         border-radius: 32px 0 0 32px;
     }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+
+        img {
+            border-radius: 32px 32px 0 0;
+        }
+    }
 }
 
 .projectCard .text {
@@ -54,6 +66,8 @@
         flex: 1;
 
         h3 {
+            color: var(--text-50, #F7F6ED);
+
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 1; /* Change this number to clamp at different lines */
@@ -101,6 +115,10 @@
             img {
                 height: 16px;
             }
+        }
+
+        @media screen and (max-width: 800px) {
+            border-radius: 0 0 32px 32px;
         }
     }
 }

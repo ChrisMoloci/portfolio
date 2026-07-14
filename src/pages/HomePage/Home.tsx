@@ -3,8 +3,8 @@ import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
 import profilePic from "./../../assets/images/christianmoloci.png";
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import {NavLink} from "react-router";
-import ProjectCard from "../../components/ProjectCardHorizontal/ProjectCard.tsx";
-import BlogCard from "../../components/BlogCardHorizontal/BlogCard.tsx";
+import ProjectCard from "../../components/ProjectCard/ProjectCard.tsx";
+import BlogCard from "../../components/BlogCard/BlogCard.tsx";
 
 function Home() {
     return (
