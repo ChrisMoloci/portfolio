@@ -15,7 +15,7 @@ function HamburgerMenu(props: HamburgerProps) {
                 </svg>
             </div>
             <h1>Menu</h1>
-            <nav>
+            <nav onClick={() => props.setIsOpen(false)}>
                 <NavLink
                     to="/"
                     className={({ isActive }) =>

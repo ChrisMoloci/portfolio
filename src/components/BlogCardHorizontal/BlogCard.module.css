@@ -5,6 +5,11 @@
     gap: 20px;
 
     text-decoration: none !important;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 .blogCard:hover {
     transform: scale(1.02);
@@ -29,6 +34,10 @@
         aspect-ratio: 16/9;
 
         border-radius: inherit;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
     }
 }
 
@@ -88,5 +97,9 @@
             line-clamp: 4;
             overflow: hidden;
         }
+    }
+
+    @media screen and (max-width: 800px) {
+        padding: 10px 0
     }
 }
