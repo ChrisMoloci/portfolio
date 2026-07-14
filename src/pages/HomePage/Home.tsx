@@ -2,11 +2,13 @@ import styles from "./Home.module.css"
 import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
 import profilePic from "./../../assets/images/christianmoloci.png";
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
+import {NavLink} from "react-router";
 
 function Home() {
     return (
         <>
             <main>
+                {/* Hero Section */}
                 <section className={styles.hero}>
                     <div className={styles.heroText}>
                         <ContactLinks />
@@ -25,6 +27,62 @@ function Home() {
                         <img src={profilePic} alt="Picture of Christian Moloci"/>
                     </div>
                 </section>
+
+                {/* Page Content */}
+                <div className={styles.homeContent}>
+                    {/* Featured Projects */}
+                    <section className={styles.featuredProjects + " " + styles.section}>
+                        <div className={styles.content}>
+                            <h1>Featured Projects:</h1>
+
+                            <div className={styles.cards}>
+
+                            </div>
+
+                            <NavLink to={"/projects"}>go to projects...</NavLink>
+                        </div>
+                    </section>
+
+                    <hr/>
+
+                    {/* Elevator Pitch */}
+                    <section className={styles.elevatorPitch + " " + styles.section}>
+                        <h1>Who am I?</h1>
+                        <div className={styles.content}>
+                            <div className={styles.text}>
+                                <p>
+                                    Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+                                </p>
+                            </div>
+
+                            <div className={styles.video}>
+                                <iframe
+                                    src="https://www.youtube.com/embed/LDU_Txk06tM?si=2q8GF-q_ZgVDGPW8"
+                                    title="YouTube video player" frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allowFullScreen></iframe>
+                            </div>
+                        </div>
+
+                        <NavLink to={"/about"}>go to about...</NavLink>
+                    </section>
+
+                    <hr/>
+
+                    {/* Latest Blog Posts */}
+                    <section className={styles.latestPosts + " " + styles.section}>
+                        <div className={styles.content}>
+                            <h1>Latest Blog Posts:</h1>
+
+                            <div className={styles.cards}>
+
+                            </div>
+
+                            <NavLink to={"/blog"}>go to blog..</NavLink>
+                        </div>
+                    </section>
+                </div>
             </main>
         </>
     )
