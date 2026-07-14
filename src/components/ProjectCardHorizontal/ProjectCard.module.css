@@ -9,6 +9,12 @@
 
     text-decoration: none !important;
 }
+.projectCard:hover {
+    transform: scale(1.02);
+    text-decoration: underline;
+
+    transition: transform 0.1s ease-in-out;
+}
 .projectCard .image {
     display: flex;
     width: 405.002px;

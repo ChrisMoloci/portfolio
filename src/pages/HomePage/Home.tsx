@@ -4,6 +4,7 @@ import profilePic from "./../../assets/images/christianmoloci.png";
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import {NavLink} from "react-router";
 import ProjectCard from "../../components/ProjectCardHorizontal/ProjectCard.tsx";
+import BlogCard from "../../components/BlogCardHorizontal/BlogCard.tsx";
 
 function Home() {
     return (
@@ -45,7 +46,7 @@ function Home() {
                                     }}
                                     title={"Project Card"}
                                     date={"2026"}
-                                    description={"lorem ipsum"}
+                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                                     languages={["html", "css", "js", "react"]}
                                 />
                             </div>
@@ -59,7 +60,7 @@ function Home() {
                                     }}
                                     title={"Project Card"}
                                     date={"2026"}
-                                    description={"lorem ipsum"}
+                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                                     languages={["html", "css", "js", "react"]}
                                 />
                             </div>
@@ -73,7 +74,7 @@ function Home() {
                                     }}
                                     title={"Project Card"}
                                     date={"2026"}
-                                    description={"lorem ipsum"}
+                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                                     languages={["html", "css", "js", "react"]}
                                 />
                             </div>
@@ -115,7 +116,32 @@ function Home() {
                             <h1>Latest Blog Posts:</h1>
 
                             <div className={styles.cards}>
+                                <BlogCard
+                                    url={"#"}
+                                    title={"Project Card"}
+                                    author={"First Last"}
+                                    date={"July 14, 2026"}
+                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
+                                    thumbnail={{url: "placeholder.png", alt: ""}}
+                                />
 
+                                <BlogCard
+                                    url={"#"}
+                                    title={"Project Card"}
+                                    author={"First Last"}
+                                    date={"July 14, 2026"}
+                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
+                                    thumbnail={{url: "placeholder.png", alt: ""}}
+                                />
+
+                                <BlogCard
+                                    url={"#"}
+                                    title={"Project Card"}
+                                    author={"First Last"}
+                                    date={"July 14, 2026"}
+                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
+                                    thumbnail={{url: "placeholder.png", alt: ""}}
+                                />
                             </div>
 
                             <NavLink to={"/blog"}>go to blog..</NavLink>
