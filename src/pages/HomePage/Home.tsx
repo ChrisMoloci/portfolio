@@ -79,7 +79,7 @@ function Home() {
                                 />
                             </div>
 
-                            <NavLink to={"/projects"}>go to projects...</NavLink>
+                            <NavLink to={"/projects"}>All Projects</NavLink>
                         </div>
                     </section>
 
@@ -91,7 +91,7 @@ function Home() {
                         <div className={styles.content}>
                             <div className={styles.text}>
                                 <p>
-                                    Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+                                    Computer Programming graduate with a 4.0 GPA, recognized as the top-performing student in the program. Experienced in [developing React and Angular web applications using TypeScript, Node.js, and SQL databases]. Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization algorithms.
                                 </p>
                             </div>
 
@@ -105,7 +105,7 @@ function Home() {
                             </div>
                         </div>
 
-                        <NavLink to={"/about"}>go to about...</NavLink>
+                        <NavLink to={"/about"}>Vist About Page</NavLink>
                     </section>
 
                     <hr/>
@@ -144,7 +144,7 @@ function Home() {
                                 />
                             </div>
 
-                            <NavLink to={"/blog"}>go to blog..</NavLink>
+                            <NavLink to={"/blog"}>More Posts</NavLink>
                         </div>
                     </section>
                 </div>
