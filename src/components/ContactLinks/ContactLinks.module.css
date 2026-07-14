@@ -1,0 +1,22 @@
+.contactLinks {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.contactLinks {
+    svg {
+        width: 31px;
+        height: 30px;
+        aspect-ratio: 31/30;
+    }
+}
+#github {
+    fill: var(--github)
+}
+#linkedin {
+    fill: var(--linkedin)
+}
+#email {
+    stroke: var(--email);
+    fill: none;
+}
