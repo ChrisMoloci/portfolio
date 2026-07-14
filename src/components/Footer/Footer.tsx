@@ -4,7 +4,7 @@ import ContactLinks from "../ContactLinks/ContactLinks.tsx";
 function Footer() {
     return (
         <>
-            <footer className={styles.footer}>
+            <footer id="footer" className={styles.footer}>
                 <div className={styles.footerContent}>
                     <h1>Contact</h1>
                     <h2>Learn more or get in touch with me:</h2>

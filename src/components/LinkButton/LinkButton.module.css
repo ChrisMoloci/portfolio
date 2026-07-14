@@ -1,0 +1,26 @@
+.linkButton {
+    display: inline-flex;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 12px;
+    border: 1px solid var(--primary-200, #3F3C27);
+    background: var(--primary-100, #201E13);
+
+    color: var(--text-100, #EFECDC);
+    font-family: var(--body-typeface, Inter) sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+.linkButton:hover {
+    border: 1px solid var(--primary-300, #3F3C27);
+    background: var(--primary-200, #201E13);
+}
+.linkButton:focus {
+    border: 1px solid var(--secondary-200, #3F3C27);
+    background: var(--secondary-100, #201E13);
+}
