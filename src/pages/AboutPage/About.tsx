@@ -2,6 +2,7 @@ import styles from './About.module.css'
 import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
 import LanguageCard from "../../components/LanguageCard/LanguageCard.tsx";
 import EducationCard from "../../components/EducationCard/EducationCard.tsx";
+import Timeline from "../../components/Timeline/Timeline.tsx";
 
 function About() {
     return (
@@ -89,6 +90,23 @@ function About() {
 
                     <section>
                         <h1>Job History</h1>
+                        <Timeline entries={[
+                            {
+                                title: "Cowlick Studios",
+                                subtitle: "WordPress Developer",
+                                timeSpan: "2026"
+                            },
+                            {
+                                title: "Magna Integram",
+                                subtitle: "Assembly Line Worker",
+                                timeSpan: "2025"
+                            },
+                            {
+                                title: "Osella Technologies",
+                                subtitle: "Industrial Mechanic Apprentice",
+                                timeSpan: "2023-2024"
+                            }
+                        ]} />
                     </section>
 
                     <section>
