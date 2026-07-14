@@ -3,6 +3,7 @@ import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
 import profilePic from "./../../assets/images/christianmoloci.png";
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import {NavLink} from "react-router";
+import ProjectCard from "../../components/ProjectCardHorizontal/ProjectCard.tsx";
 
 function Home() {
     return (
@@ -36,7 +37,45 @@ function Home() {
                             <h1>Featured Projects:</h1>
 
                             <div className={styles.cards}>
+                                <ProjectCard
+                                    url={"#"}
+                                    thumbnail={{
+                                        url: "placeholder.png",
+                                        alt: ""
+                                    }}
+                                    title={"Project Card"}
+                                    date={"2026"}
+                                    description={"lorem ipsum"}
+                                    languages={["html", "css", "js", "react"]}
+                                />
+                            </div>
 
+                            <div className={styles.cards}>
+                                <ProjectCard
+                                    url={"#"}
+                                    thumbnail={{
+                                        url: "placeholder.png",
+                                        alt: ""
+                                    }}
+                                    title={"Project Card"}
+                                    date={"2026"}
+                                    description={"lorem ipsum"}
+                                    languages={["html", "css", "js", "react"]}
+                                />
+                            </div>
+
+                            <div className={styles.cards}>
+                                <ProjectCard
+                                    url={"#"}
+                                    thumbnail={{
+                                        url: "placeholder.png",
+                                        alt: ""
+                                    }}
+                                    title={"Project Card"}
+                                    date={"2026"}
+                                    description={"lorem ipsum"}
+                                    languages={["html", "css", "js", "react"]}
+                                />
                             </div>
 
                             <NavLink to={"/projects"}>go to projects...</NavLink>
