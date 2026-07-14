@@ -186,3 +186,55 @@ h4 {font-size: var(--h4); /* 24.96px */}
 h5 {font-size: var(--h5); /* 20px */}
 
 small {font-size: var(--small); /* 12.8px */}
+
+form, form * {
+    all: unset;
+    display: block;
+    color: var(--text-50);
+}
+form label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+
+    color: var(--text-50, #F7F6ED);
+    font-family: var(--body-typeface, Inter) sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+form input, form textarea, button {
+    box-sizing: border-box;
+
+    display: block;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    align-self: stretch;
+
+    border-radius: 12px;
+    outline: 1px solid var(--secondary-200, #2B333B);
+    background: var(--secondary-100, #15191E);
+
+    font-family: var(--body-typeface) sans-serif;
+    font-size: var(--small, 12.8px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--text-100, #EFECDC);
+}
+button {
+    width: fit-content;
+}
+form input:active, form textarea:active, button:hover {
+    outline: 1px solid var(--secondary-300, #2B333B);
+    background: var(--secondary-200, #15191E);
+}
+form input:focus, form textarea:focus, button:active {
+    outline: 2px solid var(--primary-200, #2B333B);
+    background: var(--primary-100, #15191E);
+}

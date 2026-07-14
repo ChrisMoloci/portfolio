@@ -1,0 +1,92 @@
+.footer {
+    display: flex;
+    width: 100%;
+    padding: 0 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    background: var(--secondary-50, #0B0D0F);
+}
+.footer .footerContent {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    padding: 60px 0 20px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Footer Content */
+.footer h1 {
+
+}
+.footer h2 {
+    color: var(--text-100, #EFECDC);
+    font-family: var(--body-typeface) sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.footer .divider {
+    display: flex;
+    height: 2px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+
+    background: var(--text-50, #F7F6ED);
+
+    span {
+        display: flex;
+        padding: 0 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        background: var(--secondary-50, #0B0D0F);
+
+        color: var(--text-50, #F7F6ED);
+        font-family: var(--body-typeface) sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+/* Contact form */
+.footer .contactForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    align-self: stretch;
+}
+
+/* Copyright Section */
+.footer .copyrightSection {
+    display: flex;
+    padding: 20px 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+
+    border-top: 1px solid var(--secondary-200, #2B333B);
+
+    small {
+        color: var(--text-50, #F7F6ED);
+        font-family: var(--body-typeface, Inter) sans-serif;
+        font-size: var(--small, 12.8px);
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}
