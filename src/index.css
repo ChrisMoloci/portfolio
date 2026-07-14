@@ -178,6 +178,11 @@ h1, h2, h3, h4, h5 {
     font-family: 'Geom', sans-serif;
     font-weight: 700;
 }
+a {
+    all: unset;
+    color: var(--text-100);
+    cursor: pointer;
+}
 
 html {font-size: 100%;} /* 16px */
 
