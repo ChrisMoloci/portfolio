@@ -68,6 +68,10 @@
     align-items: center;
     gap: 20px;
     align-self: stretch;
+
+    button {
+        align-self: center;
+    }
 }
 
 /* Copyright Section */

@@ -96,7 +96,7 @@ function Projects() {
                     <div className={styles.title}>
                         <h1>Projects</h1>
 
-                        <LinkButton link={"#"} text={"GitHub"} />
+                        <LinkButton link={"https://github.com/ChrisMoloci"} text={"GitHub"} newTab={true} />
                     </div>
 
                     <Filter filterCategories={searchFilter} onChange={setSearchFilter} />

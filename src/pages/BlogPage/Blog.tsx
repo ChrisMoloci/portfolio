@@ -77,7 +77,7 @@ function About() {
                     <div className={styles.title}>
                         <h1>Blog</h1>
 
-                        <LinkButton link={"#"} text={"GitHub"} />
+                        <LinkButton link={"https://www.linkedin.com/in/christian-moloci/"} text={"LinkedIn"} newTab={true} />
                     </div>
 
                     <Filter filterCategories={searchFilters} onChange={setSearchFilters} />
