@@ -12,7 +12,7 @@ function VerseCard(props: Props) {
             <div className={styles.header}>
                 <h4 className={styles.verseRef}>{props.verseRef}</h4>
 
-                <span className={styles.translation}>{props.verseRef}</span>
+                <span className={styles.translation}>{props.translation}</span>
             </div>
             <p className={styles.textContent}>{props.text}</p>
         </div>

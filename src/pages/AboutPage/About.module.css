@@ -5,15 +5,20 @@
     align-items: flex-start;
     gap: 10px;
     align-self: stretch;
-    /*height: calc(100vh - 95px);*/
-    /*overflow: hidden;*/
 
-    /* Main Height should always fill remainder of screen */
-    @media screen and (max-width: 500px) {
-        /* This ensures main grows when header shrinks*/
-        /*height: calc(100vh - 64px);*/
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 20px;
     }
 }
+hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background: var(--secondary-300, #404C59);
+}
+
 /* Header Section */
 .header {
     display: flex;
@@ -45,17 +50,16 @@
 /* Main Page Content */
 .content {
     display: flex;
-    padding: 10px 8vw 40px 10px;
+    max-width: 800px;
+    padding-bottom: 40px;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     flex: 1 0 0;
-    /*height: 100%;*/
-
-    /*overflow-y: scroll;*/
 
     section {
         display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
@@ -64,6 +68,16 @@
         h1 {
             color: var(--text-50, #F7F6ED);
         }
+        h1, h2, h3, h4, h5 {
+            width: 100%;
+            overflow-wrap: break-word; /* Forces long words/links to break and wrap */
+            white-space: normal;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        padding: 0;
     }
 }
 
@@ -89,6 +103,12 @@
             gap: 20px 40px;
             align-self: stretch;
             flex-wrap: wrap;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .languageCards {
+            flex-direction: column;
         }
     }
 }
@@ -135,7 +155,7 @@
             color: var(--text-300, #D0C795);
 
             /* small */
-            font-family: var(--body-typeface, Inter);
+            font-family: var(--body-typeface, Inter) sans-serif;
             font-size: var(--small, 12.8px);
             font-style: normal;
             font-weight: 400;

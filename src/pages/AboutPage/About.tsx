@@ -81,8 +81,8 @@ function About() {
 
                     {/* Education and Certifications Section */}
                     <section className={styles.education}>
-                        <h1>Education/Certifications</h1>
-                        
+                        <h1>Education & Certifications</h1>
+
                         <div className={styles.educationCards}>
                             <EducationCard institution={"St. Clair College"} course={"Computer Programming"} type={"Post-Secondary"} timeSpan={"2024-2026"} />
                             <EducationCard institution={"Scrimba"} course={"Into to React"} type={"Certification"} timeSpan={"2026"} />
@@ -120,6 +120,8 @@ function About() {
                             <VerseCard verseRef={"John 1:1"} text={"4 Rejoice in the Lord always; again I will say, rejoice. 5 Let your reasonableness be known to everyone. The Lord is at hand; 6 do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. 7 And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus."} translation={"ESV"} />
                             <VerseCard verseRef={"John 1:1"} text={"In the beginning was the word and the word was God and the word was with God"} translation={"ESV"} />
                             <VerseCard verseRef={"John 1:1"} text={"In the beginning was the word and the word was God and the word was with God"} translation={"ESV"} />
+
+                            <hr/>
 
                             <small>
                                 Scripture quotations are from The ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.
