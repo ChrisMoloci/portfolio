@@ -109,7 +109,7 @@ function Projects() {
                             url: "placeholder.png",
                             alt: ""
                         }}
-                        title={"Project Card"}
+                        title={"Project Project Project Project Card"}
                         date={"2026"}
                         description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                         languages={["html", "css", "js", "react"]}

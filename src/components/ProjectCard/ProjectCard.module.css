@@ -3,7 +3,7 @@
     width: 100%;
     align-items: flex-start;
 
-    border-radius: 32px;
+    border-radius: 24px;
     border: 1px solid var(--primary-200, #3F3C27);
     background: var(--primary-100, #201E13);
 
@@ -23,7 +23,8 @@
 }
 .projectCard .image {
     display: flex;
-    width: 405.002px;
+    /*width: 405.002px;*/
+    width: 360px;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -35,14 +36,21 @@
         width: 100%;
         object-fit: cover;
         aspect-ratio: 3/2;
-        border-radius: 32px 0 0 32px;
+        border-radius: 24px 0 0 24px;
+    }
+
+    @media screen and (max-width: 1350px)  {
+        aspect-ratio: 4/3;
+        img {
+            aspect-ratio: 4/3;
+        }
     }
 
     @media screen and (max-width: 800px) {
         width: 100%;
 
         img {
-            border-radius: 32px 32px 0 0;
+            border-radius: 24px 24px 0 0;
         }
     }
 }
@@ -57,7 +65,7 @@
 
     .textContainer {
         display: flex;
-        padding: 30px 16px;
+        padding: 20px 16px;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
@@ -70,8 +78,8 @@
 
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1; /* Change this number to clamp at different lines */
-            line-clamp: 1;
+            -webkit-line-clamp: 2; /* Change this number to clamp at different lines */
+            line-clamp: 2;
             overflow: hidden;
         }
 
@@ -83,8 +91,8 @@
 
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 5; /* Change this number to clamp at different lines */
-            line-clamp: 5;
+            -webkit-line-clamp: 3; /* Change this number to clamp at different lines */
+            line-clamp: 3;
             overflow: hidden;
         }
     }
@@ -97,7 +105,7 @@
         justify-content: space-between;
 
         background: var(--background-50, #121007);
-        border-radius: 0 0 32px 0;
+        border-radius: 0 0 24px 0;
 
         .date {
             color: var(--text-200, #E0DAB8);
@@ -118,7 +126,7 @@
         }
 
         @media screen and (max-width: 800px) {
-            border-radius: 0 0 32px 32px;
+            border-radius: 0 0 24px 24px;
         }
     }
 }

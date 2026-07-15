@@ -1,14 +1,24 @@
 .main {
     display: flex;
-    padding: 40px 80px;
+    padding: 40px 5vw;
     align-items: flex-start;
     gap: 10px;
     align-self: stretch;
+
+    @media screen and (max-width: 1300px) {
+        padding: 40px;
+    }
+
+    @media screen and (max-width: 1100px) {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
 }
 
 .main .header {
     display: flex;
-    width: 350px;
+    max-width: 350px;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
@@ -26,6 +36,10 @@
             color: var(--text-50, #F7F6ED);
         }
     }
+
+    @media screen and (max-width: 1300px) {
+        max-width: 280px;
+    }
 }
 
 .main .content {
@@ -34,4 +48,8 @@
     align-items: flex-start;
     gap: 40px;
     flex: 1 0 0;
+
+    @media screen and (max-width: 1100px) {
+        gap: 20px;
+    }
 }
