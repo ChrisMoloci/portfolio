@@ -89,6 +89,14 @@
             /* Changes the bg and border of the custom checkbox when it's hovered*/
             background-color: var(--secondary-100, #E0DAB8);
             border: 1px solid var(--secondary-200, #E0DAB8);
+
+            transition: 0.1s background-color ease-in-out, 0.1s border-color ease-in-out;
+        }
+        .option:active input[type="checkbox"]:after {
+            background-color: var(--secondary-200, #E0DAB8);
+            border: 1px solid var(--secondary-300, #E0DAB8);
+
+            transition: 0.1s background-color ease-in-out, 0.1s border-color ease-in-out;
         }
     }
 }
