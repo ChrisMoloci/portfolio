@@ -2,7 +2,7 @@ import styles from "./Projects.module.css";
 import {useParams} from "react-router";
 import Markdown from "react-markdown";
 
-const placeholderDate = {
+const placeholderData = {
     projectName: "Super Cool Project",
     slug: "super-cool-project",
     author: "Christian Moloci",
@@ -12,7 +12,12 @@ const placeholderDate = {
         alt: "Placeholder",
     },
     category: "Programming",
-    meta: ["html", "js", "css", "react"],
+    meta: [
+        {
+            category: "Programming",
+            tags: ["html", "css", "js", "react"]
+        }
+    ],
     misc: [
         {
             title: "Access",
@@ -60,7 +65,7 @@ const placeholderDate = {
 function Project() {
     const { slug } = useParams();
 
-    const project = placeholderDate;
+    const project = placeholderData;
 
     return (
         <main className={styles.main}>
