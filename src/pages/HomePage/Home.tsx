@@ -20,8 +20,8 @@ function Home() {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut blanditiis consequuntur, dicta facilis fugit illo nemo obcaecati qui suscipit temporibus ullam veritatis. Aspernatur atque explicabo hic non quos rem!
                         </p>
                         <div className={styles.buttonLinks}>
-                            <LinkButton link="#" text="Resume" />
-                            <LinkButton link="#footer" text="Contact" />
+                            <LinkButton link="#" text="Resume" newTab={true} />
+                            <LinkButton link="#footer" text="Contact" newTab={false} />
                         </div>
                     </div>
                     

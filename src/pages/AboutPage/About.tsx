@@ -85,7 +85,7 @@ function About() {
 
                         <div className={styles.educationCards}>
                             <EducationCard institution={"St. Clair College"} course={"Computer Programming"} type={"Post-Secondary"} timeSpan={"2024-2026"} />
-                            <EducationCard institution={"Scrimba"} course={"Into to React"} type={"Certification"} timeSpan={"2026"} />
+                            <EducationCard institution={"Scrimba"} course={"Intro to React"} type={"Certification"} timeSpan={"2026"} />
                         </div>
                     </section>
 
