@@ -86,7 +86,7 @@ function About() {
                 <div className={styles.content}>
                     <BlogCard
                         url={"#"}
-                        title={"Blog Card Card"}
+                        title={"Blog Blog Blog Blog Blog Blog Blog Blog Blog Blog Blog Blog Card"}
                         author={"First Last"}
                         date={"July 14, 2026"}
                         description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
@@ -95,7 +95,7 @@ function About() {
 
                     <BlogCard
                         url={"#"}
-                        title={"Blog Card Card"}
+                        title={"Blog Card"}
                         author={"First Last"}
                         date={"July 14, 2026"}
                         description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
@@ -104,7 +104,7 @@ function About() {
 
                     <BlogCard
                         url={"#"}
-                        title={"Blog Card Card"}
+                        title={"Blog Card"}
                         author={"First Last"}
                         date={"July 14, 2026"}
                         description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}

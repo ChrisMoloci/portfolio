@@ -187,6 +187,12 @@ a {
     color: var(--text-100);
     cursor: pointer;
 }
+hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background: var(--secondary-300, #404C59);
+}
 
 html {font-size: 100%;} /* 16px */
 

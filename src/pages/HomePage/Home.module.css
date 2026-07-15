@@ -6,11 +6,7 @@
 }
 
 hr {
-    width: 100%;
     max-width: 1000px;
-    border: none;
-    height: 1px;
-    background: var(--secondary-300, #404C59);
 }
 
 /* Hero Section */

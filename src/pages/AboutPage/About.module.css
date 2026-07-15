@@ -16,12 +16,6 @@
         gap: 20px;
     }
 }
-hr {
-    width: 100%;
-    border: none;
-    height: 1px;
-    background: var(--secondary-300, #404C59);
-}
 
 /* Header Section */
 .header {
