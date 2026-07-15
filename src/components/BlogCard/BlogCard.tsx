@@ -12,8 +12,10 @@ type Props = {
 function BlogCard(props: Props) {
     const thumbnail = "/src/assets/images/" + props.thumbnail.url
 
+    const url = "/blog/" + props.url
+
     return (
-        <a href={props.url} className={styles.blogCard}>
+        <a href={url} className={styles.blogCard}>
             <div className={styles.image}>
                 <img src={thumbnail} alt={props.thumbnail.alt}/>
             </div>

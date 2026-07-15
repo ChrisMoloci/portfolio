@@ -104,7 +104,7 @@ function Projects() {
 
                 <div className={styles.content}>
                     <ProjectCard
-                        url={"#"}
+                        url={"project1"}
                         thumbnail={{
                             url: "placeholder.png",
                             alt: ""
@@ -116,7 +116,7 @@ function Projects() {
                     />
 
                     <ProjectCard
-                        url={"#"}
+                        url={"project2"}
                         thumbnail={{
                             url: "placeholder.png",
                             alt: ""
@@ -128,7 +128,7 @@ function Projects() {
                     />
 
                     <ProjectCard
-                        url={"#"}
+                        url={"project3"}
                         thumbnail={{
                             url: "placeholder.png",
                             alt: ""

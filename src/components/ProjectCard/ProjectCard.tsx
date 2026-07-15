@@ -13,8 +13,10 @@ type Props = {
 function ProjectCard(props: Props) {
     const thumbnailURL = "src/assets/images/" + props.thumbnail.url;
 
+    const url = "/projects/" + props.url;
+
     return (
-        <a href={props.url} className={styles.projectCard}>
+        <a href={url} className={styles.projectCard}>
             {/* Image */}
             <div className={styles.image}>
                 <img src={thumbnailURL} alt={props.thumbnail.alt}/>

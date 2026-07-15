@@ -1,14 +1,14 @@
-import styles from "./Blog.module.css";
+import styles from "./Projects.module.css";
 import {useParams} from "react-router";
 
-function Blog() {
+function Project() {
     const { slug } = useParams();
 
     return (
-        <main className={styles.blog}>
+        <main className={styles.main}>
             {slug}
         </main>
     )
 }
 
-export default Blog;
+export default Project;

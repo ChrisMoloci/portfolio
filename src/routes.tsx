@@ -20,7 +20,21 @@ export const router = createBrowserRouter([
                 }
             },
             {
+                path: "/projects/:slug",
+                lazy: async () => {
+                    const { default: Project } = await import("./pages/ProjectPage/Project.tsx");
+                    return { element: <Project /> };
+                }
+            },
+            {
                 path: "/blog",
+                lazy: async () => {
+                    const { default: Blogs } = await import("./pages/BlogsPage/Blogs.tsx");
+                    return { element: <Blogs /> };
+                }
+            },
+            {
+                path: "/blog/:slug",
                 lazy: async () => {
                     const { default: Blog } = await import("./pages/BlogPage/Blog.tsx");
                     return { element: <Blog /> };
