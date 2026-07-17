@@ -25,7 +25,7 @@ function Home() {
 
     useEffect(() => {
         fetchLatestPosts();
-    })
+    }, []);
 
     return (
         <>
