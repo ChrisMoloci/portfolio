@@ -48,6 +48,13 @@ export const router = createBrowserRouter([
                 }
             },
             {
+                path: "/login",
+                lazy: async () => {
+                    const { default: Login } = await import("./pages/LoginPage/LoginPage.tsx");
+                    return { element: <Login /> };
+                }
+            },
+            {
                 path: "*",
                 lazy: async () => {
                     const { default: PageNotFound } = await import("./pages/PageNotFoundPage/PageNotFound.tsx");
