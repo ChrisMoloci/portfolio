@@ -5,15 +5,6 @@ export const api = axios.create({
     withCredentials: true,
 });
 
-api.interceptors.request.use(
-    function (config) {
-        return config;
-    },
-    function (error) {
-        return Promise.reject(error);
-    }
-);
-
 api.interceptors.response.use(
     (response) => response,
     async (error) => {
@@ -26,14 +17,14 @@ api.interceptors.response.use(
             try {
                 // Attempt to refresh the token.
                 // The browser automatically sends the HttpOnly refresh cookie.
-                await axios.post('/auth/refresh', {}, { withCredentials: true });
+                console.log("Attempting token refresh");
+                await api.post('/auth/refresh', {});
 
                 // If successful, retry the original request
                 return api(originalRequest);
             } catch (refreshError) {
                 // Refresh token failed (e.g., expired). User must log in again.
                 // You can dispatch an event here or redirect to login.
-                window.location.href = '/login';
                 return Promise.reject(refreshError);
             }
         }
