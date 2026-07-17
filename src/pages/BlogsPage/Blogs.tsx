@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import Filter, {type FilterItem, type Filters} from "../../components/Filter/Filter.tsx";
 import {api} from "../../api/client.ts";
 import type {BlogPost} from "../../types/BlogPost.ts";
+import transformBlog from "../../transformers/transformBlog.ts";
 
 function Blogs() {
     const [searchFilters, setSearchFilters] = useState<Filters>()
@@ -14,25 +15,7 @@ function Blogs() {
         const response = await api.get("/posts" + queryString);
 
         // Map the posts to BlogPost type
-        const data: Array<BlogPost> = response.data.map((post: BlogPost) => {
-            return {
-                ...post,
-                createdAt: new Date(post.createdAt),
-                updatedAt: new Date(post.updatedAt),
-                ...post.tags.map(tag => {
-                    return {
-                        ...tag,
-                        createdAt: new Date(tag.createdAt),
-                        updatedAt: new Date(tag.updatedAt),
-                    }
-                }),
-                blogCategory: {
-                    ...post.blogCategory,
-                    createdAt: new Date(post.blogCategory.createdAt),
-                    updatedAt: new Date(post.blogCategory.updatedAt),
-                }
-            }
-        })
+        const data: Array<BlogPost> = response.data.map((post: BlogPost) => transformBlog(post))
 
         setBlogData(data);
     }

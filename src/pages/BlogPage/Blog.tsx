@@ -5,6 +5,7 @@ import Markdown from "react-markdown";
 import {useEffect, useState} from "react";
 import {api} from "../../api/client.ts";
 import type {BlogPost} from "../../types/BlogPost.ts";
+import transformBlog from "../../transformers/transformBlog.ts";
 
 
 function Blog() {
@@ -16,23 +17,7 @@ function Blog() {
 
         const data = response.data;
 
-        const transformedData: BlogPost = {
-            ...data,
-            createdAt: new Date(data.createdAt),
-            updatedAt: new Date(data.updatedAt),
-            ...data.tags.map(tag => {
-                return {
-                    ...tag,
-                    createdAt: new Date(tag.createdAt),
-                    updatedAt: new Date(tag.updatedAt),
-                }
-            }),
-            blogCategory: {
-                ...data.blogCategory,
-                createdAt: new Date(data.blogCategory.createdAt),
-                updatedAt: new Date(data.blogCategory.updatedAt),
-            }
-        }
+        const transformedData: BlogPost = transformBlog(data);
 
         console.log(transformedData);
 
