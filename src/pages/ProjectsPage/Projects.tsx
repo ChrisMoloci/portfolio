@@ -5,6 +5,7 @@ import Filter, {type FilterItem, type Filters} from "../../components/Filter/Fil
 import {useEffect, useState} from "react";
 import {api} from "../../api/client.ts";
 import type {Project} from "../../types/Project.ts";
+import transformProject from "../../transformers/transformProject.ts";
 
 function Projects() {
     const [searchFilters, setSearchFilters] = useState<Filters>()
@@ -14,25 +15,7 @@ function Projects() {
         const response = await api.get("/projects" + queryString);
 
         // Map the posts to BlogPost type
-        const data: Array<Project> = response.data.map((project: Project) => {
-            return {
-                ...project,
-                createdAt: new Date(project.createdAt),
-                updatedAt: new Date(project.updatedAt),
-                ...project.tags.map(tag => {
-                    return {
-                        ...tag,
-                        createdAt: new Date(tag.createdAt),
-                        updatedAt: new Date(tag.updatedAt),
-                    }
-                }),
-                projectCategories: {
-                    ...project.projectCategories,
-                    createdAt: new Date(project.projectCategories.createdAt),
-                    updatedAt: new Date(project.projectCategories.updatedAt),
-                }
-            }
-        })
+        const data: Array<Project> = response.data.map((project: Project) => transformProject(project))
 
         setProjectData(data);
     }
