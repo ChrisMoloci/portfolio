@@ -1,93 +1,139 @@
 import styles from "./Projects.module.css"
 import ProjectCard from "../../components/ProjectCard/ProjectCard.tsx";
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
-import Filter from "../../components/Filter/Filter.tsx";
+import Filter, {type FilterItem, type Filters} from "../../components/Filter/Filter.tsx";
 import {useEffect, useState} from "react";
+import {api} from "../../api/client.ts";
 
-const filters = [
-    {
-        category: "Language:",
-        options: [
-            {
-                key: "html",
-                value: "HTML",
-                set: false,
-            },
-            {
-                key: "css",
-                value: "CSS",
-                set: false
-            },
-            {
-                key: "javascript",
-                value: "JavaScript",
-                set: false
-            },
-            {
-                key: "typescript",
-                value: "TypeScript",
-                set: false
-            },
-            {
-                key: "java",
-                value: "Java",
-                set: false
-            }
-        ]
+// Post Type
+type Project = {
+    id: number,
+    slug: string,
+    name: string,
+    createdAt: Date,
+    updatedAt: Date,
+    content: string,
+    publishedAt: string,
+    author: {
+        name: string,
     },
-    {
-        category: "Type:",
-        options: [
-            {
-                key: "frontEnd",
-                value: "Front-End",
-                set: false
-            },
-            {
-                key: "backEnd",
-                value: "Back-End",
-                set: false
-            },
-            {
-                key: "fullStack",
-                value: "Full Stack",
-                set: false
-            }
-        ],
+    tags: [
+        {
+            "id": number,
+            "name": string,
+            "createdAt": Date,
+            "updatedAt": Date,
+        },
+    ],
+    projectCategories: {
+        "id": number,
+        "name": string,
+        "slug": string,
+        "description": string,
+        "createdAt": Date,
+        "updatedAt": Date,
     },
-    {
-        category: "Tools & Frameworks:",
-        options: [
-            {
-                key: "nodejs",
-                value: "Node.js",
-                set: false
-            },
-            {
-                key: "react",
-                value: "React",
-                set: false
-            },
-            {
-                key: "angular",
-                value: "Angular",
-                set: false
-            },
-            {
-                key: "tsup",
-                value: "tsup",
-                set: false
-            }
-        ]
-    }
-];
+    "projectCategoriesId": number
+}
 
 function Projects() {
-    const [searchFilter, setSearchFilter] = useState(() => [...filters]);
+    const [searchFilters, setSearchFilters] = useState<Filters>()
+    const [projectData, setProjectData] = useState<Array<Project>>();
 
+    const fetchProjects = async (queryString: string = "") => {
+        const response = await api.get("/projects" + queryString);
+
+        // Map the posts to BlogPost type
+        const data: Array<Project> = response.data.map((project: Project) => {
+            return {
+                ...project,
+                createdAt: new Date(project.createdAt),
+                updatedAt: new Date(project.updatedAt),
+                ...project.tags.map(tag => {
+                    return {
+                        ...tag,
+                        createdAt: new Date(tag.createdAt),
+                        updatedAt: new Date(tag.updatedAt),
+                    }
+                }),
+                projectCategories: {
+                    ...project.projectCategories,
+                    createdAt: new Date(project.projectCategories.createdAt),
+                    updatedAt: new Date(project.projectCategories.updatedAt),
+                }
+            }
+        })
+
+        setProjectData(data);
+    }
+
+    const fetchFilters = async () => {
+        const tags = await api.get("/tags");
+        const categories = await api.get("/project-categories");
+
+        const tagData: Array<FilterItem> = tags.data.map((tag: FilterItem) => {
+            return {
+                name: tag.name,
+                slug: tag.name, // Tags don't have slugs
+                selected: false,
+                type: "tag"
+            }
+        });
+        const categoryData: Array<FilterItem> = categories.data.map((category: FilterItem) => {
+            return {
+                name: category.name,
+                slug: category.slug,
+                selected: false,
+                type: "category"
+            }
+        })
+
+        const data: Filters = [
+            {
+                label: "Tags",
+                filters: tagData
+            },
+            {
+                label: "Categories",
+                filters: categoryData
+            }
+        ];
+
+        setSearchFilters(data);
+    }
+
+    // Gets data from api
     useEffect(() => {
-        console.log(searchFilter);
-    }, [searchFilter])
+        fetchProjects();
+        fetchFilters();
+    }, []);
+
+    // When search filters gets updated, a new query for posts is made
+    useEffect(() => {
+        const queryTags: string | undefined = searchFilters?.filter(filterCollection =>
+            filterCollection.label === "Tags")
+            .map(filterCollection =>
+                filterCollection.filters
+                    .filter(filter => filter.selected)
+                    .map((filter, index) => (index === 0 ? "" : "&") + "tag=" + filter.slug)
+            ).flat().join("");
+
+        const queryCategories: string | undefined = searchFilters?.filter(filterCollection =>
+            filterCollection.label === "Categories")
+            .map(filterCollection =>
+                filterCollection.filters
+                    .filter(filter => filter.selected)
+                    .map((filter, index) => (index === 0 ? "" : "&") + "category=" + filter.slug)
+            ).flat().join("");
+
+        const queryString = "?" + queryTags +
+            (queryTags && queryCategories ? "&" : "") +
+            queryCategories;
+
+        console.log(queryString);
+
+        fetchProjects(queryString);
+    }, [searchFilters]);
 
     return (
         <>
@@ -99,45 +145,21 @@ function Projects() {
                         <LinkButton link={"https://github.com/ChrisMoloci"} text={"GitHub"} newTab={true} />
                     </div>
 
-                    <Filter filterCategories={searchFilter} onChange={setSearchFilter} />
+                    <Filter filters={searchFilters ?? []} onChange={setSearchFilters} />
                 </div>
 
                 <div className={styles.content}>
-                    <ProjectCard
-                        url={"project1"}
-                        thumbnail={{
-                            url: "placeholder.png",
-                            alt: ""
-                        }}
-                        title={"Project Project Project Project Card"}
-                        date={"2026"}
-                        description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                        languages={["html", "css", "js", "react"]}
-                    />
-
-                    <ProjectCard
-                        url={"project2"}
-                        thumbnail={{
-                            url: "placeholder.png",
-                            alt: ""
-                        }}
-                        title={"Project Card"}
-                        date={"2026"}
-                        description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                        languages={["html", "css", "js", "react"]}
-                    />
-
-                    <ProjectCard
-                        url={"project3"}
-                        thumbnail={{
-                            url: "placeholder.png",
-                            alt: ""
-                        }}
-                        title={"Project Card"}
-                        date={"2026"}
-                        description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                        languages={["html", "css", "js", "react"]}
-                    />
+                    {projectData && projectData.map((project: Project) => (
+                        <ProjectCard
+                            key={project.slug}
+                            thumbnail={({url: "placeholder.png", alt: ""})}
+                            title={project.name}
+                            description={project.content}
+                            date={project.createdAt.toDateString()}
+                            url={project.slug}
+                            languages={project.tags.map(tag => tag.name)}
+                        />
+                    ))}
                 </div>
             </main>
         </>

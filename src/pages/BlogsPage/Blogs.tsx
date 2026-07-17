@@ -149,6 +149,7 @@ function Blogs() {
                 <div className={styles.content}>
                     {blogData && blogData.map((post) =>
                         <BlogCard
+                            key={post.slug}
                             url={post.slug}
                             title={post.title}
                             author={post.author.name}
