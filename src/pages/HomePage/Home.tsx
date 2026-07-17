@@ -44,7 +44,7 @@ function Home() {
                                         url: "placeholder.png",
                                         alt: ""
                                     }}
-                                    title={"Project Card"}
+                                    title={"Project.ts Card"}
                                     date={"2026"}
                                     description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                                     languages={["html", "css", "js", "react"]}
@@ -58,7 +58,7 @@ function Home() {
                                         url: "placeholder.png",
                                         alt: ""
                                     }}
-                                    title={"Project Card"}
+                                    title={"Project.ts Card"}
                                     date={"2026"}
                                     description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                                     languages={["html", "css", "js", "react"]}
@@ -72,7 +72,7 @@ function Home() {
                                         url: "placeholder.png",
                                         alt: ""
                                     }}
-                                    title={"Project Card"}
+                                    title={"Project.ts Card"}
                                     date={"2026"}
                                     description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
                                     languages={["html", "css", "js", "react"]}
@@ -110,7 +110,7 @@ function Home() {
 
                     <hr/>
 
-                    {/* Latest Blog Posts */}
+                    {/* Latest BlogPost.ts Posts */}
                     <section className={styles.latestPosts + " " + styles.section}>
                         <div className={styles.content}>
                             <h1>Latest Blog Posts:</h1>
@@ -118,7 +118,7 @@ function Home() {
                             <div className={styles.cards}>
                                 <BlogCard
                                     url={"#"}
-                                    title={"Blog Card Card"}
+                                    title={"BlogPost.ts Card Card"}
                                     author={"First Last"}
                                     date={"July 14, 2026"}
                                     description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
@@ -127,7 +127,7 @@ function Home() {
 
                                 <BlogCard
                                     url={"#"}
-                                    title={"Blog Card"}
+                                    title={"BlogPost.ts Card"}
                                     author={"First Last"}
                                     date={"July 14, 2026"}
                                     description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
@@ -136,7 +136,7 @@ function Home() {
 
                                 <BlogCard
                                     url={"#"}
-                                    title={"Blog Card"}
+                                    title={"BlogPost.ts Card"}
                                     author={"First Last"}
                                     date={"July 14, 2026"}
                                     description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}

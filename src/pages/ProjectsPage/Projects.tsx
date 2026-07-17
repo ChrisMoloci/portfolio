@@ -4,37 +4,7 @@ import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import Filter, {type FilterItem, type Filters} from "../../components/Filter/Filter.tsx";
 import {useEffect, useState} from "react";
 import {api} from "../../api/client.ts";
-
-// Post Type
-type Project = {
-    id: number,
-    slug: string,
-    name: string,
-    createdAt: Date,
-    updatedAt: Date,
-    content: string,
-    publishedAt: string,
-    author: {
-        name: string,
-    },
-    tags: [
-        {
-            "id": number,
-            "name": string,
-            "createdAt": Date,
-            "updatedAt": Date,
-        },
-    ],
-    projectCategories: {
-        "id": number,
-        "name": string,
-        "slug": string,
-        "description": string,
-        "createdAt": Date,
-        "updatedAt": Date,
-    },
-    "projectCategoriesId": number
-}
+import type {Project} from "../../types/Project.ts";
 
 function Projects() {
     const [searchFilters, setSearchFilters] = useState<Filters>()

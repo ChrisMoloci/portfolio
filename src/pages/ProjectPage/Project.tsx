@@ -3,7 +3,7 @@ import {useParams} from "react-router";
 import Markdown from "react-markdown";
 
 const placeholderData = {
-    projectName: "Super Cool Project",
+    projectName: "Super Cool Project.ts",
     slug: "super-cool-project",
     author: "Christian Moloci",
     date: new Date(2026, 6, 15),
