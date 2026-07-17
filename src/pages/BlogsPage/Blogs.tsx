@@ -1,74 +1,137 @@
 import styles from "./Blogs.module.css"
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import BlogCard from "../../components/BlogCard/BlogCard.tsx";
-import {useState} from "react";
-import Filter from "../../components/Filter/Filter.tsx";
+import {useEffect, useState} from "react";
+import Filter, {type FilterItem, type Filters} from "../../components/Filter/Filter.tsx";
+import {api} from "../../api/client.ts";
 
-const filters = [
-    {
-        category: "Category:",
-        options: [
-            {
-                key: "programming",
-                value: "Programming",
-                set: false,
-            },
-            {
-                key: "music",
-                value: "Music",
-                set: false
-            },
-            {
-                key: "theology",
-                value: "Theology",
-                set: false
-            },
-        ]
+// Post Type
+type BlogPost = {
+    id: number,
+    slug: string,
+    title: string,
+    createdAt: Date,
+    updatedAt: Date,
+    content: string,
+    publishedAt: string,
+    author: {
+        name: string,
     },
-    {
-        category: "Programming:",
-        options: [
-            {
-                key: "projectUpdates",
-                value: "Project Updates",
-                set: false
-            },
-            {
-                key: "tutorials",
-                value: "Tutorials",
-                set: false
-            },
-            {
-                key: "education",
-                value: "Education",
-                set: false
-            }
-        ],
+    tags: [
+        {
+            "id": number,
+            "name": string,
+            "createdAt": Date,
+            "updatedAt": Date,
+        },
+    ],
+    blogCategory: {
+        "id": number,
+        "name": string,
+        "slug": string,
+        "description": string,
+        "createdAt": Date,
+        "updatedAt": Date,
     },
-    {
-        category: "Music:",
-        options: [
-            {
-                key: "latestReleases",
-                value: "Latest Releases",
-                set: false
-            },
-            {
-                key: "plugins",
-                value: "Plugins",
-                set: false
-            },
-            {
-                key: "tutorials",
-                value: "Tutorials",
-                set: false
-            },
-        ]
-    }
-];
+    "blogCategoryId": number
+}
 
 function Blogs() {
-    const [searchFilters, setSearchFilters] = useState(() => filters);
+    const [searchFilters, setSearchFilters] = useState<Filters>()
+    const [blogData, setBlogData] = useState<Array<BlogPost>>();
+
+    const fetchPosts = async (queryString: string = "") => {
+        const response = await api.get("/posts" + queryString);
+
+        // Map the posts to BlogPost type
+        const data: Array<BlogPost> = response.data.map((post: BlogPost) => {
+            return {
+                ...post,
+                createdAt: new Date(post.createdAt),
+                updatedAt: new Date(post.updatedAt),
+                ...post.tags.map(tag => {
+                    return {
+                        ...tag,
+                        createdAt: new Date(tag.createdAt),
+                        updatedAt: new Date(tag.updatedAt),
+                    }
+                }),
+                blogCategory: {
+                    ...post.blogCategory,
+                    createdAt: new Date(post.blogCategory.createdAt),
+                    updatedAt: new Date(post.blogCategory.updatedAt),
+                }
+            }
+        })
+
+        setBlogData(data);
+    }
+
+    const fetchFilters = async () => {
+        const tags = await api.get("/tags");
+        const categories = await api.get("/blog-categories");
+
+        const tagData: Array<FilterItem> = tags.data.map((tag: FilterItem) => {
+            return {
+                name: tag.name,
+                slug: tag.name, // Tags don't have slugs
+                selected: false,
+                type: "tag"
+            }
+        });
+        const categoryData: Array<FilterItem> = categories.data.map((category: FilterItem) => {
+            return {
+                name: category.name,
+                slug: category.slug,
+                selected: false,
+                type: "category"
+            }
+        })
+
+        const data: Filters = [
+            {
+                label: "Tags",
+                filters: tagData
+            },
+            {
+                label: "Categories",
+                filters: categoryData
+            }
+        ];
+
+        setSearchFilters(data);
+    }
+
+    // Gets data from api
+    useEffect(() => {
+        fetchPosts();
+        fetchFilters();
+    }, []);
+
+    // When search filters gets updated, a new query for posts is made
+    useEffect(() => {
+        const queryTags: string | undefined = searchFilters?.filter(filterCollection =>
+            filterCollection.label === "Tags")
+                .map(filterCollection =>
+                    filterCollection.filters
+                        .filter(filter => filter.selected)
+                        .map((filter, index) => (index === 0 ? "" : "&") + "tag=" + filter.slug)
+        ).flat().join("");
+
+        const queryCategories: string | undefined = searchFilters?.filter(filterCollection =>
+            filterCollection.label === "Categories")
+            .map(filterCollection =>
+                filterCollection.filters
+                    .filter(filter => filter.selected)
+                    .map((filter, index) => (index === 0 ? "" : "&") + "category=" + filter.slug)
+            ).flat().join("");
+
+        const queryString = "?" + queryTags +
+            (queryTags && queryCategories ? "&" : "") +
+            queryCategories;
+
+        fetchPosts(queryString);
+    }, [searchFilters]);
 
     return (
         <>
@@ -80,36 +143,20 @@ function Blogs() {
                         <LinkButton link={"https://www.linkedin.com/in/christian-moloci/"} text={"LinkedIn"} newTab={true} />
                     </div>
 
-                    <Filter filterCategories={searchFilters} onChange={setSearchFilters} />
+                    <Filter filters={searchFilters ?? []} onChange={setSearchFilters} />
                 </div>
 
                 <div className={styles.content}>
-                    <BlogCard
-                        url={"blog1"}
-                        title={"Blog Blog Blog Blog Blog Blog Blog Blog Blog Blog Blog Blog Card"}
-                        author={"First Last"}
-                        date={"July 14, 2026"}
-                        description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                        thumbnail={{url: "placeholder.png", alt: ""}}
-                    />
-
-                    <BlogCard
-                        url={"blog2"}
-                        title={"Blog Card"}
-                        author={"First Last"}
-                        date={"July 14, 2026"}
-                        description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                        thumbnail={{url: "placeholder.png", alt: ""}}
-                    />
-
-                    <BlogCard
-                        url={"blog3"}
-                        title={"Blog Card"}
-                        author={"First Last"}
-                        date={"July 14, 2026"}
-                        description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                        thumbnail={{url: "placeholder.png", alt: ""}}
-                    />
+                    {blogData && blogData.map((post) =>
+                        <BlogCard
+                            url={post.slug}
+                            title={post.title}
+                            author={post.author.name}
+                            date={post.createdAt.toDateString()}
+                            description={post.content} // API returns shortened sanitized content on index route
+                            thumbnail={({url: "placeholder.png", alt: ""})}
+                        />
+                    )}
                 </div>
             </main>
         </>

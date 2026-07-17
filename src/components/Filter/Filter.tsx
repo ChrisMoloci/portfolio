@@ -1,53 +1,63 @@
 import styles from "./Filter.module.css";
-import {useState} from "react";
 
-type FilterCategories = Array<{category: string, options: Array<{key: string, value: string, set: boolean}>}>
+// type FilterCategories = Array<{category: string, options: Array<{key: string, value: string, set: boolean}>}>
 
-type Props = {
-    filterCategories: FilterCategories,
-    onChange: (filterCategories: FilterCategories) => void,
+export type FilterItem = {
+    name: string,
+    slug: string,
+    type: "category" | "tag",
+    selected: boolean,
 }
 
+export type FilterCollection = {
+    label: string,
+    filters: Array<FilterItem>
+}
+
+export type Filters = Array<FilterCollection>
+
+type Props = {
+    filters: Filters,
+    onChange: (filters: Filters) => void,
+}
+
+
 function Filter(props: Props) {
-    const [filterCategories, setFilterCategories] = useState<FilterCategories>(props.filterCategories)
-
     const onChange = (key: string) => {
-        // const key = e.target.value;
+        console.log(key)
+        console.log(props.filters)
 
-        console.log("key", key);
-
-        setFilterCategories(filterCategories =>
-            filterCategories.map(category => ({
-                ...category,
-                options: category.options.map(option => (
-                    {
-                        ...option,
-                        set: option.key === key ? !option.set : option.set
+        const updatedFilters = props.filters.map(filters => {
+            return {
+                ...filters,
+                filters: filters.filters.map(filter => {
+                    return {
+                        ...filter,
+                        selected: filter.slug === key ? !filter.selected : filter.selected,
                     }
-                ))
-            }))
-        );
+                })
+            }
+        });
 
-        props.onChange(filterCategories);
+        props.onChange(updatedFilters);
     }
 
     return (
         <div className={styles.filter}>
             <h4>Filter:</h4>
             <form className={styles.categories}>
-                {filterCategories.map((category) => (
+                {props.filters.map((filterCollection) => (
                     <div className={styles.filterCategory}>
-                        <h5 className={styles.categoryLabel}>{category.category}</h5>
+                        <h5 className={styles.categoryLabel}>{filterCollection.label}</h5>
 
                         <fieldset className={styles.options}>
-                            {category.options.map((option) => (
+                            {filterCollection.filters.map((filter) => (
                                 <div className={styles.option}>
-                                    <input className={option.set ? styles.checked : undefined} type="checkbox" name={option.key} id={option.key} value={option.key} onChange={() => onChange(option.key)} />
-                                    <label htmlFor={option.key}>{option.value}</label>
+                                    <input className={filter.selected ? styles.checked : undefined} type="checkbox" name={filter.name} id={filter.slug} value={filter.slug} onChange={() => onChange(filter.slug)} />
+                                    <label htmlFor={filter.slug}>{filter.name}</label>
                                 </div>
                             ))}
                         </fieldset>
-
                     </div>
                 ))}
             </form>
