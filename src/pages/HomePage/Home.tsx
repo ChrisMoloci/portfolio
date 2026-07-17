@@ -5,8 +5,28 @@ import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import {NavLink} from "react-router";
 import ProjectCard from "../../components/ProjectCard/ProjectCard.tsx";
 import BlogCard from "../../components/BlogCard/BlogCard.tsx";
+import {api} from "../../api/client.ts";
+import transformBlog from "../../transformers/transformBlog.ts";
+import {useEffect, useState} from "react";
+import type {BlogPost} from "../../types/BlogPost.ts";
 
 function Home() {
+    const [ latestPosts, setLatestPosts ] = useState([]);
+
+    const fetchLatestPosts = async () => {
+        const response = await api.get(`/posts?limit=3`);
+
+        const data = response.data;
+
+        const transformedData = data.map((post: any) => transformBlog(post));
+
+        setLatestPosts(transformedData);
+    }
+
+    useEffect(() => {
+        fetchLatestPosts();
+    })
+
     return (
         <>
             <main className={styles.main}>
@@ -116,32 +136,16 @@ function Home() {
                             <h1>Latest Blog Posts:</h1>
 
                             <div className={styles.cards}>
-                                <BlogCard
-                                    url={"#"}
-                                    title={"BlogPost.ts Card Card"}
-                                    author={"First Last"}
-                                    date={"July 14, 2026"}
-                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                                    thumbnail={{url: "placeholder.png", alt: ""}}
-                                />
-
-                                <BlogCard
-                                    url={"#"}
-                                    title={"BlogPost.ts Card"}
-                                    author={"First Last"}
-                                    date={"July 14, 2026"}
-                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                                    thumbnail={{url: "placeholder.png", alt: ""}}
-                                />
-
-                                <BlogCard
-                                    url={"#"}
-                                    title={"BlogPost.ts Card"}
-                                    author={"First Last"}
-                                    date={"July 14, 2026"}
-                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                                    thumbnail={{url: "placeholder.png", alt: ""}}
-                                />
+                                {latestPosts && latestPosts.map((post: BlogPost) =>
+                                    <BlogCard
+                                        url={post.slug}
+                                        title={post.title}
+                                        author={post.author.name}
+                                        date={post.createdAt.toDateString()}
+                                        description={post.content}
+                                        thumbnail={{url: "placeholder.png", alt: ""}}
+                                    />
+                                )}
                             </div>
 
                             <NavLink to={"/blog"}>More Posts</NavLink>
