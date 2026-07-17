@@ -11,6 +11,7 @@ import transformBlog from "../../transformers/transformBlog.ts";
 function Blog() {
     const { slug } = useParams();
     const [ blogData, setBlogData ] = useState<BlogPost>();
+    const [ latestPosts, setLatestPosts ] = useState<BlogPost[]>();
 
     const fetchData = async () => {
         const response = await api.get(`/posts/${slug}`);
@@ -19,20 +20,29 @@ function Blog() {
 
         const transformedData: BlogPost = transformBlog(data);
 
-        console.log(transformedData);
-
         setBlogData(transformedData);
+    }
+
+    const fetchLatestPosts = async () => {
+        const response = await api.get(`/posts?limit=5`);
+
+        const data = response.data;
+
+        const transformedData = data.map((post: any) => transformBlog(post));
+
+        setLatestPosts(transformedData);
     }
 
     useEffect(() => {
         fetchData();
+        fetchLatestPosts();
     }, []);
 
     return (
         <main className={styles.main}>
             {/* 1000px wide container */}
             <div className={styles.container}>
-                {/* BlogPost.ts Content */}
+                {/* BlogPost Content */}
                 <div className={styles.content}>
                     {/* Header */}
                     <div className={styles.header}>
@@ -49,7 +59,7 @@ function Blog() {
                     {/* Thumbnail */}
                     <img src={"/src/assets/images/placeholder.png"} alt={""}/>
 
-                    {/* BlogPost.ts Content */}
+                    {/* BlogPost Content */}
                     <div className={styles.markdown}>
                         <Markdown>{blogData?.content}</Markdown>
 
@@ -57,36 +67,20 @@ function Blog() {
                     </div>
                 </div>
 
-                {/* Latest BlogPost.ts Posts*/}
+                {/* Latest Posts */}
                 <div className={styles.posts}>
                     <h1 className={styles.latestPostsHeading}>Latest Posts:</h1>
                     <div className={styles.blogCards}>
-                        <BlogCard
-                            url={"#"}
-                            title={"BlogPost.ts Card"}
-                            author={"First Last"}
-                            date={"July 14, 2026"}
-                            description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                            thumbnail={{url: "placeholder.png", alt: ""}}
-                        />
-
-                        <BlogCard
-                            url={"#"}
-                            title={"BlogPost.ts Card"}
-                            author={"First Last"}
-                            date={"July 14, 2026"}
-                            description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                            thumbnail={{url: "placeholder.png", alt: ""}}
-                        />
-
-                        <BlogCard
-                            url={"#"}
-                            title={"BlogPost.ts Card"}
-                            author={"First Last"}
-                            date={"July 14, 2026"}
-                            description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                            thumbnail={{url: "placeholder.png", alt: ""}}
-                        />
+                        {latestPosts && latestPosts.map((post: BlogPost) => (
+                            <BlogCard
+                                url={post.slug}
+                                title={post.title}
+                                author={post.author.name}
+                                date={post.createdAt.toDateString()}
+                                description={post.content}
+                                thumbnail={({url: "placeholder.png", alt: ""})}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
