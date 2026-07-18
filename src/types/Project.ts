@@ -18,7 +18,7 @@ export type Project = {
             "updatedAt": Date,
         },
     ],
-    projectCategories: {
+    category: {
         "id": number,
         "name": string,
         "slug": string,
@@ -26,5 +26,5 @@ export type Project = {
         "createdAt": Date,
         "updatedAt": Date,
     },
-    "projectCategoriesId": number
+    categoryId: number
 }

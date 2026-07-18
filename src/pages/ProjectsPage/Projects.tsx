@@ -17,6 +17,8 @@ function Projects() {
         // Map the posts to BlogPost type
         const data: Array<Project> = response.data.map((project: Project) => transformProject(project))
 
+        console.log(data)
+
         setProjectData(data);
     }
 

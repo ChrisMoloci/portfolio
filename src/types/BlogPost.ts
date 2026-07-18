@@ -18,7 +18,7 @@ export type BlogPost = {
             "updatedAt": Date,
         },
     ],
-    blogCategory: {
+    category: {
         "id": number,
         "name": string,
         "slug": string,
@@ -26,5 +26,5 @@ export type BlogPost = {
         "createdAt": Date,
         "updatedAt": Date,
     },
-    "blogCategoryId": number
+    categoryId: number
 }

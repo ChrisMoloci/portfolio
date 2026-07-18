@@ -26,7 +26,7 @@ function Project() {
         <main className={styles.main}>
             {/* Header */}
             <div className={styles.header}>
-                <h2 className={styles.subHeading}>{projectData?.projectCategories.name}</h2>
+                <h2 className={styles.subHeading}>{projectData?.category.name}</h2>
                 <h1 className={styles.heading}>{projectData?.name}</h1>
                 <span className={styles.authorDate}>
                     <span className={styles.author}>{projectData?.author.name}</span>

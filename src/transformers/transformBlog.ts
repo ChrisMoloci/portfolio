@@ -8,7 +8,7 @@ function transformBlog(blog: any): BlogPost {
         createdAt: new Date(blog.createdAt),
         updatedAt: new Date(blog.updatedAt),
         ...blog.tags.map((tag: any) => transformTag(tag)),
-        blogCategory: transformBlogCategory(blog.blogCategory),
+        category: transformBlogCategory(blog.category),
     }
 }
 

@@ -8,7 +8,7 @@ function transformProject(project: any): Project {
         createdAt: new Date(project.createdAt),
         updatedAt: new Date(project.updatedAt),
         ...project.tags.map((tag: any) => transformTag(tag)),
-        projectCategories: transformProjectCategory(project.projectCategories),
+        category: transformProjectCategory(project.category),
     }
 }
 

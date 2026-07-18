@@ -46,7 +46,7 @@ function Blog() {
                 <div className={styles.content}>
                     {/* Header */}
                     <div className={styles.header}>
-                        <h2 className={styles.subHeading}>{blogData?.blogCategory.name}</h2>
+                        <h2 className={styles.subHeading}>{blogData?.category.name}</h2>
                         <h1 className={styles.heading}>{blogData?.title}</h1>
 
                         <span className={styles.authorDate}>

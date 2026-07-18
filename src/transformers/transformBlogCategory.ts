@@ -1,10 +1,10 @@
 import type {BlogCategory} from "../types/BlogCategory.ts";
 
-function transformBlogCategory(blogCategory: any): BlogCategory {
+function transformBlogCategory(category: any): BlogCategory {
     return {
-        ...blogCategory,
-        createdAt: new Date(blogCategory.createdAt),
-        updatedAt: new Date(blogCategory.updatedAt),
+        ...category,
+        createdAt: new Date(category.createdAt),
+        updatedAt: new Date(category.updatedAt),
     }
 }
 

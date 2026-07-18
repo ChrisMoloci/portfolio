@@ -9,9 +9,24 @@ import {api} from "../../api/client.ts";
 import transformBlog from "../../transformers/transformBlog.ts";
 import {useEffect, useState} from "react";
 import type {BlogPost} from "../../types/BlogPost.ts";
+import type {Project} from "../../types/Project.ts";
+import transformProject from "../../transformers/transformProject.ts";
 
 function Home() {
-    const [ latestPosts, setLatestPosts ] = useState([]);
+    const [ latestProjects, setLatestProjects ] = useState<Array<Project>>();
+    const [ latestPosts, setLatestPosts ] = useState<Array<BlogPost>>();
+
+    const fetchLatestProjects = async () => {
+        const response = await api.get("/projects?limit=3");
+
+        const data = response.data;
+
+        const transformedData = data.map((project: any) => transformProject(project));
+
+        console.log(transformedData);
+
+        setLatestProjects(transformedData);
+    }
 
     const fetchLatestPosts = async () => {
         const response = await api.get(`/posts?limit=3`);
@@ -24,6 +39,7 @@ function Home() {
     }
 
     useEffect(() => {
+        fetchLatestProjects();
         fetchLatestPosts();
     }, []);
 
@@ -55,48 +71,18 @@ function Home() {
                     {/* Featured Projects */}
                     <section className={styles.featuredProjects + " " + styles.section}>
                         <div className={styles.content}>
-                            <h1>Featured Projects:</h1>
-
+                            <h1>Latest Projects:</h1>
                             <div className={styles.cards}>
-                                <ProjectCard
-                                    url={"#"}
-                                    thumbnail={{
-                                        url: "placeholder.png",
-                                        alt: ""
-                                    }}
-                                    title={"Project.ts Card"}
-                                    date={"2026"}
-                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                                    languages={["html", "css", "js", "react"]}
-                                />
-                            </div>
-
-                            <div className={styles.cards}>
-                                <ProjectCard
-                                    url={"#"}
-                                    thumbnail={{
-                                        url: "placeholder.png",
-                                        alt: ""
-                                    }}
-                                    title={"Project.ts Card"}
-                                    date={"2026"}
-                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                                    languages={["html", "css", "js", "react"]}
-                                />
-                            </div>
-
-                            <div className={styles.cards}>
-                                <ProjectCard
-                                    url={"#"}
-                                    thumbnail={{
-                                        url: "placeholder.png",
-                                        alt: ""
-                                    }}
-                                    title={"Project.ts Card"}
-                                    date={"2026"}
-                                    description={"Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."}
-                                    languages={["html", "css", "js", "react"]}
-                                />
+                                {latestProjects && latestProjects.map((project: Project) =>
+                                    <ProjectCard
+                                        thumbnail={({url: "placeholder.png", alt: ""})}
+                                        title={project.name}
+                                        description={project.content}
+                                        date={project.createdAt.toDateString()}
+                                        url={project.slug}
+                                        languages={project.tags.map(tag => tag.name)}
+                                    />
+                                )}
                             </div>
 
                             <NavLink to={"/projects"}>All Projects</NavLink>
