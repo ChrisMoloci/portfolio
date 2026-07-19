@@ -1,6 +1,7 @@
 import transformTag from "./transformTag.ts";
 import transformBlogCategory from "./transformBlogCategory.ts";
 import type {BlogPost} from "../types/BlogPost.ts";
+import transformMedia from "./transformMedia.ts";
 
 function transformBlog(blog: any): BlogPost {
     return {
@@ -9,6 +10,7 @@ function transformBlog(blog: any): BlogPost {
         updatedAt: new Date(blog.updatedAt),
         ...blog.tags.map((tag: any) => transformTag(tag)),
         category: transformBlogCategory(blog.category),
+        featuredImage: transformMedia(blog.featuredImage),
     }
 }
 

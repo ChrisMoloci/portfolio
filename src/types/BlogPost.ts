@@ -1,4 +1,7 @@
 // Post Type
+import type {BlogCategory} from "./BlogCategory.ts";
+import type {Media} from "./Media.ts";
+
 export type BlogPost = {
     id: number,
     slug: string,
@@ -18,13 +21,8 @@ export type BlogPost = {
             "updatedAt": Date,
         },
     ],
-    category: {
-        "id": number,
-        "name": string,
-        "slug": string,
-        "description": string,
-        "createdAt": Date,
-        "updatedAt": Date,
-    },
-    categoryId: number
+    category: BlogCategory,
+    categoryId: number,
+    featuredImage: Media | null,
+    featuredImageId: number | null,
 }

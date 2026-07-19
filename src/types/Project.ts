@@ -1,4 +1,7 @@
 // Post Type
+import type {ProjectCategory} from "./ProjectCategory.ts";
+import type {Media} from "./Media.ts";
+
 export type Project = {
     id: number,
     slug: string,
@@ -18,13 +21,8 @@ export type Project = {
             "updatedAt": Date,
         },
     ],
-    category: {
-        "id": number,
-        "name": string,
-        "slug": string,
-        "description": string,
-        "createdAt": Date,
-        "updatedAt": Date,
-    },
+    category: ProjectCategory,
     categoryId: number
+    featuredImage: Media | null,
+    featuredImageId: number | null,
 }
