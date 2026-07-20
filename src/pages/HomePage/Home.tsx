@@ -1,6 +1,6 @@
 import styles from "./Home.module.css"
 import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
-import profilePic from "./../../assets/images/christianmoloci.png";
+import profilePic from "../../assets/images/christianmoloci.png";
 import LinkButton from "../../components/LinkButton/LinkButton.tsx";
 import {NavLink} from "react-router";
 import ProjectCard from "../../components/ProjectCard/ProjectCard.tsx";

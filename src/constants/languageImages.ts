@@ -1,4 +1,4 @@
-const LANG_IMAGES_DIR = "/src/assets/images/languages/"
+const LANG_IMAGES_DIR = "/images/languages/"
 
 const languageImages: Record<string, string> = {
     "angular": LANG_IMAGES_DIR + "angular.png",
