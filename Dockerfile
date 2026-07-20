@@ -9,8 +9,11 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run build
+ARG VITE_API_BASE_URL
 
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+
+RUN npm run build
 
 # Hosting in nginx
 FROM nginx:alpine
