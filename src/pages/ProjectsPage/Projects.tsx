@@ -107,7 +107,7 @@ function Projects() {
                     {projectData && projectData.map((project: Project) => (
                         <ProjectCard
                             key={project.slug}
-                            thumbnail={({url: "placeholder.png", alt: ""})}
+                            thumbnail={({url: project.featuredImage?.storageKey ?? "", alt: project.featuredImage?.alt ?? ""})}
                             title={project.name}
                             description={project.content}
                             date={project.createdAt.toDateString()}

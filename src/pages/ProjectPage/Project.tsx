@@ -9,6 +9,7 @@ import {api} from "../../api/client.ts";
 function Project() {
     const { slug } = useParams();
     const [ projectData, setProjectData ] = useState<Project>();
+    const featuredImageURL = import.meta.env.VITE_MEDIA_DIR + "/" + projectData?.featuredImage?.storageKey + ".webp"
 
     const fetchProjectData = async () => {
         const response = await api.get(`/projects/${slug}`);
@@ -39,7 +40,7 @@ function Project() {
             <div className={styles.project}>
                 {/* Article */}
                 <div className={styles.content}>
-                    <img src={"/src/assets/images/placeholder.png"} alt={""}/>
+                    <img src={featuredImageURL} alt={projectData?.featuredImage?.alt}/>
 
                     <div className={styles.markdown}>
                         {/* TODO: Implement MDX Parsing */}

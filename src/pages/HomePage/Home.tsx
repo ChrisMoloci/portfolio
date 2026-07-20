@@ -75,7 +75,7 @@ function Home() {
                             <div className={styles.cards}>
                                 {latestProjects && latestProjects.map((project: Project) =>
                                     <ProjectCard
-                                        thumbnail={({url: "placeholder.png", alt: ""})}
+                                        thumbnail={({url: project.featuredImage?.storageKey ?? "", alt: project.featuredImage?.alt ?? ""})}
                                         title={project.name}
                                         description={project.content}
                                         date={project.createdAt.toDateString()}
@@ -129,7 +129,7 @@ function Home() {
                                         author={post.author.name}
                                         date={post.createdAt.toDateString()}
                                         description={post.content}
-                                        thumbnail={{url: "placeholder.png", alt: ""}}
+                                        thumbnail={{url: post.featuredImage?.storageKey ?? "", alt: post.featuredImage?.alt ?? ""}}
                                     />
                                 )}
                             </div>

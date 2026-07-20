@@ -13,6 +13,8 @@ function Blog() {
     const [ blogData, setBlogData ] = useState<BlogPost>();
     const [ latestPosts, setLatestPosts ] = useState<BlogPost[]>();
 
+    const featuredImageURL = import.meta.env.VITE_MEDIA_DIR + "/" + blogData?.featuredImage?.storageKey + ".webp"
+
     const fetchData = async () => {
         const response = await api.get(`/posts/${slug}`);
 
@@ -57,7 +59,7 @@ function Blog() {
                     </div>
 
                     {/* Thumbnail */}
-                    <img src={"/src/assets/images/placeholder.png"} alt={""}/>
+                    <img src={featuredImageURL} alt={blogData?.featuredImage?.alt}/>
 
                     {/* BlogPost Content */}
                     <div className={styles.markdown}>
@@ -78,7 +80,7 @@ function Blog() {
                                 author={post.author.name}
                                 date={post.createdAt.toDateString()}
                                 description={post.content}
-                                thumbnail={({url: "placeholder.png", alt: ""})}
+                                thumbnail={({url: post.featuredImage?.storageKey ?? "", alt: post.featuredImage?.alt ?? ""})}
                             />
                         ))}
                     </div>

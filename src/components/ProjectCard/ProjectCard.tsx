@@ -11,7 +11,7 @@ type Props = {
 }
 
 function ProjectCard(props: Props) {
-    const thumbnailURL = "src/assets/images/" + props.thumbnail.url;
+    const thumbnailURL = import.meta.env.VITE_MEDIA_DIR + "/" + props?.thumbnail?.url + ".webp"
 
     const url = "/projects/" + props.url;
 

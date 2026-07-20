@@ -10,7 +10,7 @@ type Props = {
 }
 
 function BlogCard(props: Props) {
-    const thumbnail = "/src/assets/images/" + props.thumbnail.url
+    const thumbnail = import.meta.env.VITE_MEDIA_DIR + "/" + props.thumbnail.url + ".webp";
 
     const url = "/blog/" + props.url
 

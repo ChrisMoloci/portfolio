@@ -108,7 +108,7 @@ function Blogs() {
                             author={post.author.name}
                             date={post.createdAt.toDateString()}
                             description={post.content} // API returns shortened sanitized content on index route
-                            thumbnail={({url: "placeholder.png", alt: ""})}
+                            thumbnail={({url: post.featuredImage?.storageKey ?? "", alt: post.featuredImage?.alt ?? ""})}
                         />
                     )}
                 </div>
