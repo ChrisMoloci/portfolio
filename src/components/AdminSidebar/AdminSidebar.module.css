@@ -78,6 +78,11 @@
         gap: 10px;
 
         border-radius: 12px;
+
+        svg {
+            fill: var(--text-100, #C4CCD4);
+            height: 18px;
+        }
     }
     a:hover {
         outline: 1px solid var(--primary-300, #C4CCD4);
@@ -110,6 +115,11 @@
         border-radius: 12px;
         outline: 1px solid var(--secondary-200, #C4CCD4);
         background: var(--secondary-100, #E1E6EA);
+
+        svg {
+            fill: var(--text-100, #C4CCD4);
+            height: 18px;
+        }
     }
     a:hover {
         outline: 1px solid var(--primary-300, #C4CCD4);
