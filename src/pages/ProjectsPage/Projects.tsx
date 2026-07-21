@@ -10,7 +10,7 @@ import type {ApiState} from "../../types/ApiState.ts";
 import type {AxiosResponse} from "axios";
 
 function Projects() {
-    const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>()
+    const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>({ status: "loading" })
     const [projectData, setProjectData] = useState<ApiState<Array<Project>>>({ status: "loading" });
 
     const fetchProjects = async (queryString: string = "") => {
@@ -26,12 +26,14 @@ function Projects() {
             setProjectData(data);
         } catch(error: any) {
             setProjectData({ status: "error", error: error.message });
+            return;
         }
     }
 
     const fetchFilters = async () => {
         let tags: AxiosResponse;
         let categories: AxiosResponse;
+
         try {
             tags = await api.get("/tags");
             categories = await api.get("/project-categories");
@@ -58,14 +60,14 @@ function Projects() {
         })
 
         const data: Filters = [
-            tagData && {
+            ...(tagData.length < 0 ? [{
                 label: "Tags",
                 filters: tagData
-            },
-            categoryData && {
+            }] : []),
+            ...(categoryData.length ? [{
                 label: "Categories",
                 filters: categoryData
-            }
+            }] : [])
         ];
 
         if (data.length === 0) {
@@ -120,10 +122,10 @@ function Projects() {
                         <LinkButton link={"https://github.com/ChrisMoloci"} text={"GitHub"} newTab={true} />
                     </div>
 
-                    {searchFilters?.status === "success" &&
+                    {searchFilters.status === "success" &&
                         <Filter filters={searchFilters.data} onChange={(filters) => setSearchFilters({ status: "success", data: filters })} />
                     }
-                    {searchFilters?.status === "error" &&
+                    {searchFilters.status === "error" &&
                         <p>Error: {searchFilters.error}</p>
                     }
                 </div>

@@ -11,31 +11,44 @@ import {useEffect, useState} from "react";
 import type {BlogPost} from "../../types/BlogPost.ts";
 import type {Project} from "../../types/Project.ts";
 import transformProject from "../../transformers/transformProject.ts";
+import type {ApiState} from "../../types/ApiState.ts";
 
 function Home() {
-    const [ latestProjects, setLatestProjects ] = useState<Array<Project>>();
-    const [ latestPosts, setLatestPosts ] = useState<Array<BlogPost>>();
+    const [ latestProjects, setLatestProjects ] = useState<ApiState<Array<Project>>>({ status: "loading" });
+    const [ latestPosts, setLatestPosts ] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
 
     const fetchLatestProjects = async () => {
-        const response = await api.get("/projects?limit=3");
+        try {
+            const response = await api.get("/projects?limit=3");
 
-        const data = response.data;
+            const data = response.data;
 
-        const transformedData = data.map((project: any) => transformProject(project));
+            const transformedData: ApiState<Array<Project>> = {
+                status: "success",
+                data: data.map((project: any) => transformProject(project))
+            }
 
-        console.log(transformedData);
-
-        setLatestProjects(transformedData);
+            setLatestProjects(transformedData);
+        } catch(error: any) {
+            setLatestProjects({ status: "error", error: error.message });
+        }
     }
 
     const fetchLatestPosts = async () => {
-        const response = await api.get(`/posts?limit=3`);
+        try {
+            const response = await api.get(`/posts?limit=3`);
 
-        const data = response.data;
+            const data = response.data;
 
-        const transformedData = data.map((post: any) => transformBlog(post));
+            const transformedData: ApiState<Array<BlogPost>> = {
+                status: "success",
+                data: data.map((post: any) => transformBlog(post))
+            }
 
-        setLatestPosts(transformedData);
+            setLatestPosts(transformedData);
+        } catch(error: any) {
+            setLatestPosts({ status: "error", error: error.message });
+        }
     }
 
     useEffect(() => {
@@ -73,7 +86,7 @@ function Home() {
                         <div className={styles.content}>
                             <h1>Latest Projects:</h1>
                             <div className={styles.cards}>
-                                {latestProjects && latestProjects.map((project: Project) =>
+                                {latestProjects?.status === "success" && latestProjects.data.map((project: Project) =>
                                     <ProjectCard
                                         thumbnail={({url: project.featuredImage?.storageKey ?? "", alt: project.featuredImage?.alt ?? ""})}
                                         title={project.name}
@@ -83,6 +96,12 @@ function Home() {
                                         languages={project.tags.map(tag => tag.name)}
                                     />
                                 )}
+                                {latestProjects.status === "success" && latestProjects.data.length === 0 &&
+                                    <p>No results.</p>
+                                }
+                                {latestProjects.status === "error" &&
+                                    <p>Error: {latestProjects.error}</p>
+                                }
                             </div>
 
                             <NavLink to={"/projects"}>All Projects</NavLink>
@@ -122,7 +141,7 @@ function Home() {
                             <h1>Latest Blog Posts:</h1>
 
                             <div className={styles.cards}>
-                                {latestPosts && latestPosts.map((post: BlogPost) =>
+                                {latestPosts.status === "success" && latestPosts.data.map((post: BlogPost) =>
                                     <BlogCard
                                         url={post.slug}
                                         title={post.title}
@@ -132,6 +151,12 @@ function Home() {
                                         thumbnail={{url: post.featuredImage?.storageKey ?? "", alt: post.featuredImage?.alt ?? ""}}
                                     />
                                 )}
+                                {latestPosts.status === "success" && latestPosts.data.length === 0 &&
+                                    <p>No results.</p>
+                                }
+                                {latestPosts.status === "error" &&
+                                    <p>Error: {latestPosts.error}</p>
+                                }
                             </div>
 
                             <NavLink to={"/blog"}>More Posts</NavLink>

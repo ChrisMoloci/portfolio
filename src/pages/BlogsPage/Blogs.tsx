@@ -59,17 +59,17 @@ function Blogs() {
         })
 
         const data: Filters = [
-            tagData && {
+            ...(tagData.length > 0 ? [{
                 label: "Tags",
                 filters: tagData
-            },
-            categoryData && {
+            }] : []),
+            ...(categoryData.length > 0 ? [{
                 label: "Categories",
                 filters: categoryData
-            }
+            }] : [])
         ];
 
-        if (categoryData.length === 0) {
+        if (data.length === 0) {
             setSearchFilters({ status: "error", error: "Unable to fetch tags and categories" });
         } else {
             setSearchFilters({ status: "success", data: data });
@@ -84,9 +84,7 @@ function Blogs() {
 
     // When search filters gets updated, a new query for posts is made
     useEffect(() => {
-        if (searchFilters.status !== "success") {
-            return;
-        }
+        if (searchFilters.status !== "success") return;
 
         const queryTags: string | undefined = searchFilters?.data.filter(filterCollection =>
             filterCollection.label === "Tags")
@@ -122,10 +120,10 @@ function Blogs() {
                     </div>
 
                     {searchFilters.status === "success" &&
-                        <Filter filters={searchFilters.data ?? []} onChange={(filters) => setSearchFilters({ status: "success", data: filters })} />
+                        <Filter filters={searchFilters.data} onChange={(filters) => setSearchFilters({ status: "success", data: filters })} />
                     }
                     {searchFilters.status === "error" &&
-                        <p>Error: {searchFilters.status}</p>
+                        <p>Error: {searchFilters.error}</p>
                     }
                 </div>
 
@@ -142,7 +140,7 @@ function Blogs() {
                         />
                     )}
                     {blogData.status === "success" && blogData.data.length === 0 &&
-                        <p>No Results.</p>
+                        <p>No results.</p>
                     }
                     {blogData.status === "error" &&
                         <p>Error: {blogData.error}</p>
