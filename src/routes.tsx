@@ -90,7 +90,7 @@ export const router = createBrowserRouter([
                     return { element: <Projects /> };
                 }
             },            {
-                path: "/admin/post",
+                path: "/admin/post/:slug?",
                 lazy: async () => {
                     const { default: Post } = await import("./pages/admin/PostPage/Post.tsx");
                     return { element: <Post /> };
@@ -98,7 +98,7 @@ export const router = createBrowserRouter([
 
             },
             {
-                path: "/admin/project",
+                path: "/admin/project/:slug?",
                 lazy: async () => {
                     const { default: Project } = await import("./pages/admin/ProjectPage/Project.tsx");
                     return { element: <Project /> };

@@ -57,6 +57,7 @@ function Posts() {
                             isPublic={post.published}
                             publish={publishPost}
                             delete={deletePost}
+                            editBaseURL={"post"}
                         />
                     )
                 }

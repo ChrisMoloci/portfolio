@@ -8,7 +8,7 @@ type Props = {
     isPublic: boolean,
     publish: (slug: string, state: boolean) => void,
     delete: (slug: string) => void,
-
+    editBaseURL: "post" | "project",
 }
 
 function BackendContentCard(props: Props) {
@@ -19,7 +19,7 @@ function BackendContentCard(props: Props) {
                 <span className={styles.date}>{props.date.toDateString()}</span>
             </div>
             <div className={styles.options}>
-                <NavLink to={`admin/post/${props.slug}`} className={styles.edit}>Edit</NavLink>
+                <NavLink to={`/admin/${props.editBaseURL}/${props.slug}`} className={styles.edit}>Edit</NavLink>
                 <span onClick={() => props.publish(props.slug, !props.isPublic)} className={styles.publish}>{props.isPublic ? "Unpublish" : "Publish"}</span>
                 <span onClick={() => props.delete(props.slug)} className={styles.delete}>Delete</span>
             </div>

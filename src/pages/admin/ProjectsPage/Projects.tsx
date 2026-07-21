@@ -57,6 +57,7 @@ function Projects() {
                             isPublic={project.published}
                             publish={publishProject}
                             delete={deleteProject}
+                            editBaseURL={"project"}
                         />
                     )
                 }

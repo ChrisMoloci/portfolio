@@ -253,10 +253,18 @@ form label {
     font-weight: 600;
     line-height: normal;
 }
+form .horizontalLabel {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form input[type="number"],
+form input[type="datetime-local"],
+form input[type="file"],
+select,
 form textarea,
 button {
     all: unset;
@@ -271,8 +279,8 @@ button {
     align-self: stretch;
 
     border-radius: 12px;
-    outline: 1px solid var(--secondary-200, #2B333B);
-    background: var(--secondary-100, #15191E);
+    outline: 2px solid var(--primary-200, #2B333B);
+    background: var(--primary-100, #15191E);
 
     font-family: var(--body-typeface) sans-serif;
     font-size: var(--small, 12.8px);
@@ -285,11 +293,11 @@ button {
     width: fit-content;
     cursor: pointer;
 }
-form input:hover, form textarea:hover, button:hover {
+form input:hover, form textarea:hover, form select:hover, button:hover {
     outline: 1px solid var(--secondary-300, #2B333B);
     background: var(--secondary-200, #15191E);
 }
-form input:focus, form textarea:focus, button:active {
-    outline: 2px solid var(--primary-200, #2B333B);
-    background: var(--primary-100, #15191E);
+form input:focus, form textarea:focus, form select:hover, button:active {
+    outline: 1px solid var(--secondary-200, #2B333B);
+    background: var(--secondary-100, #15191E);
 }
