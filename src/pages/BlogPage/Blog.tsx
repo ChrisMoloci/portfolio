@@ -6,33 +6,51 @@ import {useEffect, useState} from "react";
 import {api} from "../../api/client.ts";
 import type {BlogPost} from "../../types/BlogPost.ts";
 import transformBlog from "../../transformers/transformBlog.ts";
+import type {ApiState} from "../../types/ApiState.ts";
 
 
 function Blog() {
     const { slug } = useParams();
-    const [ blogData, setBlogData ] = useState<BlogPost>();
-    const [ latestPosts, setLatestPosts ] = useState<BlogPost[]>();
+    const [ blogData, setBlogData ] = useState<ApiState<BlogPost>>({ status: "loading" });
+    const [ latestPosts, setLatestPosts ] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
 
-    const featuredImageURL = import.meta.env.VITE_MEDIA_DIR + "/" + blogData?.featuredImage?.storageKey + ".webp"
+    let featuredImageURL = "/src/assets/images/featured.png";
 
+    if (blogData.status === "success" && blogData.data.featuredImage) {
+        featuredImageURL = import.meta.env.VITE_MEDIA_DIR + "/" + blogData.data.featuredImage.storageKey + ".webp"
+    }
     const fetchData = async () => {
-        const response = await api.get(`/posts/${slug}`);
+        try {
+            const response = await api.get(`/posts/${slug}`);
 
-        const data = response.data;
+            const data = response.data;
 
-        const transformedData: BlogPost = transformBlog(data);
+            const transformedData: ApiState<BlogPost> = {
+                status: "success",
+                data: transformBlog(data),
+            };
 
-        setBlogData(transformedData);
+            setBlogData(transformedData);
+        } catch (error: any) {
+            setBlogData({ status: "error", error: error.message ?? "" });
+        }
     }
 
     const fetchLatestPosts = async () => {
-        const response = await api.get(`/posts?limit=5`);
+        try {
+            const response = await api.get(`/posts?limit=5`);
 
-        const data = response.data;
+            const data = response.data;
 
-        const transformedData = data.map((post: any) => transformBlog(post));
+            const transformedData: ApiState<Array<BlogPost>> = {
+                status: "success",
+                data: data.map((post: any) => transformBlog(post))
+            }
 
-        setLatestPosts(transformedData);
+            setLatestPosts(transformedData);
+        } catch (error: any) {
+            setBlogData({ status: "error", error: error.message ?? "" });
+        }
     }
 
     useEffect(() => {
@@ -45,35 +63,49 @@ function Blog() {
             {/* 1000px wide container */}
             <div className={styles.container}>
                 {/* BlogPost Content */}
-                <div className={styles.content}>
-                    {/* Header */}
-                    <div className={styles.header}>
-                        <h2 className={styles.subHeading}>{blogData?.category.name}</h2>
-                        <h1 className={styles.heading}>{blogData?.title}</h1>
+                {blogData.status === "success" &&
+                    <div className={styles.content}>
+                        {/* Header */}
+                        <div className={styles.header}>
+                            <h2 className={styles.subHeading}>{blogData.data.category.name}</h2>
+                            <h1 className={styles.heading}>{blogData.data.title}</h1>
 
-                        <span className={styles.authorDate}>
-                            <span className={styles.author}>{blogData?.author.name}</span>
-                            &bull;
-                            <span className={styles.date}>{blogData?.createdAt.toDateString()}</span>
+                            <span className={styles.authorDate}>
+                            <span className={styles.author}>{blogData.data.author.name}</span>
+                                &bull;
+                                <span className={styles.date}>{blogData.data.createdAt.toDateString()}</span>
                         </span>
+                        </div>
+
+                        {/* Thumbnail */}
+                        <img src={featuredImageURL} alt={blogData.data.featuredImage?.alt}/>
+
+                        {/* BlogPost Content */}
+                        <div className={styles.markdown}>
+                            <Markdown>{blogData.data.content}</Markdown>
+
+                            <small>&copy; 2026 Christian Moloci</small>
+                        </div>
                     </div>
-
-                    {/* Thumbnail */}
-                    <img src={featuredImageURL} alt={blogData?.featuredImage?.alt}/>
-
-                    {/* BlogPost Content */}
-                    <div className={styles.markdown}>
-                        <Markdown>{blogData?.content}</Markdown>
-
-                        <small>&copy; 2026 Christian Moloci</small>
-                    </div>
-                </div>
+                }
+                {blogData.status === "error" &&
+                    <>
+                        <h1>Failed to load posts</h1>
+                        <p>Error: {blogData.error}</p>
+                    </>
+                }
 
                 {/* Latest Posts */}
                 <div className={styles.posts}>
                     <h1 className={styles.latestPostsHeading}>Latest Posts:</h1>
                     <div className={styles.blogCards}>
-                        {latestPosts && latestPosts.map((post: BlogPost) => (
+                        {latestPosts.status === "error" &&
+                            <>
+                                <h1>Failed to load latest posts</h1>
+                                <p>Error: {latestPosts.error}</p>
+                            </>
+                        }
+                        {latestPosts.status === "success" && latestPosts.data.map((post: BlogPost) => (
                             <BlogCard
                                 url={post.slug}
                                 title={post.title}
