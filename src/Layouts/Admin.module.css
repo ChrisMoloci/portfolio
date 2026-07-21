@@ -1,0 +1,5 @@
+.adminLayout {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+}
