@@ -7,6 +7,7 @@ import {api} from "../../api/client.ts";
 import type {BlogPost} from "../../types/BlogPost.ts";
 import transformBlog from "../../transformers/transformBlog.ts";
 import type {ApiState} from "../../types/ApiState.ts";
+import type {AxiosResponse} from "axios";
 
 function Blogs() {
     const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>({ status: "loading" })
@@ -29,8 +30,16 @@ function Blogs() {
     }
 
     const fetchFilters = async () => {
-        const tags = await api.get("/tags");
-        const categories = await api.get("/blog-categories");
+        let tags: AxiosResponse;
+        let categories: AxiosResponse;
+
+        try {
+            tags = await api.get("/tags");
+            categories = await api.get("/blog-categories");
+        } catch(error: any) {
+            setSearchFilters({ status: "error", error: error.message });
+            return;
+        }
 
         const tagData: Array<FilterItem> = tags.data.map((tag: FilterItem) => {
             return {

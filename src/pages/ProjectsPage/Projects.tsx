@@ -6,25 +6,39 @@ import {useEffect, useState} from "react";
 import {api} from "../../api/client.ts";
 import type {Project} from "../../types/Project.ts";
 import transformProject from "../../transformers/transformProject.ts";
+import type {ApiState} from "../../types/ApiState.ts";
+import type {AxiosResponse} from "axios";
 
 function Projects() {
-    const [searchFilters, setSearchFilters] = useState<Filters>()
-    const [projectData, setProjectData] = useState<Array<Project>>();
+    const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>()
+    const [projectData, setProjectData] = useState<ApiState<Array<Project>>>({ status: "loading" });
 
     const fetchProjects = async (queryString: string = "") => {
-        const response = await api.get("/projects" + queryString);
+        try {
+            const response = await api.get("/projects" + queryString);
 
-        // Map the posts to BlogPost type
-        const data: Array<Project> = response.data.map((project: Project) => transformProject(project))
+            // Map the posts to BlogPost type
+            const data: ApiState<Array<Project>> = {
+                status: "success",
+                data: response.data.map((project: Project) => transformProject(project))
+            }
 
-        console.log(data)
-
-        setProjectData(data);
+            setProjectData(data);
+        } catch(error: any) {
+            setProjectData({ status: "error", error: error.message });
+        }
     }
 
     const fetchFilters = async () => {
-        const tags = await api.get("/tags");
-        const categories = await api.get("/project-categories");
+        let tags: AxiosResponse;
+        let categories: AxiosResponse;
+        try {
+            tags = await api.get("/tags");
+            categories = await api.get("/project-categories");
+        } catch (error: any) {
+            setSearchFilters({ status: "error", error: error.message });
+            return;
+        }
 
         const tagData: Array<FilterItem> = tags.data.map((tag: FilterItem) => {
             return {
@@ -44,17 +58,21 @@ function Projects() {
         })
 
         const data: Filters = [
-            {
+            tagData && {
                 label: "Tags",
                 filters: tagData
             },
-            {
+            categoryData && {
                 label: "Categories",
                 filters: categoryData
             }
         ];
 
-        setSearchFilters(data);
+        if (data.length === 0) {
+            setSearchFilters( { status: "error", error: "Unable to fetch tags and categories" });
+        } else {
+            setSearchFilters({ status: "success", data: data });
+        }
     }
 
     // Gets data from api
@@ -65,7 +83,9 @@ function Projects() {
 
     // When search filters gets updated, a new query for posts is made
     useEffect(() => {
-        const queryTags: string | undefined = searchFilters?.filter(filterCollection =>
+        if (searchFilters?.status !== "success") return;
+
+        const queryTags: string | undefined = searchFilters.data.filter(filterCollection =>
             filterCollection.label === "Tags")
             .map(filterCollection =>
                 filterCollection.filters
@@ -73,7 +93,7 @@ function Projects() {
                     .map((filter, index) => (index === 0 ? "" : "&") + "tag=" + filter.slug)
             ).flat().join("");
 
-        const queryCategories: string | undefined = searchFilters?.filter(filterCollection =>
+        const queryCategories: string | undefined = searchFilters.data.filter(filterCollection =>
             filterCollection.label === "Categories")
             .map(filterCollection =>
                 filterCollection.filters
@@ -100,11 +120,16 @@ function Projects() {
                         <LinkButton link={"https://github.com/ChrisMoloci"} text={"GitHub"} newTab={true} />
                     </div>
 
-                    <Filter filters={searchFilters ?? []} onChange={setSearchFilters} />
+                    {searchFilters?.status === "success" &&
+                        <Filter filters={searchFilters.data} onChange={(filters) => setSearchFilters({ status: "success", data: filters })} />
+                    }
+                    {searchFilters?.status === "error" &&
+                        <p>Error: {searchFilters.error}</p>
+                    }
                 </div>
 
                 <div className={styles.content}>
-                    {projectData && projectData.map((project: Project) => (
+                    {projectData.status === "success" && projectData.data.map((project: Project) => (
                         <ProjectCard
                             key={project.slug}
                             thumbnail={({url: project.featuredImage?.storageKey ?? "", alt: project.featuredImage?.alt ?? ""})}
@@ -115,6 +140,12 @@ function Projects() {
                             languages={project.tags.map(tag => tag.name)}
                         />
                     ))}
+                    {projectData.status === "success" && projectData.data.length === 0 &&
+                        <p>No results.</p>
+                    }
+                    {projectData.status === "error" &&
+                        <p>Error: {projectData.error}</p>
+                    }
                 </div>
             </main>
         </>
