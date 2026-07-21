@@ -20,7 +20,7 @@
     border: 1px solid var(--primary-300, #3F3C27);
     background: var(--primary-200, #201E13);
 }
-.linkButton:focus {
+.linkButton:active {
     border: 1px solid var(--secondary-200, #3F3C27);
     background: var(--secondary-100, #201E13);
 }

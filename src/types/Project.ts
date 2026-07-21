@@ -9,7 +9,7 @@ export type Project = {
     createdAt: Date,
     updatedAt: Date,
     content: string,
-    publishedAt: string,
+    published: boolean,
     author: {
         name: string,
     },

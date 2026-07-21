@@ -187,6 +187,31 @@ a {
     color: var(--text-100);
     cursor: pointer;
 }
+a.linkButton {
+    display: inline-flex;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 12px;
+    border: 1px solid var(--primary-200, #D8D5C0);
+    background: var(--primary-100, #ECEADF);
+
+    color: var(--text-100, #232010);
+    font-family: var(--body-typeface, Inter) sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+a.linkButton:hover {
+    border: 1px solid var(--primary-300, #3F3C27);
+    background: var(--primary-200, #201E13);
+}
+a.linkButton:active {
+    border: 1px solid var(--secondary-200, #3F3C27);
+    background: var(--secondary-100, #201E13);
+}
 hr {
     width: 100%;
     border: none;
