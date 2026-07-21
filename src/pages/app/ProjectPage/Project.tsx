@@ -2,10 +2,10 @@ import styles from "./Projects.module.css";
 import {useParams} from "react-router";
 import Markdown from "react-markdown";
 import {useEffect, useState} from "react";
-import type {Project} from "../../types/Project.ts";
-import transformProject from "../../transformers/transformProject.ts";
-import {api} from "../../api/client.ts";
-import type {ApiState} from "../../types/ApiState.ts";
+import type {Project} from "../../../types/Project.ts";
+import transformProject from "../../../transformers/transformProject.ts";
+import {api} from "../../../api/client.ts";
+import type {ApiState} from "../../../types/ApiState.ts";
 
 function Project() {
     const { slug } = useParams();

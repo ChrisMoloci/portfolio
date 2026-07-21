@@ -1,9 +1,9 @@
 import styles from './About.module.css'
-import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
-import LanguageCard from "../../components/LanguageCard/LanguageCard.tsx";
-import EducationCard from "../../components/EducationCard/EducationCard.tsx";
-import Timeline from "../../components/Timeline/Timeline.tsx";
-import VerseCard from "../../components/VerseCard/VerseCard.tsx";
+import ContactLinks from "../../../components/ContactLinks/ContactLinks.tsx";
+import LanguageCard from "../../../components/LanguageCard/LanguageCard.tsx";
+import EducationCard from "../../../components/EducationCard/EducationCard.tsx";
+import Timeline from "../../../components/Timeline/Timeline.tsx";
+import VerseCard from "../../../components/VerseCard/VerseCard.tsx";
 
 function About() {
     return (

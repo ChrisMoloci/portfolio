@@ -1,31 +1,32 @@
-import styles from "./Blogs.module.css"
-import LinkButton from "../../components/LinkButton/LinkButton.tsx";
-import BlogCard from "../../components/BlogCard/BlogCard.tsx";
+import styles from "./Projects.module.css"
+import ProjectCard from "../../../components/ProjectCard/ProjectCard.tsx";
+import LinkButton from "../../../components/LinkButton/LinkButton.tsx";
+import Filter, {type FilterItem, type Filters} from "../../../components/Filter/Filter.tsx";
 import {useEffect, useState} from "react";
-import Filter, {type FilterItem, type Filters} from "../../components/Filter/Filter.tsx";
-import {api} from "../../api/client.ts";
-import type {BlogPost} from "../../types/BlogPost.ts";
-import transformBlog from "../../transformers/transformBlog.ts";
-import type {ApiState} from "../../types/ApiState.ts";
+import {api} from "../../../api/client.ts";
+import type {Project} from "../../../types/Project.ts";
+import transformProject from "../../../transformers/transformProject.ts";
+import type {ApiState} from "../../../types/ApiState.ts";
 import type {AxiosResponse} from "axios";
 
-function Blogs() {
+function Projects() {
     const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>({ status: "loading" })
-    const [blogData, setBlogData] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
+    const [projectData, setProjectData] = useState<ApiState<Array<Project>>>({ status: "loading" });
 
-    const fetchPosts = async (queryString: string = "") => {
+    const fetchProjects = async (queryString: string = "") => {
         try {
-            const response = await api.get("/posts" + queryString);
+            const response = await api.get("/projects" + queryString);
 
             // Map the posts to BlogPost type
-            const data: ApiState<Array<BlogPost>> = {
+            const data: ApiState<Array<Project>> = {
                 status: "success",
-                data: response.data.map((post: BlogPost) => transformBlog(post))
+                data: response.data.map((project: Project) => transformProject(project))
             }
 
-            setBlogData(data);
-        } catch (error: any) {
-            setBlogData({ status: "error", error: error.message });
+            setProjectData(data);
+        } catch(error: any) {
+            setProjectData({ status: "error", error: error.message });
+            return;
         }
     }
 
@@ -35,8 +36,8 @@ function Blogs() {
 
         try {
             tags = await api.get("/tags");
-            categories = await api.get("/blog-categories");
-        } catch(error: any) {
+            categories = await api.get("/project-categories");
+        } catch (error: any) {
             setSearchFilters({ status: "error", error: error.message });
             return;
         }
@@ -59,18 +60,18 @@ function Blogs() {
         })
 
         const data: Filters = [
-            ...(tagData.length > 0 ? [{
+            ...(tagData.length < 0 ? [{
                 label: "Tags",
                 filters: tagData
             }] : []),
-            ...(categoryData.length > 0 ? [{
+            ...(categoryData.length ? [{
                 label: "Categories",
                 filters: categoryData
             }] : [])
         ];
 
         if (data.length === 0) {
-            setSearchFilters({ status: "error", error: "Filtering not available at the moment." });
+            setSearchFilters( { status: "error", error: "Filtering not available at the moment." });
         } else {
             setSearchFilters({ status: "success", data: data });
         }
@@ -78,23 +79,23 @@ function Blogs() {
 
     // Gets data from api
     useEffect(() => {
-        fetchPosts();
+        fetchProjects();
         fetchFilters();
     }, []);
 
     // When search filters gets updated, a new query for posts is made
     useEffect(() => {
-        if (searchFilters.status !== "success") return;
+        if (searchFilters?.status !== "success") return;
 
-        const queryTags: string | undefined = searchFilters?.data.filter(filterCollection =>
+        const queryTags: string | undefined = searchFilters.data.filter(filterCollection =>
             filterCollection.label === "Tags")
-                .map(filterCollection =>
-                    filterCollection.filters
-                        .filter(filter => filter.selected)
-                        .map((filter, index) => (index === 0 ? "" : "&") + "tag=" + filter.slug)
-        ).flat().join("");
+            .map(filterCollection =>
+                filterCollection.filters
+                    .filter(filter => filter.selected)
+                    .map((filter, index) => (index === 0 ? "" : "&") + "tag=" + filter.slug)
+            ).flat().join("");
 
-        const queryCategories: string | undefined = searchFilters?.data.filter(filterCollection =>
+        const queryCategories: string | undefined = searchFilters.data.filter(filterCollection =>
             filterCollection.label === "Categories")
             .map(filterCollection =>
                 filterCollection.filters
@@ -106,7 +107,9 @@ function Blogs() {
             (queryTags && queryCategories ? "&" : "") +
             queryCategories;
 
-        fetchPosts(queryString);
+        console.log(queryString);
+
+        fetchProjects(queryString);
     }, [searchFilters]);
 
     return (
@@ -114,9 +117,9 @@ function Blogs() {
             <main className={styles.main}>
                 <div className={styles.header}>
                     <div className={styles.title}>
-                        <h1>Blog</h1>
+                        <h1>Projects</h1>
 
-                        <LinkButton link={"https://www.linkedin.com/in/christian-moloci/"} text={"LinkedIn"} newTab={true} />
+                        <LinkButton link={"https://github.com/ChrisMoloci"} text={"GitHub"} newTab={true} />
                     </div>
 
                     {searchFilters.status === "success" &&
@@ -128,22 +131,22 @@ function Blogs() {
                 </div>
 
                 <div className={styles.content}>
-                    {blogData.status === "success" && blogData.data.length > 0 && blogData.data.map((post) =>
-                        <BlogCard
-                            key={post.slug}
-                            url={post.slug}
-                            title={post.title}
-                            author={post.author.name}
-                            date={post.createdAt.toDateString()}
-                            description={post.content} // API returns shortened sanitized content on index route
-                            thumbnail={({url: post.featuredImage?.storageKey ?? "", alt: post.featuredImage?.alt ?? ""})}
+                    {projectData.status === "success" && projectData.data.map((project: Project) => (
+                        <ProjectCard
+                            key={project.slug}
+                            thumbnail={({url: project.featuredImage?.storageKey ?? "", alt: project.featuredImage?.alt ?? ""})}
+                            title={project.name}
+                            description={project.content}
+                            date={project.createdAt.toDateString()}
+                            url={project.slug}
+                            languages={project.tags.map(tag => tag.name)}
                         />
-                    )}
-                    {blogData.status === "success" && blogData.data.length === 0 &&
+                    ))}
+                    {projectData.status === "success" && projectData.data.length === 0 &&
                         <p>No results.</p>
                     }
-                    {blogData.status === "error" &&
-                        <p>Error: {blogData.error}</p>
+                    {projectData.status === "error" &&
+                        <p>Error: {projectData.error}</p>
                     }
                 </div>
             </main>
@@ -151,4 +154,4 @@ function Blogs() {
     )
 }
 
-export default Blogs
+export default Projects;

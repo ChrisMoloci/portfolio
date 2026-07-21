@@ -1,6 +1,6 @@
 import styles from "./LoginPage.module.css";
 import {useContext, useEffect} from "react";
-import AuthContext, {type Credentials} from "../../context/AuthContext.ts";
+import AuthContext, {type Credentials} from "../../../context/AuthContext.ts";
 import {useNavigate} from "react-router";
 
 function LoginPage() {

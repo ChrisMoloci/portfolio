@@ -1,17 +1,17 @@
 import styles from "./Home.module.css"
-import ContactLinks from "../../components/ContactLinks/ContactLinks.tsx";
-import profilePic from "../../assets/images/christianmoloci.png";
-import LinkButton from "../../components/LinkButton/LinkButton.tsx";
+import ContactLinks from "../../../components/ContactLinks/ContactLinks.tsx";
+import profilePic from "../../../assets/images/christianmoloci.png";
+import LinkButton from "../../../components/LinkButton/LinkButton.tsx";
 import {NavLink} from "react-router";
-import ProjectCard from "../../components/ProjectCard/ProjectCard.tsx";
-import BlogCard from "../../components/BlogCard/BlogCard.tsx";
-import {api} from "../../api/client.ts";
-import transformBlog from "../../transformers/transformBlog.ts";
+import ProjectCard from "../../../components/ProjectCard/ProjectCard.tsx";
+import BlogCard from "../../../components/BlogCard/BlogCard.tsx";
+import {api} from "../../../api/client.ts";
+import transformBlog from "../../../transformers/transformBlog.ts";
 import {useEffect, useState} from "react";
-import type {BlogPost} from "../../types/BlogPost.ts";
-import type {Project} from "../../types/Project.ts";
-import transformProject from "../../transformers/transformProject.ts";
-import type {ApiState} from "../../types/ApiState.ts";
+import type {BlogPost} from "../../../types/BlogPost.ts";
+import type {Project} from "../../../types/Project.ts";
+import transformProject from "../../../transformers/transformProject.ts";
+import type {ApiState} from "../../../types/ApiState.ts";
 
 function Home() {
     const [ latestProjects, setLatestProjects ] = useState<ApiState<Array<Project>>>({ status: "loading" });

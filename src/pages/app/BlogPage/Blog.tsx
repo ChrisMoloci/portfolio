@@ -1,12 +1,12 @@
 import styles from "./Blog.module.css";
 import {useParams} from "react-router";
-import BlogCard from "../../components/BlogCard/BlogCard.tsx";
+import BlogCard from "../../../components/BlogCard/BlogCard.tsx";
 import Markdown from "react-markdown";
 import {useEffect, useState} from "react";
-import {api} from "../../api/client.ts";
-import type {BlogPost} from "../../types/BlogPost.ts";
-import transformBlog from "../../transformers/transformBlog.ts";
-import type {ApiState} from "../../types/ApiState.ts";
+import {api} from "../../../api/client.ts";
+import type {BlogPost} from "../../../types/BlogPost.ts";
+import transformBlog from "../../../transformers/transformBlog.ts";
+import type {ApiState} from "../../../types/ApiState.ts";
 
 
 function Blog() {
