@@ -6,7 +6,7 @@ import transformBlogCategory from "../../../transformers/transformBlogCategory.t
 import {api} from "../../../api/client.ts";
 import transformMedia from "../../../transformers/transformMedia.ts";
 import type {Media} from "../../../types/Media.ts";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import type {BlogPost} from "../../../types/BlogPost.ts";
 import transformBlog from "../../../transformers/transformBlog.ts";
 
@@ -17,6 +17,7 @@ function Post() {
     const [ showNewCategoryInputs, setShowNewCategoryInputs] = useState<boolean>(false)
     const [ errorText, setErrorText ] = useState<string>("")
     const [ isPublished, setIsPublished ] = useState<boolean>(false)
+    const navigate = useNavigate();
 
     const fetchCategories = async () => {
         try {
@@ -86,15 +87,16 @@ function Post() {
 
             if (!formData) return;
 
-            const postSlug = formData.get("slug");
-            const title = formData.get("title");
-            const content = formData.get("content");
+            const postSlug = formData.get("slug") as string;
+            const title = formData.get("title") as string;
+            const content = formData.get("content") as string;
             const published = formData.get("isPublished") as string === "on";
-            const categorySlug = formData.get("category");
+            const categorySlug = formData.get("category") as string;
             const tags = formData.get("tags") as string;
             const featuredImage = formData.get("image") as File;
-            const featuredImageAlt = formData.get("image-alt");
+            const featuredImageAlt = formData.get("image-alt") as string;
 
+            // Make sure data is valid (if slug is present, data can be partial)
             if (!slug && !postSlug || !title || !content || published == null || !categorySlug || categorySlug === "___new-category" || !tags || !featuredImage || !featuredImageAlt)
                 throw Error("One or more fields are invalid or missing.")
 
@@ -105,16 +107,19 @@ function Post() {
 
             let image: Media | null = null;
 
+            // featuredImage might not be provided if in edit more, if previous check didn't fail, that is likely the case
             if (featuredImage.size > 0) {
                 const response = await api.post("/media", imageFormData);
 
                 image = transformMedia(response.data);
             }
 
+            // Create a list out of the tags string
             const postTags = tags.split(", ")
 
             console.log(published)
 
+            // Construct the data
             const post = {
                 slug: postSlug,
                 title,
@@ -126,12 +131,15 @@ function Post() {
             }
 
             if (slug) {
+                // If slug is present, we are editing
                 await api.patch(`/posts/${slug}`, post);
             } else {
+                // If no slug was provided in URL, this is a new post
                 await api.post("/posts", post);
+                navigate(`/admin/post/${postSlug}`); // redirect to slug to edit future saves
             }
 
-            setErrorText("")
+            setErrorText(""); // Reset error text
         } catch(error: any) {
             setErrorText(error.message);
         }
@@ -146,6 +154,7 @@ function Post() {
         <main className={styles.main}>
             <h1>New Post</h1>
 
+            {/* Form for creating new categories, displayed if new category is selected in category dropdown*/}
             {showNewCategoryInputs &&
                 <form className={styles.newCategoryForm} onSubmit={onCategorySubmit}>
                     <h3>New Category:</h3>
@@ -168,6 +177,7 @@ function Post() {
             }
 
             <form className={styles.form} onSubmit={onPostSubmit}>
+                {/* Post Title & Slug*/}
                 <div className={styles.formRow}>
                     <label htmlFor="title">Post Title:
                         <input
@@ -190,6 +200,7 @@ function Post() {
                     </label>
                 </div>
 
+                {/* Post Image and Image alt */}
                 <div className={styles.formRow}>
                     <label htmlFor="image">Image:
                         <input
@@ -211,6 +222,7 @@ function Post() {
                     </label>
                 </div>
 
+                {/* Post tags and category */}
                 <div className={styles.formRow}>
                     <label htmlFor="tags">Tags (comma separated):
                         <input
@@ -244,6 +256,7 @@ function Post() {
                     </label>
                 </div>
 
+                {/* Published checkbox */}
                 <label className={"horizontalLabel"} htmlFor="isPublished">Published
                     <input
                         type="checkbox"
@@ -254,19 +267,22 @@ function Post() {
                     />
                 </label>
 
+                {/* Post text content */}
                 <label className={styles.contentSection} htmlFor="content">Content:
                     <textarea
                         name="content"
                         id="content"
                         placeholder={"Use markdown..."}
                         defaultValue={postData.status === "success" ? postData.data?.content : ""}
-                    ></textarea>
+                    />
                 </label>
 
+                {/* Error text (if an error occurred during submission) */}
                 {errorText &&
-                    <p className={styles.errorText}>{errorText}</p>
+                    <p className="errorText">{errorText}</p>
                 }
 
+                {/* Submit Button */}
                 <div className={styles.formRow}>
                     <button type={"submit"}>Save</button>
                 </div>

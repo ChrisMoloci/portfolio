@@ -233,6 +233,10 @@ h5 {font-size: var(--h5); /* 20px */}
 
 small {font-size: var(--small); /* 12.8px */}
 
+.errorText {
+    color: #F00;
+}
+
 form, fieldset {
     all: unset;
     display: block;
