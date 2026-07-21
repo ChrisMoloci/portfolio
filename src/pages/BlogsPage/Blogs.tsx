@@ -6,18 +6,26 @@ import Filter, {type FilterItem, type Filters} from "../../components/Filter/Fil
 import {api} from "../../api/client.ts";
 import type {BlogPost} from "../../types/BlogPost.ts";
 import transformBlog from "../../transformers/transformBlog.ts";
+import type {ApiState} from "../../types/ApiState.ts";
 
 function Blogs() {
-    const [searchFilters, setSearchFilters] = useState<Filters>()
-    const [blogData, setBlogData] = useState<Array<BlogPost>>();
+    const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>({ status: "loading" })
+    const [blogData, setBlogData] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
 
     const fetchPosts = async (queryString: string = "") => {
-        const response = await api.get("/posts" + queryString);
+        try {
+            const response = await api.get("/posts" + queryString);
 
-        // Map the posts to BlogPost type
-        const data: Array<BlogPost> = response.data.map((post: BlogPost) => transformBlog(post))
+            // Map the posts to BlogPost type
+            const data: ApiState<Array<BlogPost>> = {
+                status: "success",
+                data: response.data.map((post: BlogPost) => transformBlog(post))
+            }
 
-        setBlogData(data);
+            setBlogData(data);
+        } catch (error: any) {
+            setBlogData({ status: "error", error: error.message });
+        }
     }
 
     const fetchFilters = async () => {
@@ -42,17 +50,21 @@ function Blogs() {
         })
 
         const data: Filters = [
-            {
+            tagData && {
                 label: "Tags",
                 filters: tagData
             },
-            {
+            categoryData && {
                 label: "Categories",
                 filters: categoryData
             }
         ];
 
-        setSearchFilters(data);
+        if (categoryData.length === 0) {
+            setSearchFilters({ status: "error", error: "Unable to fetch tags and categories" });
+        } else {
+            setSearchFilters({ status: "success", data: data });
+        }
     }
 
     // Gets data from api
@@ -63,7 +75,11 @@ function Blogs() {
 
     // When search filters gets updated, a new query for posts is made
     useEffect(() => {
-        const queryTags: string | undefined = searchFilters?.filter(filterCollection =>
+        if (searchFilters.status !== "success") {
+            return;
+        }
+
+        const queryTags: string | undefined = searchFilters?.data.filter(filterCollection =>
             filterCollection.label === "Tags")
                 .map(filterCollection =>
                     filterCollection.filters
@@ -71,7 +87,7 @@ function Blogs() {
                         .map((filter, index) => (index === 0 ? "" : "&") + "tag=" + filter.slug)
         ).flat().join("");
 
-        const queryCategories: string | undefined = searchFilters?.filter(filterCollection =>
+        const queryCategories: string | undefined = searchFilters?.data.filter(filterCollection =>
             filterCollection.label === "Categories")
             .map(filterCollection =>
                 filterCollection.filters
@@ -96,11 +112,16 @@ function Blogs() {
                         <LinkButton link={"https://www.linkedin.com/in/christian-moloci/"} text={"LinkedIn"} newTab={true} />
                     </div>
 
-                    <Filter filters={searchFilters ?? []} onChange={setSearchFilters} />
+                    {searchFilters.status === "success" &&
+                        <Filter filters={searchFilters.data ?? []} onChange={(filters) => setSearchFilters({ status: "success", data: filters })} />
+                    }
+                    {searchFilters.status === "error" &&
+                        <p>Error: {searchFilters.status}</p>
+                    }
                 </div>
 
                 <div className={styles.content}>
-                    {blogData && blogData.map((post) =>
+                    {blogData.status === "success" && blogData.data.length > 0 && blogData.data.map((post) =>
                         <BlogCard
                             key={post.slug}
                             url={post.slug}
@@ -111,6 +132,12 @@ function Blogs() {
                             thumbnail={({url: post.featuredImage?.storageKey ?? "", alt: post.featuredImage?.alt ?? ""})}
                         />
                     )}
+                    {blogData.status === "success" && blogData.data.length === 0 &&
+                        <p>No Results.</p>
+                    }
+                    {blogData.status === "error" &&
+                        <p>Error: {blogData.error}</p>
+                    }
                 </div>
             </main>
         </>

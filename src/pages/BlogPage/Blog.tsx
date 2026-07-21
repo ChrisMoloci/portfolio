@@ -90,7 +90,7 @@ function Blog() {
                 }
                 {blogData.status === "error" &&
                     <>
-                        <h1>Failed to load posts</h1>
+                        <h1>:( Failed to load post</h1>
                         <p>Error: {blogData.error}</p>
                     </>
                 }
