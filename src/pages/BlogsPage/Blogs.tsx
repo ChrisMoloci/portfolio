@@ -70,7 +70,7 @@ function Blogs() {
         ];
 
         if (data.length === 0) {
-            setSearchFilters({ status: "error", error: "Unable to fetch tags and categories" });
+            setSearchFilters({ status: "error", error: "Filtering not available at the moment." });
         } else {
             setSearchFilters({ status: "success", data: data });
         }
