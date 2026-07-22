@@ -1,11 +1,13 @@
 import styles from "./Footer.module.css"
 import ContactLinks from "../ContactLinks/ContactLinks.tsx";
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {api} from "../../api/client.ts";
 
 function Footer() {
     const [ successText, setSuccesText ] = useState<string>("");
     const [ errorText, setErrorText ] = useState<string>("")
+
+    const formRef = useRef<HTMLFormElement>(null);
 
     const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -33,6 +35,9 @@ function Footer() {
 
             setErrorText("");
             setSuccesText("Message successfully sent! Keep an eye on your email and I'll get back to you as soon as I can.")
+
+            // Reset the form
+            formRef.current?.reset();
         } catch (error: any) {
             setErrorText(error.response?.data.message ?? error.message);
             setSuccesText("")
@@ -55,7 +60,7 @@ function Footer() {
 
                     <p className={styles.successText}>{successText}</p>
 
-                    <form className={styles.contactForm} onSubmit={onSubmit}>
+                    <form className={styles.contactForm} onSubmit={onSubmit} ref={formRef}>
                         <label htmlFor="name">Name:
                             <input type="text" name="name" id="name" placeholder="John Smith..." required />
                         </label>
