@@ -2,6 +2,7 @@ import styles from "./AdminMediaImage.module.css"
 
 type Props = {
     imageURL: string,
+    alt: string,
     delete: () => void
 }
 
@@ -15,7 +16,7 @@ function AdminMediaImage(props: Props) {
 
     return (
         <div className={styles.adminMediaImage}>
-            <img src={props.imageURL} alt={props.imageURL} />
+            <img src={props.imageURL} alt={props.alt} />
 
             <span className={styles.deleteButton} onClick={(e) => deleteImage(e)}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 12" fill="none">

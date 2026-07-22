@@ -19,6 +19,24 @@ function Media() {
         }
     }
 
+    const uploadImage = async (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        try {
+            const response = await api.post("/media", formData)
+
+            const data = transformMedia(response.data)
+
+            fetchImages();
+
+            setSelectedMedia(data);
+        } catch (error) {
+
+        }
+    }
+
     const fetchImages = async () => {
         try {
             const response = await api.get("/media");
@@ -68,6 +86,7 @@ function Media() {
                         >
                             <AdminMediaImage
                                 imageURL={image.storageKey}
+                                alt={image.alt}
                                 delete={() => deleteImage(image.id)}
                             />
                         </div>
@@ -80,6 +99,23 @@ function Media() {
                 {images.status === "error" &&
                     <p>{images.error}</p>
                 }
+            </div>
+
+            <div className={styles.imageForm}>
+                <h2>Upload Image</h2>
+                <form onSubmit={uploadImage}>
+                    <div className={styles.formRow}>
+                        <label htmlFor="image">Image:
+                            <input type="file" name="image" id="image"/>
+                        </label>
+
+                        <label htmlFor="alt">Image Alt:
+                            <input type="text" name="alt" id="alt" placeholder={"alt..."}/>
+                        </label>
+                    </div>
+
+                    <button type="submit">Upload</button>
+                </form>
             </div>
         </main>
     )
