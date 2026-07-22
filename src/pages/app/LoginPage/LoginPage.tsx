@@ -1,17 +1,22 @@
 import styles from "./LoginPage.module.css";
 import {useContext, useEffect} from "react";
 import AuthContext, {type Credentials} from "../../../context/AuthContext.ts";
-import {useNavigate} from "react-router";
+import {useLocation, useNavigate} from "react-router";
 
 function LoginPage() {
     const { login, isAuthenticated } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // If user was redirected here from a protected route, we will redirect them back after login
+    const fromLocation = location.state?.from;
+    const from = fromLocation?.pathname || "/";
 
     useEffect(() => {
         // If user is already authenticated, navigate to home page
         if (isAuthenticated) {
             console.log("User already authenticated, redirecting to home page")
-            navigate('/', { replace: true })
+            navigate(from, { replace: true })
         }
     }, [isAuthenticated]);
 
