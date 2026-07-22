@@ -17,7 +17,7 @@ function AdminSidebar() {
 
             <nav className={styles.links}>
                 <NavLink
-                    to="/admin/dashboard"
+                    to="/admin"
                     className={({ isActive }) =>
                         isActive ? styles.active : undefined
                 }>

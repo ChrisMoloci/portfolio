@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
         element: <Admin />,
         children: [
             {
-                path: "/admin/dashboard",
+                index: true,
                 lazy: async () => {
                     const { default: Dashboard } = await import("./pages/admin/DashboardPage/Dashboard.tsx");
                     return { element: <Dashboard /> };
