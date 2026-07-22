@@ -1,0 +1,52 @@
+.contactFormSubmissionCard {
+    display: flex;
+    width: 100%;
+    padding: 14px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    border-radius: 16px;
+    border: 1px solid var(--primary-200, #3F3C27);
+    background: var(--primary-100, #201E13);
+}
+
+.contactFormSubmissionCard .contactInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h1 {
+
+    }
+
+    .emailDate {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        color: var(--text-100, #EFECDC);
+        font-family: var(--body-typeface, Inter) sans-serif;
+        font-size: var(--small, 12.8px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.contactFormSubmissionCard .textContent {
+    color: var(--text-100, #EFECDC);
+    font-family: var(--body-typeface, Inter) sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.contactFormSubmissionCard .buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}

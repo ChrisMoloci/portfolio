@@ -5,7 +5,7 @@
     gap: 10px;
 
     border-radius: 12px;
-    border: 1px solid var(--primary-200, #3F3C27);
+    outline: 1px solid var(--primary-200, #3F3C27);
     background: var(--primary-100, #201E13);
 
     color: var(--text-100, #EFECDC);
@@ -17,10 +17,10 @@
     text-decoration: none;
 }
 .linkButton:hover {
-    border: 1px solid var(--primary-300, #3F3C27);
+    outline: 1px solid var(--primary-300, #3F3C27);
     background: var(--primary-200, #201E13);
 }
 .linkButton:active {
-    border: 1px solid var(--secondary-200, #3F3C27);
+    outline: 1px solid var(--secondary-200, #3F3C27);
     background: var(--secondary-100, #201E13);
 }

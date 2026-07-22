@@ -198,7 +198,7 @@ a.linkButton {
     gap: 10px;
 
     border-radius: 12px;
-    border: 1px solid var(--primary-200, #D8D5C0);
+    outline: 1px solid var(--primary-200, #D8D5C0);
     background: var(--primary-100, #ECEADF);
 
     color: var(--text-100, #232010);
@@ -209,11 +209,11 @@ a.linkButton {
     line-height: normal;
 }
 a.linkButton:hover {
-    border: 1px solid var(--primary-300, #3F3C27);
+    outline: 1px solid var(--primary-300, #3F3C27);
     background: var(--primary-200, #201E13);
 }
 a.linkButton:active {
-    border: 1px solid var(--secondary-200, #3F3C27);
+    outline: 2px solid var(--secondary-200, #3F3C27);
     background: var(--secondary-100, #201E13);
 }
 hr {
@@ -287,7 +287,7 @@ button {
     align-self: stretch;
 
     border-radius: 12px;
-    outline: 2px solid var(--primary-200, #2B333B);
+    outline: 1px solid var(--primary-200, #2B333B);
     background: var(--primary-100, #15191E);
 
     font-family: var(--body-typeface) sans-serif;
@@ -306,6 +306,6 @@ form input:hover, form textarea:hover, form select:hover, button:hover {
     background: var(--secondary-200, #15191E);
 }
 form input:focus, form textarea:focus, form select:hover, button:active {
-    outline: 1px solid var(--secondary-200, #2B333B);
+    outline: 2px solid var(--secondary-200, #2B333B);
     background: var(--secondary-100, #15191E);
 }
