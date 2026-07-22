@@ -10,14 +10,20 @@ function Footer() {
     const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
         try {
             const formData = new FormData(e.target);
 
-            const email = formData.get('email');
-            const name = formData.get('name');
-            const message = formData.get('message');
+            const email = formData.get('email') as string;
+            const name = formData.get('name') as string;
+            const message = formData.get('message') as string;
 
-            if (!email || !name || !message) throw Error("Missing required fields");
+            if (!name || !email || !message) throw Error("Missing required fields");
+
+            if (name.length > 100) throw Error("Name too long");
+            if (!emailRegex.test(email)) throw Error("email invalid");
+            if (message.length > 2000) throw Error("Message too long (max length: 2000 characters)");
 
             const data = {
                 email, name, message
@@ -26,9 +32,9 @@ function Footer() {
             await api.post("contact", data);
 
             setErrorText("");
-            setSuccesText("Message successfully sent!")
+            setSuccesText("Message successfully sent! Keep an eye on your email and I'll get back to you as soon as I can.")
         } catch (error: any) {
-            setErrorText(error.message)
+            setErrorText(error.response?.data.message ?? error.message);
             setSuccesText("")
         }
     }
@@ -47,7 +53,7 @@ function Footer() {
                         <span>or</span>
                     </span>
 
-                    <p>{successText}</p>
+                    <p className={styles.successText}>{successText}</p>
 
                     <form className={styles.contactForm} onSubmit={onSubmit}>
                         <label htmlFor="name">Name:

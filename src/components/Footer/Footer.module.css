@@ -30,6 +30,17 @@
     font-weight: 400;
     line-height: normal;
 }
+.footer .successText {
+    text-align: center;
+
+    color: var(--text-50, #F7F6ED);
+    font-family: var(--body-typeface) sans-serif;
+    font-size: var(--small);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .footer .divider {
     display: flex;
     height: 2px;
