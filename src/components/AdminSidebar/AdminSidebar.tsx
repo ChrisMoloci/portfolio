@@ -1,7 +1,11 @@
 import styles from "./AdminSidebar.module.css"
 import {NavLink} from "react-router";
+import {useContext} from "react";
+import AuthContext from "../../context/AuthContext.ts";
 
 function AdminSidebar() {
+    const { user } = useContext(AuthContext)
+
     return (
         <div className={styles.adminSidebar}>
             <div className={styles.profile}>
@@ -10,8 +14,8 @@ function AdminSidebar() {
                 </div>
 
                 <div className={styles.profileInfo}>
-                    <h1>First Last</h1>
-                    <small>example@example.com</small>
+                    <h1>{user?.name}</h1>
+                    <small>{user?.email}</small>
                 </div>
             </div>
 

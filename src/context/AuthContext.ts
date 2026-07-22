@@ -1,14 +1,6 @@
 import {createContext} from "react";
-
-export type User = {
-    id: number,
-    email: string,
-}
-
-export type Credentials = {
-    email: string,
-    password: string,
-}
+import type {User} from "../types/User.tsx";
+import type {Credentials} from "../types/Credentials.tsx";
 
 type AuthContextType = {
     user?: User,

@@ -1,6 +1,7 @@
-import AuthContext, {type Credentials} from "../context/AuthContext.ts";
+import AuthContext from "../context/AuthContext.ts";
 import {useEffect, useState} from "react";
 import {api} from "../api/client.ts"
+import type {Credentials} from "../types/Credentials.tsx";
 
 type Props = {
     children: React.ReactNode;
