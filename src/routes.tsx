@@ -1,6 +1,6 @@
-import {createBrowserRouter} from "react-router";
-import App from "./Layouts/App.tsx";
-import Admin from "./Layouts/Admin.tsx";
+import {createBrowserRouter, Navigate} from "react-router";
+import App from "./layouts/App.tsx";
+import Admin from "./layouts/Admin.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -71,9 +71,20 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                element: <Navigate to={"/admin/dashboard"} />
+            },
+            {
+                path: "/admin/dashboard",
                 lazy: async () => {
                     const { default: Dashboard } = await import("./pages/admin/DashboardPage/Dashboard.tsx");
                     return { element: <Dashboard /> };
+                }
+            },
+            {
+                path: "/admin/contact-submissions",
+                lazy: async () => {
+                    const { default: ContactSubmissions } = await import("./pages/admin/ContactSubmissionsPage/ContactSubmissions.tsx");
+                    return { element: <ContactSubmissions /> };
                 }
             },
             {
