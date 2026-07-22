@@ -6,7 +6,7 @@ import transformBlogCategory from "../../../transformers/transformBlogCategory.t
 import {api} from "../../../api/client.ts";
 import transformMedia from "../../../transformers/transformMedia.ts";
 import type {Media} from "../../../types/Media.ts";
-import {useNavigate, useParams} from "react-router";
+import {NavLink, useNavigate, useParams} from "react-router";
 import type {BlogPost} from "../../../types/BlogPost.ts";
 import transformBlog from "../../../transformers/transformBlog.ts";
 
@@ -50,7 +50,7 @@ function Post() {
             setIsPublished(data.data.published)
         } catch (error: any) {
             setErrorText(error.message);
-            setPostCategories({ status: "error", error: error.message })
+            setPostData({ status: "error", error: error.message })
         }
 
     }
@@ -107,7 +107,7 @@ function Post() {
 
             let image: Media | null = null;
 
-            // featuredImage might not be provided if in edit more, if previous check didn't fail, that is likely the case
+            // featuredImage might not be provided if in edit mode, if previous check didn't fail, that is likely the case
             if (featuredImage.size > 0) {
                 const response = await api.post("/media", imageFormData);
 
@@ -116,8 +116,6 @@ function Post() {
 
             // Create a list out of the tags string
             const postTags = tags.split(", ")
-
-            console.log(published)
 
             // Construct the data
             const post = {
@@ -152,7 +150,11 @@ function Post() {
 
     return (
         <main className={styles.main}>
-            <h1>New Post</h1>
+            <h1>{slug ? "Edit" : "New"} Post</h1>
+
+            {slug &&
+                <NavLink target={"_blank"} className={"linkButton"} to={`/blog/${slug}`}>Preview Post</NavLink>
+            }
 
             {/* Form for creating new categories, displayed if new category is selected in category dropdown*/}
             {showNewCategoryInputs &&
