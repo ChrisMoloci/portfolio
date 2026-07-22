@@ -1,0 +1,131 @@
+.markdown {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+        text-decoration: underline;
+    }
+
+    table {
+        /* Layout */
+        all: unset;
+        display: table;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+        overflow: hidden;
+
+        /* Style */
+        border-radius: 8px;
+        border: 1px solid var(--secondary-300, #414758);
+    }
+
+    thead tr {
+        /* Layout */
+        padding: 6px 12px;
+
+        /* Style */
+        background: var(--secondary-300, #A7ADBE);
+
+        /* Typography */
+        color: var(--text-50, #0D0D0D);
+        font-family: Inter;
+        font-size: var(--small, 14px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: auto;
+        text-underline-offset: auto;
+        text-underline-position: from-font;
+    }
+    tbody tr {
+        /* Typography */
+        color: var(--text-100, #1A1A1A);
+        font-family: Inter;
+        font-size: var(--small, 14px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    tbody tr:nth-child(odd) > * {
+        /* Style */
+        border-top: 1px solid var(--secondary-300, #A7ADBE);
+        background: var(--secondary-50, #F0F1F4);
+    }
+    tbody tr:nth-child(even) > * {
+        /* Style */
+        border-top: 1px solid var(--secondary-300, #A7ADBE);
+        background: var(--secondary-200, #C4C8D4);
+    }
+    tbody tr:last-of-type  {
+        /* Style */
+        border-radius: 0 0 8px 8px;
+    }
+    table td, table th {
+        /* Layout */
+        padding: 10px;
+        text-align: left !important;
+    }
+
+    table img {
+        /* Layout */
+        max-width: 250px;
+
+        /* Style */
+        border-radius: 4px;
+    }
+
+    /* List Styles */
+    ul, ol {
+        /* Typography */
+        color: var(--text-300, #4D4D4D);
+
+        /* Level 1 */
+        list-style: disc;
+        padding-left: 20px;
+
+        ul, ol {
+            /* Level 2 */
+            list-style: circle;
+            padding-left: 20px;
+
+            ul, ol {
+                /* Level 3 */
+                list-style: square;
+                padding-left: 20px;
+            }
+        }
+    }
+
+    /* Code block styles */
+    pre {
+        /* Layout */
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        min-width: 100%;
+        padding: 10px;
+
+        /* Style */
+        border-radius: 8px;
+        background-color: var(--secondary-100, #F0F1F4);
+
+        /* Typography */
+        font-family: jetbrains-mono, monospace;
+        font-size: var(--small, 12px);
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    /*@media screen and (max-width: 900px) {*/
+    /*    table img {*/
+    /*        !* Layout *!*/
+    /*        max-width: 150px;*/
+    /*        height: auto;*/
+    /*    }*/
+    /*}*/
+}

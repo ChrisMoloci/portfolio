@@ -1,6 +1,6 @@
 /* TODO: Get local font before deployment */
 
-@import url('https://fonts.googleapis.com/css?family=Geom:700|Inter:400');
+@import url('https://fonts.googleapis.com/css?family=Geom:700|Inter:400|jetbrainsmono:400');
 
 :root {
     /* Font Sizes*/
@@ -190,6 +190,9 @@ a {
     all: unset;
     color: var(--text-100);
     cursor: pointer;
+}
+a:hover {
+    color: var(--text-200);
 }
 a.linkButton {
     display: inline-flex;

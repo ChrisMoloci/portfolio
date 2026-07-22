@@ -277,6 +277,19 @@ function Project() {
                         id="content"
                         placeholder={"Use markdown..."}
                         defaultValue={projectData.status === "success" ? projectData.data?.content : ""}
+                        onKeyDown={(e) => {
+                            // Prevents tab from exiting textarea, inserts a tab
+                            if (e.key === "Tab") {
+                                e.preventDefault();
+
+                                e.currentTarget.setRangeText(
+                                    '\t',
+                                    e.currentTarget.selectionStart,
+                                    e.currentTarget.selectionEnd,
+                                    'end'
+                                );
+                            }
+                        }}
                     />
                 </label>
 

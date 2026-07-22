@@ -6,6 +6,9 @@ import type {Project} from "../../../types/Project.ts";
 import transformProject from "../../../transformers/transformProject.ts";
 import {api} from "../../../api/client.ts";
 import type {ApiState} from "../../../types/ApiState.ts";
+import remarkGfm from "remark-gfm";
+import markdownComponents from "../../../constants/markdownComponents.tsx";
+import "../../../markdown.css";
 
 function Project() {
     const { slug } = useParams();
@@ -57,9 +60,10 @@ function Project() {
                         <div className={styles.content}>
                             <img src={featuredImageURL} alt={projectData.data.featuredImage?.alt}/>
 
-                            <div className={styles.markdown}>
-                                {/* TODO: Implement MDX Parsing */}
-                                <Markdown>{projectData.data.content}</Markdown>
+                            <div className={"markdown"}>
+                                <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                                    {projectData.data.content}
+                                </Markdown>
                             </div>
                         </div>
 

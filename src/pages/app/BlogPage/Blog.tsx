@@ -7,7 +7,9 @@ import {api} from "../../../api/client.ts";
 import type {BlogPost} from "../../../types/BlogPost.ts";
 import transformBlog from "../../../transformers/transformBlog.ts";
 import type {ApiState} from "../../../types/ApiState.ts";
-
+import remarkGfm from "remark-gfm";
+import markdownComponents from "../../../constants/markdownComponents.tsx";
+import "../../../markdown.css"
 
 function Blog() {
     const { slug } = useParams();
@@ -81,8 +83,10 @@ function Blog() {
                         <img src={featuredImageURL} alt={blogData.data.featuredImage?.alt}/>
 
                         {/* BlogPost Content */}
-                        <div className={styles.markdown}>
-                            <Markdown>{blogData.data.content}</Markdown>
+                        <div className={"markdown"}>
+                            <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                                {blogData.data.content}
+                            </Markdown>
 
                             <small>&copy; 2026 Christian Moloci</small>
                         </div>
