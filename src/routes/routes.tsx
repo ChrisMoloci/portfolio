@@ -58,6 +58,13 @@ export const router = createBrowserRouter([
                 }
             },
             {
+                path: "logout",
+                lazy: async () => {
+                    const { default: Logout } = await import("../pages/app/LogoutPage/Logout.tsx");
+                    return { element: <Logout /> };
+                }
+            },
+            {
                 path: "*",
                 lazy: async () => {
                     const { default: PageNotFound } = await import("../pages/app/PageNotFoundPage/PageNotFound.tsx");
