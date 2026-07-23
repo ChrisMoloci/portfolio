@@ -69,18 +69,35 @@ function Project() {
 
                         {/* Sidebar */}
                         <aside className={styles.sidebar}>
-                            {/*{project.misc.map(item => {*/}
-                            {/*    return (*/}
-                            {/*        <div className={styles.sidebarEntries}>*/}
-                            {/*            <h3 className={styles.entryTitle}>{item.title}</h3>*/}
-                            {/*            <div className={styles.sidebarItems}>*/}
-                            {/*                {item.values.map(item =>*/}
-                            {/*                    item.url ? <a href={item.url}>{item.name}</a> : <p>{item.name}</p>*/}
-                            {/*                )}*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*    )*/}
-                            {/*})}*/}
+                            {projectData.data.accessLinks &&
+                                <div className={styles.sidebarEntries}>
+                                    <h3>Access:</h3>
+                                    <div className={styles.sidebarItems}>
+                                        {projectData.data.accessLinks.map((item) =>
+                                            <a href={item.url}>{item.label}</a>
+                                        )}
+                                    </div>
+                                </div>
+                            }
+
+                            {projectData.data.contributors &&
+                                <div className={styles.sidebarEntries}>
+                                    <h3>Contributors:</h3>
+                                    <div className={styles.sidebarItems}>
+                                        {projectData.data.contributors.map((item) =>
+                                            <a href={item.url}>{item.label}</a>
+                                        )}
+                                    </div>
+                                </div>
+                            }
+                            {projectData.data.version &&
+                                <div className={styles.sidebarEntries}>
+                                    <h3>About:</h3>
+                                    <div className={styles.sidebarItems}>
+                                        <span><strong>Version:</strong> {projectData.data.version}</span>
+                                    </div>
+                                </div>
+                            }
                         </aside>
                     </div>
                 </>
