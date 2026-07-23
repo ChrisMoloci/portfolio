@@ -100,10 +100,6 @@
     .markdown {
         width: 100%;
     }
-    .markdown * {
-        overflow-wrap: break-word; /* Forces long words/links to break and wrap */
-        white-space: normal;
-    }
 
     @media screen and (max-width: 900px) {
         border-bottom: 1px solid var(--secondary-300, #3F3C27);

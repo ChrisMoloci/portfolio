@@ -35,6 +35,7 @@
         flex-direction: column;
         align-items: center;
         gap: 4px;
+        text-align: center;
 
         .subHeading {
             border-top: 4px solid var(--accent-700, #7EE798);
@@ -83,11 +84,7 @@
 
     /* Text */
     .markdown {
-        display: flex;
         width: 800px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
 
         border-bottom: 2px solid var(--secondary-300, #404C59);
 

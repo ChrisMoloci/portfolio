@@ -83,7 +83,7 @@ function Blog() {
                         <img src={featuredImageURL} alt={blogData.data.featuredImage?.alt}/>
 
                         {/* BlogPost Content */}
-                        <div className={"markdown"}>
+                        <div className={styles.markdown + " markdown"}>
                             <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                                 {blogData.data.content}
                             </Markdown>
