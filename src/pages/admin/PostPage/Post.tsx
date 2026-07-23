@@ -62,9 +62,9 @@ function Post() {
 
         if (!formData) return;
 
-        const name = formData.get("category-name");
-        const slug = formData.get("category-slug");
-        const description = formData.get("category-description");
+        const name = formData.get("category-name") as string;
+        const slug = formData.get("category-slug") as string;
+        const description = formData.get("category-description") as string;
 
         if (!name || !slug || !description) return;
 
@@ -74,7 +74,7 @@ function Post() {
 
         await api.post("blog-categories", data);
 
-        fetchCategories();
+        await fetchCategories();
 
         setShowNewCategoryInputs(false)
     }
@@ -240,17 +240,25 @@ function Post() {
                         <select
                             name="category"
                             id="category"
-                            defaultValue={postData.status === "success" ? postData.data?.category.slug : ""}
+                            defaultValue={postData.status === "success" && postData.data?.category ? postData.data?.category.slug : ""}
                             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                                 e.preventDefault();
                                 if (e.target.value === "___create-new")
                                     setShowNewCategoryInputs(true);
                                 else
                                     setShowNewCategoryInputs(false);
-                        }}>
+                            }}
+                        >
+                            <option value="" disabled>-- Select a category --</option>
                             {postCategories?.status === "success" &&
                                 postCategories.data.map((category: BlogCategory, index: number) =>
-                                    <option selected={postData.status === "success" ? postData.data?.category.slug === category.slug : index === 0} key={category.slug} value={category.slug}>{category.name}</option>
+                                    <option
+                                        selected={postData.status === "success" ? postData.data?.category.slug === category.slug : index === 0}
+                                        key={category.slug}
+                                        value={category.slug}
+                                    >
+                                        {category.name}
+                                    </option>
                                 )
                             }
                             <option value="___create-new">Add Category</option>

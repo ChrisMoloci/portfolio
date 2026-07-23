@@ -241,17 +241,25 @@ function Project() {
                         <select
                             name="category"
                             id="category"
-                            defaultValue={projectData.status === "success" ? projectData.data?.category.slug : ""}
+                            defaultValue={projectData.status === "success" && projectData.data?.category ? projectData.data?.category.slug : ""}
                             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                                 e.preventDefault();
                                 if (e.target.value === "___create-new")
                                     setShowNewCategoryInputs(true);
                                 else
                                     setShowNewCategoryInputs(false);
-                            }}>
+                            }}
+                        >
+                            <option value="" disabled>-- Select a category --</option>
                             {projectCategories?.status === "success" &&
                                 projectCategories.data.map((category: BlogCategory, index: number) =>
-                                    <option selected={projectData.status === "success" ? projectData.data?.category.slug === category.slug : index === 0} key={category.slug} value={category.slug}>{category.name}</option>
+                                    <option
+                                        selected={projectData.status === "success" ? projectData.data?.category.slug === category.slug : index === 0}
+                                        key={category.slug}
+                                        value={category.slug}
+                                    >
+                                        {category.name}
+                                    </option>
                                 )
                             }
                             <option value="___create-new">Add Category</option>
