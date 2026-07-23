@@ -1,6 +1,6 @@
 import {createContext} from "react";
 import type {User} from "../types/User.tsx";
-import type {Credentials} from "../types/Credentials.tsx";
+import type {Credentials} from "../types/Credentials.ts";
 
 type AuthContextType = {
     user?: User,

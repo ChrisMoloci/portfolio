@@ -1,7 +1,8 @@
 import styles from "./LoginPage.module.css";
 import {useContext, useEffect} from "react";
-import AuthContext, {type Credentials} from "../../../context/AuthContext.ts";
+import AuthContext from "../../../context/AuthContext.ts";
 import {useLocation, useNavigate} from "react-router";
+import type {Credentials} from "../../../types/Credentials.ts";
 
 function LoginPage() {
     const { login, isAuthenticated } = useContext(AuthContext);

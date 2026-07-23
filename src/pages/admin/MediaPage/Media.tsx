@@ -1,6 +1,6 @@
 import styles from "./Media.module.css"
 import AdminMediaImage from "../../../components/AdminMediaImage/AdminMediaImage.tsx";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import type {ApiState} from "../../../types/ApiState.ts";
 import type {Media} from "../../../types/Media.ts";
 import {api} from "../../../api/client.ts";
@@ -9,6 +9,8 @@ import transformMedia from "../../../transformers/transformMedia.ts";
 function Media() {
     const [ images, setImages ] = useState<ApiState<Array<Media>>>({ status: "loading" });
     const [ selectedMedia, setSelectedMedia] = useState<Media | undefined>(undefined);
+    const formRef = useRef<HTMLFormElement>(null);
+    const [ imageFormErrorText, setImageFormErrorText ] = useState<string>("");
 
     const deleteImage = async (id: number) => {
         try {
@@ -32,8 +34,13 @@ function Media() {
             fetchImages();
 
             setSelectedMedia(data);
-        } catch (error) {
 
+            // Reset the form
+            formRef.current?.reset();
+
+            setImageFormErrorText("")
+        } catch (error: any) {
+            setImageFormErrorText(error.message)
         }
     }
 
@@ -85,8 +92,8 @@ function Media() {
                             className={selectedMedia && selectedMedia.id === image.id ? styles.selected : ""}
                         >
                             <AdminMediaImage
-                                imageURL={image.storageKey}
                                 alt={image.alt}
+                                imageURL={import.meta.env.VITE_MEDIA_DIR + "/" + image.storageKey + ".webp"}
                                 delete={() => deleteImage(image.id)}
                             />
                         </div>
@@ -103,7 +110,7 @@ function Media() {
 
             <div className={styles.imageForm}>
                 <h2>Upload Image</h2>
-                <form onSubmit={uploadImage}>
+                <form onSubmit={uploadImage} ref={formRef}>
                     <div className={styles.formRow}>
                         <label htmlFor="image">Image:
                             <input type="file" name="image" id="image"/>
@@ -113,6 +120,10 @@ function Media() {
                             <input type="text" name="alt" id="alt" placeholder={"alt..."}/>
                         </label>
                     </div>
+
+                    {imageFormErrorText &&
+                        <p className={"errorText"}>{imageFormErrorText}</p>
+                    }
 
                     <button type="submit">Upload</button>
                 </form>
