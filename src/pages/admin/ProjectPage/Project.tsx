@@ -182,12 +182,12 @@ function Project() {
             <form className={styles.form} onSubmit={onPostSubmit}>
                 {/* Project Title & Slug*/}
                 <div className={styles.formRow}>
-                    <label htmlFor="title">Project Title:
+                    <label htmlFor="title">Project Name:
                         <input
                             type="text"
                             name="name"
                             id="name"
-                            placeholder={"Title"}
+                            placeholder={"Name"}
                             defaultValue={projectData.status === "success" ? projectData.data?.name : ""}
                         />
                     </label>
