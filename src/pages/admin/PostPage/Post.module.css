@@ -9,7 +9,6 @@
 }
 .main .formRow {
     display: flex;
-    align-items: center;
     gap: 10px;
     align-self: stretch;
 
@@ -28,6 +27,10 @@
         display: flex;
         align-items: center;
         gap: 10px;
+    }
+
+    > * {
+        align-self: flex-end;
     }
 }
 
@@ -53,6 +56,31 @@
     align-self: stretch;
     height: 100%;
 
+    .layoutContainer {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        flex: 1 0 0;
+        align-self: stretch;
+    }
+
+    .layoutContainer .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex: 1 0 0;
+    }
+
+    .layoutContainer .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex: 1 0 0;
+        align-self: stretch;
+    }
+
     .contentSection {
         align-self: stretch;
         height: 100%;
@@ -62,5 +90,12 @@
             height: 100%;
             white-space: pre-wrap; /* Preserves line breaks and wraps text naturally */
         }
+    }
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
     }
 }

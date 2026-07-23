@@ -100,4 +100,11 @@ main .formColumn {
             white-space: pre-wrap; /* Preserves line breaks and wraps text naturally */
         }
     }
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+    }
 }

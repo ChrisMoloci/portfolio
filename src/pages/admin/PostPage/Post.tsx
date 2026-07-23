@@ -180,126 +180,133 @@ function Post() {
             }
 
             <form className={styles.form} onSubmit={onPostSubmit}>
-                {/* Post Title & Slug*/}
-                <div className={styles.formRow}>
-                    <label htmlFor="title">Post Title:
-                        <input
-                            type="text"
-                            name="title"
-                            id="title"
-                            placeholder={"Title"}
-                            defaultValue={postData.status === "success" ? postData.data?.title : ""}
-                        />
-                    </label>
+                <div className={styles.layoutContainer}>
+                    <div className={styles.info}>
 
-                    <label htmlFor="slug">Slug (no spaces or symbols):
-                        <input
-                            type="text"
-                            name="slug"
-                            id="slug"
-                            placeholder={"post-slug"}
-                            defaultValue={postData.status === "success" ? postData.data?.slug : ""}
-                        />
-                    </label>
+                        {/* Post Title & Slug*/}
+                        <div className={styles.formRow}>
+                            <label htmlFor="title">Post Title:
+                                <input
+                                    type="text"
+                                    name="title"
+                                    id="title"
+                                    placeholder={"Title"}
+                                    defaultValue={postData.status === "success" ? postData.data?.title : ""}
+                                />
+                            </label>
+
+                            <label htmlFor="slug">Slug (no spaces or symbols):
+                                <input
+                                    type="text"
+                                    name="slug"
+                                    id="slug"
+                                    placeholder={"post-slug"}
+                                    defaultValue={postData.status === "success" ? postData.data?.slug : ""}
+                                />
+                            </label>
+                        </div>
+
+                        {/* Post Image */}
+                        <div className={styles.formRow}>
+                            <label>
+                                <span>
+                                    <button onClick={(e) => {
+                                        e.preventDefault();
+
+                                        setShowMediaSelectionOverlay(prev => !prev);
+                                    }}>
+                                        Select Image
+                                    </button>
+
+                                    {postImage.status === "success" && postImage.data === null &&
+                                        <p>Select an image.</p>
+                                    }
+                                    {postImage.status === "success" && postImage.data !== null &&
+                                        <img className={styles.postImage} src={postImage.data.storageKey} alt={postImage.data.alt}/>
+                                    }
+                                </span>
+                            </label>
+                        </div>
+
+                        {/* Post tags and category */}
+                        <div className={styles.formRow}>
+                            <label htmlFor="tags">Tags (comma separated):
+                                <input
+                                    type="text"
+                                    name="tags"
+                                    id="tags"
+                                    placeholder={"html, css, js..."}
+                                    defaultValue={postData.status === "success" ? postData.data?.tags.map(tag => tag.name).join(", ") : ""}
+                                />
+                            </label>
+
+                            <label htmlFor="category">Category:
+                                <select
+                                    name="category"
+                                    id="category"
+                                    defaultValue={postData.status === "success" && postData.data?.category ? postData.data?.category.slug : ""}
+                                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                                        e.preventDefault();
+                                        if (e.target.value === "___create-new")
+                                            setShowNewCategoryInputs(true);
+                                        else
+                                            setShowNewCategoryInputs(false);
+                                    }}
+                                >
+                                    <option value="" disabled>-- Select a category --</option>
+                                    {postCategories?.status === "success" &&
+                                        postCategories.data.map((category: BlogCategory, index: number) =>
+                                            <option
+                                                selected={postData.status === "success" ? postData.data?.category.slug === category.slug : index === 0}
+                                                key={category.slug}
+                                                value={category.slug}
+                                            >
+                                                {category.name}
+                                            </option>
+                                        )
+                                    }
+                                    <option value="___create-new">Add Category</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        {/* Published checkbox */}
+                        <label className={"horizontalLabel"} htmlFor="isPublished">Published
+                            <input
+                                type="checkbox"
+                                name="isPublished"
+                                id="isPublished"
+                                checked={isPublished}
+                                onChange={(e) => setIsPublished(e.target.checked)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.content}>
+                        {/* Post text content */}
+                        <label className={styles.contentSection} htmlFor="content">Content:
+                            <textarea
+                                name="content"
+                                id="content"
+                                placeholder={"Use markdown..."}
+                                defaultValue={postData.status === "success" ? postData.data?.content : ""}
+                                onKeyDown={(e) => {
+                                    // Prevents tab from exiting textarea, inserts a tab
+                                    if (e.key === "Tab") {
+                                        e.preventDefault();
+
+                                        e.currentTarget.setRangeText(
+                                            '\t',
+                                            e.currentTarget.selectionStart,
+                                            e.currentTarget.selectionEnd,
+                                            'end'
+                                        );
+                                    }
+                                }}
+                            />
+                        </label>
+                    </div>
                 </div>
-
-                {/* Post Image */}
-                <div className={styles.formRow}>
-                    <label>
-                        <span>
-                            <button onClick={(e) => {
-                                e.preventDefault();
-
-                                setShowMediaSelectionOverlay(prev => !prev);
-                            }}>
-                                Select Image
-                            </button>
-
-                            {postImage.status === "success" && postImage.data === null &&
-                                <p>Select an image.</p>
-                            }
-                            {postImage.status === "success" && postImage.data !== null &&
-                                <img className={styles.postImage} src={postImage.data.storageKey} alt={postImage.data.alt}/>
-                            }
-                        </span>
-                    </label>
-                </div>
-
-                {/* Post tags and category */}
-                <div className={styles.formRow}>
-                    <label htmlFor="tags">Tags (comma separated):
-                        <input
-                            type="text"
-                            name="tags"
-                            id="tags"
-                            placeholder={"html, css, js..."}
-                            defaultValue={postData.status === "success" ? postData.data?.tags.map(tag => tag.name).join(", ") : ""}
-                        />
-                    </label>
-
-                    <label htmlFor="category">Category:
-                        <select
-                            name="category"
-                            id="category"
-                            defaultValue={postData.status === "success" && postData.data?.category ? postData.data?.category.slug : ""}
-                            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                                e.preventDefault();
-                                if (e.target.value === "___create-new")
-                                    setShowNewCategoryInputs(true);
-                                else
-                                    setShowNewCategoryInputs(false);
-                            }}
-                        >
-                            <option value="" disabled>-- Select a category --</option>
-                            {postCategories?.status === "success" &&
-                                postCategories.data.map((category: BlogCategory, index: number) =>
-                                    <option
-                                        selected={postData.status === "success" ? postData.data?.category.slug === category.slug : index === 0}
-                                        key={category.slug}
-                                        value={category.slug}
-                                    >
-                                        {category.name}
-                                    </option>
-                                )
-                            }
-                            <option value="___create-new">Add Category</option>
-                        </select>
-                    </label>
-                </div>
-
-                {/* Published checkbox */}
-                <label className={"horizontalLabel"} htmlFor="isPublished">Published
-                    <input
-                        type="checkbox"
-                        name="isPublished"
-                        id="isPublished"
-                        checked={isPublished}
-                        onChange={(e) => setIsPublished(e.target.checked)}
-                    />
-                </label>
-
-                {/* Post text content */}
-                <label className={styles.contentSection} htmlFor="content">Content:
-                    <textarea
-                        name="content"
-                        id="content"
-                        placeholder={"Use markdown..."}
-                        defaultValue={postData.status === "success" ? postData.data?.content : ""}
-                        onKeyDown={(e) => {
-                            // Prevents tab from exiting textarea, inserts a tab
-                            if (e.key === "Tab") {
-                                e.preventDefault();
-
-                                e.currentTarget.setRangeText(
-                                    '\t',
-                                    e.currentTarget.selectionStart,
-                                    e.currentTarget.selectionEnd,
-                                    'end'
-                                );
-                            }
-                        }}
-                    />
-                </label>
 
                 {/* Error text (if an error occurred during submission) */}
                 {errorText &&
@@ -307,7 +314,7 @@ function Post() {
                 }
 
                 {/* Submit Button */}
-                <div className={styles.formRow}>
+                <div className={styles.buttons}>
                     <button type={"submit"}>Save</button>
                 </div>
             </form>

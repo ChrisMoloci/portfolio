@@ -411,7 +411,7 @@ function Project() {
                 }
 
                 {/* Submit Button */}
-                <div className={styles.formRow}>
+                <div className={styles.buttons}>
                     <button type={"submit"}>Save</button>
                 </div>
             </form>
