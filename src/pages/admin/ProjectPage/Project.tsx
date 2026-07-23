@@ -23,8 +23,8 @@ function Project() {
     const [ errorText, setErrorText ] = useState<string>("")
     const [ isPublished, setIsPublished ] = useState<boolean>(false)
     const [ showMediaSelectionOverlay, setShowMediaSelectionOverlay ] = useState<boolean>(false)
-    const [ contributors, setContributors ] = useState<Array<any>>([]);
-    const [ accessLinks, setAccessLinks ] = useState<Array<any>>([]);
+    const [ contributors, setContributors ] = useState<Array<any>>([{label: "", url: "", key: uuidv4()}]);
+    const [ accessLinks, setAccessLinks ] = useState<Array<any>>([{label: "", url: "", key: uuidv4()}]);
     const navigate = useNavigate();
 
     const fetchCategories = async () => {
@@ -78,6 +78,7 @@ function Project() {
                 }
             });
             setContributors(contributors);
+            console.log(contributors)
 
             const accessLinks: Array<Partial<any>> = data.data.accessLinks.map((accessLink: Link) => {
                 return {
@@ -87,9 +88,7 @@ function Project() {
                 }
             });
             setAccessLinks(accessLinks);
-
-            console.log(contributors);
-            console.log(accessLinks);
+            console.log(accessLinks)
 
             setIsPublished(data.data.published)
         } catch (error: any) {
@@ -154,8 +153,8 @@ function Project() {
                 categorySlug,
                 tags: projectTags,
                 featuredImageId: projectImage.data.id,
-                contributors: contributors.map(contributor => ({label: contributor.label, url: contributor.url})),
-                accessLinks: accessLinks.map(accessLink => ({label: accessLink.label, url: accessLink.url})),
+                contributors: contributors.filter(contributor => contributor.label || contributor.url).map(contributor => ({label: contributor.label, url: contributor.url})),
+                accessLinks: accessLinks.filter(accessLink => accessLink.label || accessLink.url).map(accessLink => ({label: accessLink.label, url: accessLink.url})),
             }
 
             console.log(project);
@@ -335,6 +334,7 @@ function Project() {
                             {contributors &&
                                 contributors.map(contributor =>
                                     <LinkInput
+                                        key={contributor.key!}
                                         delete={() => removeLink(setContributors, contributor.key!)}
                                         label={contributor.label!}
                                         url={contributor.url!}
@@ -359,6 +359,7 @@ function Project() {
                             {accessLinks &&
                                 accessLinks.map(accessLink =>
                                     <LinkInput
+                                        key={accessLink.key!}
                                         delete={() => removeLink(setAccessLinks, accessLink.key!)}
                                         label={accessLink.label!}
                                         url={accessLink.url!}
