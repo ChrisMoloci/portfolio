@@ -1,0 +1,10 @@
+.linkInput {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    align-self: stretch;
+
+    > * {
+        align-self: flex-end;
+    }
+}

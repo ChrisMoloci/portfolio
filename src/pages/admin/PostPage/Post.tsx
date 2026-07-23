@@ -110,8 +110,6 @@ function Post() {
             const published = formData.get("isPublished") as string === "on";
             const categorySlug = formData.get("category") as string;
             const tags = formData.get("tags") as string;
-            // const featuredImage = formData.get("image") as File;
-            // const featuredImageAlt = formData.get("image-alt") as string;
 
             // Make sure data is valid (if slug is present, data can be partial)
             if (!slug && !postSlug || !title || !content || published == null || !categorySlug || categorySlug === "___new-category" || !tags || postImage.status !== "success" || postImage.data === null)
@@ -205,22 +203,26 @@ function Post() {
                     </label>
                 </div>
 
-                {/* Post Image and Image alt */}
+                {/* Post Image */}
                 <div className={styles.formRow}>
-                    <button onClick={(e) => {
-                        e.preventDefault();
+                    <label>
+                        <span>
+                            <button onClick={(e) => {
+                                e.preventDefault();
 
-                        setShowMediaSelectionOverlay(prev => !prev);
-                    }}>
-                        Select Image
-                    </button>
+                                setShowMediaSelectionOverlay(prev => !prev);
+                            }}>
+                                Select Image
+                            </button>
 
-                    {postImage.status === "success" && postImage.data === null &&
-                        <p>Select an image.</p>
-                    }
-                    {postImage.status === "success" && postImage.data !== null &&
-                        <img className={styles.postImage} src={postImage.data.storageKey} alt={postImage.data.alt}/>
-                    }
+                            {postImage.status === "success" && postImage.data === null &&
+                                <p>Select an image.</p>
+                            }
+                            {postImage.status === "success" && postImage.data !== null &&
+                                <img className={styles.postImage} src={postImage.data.storageKey} alt={postImage.data.alt}/>
+                            }
+                        </span>
+                    </label>
                 </div>
 
                 {/* Post tags and category */}
@@ -320,7 +322,6 @@ function Post() {
                                 data: image
                             }
                             setPostImage(data)
-                            console.log(postImage);
                         }}
                         setShown={setShowMediaSelectionOverlay}
                     />

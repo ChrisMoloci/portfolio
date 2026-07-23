@@ -23,6 +23,12 @@
         aspect-ratio: 16/9;
         object-fit: cover;
     }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 .main .newCategoryForm {
