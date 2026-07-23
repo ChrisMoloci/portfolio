@@ -4,19 +4,21 @@ import type {ApiState} from "../../../types/ApiState.ts";
 import type {BlogCategory} from "../../../types/BlogCategory.ts";
 import transformBlogCategory from "../../../transformers/transformBlogCategory.ts";
 import {api} from "../../../api/client.ts";
-import transformMedia from "../../../transformers/transformMedia.ts";
 import type {Media} from "../../../types/Media.ts";
 import {NavLink, useNavigate, useParams} from "react-router";
 import type {BlogPost} from "../../../types/BlogPost.ts";
 import transformBlog from "../../../transformers/transformBlog.ts";
+import AdminMediaSelectionOverlay from "../../../components/AdminMediaSelectionOverlay/AdminMediaSelectionOverlay.tsx";
 
 function Post() {
     const { slug } = useParams();
     const [ postCategories, setPostCategories] = useState<ApiState<Array<BlogCategory>>>()
     const [ postData, setPostData ] = useState<ApiState<BlogPost | null>>(slug ? { status: "loading" } : { status: "success", data: null });
+    const [ postImage, setPostImage ] = useState<ApiState<Media | null>>(slug ? { status: "loading" } : { status: "success", data: null });
     const [ showNewCategoryInputs, setShowNewCategoryInputs] = useState<boolean>(false)
     const [ errorText, setErrorText ] = useState<string>("")
     const [ isPublished, setIsPublished ] = useState<boolean>(false)
+    const [ showMediaSelectionOverlay, setShowMediaSelectionOverlay ] = useState<boolean>(false)
     const navigate = useNavigate();
 
     const fetchCategories = async () => {
@@ -46,6 +48,21 @@ function Post() {
             }
 
             setPostData(data)
+
+            // Set post image if its not null
+            if (data.data.featuredImage) {
+                const postImage: ApiState<Media | null> = {
+                    status: "success",
+                    data: data.data.featuredImage
+                }
+                setPostImage(postImage)
+            } else {
+                const postImage: ApiState<Media> = {
+                    status: "error",
+                    error: "No Featured Image"
+                }
+                setPostImage(postImage)
+            }
 
             setIsPublished(data.data.published)
         } catch (error: any) {
@@ -93,26 +110,12 @@ function Post() {
             const published = formData.get("isPublished") as string === "on";
             const categorySlug = formData.get("category") as string;
             const tags = formData.get("tags") as string;
-            const featuredImage = formData.get("image") as File;
-            const featuredImageAlt = formData.get("image-alt") as string;
+            // const featuredImage = formData.get("image") as File;
+            // const featuredImageAlt = formData.get("image-alt") as string;
 
             // Make sure data is valid (if slug is present, data can be partial)
-            if (!slug && !postSlug || !title || !content || published == null || !categorySlug || categorySlug === "___new-category" || !tags || !featuredImage || !featuredImageAlt)
+            if (!slug && !postSlug || !title || !content || published == null || !categorySlug || categorySlug === "___new-category" || !tags || postImage.status !== "success" || postImage.data === null)
                 throw Error("One or more fields are invalid or missing.")
-
-            const imageFormData = new FormData();
-
-            imageFormData.append("image", featuredImage);
-            imageFormData.append("alt", featuredImageAlt);
-
-            let image: Media | null = null;
-
-            // featuredImage might not be provided if in edit mode, if previous check didn't fail, that is likely the case
-            if (featuredImage.size > 0) {
-                const response = await api.post("/media", imageFormData);
-
-                image = transformMedia(response.data);
-            }
 
             // Create a list out of the tags string
             const postTags = tags.split(", ")
@@ -125,7 +128,7 @@ function Post() {
                 published,
                 categorySlug,
                 tags: postTags,
-                ...(image && {featuredImageId: image.id})
+                featuredImageId: postImage.data.id
             }
 
             if (slug) {
@@ -204,24 +207,20 @@ function Post() {
 
                 {/* Post Image and Image alt */}
                 <div className={styles.formRow}>
-                    <label htmlFor="image">Image:
-                        <input
-                            type="file"
-                            name="image"
-                            id="image"
-                            placeholder={"Image..."}
-                        />
-                    </label>
+                    <button onClick={(e) => {
+                        e.preventDefault();
 
-                    <label htmlFor="image-alt">Alt:
-                        <input
-                            type="text"
-                            name="image-alt"
-                            id="image-alt"
-                            placeholder={"Image alt..."}
-                            defaultValue={postData.status === "success" ? postData.data?.featuredImage?.alt : ""}
-                        />
-                    </label>
+                        setShowMediaSelectionOverlay(prev => !prev);
+                    }}>
+                        Select Image
+                    </button>
+
+                    {postImage.status === "success" && postImage.data === null &&
+                        <p>Select an image.</p>
+                    }
+                    {postImage.status === "success" && postImage.data !== null &&
+                        <img className={styles.postImage} src={postImage.data.storageKey} alt={postImage.data.alt}/>
+                    }
                 </div>
 
                 {/* Post tags and category */}
@@ -310,6 +309,23 @@ function Post() {
                     <button type={"submit"}>Save</button>
                 </div>
             </form>
+
+            {showMediaSelectionOverlay &&
+                <>
+                    <p>Showing Media Selection</p>
+                    <AdminMediaSelectionOverlay
+                        selectMedia={(image: Media) => {
+                            const data: ApiState<Media | null> = {
+                                status: "success",
+                                data: image
+                            }
+                            setPostImage(data)
+                            console.log(postImage);
+                        }}
+                        setShown={setShowMediaSelectionOverlay}
+                    />
+                </>
+            }
         </main>
     )
 }

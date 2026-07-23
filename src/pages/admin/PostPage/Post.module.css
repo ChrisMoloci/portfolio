@@ -9,13 +9,19 @@
 }
 .main .formRow {
     display: flex;
-    align-items: stretch;
+    align-items: center;
     gap: 10px;
     align-self: stretch;
 
     label input {
         display: block;
         height: 100%;
+    }
+
+    .postImage {
+        width: 50px !important;
+        aspect-ratio: 16/9;
+        object-fit: cover;
     }
 }
 
