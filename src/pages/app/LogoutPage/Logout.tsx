@@ -13,7 +13,6 @@ function Logout() {
                 await logout();
                 navigate('/login');
             } catch (error: any) {
-                console.log("logout error:", error);
                 setErrorText(error.message);
             }
         })();

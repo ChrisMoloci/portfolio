@@ -1,10 +1,11 @@
 import styles from "./LoginPage.module.css";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import AuthContext from "../../../context/AuthContext.ts";
 import {useLocation, useNavigate} from "react-router";
 import type {Credentials} from "../../../types/Credentials.ts";
 
 function LoginPage() {
+    const [ errorText, setErrorText ] = useState<string>("");
     const { login, isAuthenticated } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -39,8 +40,12 @@ function LoginPage() {
             password: password.toString(),
         };
 
-        // Send credentials object to API
-        login(credentials);
+        try {
+            // Send credentials object to API
+            await login(credentials);
+        } catch (error: any) {
+            setErrorText(error.response ? error.response.data.message : error.message);
+        }
     }
 
     return (
@@ -55,6 +60,10 @@ function LoginPage() {
                     <label htmlFor="password">Password:
                         <input type="password" name="password" id="password" placeholder={"password..."}/>
                     </label>
+
+                    {errorText &&
+                        <p className={"errorText"}>{errorText}</p>
+                    }
 
                     <button type="submit">Login</button>
                 </form>

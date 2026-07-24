@@ -32,13 +32,16 @@ function AuthContextProvider({ children }: Props) {
 
     const login = async (credentials: Credentials) => {
         // Backend sets the HttpOnly cookies on success
-        console.log(credentials);
 
-        // This sets http only cookies
-        await api.post('/auth/login', credentials);
+        try {
+            // This sets http only cookies
+            await api.post('/auth/login', credentials);
 
-        // Once cookies are acquired, setIsLoading to true to get user again
-        await fetchUser();
+            // Once cookies are acquired, setIsLoading to true to get user again
+            await fetchUser();
+        } catch (error) {
+            throw error;
+        }
     };
 
     const logout = async () => {

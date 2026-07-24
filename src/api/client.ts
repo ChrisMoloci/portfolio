@@ -10,8 +10,13 @@ api.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        // If error is 401 and we haven't retried yet
-        if (error.response?.status === 401 && !originalRequest._retry) {
+        // If error is 401, not a login request, and we haven't retried yet
+        if (
+            error.response?.status === 401 &&
+            originalRequest.url !== "/auth/login" &&
+            originalRequest.url !== "/auth/refresh" &&
+            !originalRequest._retry
+        ) {
             originalRequest._retry = true;
 
             try {
@@ -24,7 +29,6 @@ api.interceptors.response.use(
                 return api(originalRequest);
             } catch (refreshError) {
                 // Refresh token failed (e.g., expired). User must log in again.
-                // You can dispatch an event here or redirect to login.
                 return Promise.reject(refreshError);
             }
         }
