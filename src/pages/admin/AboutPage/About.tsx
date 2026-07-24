@@ -2,9 +2,12 @@ import styles from "./About.module.css"
 
 function About() {
     return (
-        <main className={styles.main}>
-            About
-        </main>
+        <>
+            <title>Admin About</title>
+            <main className={styles.main}>
+                About
+            </main>
+        </>
     )
 }
 

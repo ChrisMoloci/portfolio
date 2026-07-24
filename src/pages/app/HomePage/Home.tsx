@@ -12,6 +12,7 @@ import type {BlogPost} from "../../../types/BlogPost.ts";
 import type {Project} from "../../../types/Project.ts";
 import transformProject from "../../../transformers/transformProject.ts";
 import type {ApiState} from "../../../types/ApiState.ts";
+import {TypeAnimation} from "react-type-animation";
 
 function Home() {
     const [ latestProjects, setLatestProjects ] = useState<ApiState<Array<Project>>>({ status: "loading" });
@@ -58,18 +59,37 @@ function Home() {
 
     return (
         <>
+            <title>Christian Moloci</title>
             <main className={styles.main}>
                 {/* Hero Section */}
                 <section className={styles.hero}>
                     <div className={styles.heroText}>
                         <ContactLinks />
-                        <h3>Web Developer</h3>
+                        <TypeAnimation
+                            sequence={[
+                                'Web Developer',
+                                1300,
+                                'Front-End Developer',
+                                1300,
+                                'Back-End Developer',
+                                1300,
+                                'Full-Stack Developer',
+                                1300
+                            ]}
+                            wrapper="h3"
+                            speed={30}
+                            repeat={Infinity}
+                        />
                         <h1>Christian<br/>Moloci</h1>
                         <p className={styles.desc}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut blanditiis consequuntur, dicta facilis fugit illo nemo obcaecati qui suscipit temporibus ullam veritatis. Aspernatur atque explicabo hic non quos rem!
+                            Computer Programming graduate with a 4.0 GPA, recognized as the top-performing student in the program.
+                            Experienced in developing React and Angular web applications using TypeScript, Node.js, and SQL databases.
+                            Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level
+                            concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization
+                            algorithms.
                         </p>
                         <div className={styles.buttonLinks}>
-                            <LinkButton link="#" text="Resume" newTab={true} />
+                            <LinkButton link="resume.pdf" text="Resume" newTab={true} />
                             <LinkButton link="#footer" text="Contact" newTab={false} />
                         </div>
                     </div>
@@ -116,7 +136,11 @@ function Home() {
                         <div className={styles.content}>
                             <div className={styles.text}>
                                 <p>
-                                    Computer Programming graduate with a 4.0 GPA, recognized as the top-performing student in the program. Experienced in [developing React and Angular web applications using TypeScript, Node.js, and SQL databases]. Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization algorithms.
+                                    Computer Programming graduate with a 4.0 GPA, recognized as the top-performing student in the program.
+                                    Experienced in developing React and Angular web applications using TypeScript, Node.js, and SQL databases.
+                                    Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level
+                                    concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization
+                                    algorithms.
                                 </p>
                             </div>
 

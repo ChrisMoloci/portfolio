@@ -1,10 +1,10 @@
-import styles from "./LoginPage.module.css";
+import styles from "./Login.module.css";
 import {useContext, useEffect, useState} from "react";
 import AuthContext from "../../../context/AuthContext.ts";
 import {useLocation, useNavigate} from "react-router";
 import type {Credentials} from "../../../types/Credentials.ts";
 
-function LoginPage() {
+function Login() {
     const [ errorText, setErrorText ] = useState<string>("");
     const { login, isAuthenticated } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -50,6 +50,7 @@ function LoginPage() {
 
     return (
         <main className={styles.loginPage}>
+            <title>Login</title>
             <div className={styles.formContainer}>
                 <h1>Login</h1>
                 <form className={styles.loginForm} onSubmit={handleSubmit}>
@@ -72,4 +73,4 @@ function LoginPage() {
     )
 }
 
-export default LoginPage;
+export default Login;

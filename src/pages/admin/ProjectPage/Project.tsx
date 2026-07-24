@@ -5,7 +5,6 @@ import type {ApiState} from "../../../types/ApiState.ts";
 import type {ProjectCategory} from "../../../types/ProjectCategory.ts";
 import type {Project} from "../../../types/Project.ts";
 import {api} from "../../../api/client.ts";
-import type {BlogCategory} from "../../../types/BlogCategory.ts";
 import type {Media} from "../../../types/Media.ts";
 import transformProject from "../../../transformers/transformProject.ts";
 import transformProjectCategory from "../../../transformers/transformProjectCategory.ts";
@@ -133,12 +132,13 @@ function Project() {
             const projectSlug = formData.get("slug") as string;
             const name = formData.get("name") as string;
             const content = formData.get("content") as string;
+            const version = formData.get("version") as string;
             const published = formData.get("isPublished") as string === "on";
             const categorySlug = formData.get("category") as string;
             const tags = formData.get("tags") as string;
 
             // Make sure data is valid (if slug is present, data can be partial)
-            if (!slug && !projectSlug || !name || !content || published == null || !categorySlug || categorySlug === "___new-category" || !tags || projectImage.status !== "success" || projectImage.data === null || !contributors)
+            if (!slug && !projectSlug || !name || !content || !version || published == null || !categorySlug || categorySlug === "___new-category" || !tags || projectImage.status !== "success" || projectImage.data === null || !contributors)
                 throw Error("One or more fields are invalid or missing.")
 
             // Create a list out of the tags string
@@ -149,6 +149,7 @@ function Project() {
                 slug: projectSlug,
                 name,
                 content,
+                version,
                 published,
                 categorySlug,
                 tags: projectTags,
@@ -194,6 +195,7 @@ function Project() {
 
     return (
         <main className={styles.main}>
+            <title>{slug ? slug : "New Project"}</title>
             <h1>{slug ? "Edit" : "New"} Project</h1>
 
             {slug &&
@@ -303,7 +305,7 @@ function Project() {
                                 >
                                     <option value="" disabled>-- Select a category --</option>
                                     {projectCategories?.status === "success" &&
-                                        projectCategories.data.map((category: BlogCategory, index: number) =>
+                                        projectCategories.data.map((category: ProjectCategory, index: number) =>
                                             <option
                                                 selected={projectData.status === "success" ? projectData.data?.category.slug === category.slug : index === 0}
                                                 key={category.slug}

@@ -41,6 +41,7 @@ function Projects() {
 
     return (
         <main className={styles.main}>
+            <title>Admin Projects</title>
             <div className={styles.header}>
                 <h1>Projects</h1>
 

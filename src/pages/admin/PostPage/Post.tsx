@@ -151,6 +151,7 @@ function Post() {
 
     return (
         <main className={styles.main}>
+            <title>{slug ? slug : "New Post"}</title>
             <h1>{slug ? "Edit" : "New"} Post</h1>
 
             {slug &&

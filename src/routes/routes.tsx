@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 lazy: async () => {
-                    const { default: Login } = await import("../pages/app/LoginPage/LoginPage.tsx");
+                    const { default: Login } = await import("../pages/app/LoginPage/Login.tsx");
                     return { element: <Login /> };
                 }
             },
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
             {
                 path: "*",
                 lazy: async () => {
-                    const { default: PageNotFound } = await import("../pages/app/PageNotFoundPage/PageNotFound.tsx");
+                    const { default: PageNotFound } = await import("../pages/PageNotFoundPage/PageNotFound.tsx");
                     return { element: <PageNotFound /> }
                 }
             },
@@ -138,6 +138,13 @@ export const router = createBrowserRouter([
                         lazy: async () => {
                             const { default: Media } = await import("../pages/admin/MediaPage/Media.tsx");
                             return { element: <Media /> };
+                        }
+                    },
+                    {
+                        path: "*",
+                        lazy: async () => {
+                            const { default: PageNotFound } = await import("../pages/PageNotFoundPage/PageNotFound.tsx");
+                            return { element: <PageNotFound /> }
                         }
                     },
                 ]
