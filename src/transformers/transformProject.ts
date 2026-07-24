@@ -4,6 +4,12 @@ import transformProjectCategory from "./transformProjectCategory.ts";
 import transformMedia from "./transformMedia.ts";
 import transformLink from "./transformLink.ts";
 
+/**
+ * Transforms api project object to a domain Project object
+ *
+ * @author Christian Moloci
+ * @param project non-conforming project object
+ */
 function transformProject(project: any): Project {
     return {
         ...project,

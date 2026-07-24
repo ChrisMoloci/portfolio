@@ -1,10 +1,16 @@
 import type {Media} from "../types/Media.ts";
 
-function transformMedia(image: any): Media {
+/**
+ * Transforms api media object to a domain Media object
+ *
+ * @author Christian Moloci
+ * @param media non-conforming media object
+ */
+function transformMedia(media: any): Media {
     return {
-        ...image,
-        createdAt: new Date(image.createdAt),
-        updatedAt: new Date(image.updatedAt),
+        ...media,
+        createdAt: new Date(media.createdAt),
+        updatedAt: new Date(media.updatedAt),
     }
 }
 

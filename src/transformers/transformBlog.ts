@@ -3,6 +3,12 @@ import transformBlogCategory from "./transformBlogCategory.ts";
 import type {BlogPost} from "../types/BlogPost.ts";
 import transformMedia from "./transformMedia.ts";
 
+/**
+ * Transforms api blog object to a domain BlogPost object
+ *
+ * @author Christian Moloci
+ * @param blog non-conforming blog object
+ */
 function transformBlog(blog: any): BlogPost {
     return {
         ...blog,
