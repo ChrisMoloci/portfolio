@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 lazy: async () => {
-                    const { default: Login } = await import("../pages/app/LoginPage/LoginPage.tsx");
+                    const { default: Login } = await import("../pages/app/LoginPage/Login.tsx");
                     return { element: <Login /> };
                 }
             },
