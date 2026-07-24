@@ -50,9 +50,12 @@
     grid-template-columns: repeat(4,minmax(0,1fr));
     grid-auto-flow: row;
     flex: 1 1 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-    overflow-x: scroll;
-
+    div {
+        aspect-ratio: 16/9;
+    }
     .selected {
         opacity: 0.8;
         border-radius: 15px;

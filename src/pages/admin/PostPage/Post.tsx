@@ -222,7 +222,7 @@ function Post() {
                                         <p>Select an image.</p>
                                     }
                                     {postImage.status === "success" && postImage.data !== null &&
-                                        <img className={styles.postImage} src={postImage.data.storageKey} alt={postImage.data.alt}/>
+                                        <img className={styles.postImage} src={import.meta.env.VITE_MEDIA_DIR + "/" + postImage.data.storageKey + ".webp"} alt={postImage.data.alt}/>
                                     }
                                 </span>
                             </label>

@@ -266,7 +266,7 @@ function Project() {
                                         <p>Select an image.</p>
                                     }
                                     {projectImage.status === "success" && projectImage.data !== null &&
-                                        <img className={styles.postImage} src={projectImage.data.storageKey} alt={projectImage.data.alt}/>
+                                        <img className={styles.postImage} src={import.meta.env.VITE_MEDIA_DIR + "/" + projectImage.data.storageKey + ".webp"} alt={projectImage.data.alt}/>
                                     }
                                 </span>
                             </label>
