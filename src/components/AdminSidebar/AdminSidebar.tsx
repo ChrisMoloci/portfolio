@@ -2,6 +2,7 @@ import styles from "./AdminSidebar.module.css"
 import {NavLink} from "react-router";
 import {useContext} from "react";
 import AuthContext from "../../context/AuthContext.ts";
+import profilePic from "../../assets/images/christianmoloci.png"
 
 function AdminSidebar() {
     const { user } = useContext(AuthContext)
@@ -10,7 +11,7 @@ function AdminSidebar() {
         <div className={styles.adminSidebar}>
             <div className={styles.profile}>
                 <div className={styles.profilePic}>
-                    <img src="/src/assets/images/christianmoloci.png" alt=""/>
+                    <img src={profilePic} alt=""/>
                 </div>
 
                 <div className={styles.profileInfo}>

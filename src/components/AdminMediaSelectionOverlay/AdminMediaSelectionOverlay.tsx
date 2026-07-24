@@ -113,7 +113,7 @@ function AdminMediaSelectionOverlay(props: Props) {
                                  className={selectedImage && selectedImage.id === image.id ? styles.selected : ""}
                             >
                                 <AdminMediaImage
-                                    imageURL={image.storageKey}
+                                    storageKey={image.storageKey}
                                     alt={image.alt}
                                     delete={() => deleteImage(image.id)}
                                 />

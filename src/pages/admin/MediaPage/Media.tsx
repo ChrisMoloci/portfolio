@@ -93,7 +93,7 @@ function Media() {
                         >
                             <AdminMediaImage
                                 alt={image.alt}
-                                imageURL={import.meta.env.VITE_MEDIA_DIR + "/" + image.storageKey + ".webp"}
+                                storageKey={image.storageKey}
                                 delete={() => deleteImage(image.id)}
                             />
                         </div>
