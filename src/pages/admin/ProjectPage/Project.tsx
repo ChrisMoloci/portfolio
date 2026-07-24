@@ -133,12 +133,13 @@ function Project() {
             const projectSlug = formData.get("slug") as string;
             const name = formData.get("name") as string;
             const content = formData.get("content") as string;
+            const version = formData.get("version") as string;
             const published = formData.get("isPublished") as string === "on";
             const categorySlug = formData.get("category") as string;
             const tags = formData.get("tags") as string;
 
             // Make sure data is valid (if slug is present, data can be partial)
-            if (!slug && !projectSlug || !name || !content || published == null || !categorySlug || categorySlug === "___new-category" || !tags || projectImage.status !== "success" || projectImage.data === null || !contributors)
+            if (!slug && !projectSlug || !name || !content || !version || published == null || !categorySlug || categorySlug === "___new-category" || !tags || projectImage.status !== "success" || projectImage.data === null || !contributors)
                 throw Error("One or more fields are invalid or missing.")
 
             // Create a list out of the tags string
@@ -149,6 +150,7 @@ function Project() {
                 slug: projectSlug,
                 name,
                 content,
+                version,
                 published,
                 categorySlug,
                 tags: projectTags,
