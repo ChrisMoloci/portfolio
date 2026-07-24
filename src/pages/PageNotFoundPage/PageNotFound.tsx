@@ -8,7 +8,7 @@ function PageNotFound() {
             <title>404 Page Not Found</title>
 
             <main className={styles.main}>
-                <h1>Page Not Found</h1>
+                <h1>404</h1>
                 <h2>Oh no! Looks like the page your looking for doesn’t exist.</h2>
                 <p>This is likely due to the following:</p>
                 <ul>
