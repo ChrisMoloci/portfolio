@@ -1,12 +1,15 @@
 import styles from "./HeaderMobile.module.css"
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {NavLink} from "react-router";
+import AuthContext from "../../context/AuthContext.ts";
 
 type HamburgerProps = {
     setIsOpen: (isOpen: boolean) => void;
 }
 
 function HamburgerMenu(props: HamburgerProps) {
+    const { isAuthenticated } = useContext(AuthContext);
+
     return (
         <div className={styles.hamburgerMenu}>
             <div className={styles.closeContainer} onClick={() => props.setIsOpen(false)}>
@@ -38,6 +41,15 @@ function HamburgerMenu(props: HamburgerProps) {
                         isActive ? styles.active : undefined
                     }
                 >About</NavLink>
+
+                {isAuthenticated &&
+                    <NavLink
+                        to="/admin"
+                        className={({ isActive }) =>
+                            isActive ? styles.active : undefined
+                        }
+                    >Admin</NavLink>
+                }
             </nav>
         </div>
     )
