@@ -5,7 +5,6 @@ import type {ApiState} from "../../../types/ApiState.ts";
 import type {ProjectCategory} from "../../../types/ProjectCategory.ts";
 import type {Project} from "../../../types/Project.ts";
 import {api} from "../../../api/client.ts";
-import type {BlogCategory} from "../../../types/BlogCategory.ts";
 import type {Media} from "../../../types/Media.ts";
 import transformProject from "../../../transformers/transformProject.ts";
 import transformProjectCategory from "../../../transformers/transformProjectCategory.ts";
@@ -305,7 +304,7 @@ function Project() {
                                 >
                                     <option value="" disabled>-- Select a category --</option>
                                     {projectCategories?.status === "success" &&
-                                        projectCategories.data.map((category: BlogCategory, index: number) =>
+                                        projectCategories.data.map((category: ProjectCategory, index: number) =>
                                             <option
                                                 selected={projectData.status === "success" ? projectData.data?.category.slug === category.slug : index === 0}
                                                 key={category.slug}
