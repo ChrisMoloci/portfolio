@@ -74,7 +74,7 @@ function Project() {
                                     <h3>Access:</h3>
                                     <div className={styles.sidebarItems}>
                                         {projectData.data.accessLinks.map((item) =>
-                                            <a href={item.url}>{item.label}</a>
+                                            <a href={item.url} target={"_blank"}>{item.label}</a>
                                         )}
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@ function Project() {
                                     <h3>Contributors:</h3>
                                     <div className={styles.sidebarItems}>
                                         {projectData.data.contributors.map((item) =>
-                                            <a href={item.url}>{item.label}</a>
+                                            <a href={item.url} target={"_blank"}>{item.label}</a>
                                         )}
                                     </div>
                                 </div>

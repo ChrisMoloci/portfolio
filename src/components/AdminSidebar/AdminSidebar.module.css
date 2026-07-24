@@ -100,16 +100,19 @@
 
 .adminSidebar .footer {
     display: flex;
-    padding: 10px 20px;
-    flex-direction: column;
-    align-items: stretch;
+    padding: 10px;
+    align-items: center;
     gap: 10px;
     align-self: stretch;
 
+    .homeLink {
+        flex: 0;
+    }
     a {
         display: flex;
         padding: 10px;
         align-items: center;
+        flex: 1;
         gap: 10px;
 
         border-radius: 12px;
