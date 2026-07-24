@@ -1,0 +1,51 @@
+.main {
+    display: flex;
+    padding: 120px 20px 120px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.main {
+    h1 {
+        color: var(--text-50, #121008);
+        font-family: var(--heading-typeface, Geom) sans-serif;
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    h2 {
+        color: var(--text-100, #232010);
+        font-family: var(--heading-typeface, Geom) sans-serif;
+        font-size: var(--h4, 24.96px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    p ul {
+        color: var(--text-200, #47411F);
+
+        /* body */
+        font-family: var(--body-typeface, Inter) sans-serif;
+        font-size: var(--body, 16px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    ul li {
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main {
+        display: flex;
+        padding: 120px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+    }
+}
