@@ -67,7 +67,11 @@ function Home() {
                         <h3>Web Developer</h3>
                         <h1>Christian<br/>Moloci</h1>
                         <p className={styles.desc}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut blanditiis consequuntur, dicta facilis fugit illo nemo obcaecati qui suscipit temporibus ullam veritatis. Aspernatur atque explicabo hic non quos rem!
+                            Computer Programming graduate with a 4.0 GPA, recognized as the top-performing student in the program.
+                            Experienced in developing React and Angular web applications using TypeScript, Node.js, and SQL databases.
+                            Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level
+                            concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization
+                            algorithms.
                         </p>
                         <div className={styles.buttonLinks}>
                             <LinkButton link="#" text="Resume" newTab={true} />
