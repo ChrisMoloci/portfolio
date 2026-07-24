@@ -8,6 +8,7 @@ import VerseCard from "../../../components/VerseCard/VerseCard.tsx";
 function About() {
     return (
         <>
+            <title>About</title>
             <main className={styles.main}>
                 <div className={styles.header}>
                     <div className={styles.headerContent}>

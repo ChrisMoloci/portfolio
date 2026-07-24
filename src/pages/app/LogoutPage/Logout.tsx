@@ -20,6 +20,7 @@ function Logout() {
 
     return (
         <>
+            <title>Logout</title>
             {errorText &&
                 <p className={"errorText"}>{errorText}</p>
             }

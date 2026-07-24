@@ -58,6 +58,7 @@ function Home() {
 
     return (
         <>
+            <title>Christian Moloci</title>
             <main className={styles.main}>
                 {/* Hero Section */}
                 <section className={styles.hero}>

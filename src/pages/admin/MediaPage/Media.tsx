@@ -70,6 +70,7 @@ function Media() {
 
     return (
         <main className={styles.main}>
+            <title>Admin Media</title>
             <div className={styles.header}>
                 <h1>Media</h1>
             </div>

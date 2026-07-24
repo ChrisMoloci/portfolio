@@ -114,6 +114,7 @@ function Projects() {
 
     return (
         <>
+            <title>Projects</title>
             <main className={styles.main}>
                 <div className={styles.header}>
                     <div className={styles.title}>

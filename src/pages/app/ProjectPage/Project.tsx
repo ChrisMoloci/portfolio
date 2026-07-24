@@ -41,6 +41,7 @@ function Project() {
 
     return (
         <main className={styles.main}>
+            <title>{projectData.status === "success" ? projectData.data.name : "Project"}</title>
             {projectData.status === "success" &&
                 <>
                     {/* Header */}

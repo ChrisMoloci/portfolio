@@ -62,6 +62,7 @@ function Blog() {
 
     return (
         <main className={styles.main}>
+            <title>{blogData.status === "success" ? blogData.data.title : "Blog Post"}</title>
             {/* 1000px wide container */}
             <div className={styles.container}>
                 {/* BlogPost Content */}

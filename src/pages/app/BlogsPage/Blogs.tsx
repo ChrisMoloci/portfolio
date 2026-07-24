@@ -111,6 +111,7 @@ function Blogs() {
 
     return (
         <>
+            <title>Blogs</title>
             <main className={styles.main}>
                 <div className={styles.header}>
                     <div className={styles.title}>

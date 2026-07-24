@@ -2,7 +2,13 @@
 
 function PageNotFound() {
     return (
-        <>Page Not Found</>
+        <>
+            <title>404 Page Not Found</title>
+
+            <main>
+                Page not found
+            </main>
+        </>
     )
 }
 

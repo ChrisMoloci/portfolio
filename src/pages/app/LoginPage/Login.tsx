@@ -50,6 +50,7 @@ function Login() {
 
     return (
         <main className={styles.loginPage}>
+            <title>Login</title>
             <div className={styles.formContainer}>
                 <h1>Login</h1>
                 <form className={styles.loginForm} onSubmit={handleSubmit}>

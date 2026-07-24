@@ -42,6 +42,7 @@ function ContactSubmissions() {
 
     return (
         <main className={styles.main}>
+            <title>Contact Form Submissions</title>
             <h1>Contact Form Submissions</h1>
 
             <section className={styles.cards}>

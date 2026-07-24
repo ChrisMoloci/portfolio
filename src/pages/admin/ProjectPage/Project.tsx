@@ -195,6 +195,7 @@ function Project() {
 
     return (
         <main className={styles.main}>
+            <title>{slug ? slug : "New Project"}</title>
             <h1>{slug ? "Edit" : "New"} Project</h1>
 
             {slug &&
