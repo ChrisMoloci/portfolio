@@ -86,7 +86,7 @@ function Home() {
                             Experienced in developing React and Angular web applications using TypeScript, Node.js, and SQL databases.
                         </p>
                         <div className={styles.buttonLinks}>
-                            <LinkButton link="resume.pdf" text="Resume" newTab={true} />
+                            <LinkButton link="https://rxresu.me/chrismoloci/resume-portfolio" text="Resume" newTab={true} />
                             <LinkButton link="#footer" text="Contact" newTab={false} />
                         </div>
                     </div>
