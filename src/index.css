@@ -84,7 +84,7 @@
         --email: black;
 
         /* Background image */
-        --bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='160' viewBox='0 0 180 160'%3E%3Cpath d='M35 0 70 20 70 60 35 80 0 60 0 20Z' fill='none' stroke='rgba(35,32,16,0.08)' stroke-width='2'/%3E%3Cpath d='M125 80 160 100 160 140 125 160 90 140 90 100Z' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='2'/%3E%3C/svg%3E");
+        --bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='160' viewBox='0 0 180 160'%3E%3Cpath d='M45 0 79.64 20 79.64 60 45 80 10.36 60 10.36 20Z' fill='none' stroke='rgba(35,32,16,0.08)' stroke-width='2'/%3E%3Cpath d='M135 80 169.64 100 169.64 140 135 160 100.36 140 100.36 100Z' fill='none' stroke='rgba(35,32,16,0.08)' stroke-width='2'/%3E%3C/svg%3E");
 
         --check: URL("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyNHB4IiBmaWxsPSIjMTIxMDA4Ij48cGF0aCBkPSJNMzgyLTI0MCAxNTQtNDY4bDU3LTU3IDE3MSAxNzEgMzY3LTM2NyA1NyA1Ny00MjQgNDI0WiIvPjwvc3ZnPg==");
     }
@@ -157,7 +157,7 @@
         --email: white;
 
         /* Background Image */
-        --bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='160' viewBox='0 0 180 160'%3E%3Cpath d='M35 0 70 20 70 60 35 80 0 60 0 20Z' fill='none' stroke='rgba(239,236,220,0.08)' stroke-width='2'/%3E%3Cpath d='M125 80 160 100 160 140 125 160 90 140 90 100Z' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='2'/%3E%3C/svg%3E");
+        --bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='160' viewBox='0 0 180 160'%3E%3Cpath d='M45 0 79.64 20 79.64 60 45 80 10.36 60 10.36 20Z' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='2'/%3E%3Cpath d='M135 80 169.64 100 169.64 140 135 160 100.36 140 100.36 100Z' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='2'/%3E%3C/svg%3E");
 
         --check: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIyNHB4IiBmaWxsPSIjRjdGNkVEIj48cGF0aCBkPSJNMzgyLTI0MCAxNTQtNDY4bDU3LTU3IDE3MSAxNzEgMzY3LTM2NyA1NyA1Ny00MjQgNDI0WiIvPjwvc3ZnPg==");
     }
@@ -176,6 +176,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-50);
+    /*background-color: black;*/
     color: var(--text-50);
     font-family: 'Inter', sans-serif;
     font-weight: 400;

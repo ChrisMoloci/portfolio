@@ -88,6 +88,7 @@
             font-weight: 400;
             line-height: normal;
             color: var(--text-100, #EFECDC);
+            width: 100%;
 
             display: -webkit-box;
             -webkit-box-orient: vertical;

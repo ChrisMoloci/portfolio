@@ -2,7 +2,7 @@ import styles from "./AdminSidebar.module.css"
 import {NavLink} from "react-router";
 import {useContext} from "react";
 import AuthContext from "../../context/AuthContext.ts";
-import profilePic from "../../assets/images/christianmoloci.png"
+import profilePic from "../../assets/images/christianmoloci.webp"
 
 function AdminSidebar() {
     const { user } = useContext(AuthContext)
