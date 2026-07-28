@@ -12,7 +12,7 @@ import "../../../markdown.css";
 
 function Project() {
     const { slug } = useParams();
-    const [ projectData, setProjectData ] = useState<ApiState<Project>>({ status: "loading" });
+    const [ projectData, setProjectData ] = useState<ApiState<Project>>(() => ({ status: "loading" }));
 
     let featuredImageURL = "/src/assets/images/placeholder.png";
 

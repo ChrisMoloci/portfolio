@@ -8,7 +8,7 @@ import {NavLink} from "react-router";
 import BackendContentCard from "../../../components/BackendContentCard/BackendContentCard.tsx";
 
 function Projects() {
-    const [ projects, setProjects ] = useState<ApiState<Array<Project>>>({ status: "loading" });
+    const [ projects, setProjects ] = useState<ApiState<Array<Project>>>(() => ({ status: "loading" }));
 
     const fetchProjects = async () => {
         try {

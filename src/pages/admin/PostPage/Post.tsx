@@ -13,12 +13,12 @@ import AdminMediaSelectionOverlay from "../../../components/AdminMediaSelectionO
 function Post() {
     const { slug } = useParams();
     const [ postCategories, setPostCategories] = useState<ApiState<Array<BlogCategory>>>()
-    const [ postData, setPostData ] = useState<ApiState<BlogPost | null>>(slug ? { status: "loading" } : { status: "success", data: null });
-    const [ postImage, setPostImage ] = useState<ApiState<Media | null>>(slug ? { status: "loading" } : { status: "success", data: null });
-    const [ showNewCategoryInputs, setShowNewCategoryInputs] = useState<boolean>(false)
-    const [ errorText, setErrorText ] = useState<string>("")
-    const [ isPublished, setIsPublished ] = useState<boolean>(false)
-    const [ showMediaSelectionOverlay, setShowMediaSelectionOverlay ] = useState<boolean>(false)
+    const [ postData, setPostData ] = useState<ApiState<BlogPost | null>>(() => slug ? { status: "loading" } : { status: "success", data: null });
+    const [ postImage, setPostImage ] = useState<ApiState<Media | null>>(() => slug ? { status: "loading" } : { status: "success", data: null });
+    const [ showNewCategoryInputs, setShowNewCategoryInputs] = useState<boolean>(() => false)
+    const [ errorText, setErrorText ] = useState<string>(() => "")
+    const [ isPublished, setIsPublished ] = useState<boolean>(() => false)
+    const [ showMediaSelectionOverlay, setShowMediaSelectionOverlay ] = useState<boolean>(() => false)
     const navigate = useNavigate();
 
     const fetchCategories = async () => {

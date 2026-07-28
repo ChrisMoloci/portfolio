@@ -11,8 +11,8 @@ export type Props = {
 }
 
 function LinkInput(props: Props) {
-    const [ label, setLabel ] = useState<string>(props.label);
-    const [ url, setUrl ] = useState<string>(props.url);
+    const [ label, setLabel ] = useState<string>(() => props.label);
+    const [ url, setUrl ] = useState<string>(() => props.url);
 
     useEffect(() => {
         const debounce = setTimeout(() => {

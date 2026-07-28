@@ -8,8 +8,8 @@ type Props = {
 }
 
 function AuthContextProvider({ children }: Props) {
-    const [user, setUser] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(true);
+    const [user, setUser] = useState(() => undefined);
+    const [isLoading, setIsLoading] = useState(() => true);
 
     const fetchUser = async () => {
         try {

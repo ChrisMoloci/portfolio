@@ -8,7 +8,7 @@ import transformBlog from "../../../transformers/transformBlog.ts";
 import {NavLink} from "react-router";
 
 function Posts() {
-    const [ posts, setPosts ] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
+    const [ posts, setPosts ] = useState<ApiState<Array<BlogPost>>>(() => ({ status: "loading" }));
 
     const fetchProjects = async () => {
         try {

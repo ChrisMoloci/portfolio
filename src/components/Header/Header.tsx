@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 import HeaderMobile from "./HeaderMobile.tsx";
 
 function Header() {
-    const [ windowWidth, setWindowWidth ] = useState(window.innerWidth);
+    const [ windowWidth, setWindowWidth ] = useState(() => window.innerWidth);
 
     useEffect(() => {
         function handleResize() {

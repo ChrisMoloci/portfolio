@@ -7,7 +7,7 @@ import type {ContactFormSubmission} from "../../../types/ContactFormSubmission.t
 import transformContactFormSubmission from "../../../transformers/transformContactFormSubmission.ts";
 
 function ContactSubmissions() {
-    const [ messages, setMessages ] = useState<ApiState<Array<ContactFormSubmission>>>({ status: "loading" });
+    const [ messages, setMessages ] = useState<ApiState<Array<ContactFormSubmission>>>(() => ({ status: "loading" }));
 
     const fetchMessages = async () => {
         try {

@@ -13,8 +13,8 @@ import "../../../markdown.css"
 
 function Blog() {
     const { slug } = useParams();
-    const [ blogData, setBlogData ] = useState<ApiState<BlogPost>>({ status: "loading" });
-    const [ latestPosts, setLatestPosts ] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
+    const [ blogData, setBlogData ] = useState<ApiState<BlogPost>>(() => ({ status: "loading" }));
+    const [ latestPosts, setLatestPosts ] = useState<ApiState<Array<BlogPost>>>(() => ({ status: "loading" }));
 
     let featuredImageURL = "/src/assets/images/featured.png";
 

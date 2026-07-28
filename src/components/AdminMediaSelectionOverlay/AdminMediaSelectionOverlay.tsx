@@ -12,10 +12,10 @@ type Props = {
 }
 
 function AdminMediaSelectionOverlay(props: Props) {
-    const [ images, setImages ] = useState<ApiState<Array<Media>>>({ status: "loading" });
+    const [ images, setImages ] = useState<ApiState<Array<Media>>>(() => ({ status: "loading" }));
     const formRef = useRef<HTMLFormElement>(null);
-    const [ imageFormErrorText, setImageFormErrorText ] = useState<string>("");
-    const [ selectedImage, setSelectedImage ] = useState<Media | null>(null);
+    const [ imageFormErrorText, setImageFormErrorText ] = useState<string>(() => "");
+    const [ selectedImage, setSelectedImage ] = useState<Media | null>(() => null);
 
     const deleteImage = async (id: number) => {
         try {

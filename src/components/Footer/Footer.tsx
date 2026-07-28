@@ -4,8 +4,8 @@ import {useRef, useState} from "react";
 import {api} from "../../api/client.ts";
 
 function Footer() {
-    const [ successText, setSuccesText ] = useState<string>("");
-    const [ errorText, setErrorText ] = useState<string>("")
+    const [ successText, setSuccesText ] = useState<string>(() => "");
+    const [ errorText, setErrorText ] = useState<string>(() => "")
 
     const formRef = useRef<HTMLFormElement>(null);
 

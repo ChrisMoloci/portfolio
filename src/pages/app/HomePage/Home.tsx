@@ -15,8 +15,8 @@ import type {ApiState} from "../../../types/ApiState.ts";
 import {TypeAnimation} from "react-type-animation";
 
 function Home() {
-    const [ latestProjects, setLatestProjects ] = useState<ApiState<Array<Project>>>({ status: "loading" });
-    const [ latestPosts, setLatestPosts ] = useState<ApiState<Array<BlogPost>>>({ status: "loading" });
+    const [ latestProjects, setLatestProjects ] = useState<ApiState<Array<Project>>>(() => ({ status: "loading" }));
+    const [ latestPosts, setLatestPosts ] = useState<ApiState<Array<BlogPost>>>(() => ({ status: "loading" }));
 
     const fetchLatestProjects = async () => {
         try {

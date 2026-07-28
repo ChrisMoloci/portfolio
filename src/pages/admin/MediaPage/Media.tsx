@@ -7,10 +7,10 @@ import {api} from "../../../api/client.ts";
 import transformMedia from "../../../transformers/transformMedia.ts";
 
 function Media() {
-    const [ images, setImages ] = useState<ApiState<Array<Media>>>({ status: "loading" });
-    const [ selectedMedia, setSelectedMedia] = useState<Media | undefined>(undefined);
-    const formRef = useRef<HTMLFormElement>(null);
+    const [ images, setImages ] = useState<ApiState<Array<Media>>>(() => ({ status: "loading" }));
+    const [ selectedMedia, setSelectedMedia] = useState<Media | undefined>(() => undefined);
     const [ imageFormErrorText, setImageFormErrorText ] = useState<string>("");
+    const formRef = useRef<HTMLFormElement>(null);
 
     const deleteImage = async (id: number) => {
         try {

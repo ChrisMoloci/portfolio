@@ -5,7 +5,7 @@ import {useNavigate} from "react-router";
 function Logout() {
     const { logout } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [ errorText, setErrorText ] = useState<string>("");
+    const [ errorText, setErrorText ] = useState<string>(() => "");
 
     useEffect(() => {
         (async () => {

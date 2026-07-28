@@ -10,8 +10,8 @@ import type {ApiState} from "../../../types/ApiState.ts";
 import type {AxiosResponse} from "axios";
 
 function Projects() {
-    const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>({ status: "loading" })
-    const [projectData, setProjectData] = useState<ApiState<Array<Project>>>({ status: "loading" });
+    const [searchFilters, setSearchFilters] = useState<ApiState<Filters>>(() => ({ status: "loading" }))
+    const [projectData, setProjectData] = useState<ApiState<Array<Project>>>(() => ({ status: "loading" }));
 
     const fetchProjects = async (queryString: string = "") => {
         try {

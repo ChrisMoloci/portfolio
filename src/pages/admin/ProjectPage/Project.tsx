@@ -16,14 +16,14 @@ import { v4 as uuidv4 } from 'uuid';
 function Project() {
     const { slug } = useParams();
     const [ projectCategories, setProjectCategories] = useState<ApiState<Array<ProjectCategory>>>()
-    const [ projectData, setProjectData ] = useState<ApiState<Project | null>>(slug ? { status: "loading" } : { status: "success", data: null });
-    const [ projectImage, setProjectImage ] = useState<ApiState<Media | null>>(slug ? { status: "loading" } : { status: "success", data: null });
-    const [ showNewCategoryInputs, setShowNewCategoryInputs] = useState<boolean>(false)
-    const [ errorText, setErrorText ] = useState<string>("")
-    const [ isPublished, setIsPublished ] = useState<boolean>(false)
-    const [ showMediaSelectionOverlay, setShowMediaSelectionOverlay ] = useState<boolean>(false)
-    const [ contributors, setContributors ] = useState<Array<any>>([{label: "", url: "", key: uuidv4()}]);
-    const [ accessLinks, setAccessLinks ] = useState<Array<any>>([{label: "", url: "", key: uuidv4()}]);
+    const [ projectData, setProjectData ] = useState<ApiState<Project | null>>(() => slug ? { status: "loading" } : { status: "success", data: null });
+    const [ projectImage, setProjectImage ] = useState<ApiState<Media | null>>(() => slug ? { status: "loading" } : { status: "success", data: null });
+    const [ showNewCategoryInputs, setShowNewCategoryInputs] = useState<boolean>(() => false)
+    const [ errorText, setErrorText ] = useState<string>(() => "")
+    const [ isPublished, setIsPublished ] = useState<boolean>(() => false)
+    const [ showMediaSelectionOverlay, setShowMediaSelectionOverlay ] = useState<boolean>(() => false)
+    const [ contributors, setContributors ] = useState<Array<any>>(() => [{label: "", url: "", key: uuidv4()}]);
+    const [ accessLinks, setAccessLinks ] = useState<Array<any>>(() => [{label: "", url: "", key: uuidv4()}]);
     const navigate = useNavigate();
 
     const fetchCategories = async () => {
