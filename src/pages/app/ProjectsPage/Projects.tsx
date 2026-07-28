@@ -60,11 +60,11 @@ function Projects() {
         })
 
         const data: Filters = [
-            ...(tagData.length < 0 ? [{
+            ...(tagData.length > 0 ? [{
                 label: "Tags",
                 filters: tagData
             }] : []),
-            ...(categoryData.length ? [{
+            ...(categoryData.length > 0 ? [{
                 label: "Categories",
                 filters: categoryData
             }] : [])

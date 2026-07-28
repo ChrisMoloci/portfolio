@@ -84,9 +84,6 @@ function Home() {
                         <p className={styles.desc}>
                             Computer Programming graduate with a 4.0 GPA, recognized as the top-performing student in the program.
                             Experienced in developing React and Angular web applications using TypeScript, Node.js, and SQL databases.
-                            Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level
-                            concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization
-                            algorithms.
                         </p>
                         <div className={styles.buttonLinks}>
                             <LinkButton link="resume.pdf" text="Resume" newTab={true} />
