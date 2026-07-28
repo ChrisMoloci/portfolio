@@ -29,7 +29,7 @@ function ContactLinks() {
                     </svg>
                 </a>
 
-                <a href="" target={"_blank"}>
+                <a href="mailto:contact@christianmoloci.com" target={"_blank"}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                         <g clip-path="url(#clip0_124_35)" id={styles.email}>
                             <path d="M21.25 1.25H8.75C4.60786 1.25 1.25 4.60786 1.25 8.75V21.25C1.25 25.3921 4.60786 28.75 8.75 28.75H21.25C25.3921 28.75 28.75 25.3921 28.75 21.25V8.75C28.75 4.60786 25.3921 1.25 21.25 1.25Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
