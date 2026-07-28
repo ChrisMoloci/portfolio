@@ -138,6 +138,8 @@ function Home() {
                                     Developed LLQR, a TypeScript QR Code generator library built from scratch, cleanly implementing low-level
                                     concepts including data encoding, Reed-Solomon error correction, data masking, and datastream optimization
                                     algorithms.
+                                    <br/><br/>
+                                    [PS. Video is a placeholder, real video coming soon!]
                                 </p>
                             </div>
 
