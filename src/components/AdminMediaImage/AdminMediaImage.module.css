@@ -1,0 +1,35 @@
+.adminMediaImage {
+    position: relative;
+    width: 1fr;
+    gap: 10px;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+
+    border-radius: 12px;
+
+    img {
+        display: block;
+        border-radius: 12px;
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+}
+
+.adminMediaImage .deleteButton {
+    position: absolute;
+    display: block;
+    top: 8px;
+    right: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+
+    border-radius: 4px;
+    border: 1px solid var(--text-50, #F7F6ED);
+    background: var(--primary-50, #100F0A);
+
+    svg {
+        fill: var(--text-50, #F7F6ED);
+        height: 12px;
+    }
+}

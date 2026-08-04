@@ -1,0 +1,167 @@
+.main {
+    display: flex;
+    width: 100%;
+    padding: 40px 10vw 0;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+
+    @media screen and (max-width: 1000px) {
+        padding: 40px;
+    }
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 20px;
+    }
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    max-width: 350px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+
+    .headerContent {
+        display: flex;
+        padding: 10px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        align-self: stretch;
+
+        border-left: 8px solid var(--accent-700, #7EE798);
+
+        h4 {
+            color: var(--accent-700, #7EE798);
+        }
+        h1 {
+            color: var(--secondary-900, #E1E6EA);
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        max-width: 300px;
+    }
+}
+
+/* Main Page Content */
+.content {
+    display: flex;
+    max-width: 800px;
+    padding-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex: 1 0 0;
+
+    section {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        align-self: stretch;
+
+        h1 {
+            color: var(--text-50, #F7F6ED);
+        }
+        h1, h2, h3, h4, h5 {
+            width: 100%;
+            overflow-wrap: break-word; /* Forces long words/links to break and wrap */
+            white-space: normal;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Language Section */
+.languages {
+    .langSection {
+        display: flex;
+        padding-left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        align-self: stretch;
+
+        h2 {
+            color: var(--text-50, #F7F6ED);
+        }
+
+        .languageCards {
+            display: flex;
+            padding-left: 30px;
+            align-items: flex-start;
+            align-content: flex-start;
+            gap: 20px 40px;
+            align-self: stretch;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .languageCards {
+            flex-direction: column;
+        }
+    }
+}
+
+/* Education Section */
+.education {
+    .educationCards {
+        display: flex;
+        width: 100%;
+        max-width: 800px;
+        padding-left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+    }
+}
+
+/* Job History */
+.jobHistory {
+    .jobTimeline {
+        display: flex;
+        padding-left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+    }
+}
+
+/* Favorite Verses Section */
+.favoriteVerses {
+    .verseCards {
+        display: flex;
+        width: 100%;
+        max-width: 800px;
+        padding-left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+
+        small {
+            color: var(--text-300, #D0C795);
+
+            /* small */
+            font-family: var(--body-typeface, Inter) sans-serif;
+            font-size: var(--small, 12.8px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+}

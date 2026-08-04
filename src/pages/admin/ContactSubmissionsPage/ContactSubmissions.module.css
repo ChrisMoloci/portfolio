@@ -1,0 +1,30 @@
+.main {
+    display: flex;
+    max-height: 100vh;
+    padding: 40px 20px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+
+    h1 {
+        color: var(--text-50, #F7F6ED);
+
+        /* h1 */
+        font-family: var(--heading-typeface, Geom) sans-serif;
+        font-size: var(--h1, 48.8px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
+
+.main .cards {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    align-self: stretch;
+    overflow: auto;
+}

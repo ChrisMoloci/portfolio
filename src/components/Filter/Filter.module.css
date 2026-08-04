@@ -1,0 +1,111 @@
+.filter {
+    container-type: inline-size;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    h4 {
+        color: var(--text-100, #EFECDC);
+    }
+}
+
+.filter .categories {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+
+    @container (min-width: 600px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--secondary-300, #404C59);
+    }
+}
+.categories .filterCategory {
+    display: flex;
+    padding-left: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+
+    .categoryLabel {
+        color: var(--text-100, #EFECDC);
+        font-family: var(--heading-typeface, Geom) sans-serif;
+        font-size: var(--h5, 20px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .options {
+        display: flex;
+        padding-left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        align-self: stretch;
+
+        .option {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 4px;
+            position: relative;
+
+            label {
+                color: var(--text-200, #E0DAB8);
+                font-family: var(--body-typeface, Inter) sans-serif;
+                font-size: var(--body, 16px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+
+                /* Prevent text from bring selectable */
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none;    /* Older Firefox */
+                -ms-user-select: none;     /* Internet Explorer/Edge */
+                user-select: none;         /* Modern standard (Chrome, Firefox, Edge, Opera) */
+            }
+            input[type="checkbox"] {
+                /* Hide the read check-box */
+                all: unset;
+                display: block;
+            }
+            input[type="checkbox"]:after {
+                /* Create a custom checkbox */
+                content: "";
+                display: block;
+                width: var(--body, 16px);
+                height: var(--body, 16px);
+
+                border-radius: 6px;
+                background-color: var(--primary-100, #E0DAB8);
+                border: 1px solid var(--primary-200, #E0DAB8);
+            }
+            .checked:after {
+                /* Adds a checkbox into the pseudo element */
+                background-image: var(--check);
+                background-position: center;
+                background-size: 80%;
+            }
+        }
+        .option:hover input[type="checkbox"]:after {
+            /* Changes the bg and border of the custom checkbox when it's hovered*/
+            background-color: var(--secondary-100, #E0DAB8);
+            border: 1px solid var(--secondary-200, #E0DAB8);
+
+            transition: 0.1s background-color ease-in-out, 0.1s border-color ease-in-out;
+        }
+        .option:active input[type="checkbox"]:after {
+            background-color: var(--secondary-200, #E0DAB8);
+            border: 1px solid var(--secondary-300, #E0DAB8);
+
+            transition: 0.1s background-color ease-in-out, 0.1s border-color ease-in-out;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+.main {
+    display: flex;
+    height: 100vh;
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+}
+.main .formRow {
+    display: flex;
+    gap: 10px;
+    align-self: stretch;
+
+    label input {
+        display: block;
+        height: 100%;
+    }
+
+    .postImage {
+        width: 50px !important;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    > * {
+        align-self: flex-end;
+    }
+}
+
+main .formColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    align-self: stretch;
+    padding: 10px 0;
+}
+
+.main .newCategoryForm {
+    margin: 10px 0;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+
+    border-radius: 12px;
+    border: 1px solid var(--secondary-200, #C4CCD4);
+    background: var(--secondary-100, #E1E6EA);
+}
+.main .form {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    height: 100%;
+
+    .layoutContainer {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        flex: 1 0 0;
+        align-self: stretch;
+    }
+
+    .layoutContainer .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex: 1 0 0;
+    }
+
+    .layoutContainer .content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex: 1 0 0;
+        align-self: stretch;
+    }
+
+    .contentSection {
+        align-self: stretch;
+        height: 100%;
+
+        textarea {
+            display: flex;
+            height: 100%;
+            white-space: pre-wrap; /* Preserves line breaks and wraps text naturally */
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
+    }
+}

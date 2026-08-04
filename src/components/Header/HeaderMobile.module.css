@@ -1,0 +1,88 @@
+.nav {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+}
+.nav svg {
+    height: 20px;
+    flex-shrink: 0;
+    aspect-ratio: 27.27/20.00;
+    fill: var(--text-50);
+    cursor: pointer;
+}
+
+.hamburgerMenu {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    background: var(--background-50, #121007);
+}
+.hamburgerMenu .closeContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        aspect-ratio: 1/1;
+        fill: var(--text-50);
+    }
+}
+.hamburgerMenu h1 {
+    color: var(--text-50, #F7F6ED);
+
+    /* h1 */
+    font-family: var(--heading-typeface), sans-serif;
+    font-size: var(--h1, 48.8px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.hamburgerMenu nav {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
+.hamburgerMenu nav a {
+    color: var(--text-100, #EFECDC);
+    font-family: var(--body-typeface, Inter), sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.hamburgerMenu nav .active {
+    color: var(--text-100, #EFECDC);
+    font-family: var(--body-typeface, Inter), sans-serif;
+    font-size: var(--body, 16px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}

@@ -1,0 +1,32 @@
+.nav {
+    display: inline-flex;
+    width: 100%;
+    padding: 40px 10px 30px 10px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+.nav a {
+    /* Typography */
+    color: var(--text-200, #E0DAB8);
+    font-family: var(--heading-typeface), sans-serif;
+    font-size: var(--h5, 20px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+nav .active {
+    color: var(--text-300, #D0C795);
+    font-family: var(--heading-typeface), sans-serif;
+    font-size: var(--h5, 20px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
