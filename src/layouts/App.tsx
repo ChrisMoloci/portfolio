@@ -6,6 +6,8 @@ import Footer from "../components/Footer/Footer.tsx";
 function App() {
     return (
         <>
+            <title>Christian Moloci</title>
+
             <Header />
             <Outlet/>
             <Footer/>

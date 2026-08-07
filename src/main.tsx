@@ -7,6 +7,7 @@ import AuthContextProvider from "./providers/AuthContextProvider.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
+        <title>Christian Moloci</title>
         <AuthContextProvider>
             <RouterProvider router={router} />
         </AuthContextProvider>

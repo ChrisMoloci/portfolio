@@ -6,6 +6,7 @@ function Admin() {
     return (
         <>
             <div className={styles.adminLayout}>
+                <title>Christian Moloci</title>
                 <AdminSidebar />
                 <Outlet/>
             </div>
