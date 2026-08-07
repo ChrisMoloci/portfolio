@@ -2,7 +2,7 @@
   "name": "portfolio",
   "author": "Chris Moloci",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.3.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
