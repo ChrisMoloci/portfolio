@@ -107,8 +107,6 @@ function Projects() {
             (queryTags && queryCategories ? "&" : "") +
             queryCategories;
 
-        console.log(queryString);
-
         fetchProjects(queryString);
     }, [searchFilters]);
 

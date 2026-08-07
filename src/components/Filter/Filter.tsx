@@ -23,19 +23,19 @@ type Props = {
 
 
 function Filter(props: Props) {
-    const onChange = (key: string) => {
+    const onChange = (label: string, key: string) => {
         console.log(key)
         console.log(props.filters)
 
-        const updatedFilters = props.filters.map(filters => {
+        const updatedFilters = props.filters.map(filterCollection => {
             return {
-                ...filters,
-                filters: filters.filters.map(filter => {
+                ...filterCollection,
+                filters: filterCollection.label === label ? filterCollection.filters.map(filter => {
                     return {
                         ...filter,
                         selected: filter.slug === key ? !filter.selected : filter.selected,
                     }
-                })
+                }): filterCollection.filters
             }
         });
 
@@ -53,8 +53,9 @@ function Filter(props: Props) {
                         <fieldset className={styles.options}>
                             {filterCollection.filters.map((filter) => (
                                 <div className={styles.option}>
-                                    <input className={filter.selected ? styles.checked : undefined} type="checkbox" name={filter.name} id={filter.slug} value={filter.slug} onChange={() => onChange(filter.slug)} />
-                                    <label htmlFor={filter.slug}>{filter.name}</label>
+                                    {/* Use filterCollection.label + filter.slug to ensure id does not conflict when two collections have items with identical slugs */}
+                                    <input className={filter.selected ? styles.checked : undefined} type="checkbox" name={filter.name} id={filterCollection.label + filter.slug} value={filter.slug} onChange={() => onChange(filterCollection.label, filter.slug)} />
+                                    <label htmlFor={filterCollection.label + filter.slug}>{filter.name}</label>
                                 </div>
                             ))}
                         </fieldset>
