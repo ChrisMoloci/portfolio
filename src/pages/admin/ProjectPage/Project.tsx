@@ -274,7 +274,13 @@ function Project() {
                             </label>
 
                             <label htmlFor="version">Version:
-                                <input type="text" name="version" id="version" value={projectData.status === "success" ? projectData.data?.version : ""} placeholder={"1.0..."}/>
+                                <input
+                                    type="text"
+                                    name="version"
+                                    id="version"
+                                    defaultValue={projectData.status === "success" ? projectData.data?.version : ""}
+                                    placeholder={"1.0..."}
+                                />
                             </label>
                         </div>
 
